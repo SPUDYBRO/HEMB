@@ -30,3 +30,30 @@ just echo back the name value pairs to the client. While nothing will be stored 
 this part of the assignment (we will do this in Part 2) this will allow the form submission to be
 tested.
 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Application Form</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" type="image/x-icon" href="#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <form id="jobApplicationForm">
+        <legend>
+            <label for="title"></label>
+            <select name="title" id="title">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+                <option value="Miss">Miss</option>
+                <option value="Dr">Dr</option>
+            </select>
+            <input id="firstNameInput" placeholder="First Name">
+            <input id="lastNameInput" placeholder="Last Name">
+        </legend>
+    </form>
+</body>
+</html>
