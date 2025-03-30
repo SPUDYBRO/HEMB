@@ -2,3 +2,30 @@
 This file is used to style Every single page on the website
 stuff like navigation or background that repeats through out the entire site
 */
+
+
+/* Declaring global scale variables by using :root */
+:root {
+    /* to make another variable follow the format
+    --var_name: value; */
+
+    --nav_background_color: #fff;
+    --background_color: #fff;
+
+    --nav_button_color: #fff;
+    --nav_button_hover_color: #6d6d6d;
+
+
+
+    /*note that most values are going to be blank/ placeholders for actual styles*/
+}
+
+
+
+/* Styling the entire body of all pages */
+body {
+
+    background-color: var(--background_color);
+
+
+}
