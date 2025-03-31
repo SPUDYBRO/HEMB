@@ -1,0 +1,137 @@
+
+/* Declaring global scale variables by using :root */
+:root {
+    /* to make another variable follow the format
+    --var_name: value; */
+
+    
+    --background_color: #fff;
+
+    --hero_image_background: linear-gradient(to bottom right, red, blue); /* note that this is a `background-image` */
+
+    --nav_background_color: rgb(180, 180, 180);
+    --nav_button_color: rgb(181, 183, 255);
+    --nav_button_hover_color: rgb(247, 248, 250);
+    --nav_active_button_color: rgb(150 213 255);
+    --nav_element_gap: 3%;
+
+    --link_text_color: rgb(44, 75, 255);
+    --link_text_color_hover: rgb(38, 47, 100);
+
+
+
+    /*note that most values are going to be blank/ placeholders for actual styles*/
+}
+
+
+
+/* General styling
+This is for styling every single page */
+
+    body {
+        /* Styling the entire body of all pages */
+        background-color: var(--background_color);
+
+
+        margin: 0px; /* removes the default margin */
+    }
+
+    main {
+        /* styles all mains to be a min of 100vh so that the footer stays at the bottom 
+        we might not need this in the future*/
+        min-height: 100vh;
+    }
+
+
+    /* Main navigation styling; Note: values should be changed from the variables not from here */
+        .main_navigation {
+            background-color: var(--nav_background_color);
+            width: 100%;
+            height: 6vh;
+            position: sticky;
+            top: 0;
+        
+            /* Element positioning styling */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: var(--nav_element_gap);
+        }
+
+
+        .main_navigation a {
+            text-decoration: none;
+            color: black;
+            padding: 15px 25px;
+            background-color: var(--nav_button_color);
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .main_navigation a.current {
+            background-color: var(--nav_active_button_color);
+        }
+
+        .main_navigation a:hover {
+            background-color: var(--nav_button_hover_color);
+        }
+
+
+    /* Footer styling, this will be basic for now but will carry all important links*/
+        footer {
+            position: static;
+            bottom: 0;
+            background-color: rgb(155, 155, 155);
+            height: 40vh;
+            display: flex;
+            gap: 5%;
+        }
+        .footer_left {
+            width: 45%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .footer_links {
+            padding-left: 5%;
+            display: flex;
+            align-items: center;
+        }
+        .footer_links a {
+            color: var(--link_text_color);
+        }
+        .footer_links a:hover {
+            color: var(--link_text_color_hover);
+        }
+
+
+
+
+
+
+/* index.html styling (only put things relevant to index here) */
+    #hero_img {
+        /* Basic styling for the hero image (giant img the user sees when they first load in) */
+
+        width: 100%; /* To simulate the size of the img */
+        height: 90vh;
+
+        background-image: var(--hero_image_background);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #hero_img h1, p{
+        margin: 0px;
+    }
+
+
+
+
