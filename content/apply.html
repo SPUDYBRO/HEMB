@@ -36,104 +36,150 @@ tested.
 <head>
     <title>Application Form</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../style/styles.css">
     <link rel="icon" type="image/x-icon" href="#">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <form id="jobApplicationForm" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
-        <fieldset id="personalDetailsInput">
-            <legend>Personal Details</legend>
-            <select name="title" id="title" required>
-                <option value="">Select Title</option>
-                <option value="Mr">Mr</option>
-                <option value="Mrs">Mrs</option>
-                <option value="Ms">Ms</option>
-                <option value="Miss">Miss</option>
-                <option value="Dr">Dr</option>
-            </select>
-            <label for="firstNameInput">First Name:</label>
-            <input type="text" name="firstNameInput" id="firstNameInput" placeholder="First Name" pattern=".[A-Za-z]{1,20}" required>
-            <label for="lastNameInput">Last Name</label>
-            <input type="text" name="lastNameInput" id="lastNameInput" placeholder="Last Name" pattern=".[A-Za-z]{1,20}" required>
-            <label for="date">Date of Birth:</label>
-            <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
-            <label for="jobTitleInterestedIn">Job Title:</label>
-            <select name="jobTitleInterestedIn" id="jobTitleInterestedIn" required>
-                <option value="">Select Job Title</option>
-                <option value="desktopSupportTechnician">Desktop Support Technician</option>
-                <option value="serviceDeskAnalyst">Service Desk Analyst</option>
-                <option value="ITSupportTechnician">IT Support Technician</option>
-                <option value="ITSupportSpecialist">IT Support Specialist</option>
-            </select>
-        </fieldset>
+    <main>
+        <!-- Main navigation menu that sticks to the top as you scroll down main
+        Also note that when you reach the end of main, the nav menu will no longer follow 
+        -->
+        <nav class="main_navigation">
+            <a href="../index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./jobs.html">Jobs</a>
+            <a class="current" href="./apply.html">Apply</a>
+            <a href="mailto:example@email.com">Email us!</a>
+            <!--Your content should go under the navigation but still stay inside the main.
+            if you have stuff outside of main the sticky nav will stop when you finish scrolling main
+            if this happens then move nav into the body
+            -->
+        </nav>
+        
+    
+        <form id="jobApplicationForm" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+            <fieldset id="personalDetailsInput">
+                <legend>Personal Details</legend>
+                <select name="title" id="title" required>
+                    <option value="">Select Title</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Dr">Dr</option>
+                </select>
+                <label for="firstNameInput">First Name:</label>
+                <input type="text" name="firstNameInput" id="firstNameInput" placeholder="First Name" pattern=".[A-Za-z]{1,20}" required>
+                <label for="lastNameInput">Last Name</label>
+                <input type="text" name="lastNameInput" id="lastNameInput" placeholder="Last Name" pattern=".[A-Za-z]{1,20}" required>
+                <label for="date">Date of Birth:</label>
+                <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
+                <label for="jobTitleInterestedIn">Job Title:</label>
+                <select name="jobTitleInterestedIn" id="jobTitleInterestedIn" required>
+                    <option value="">Select Job Title</option>
+                    <option value="desktopSupportTechnician">Desktop Support Technician</option>
+                    <option value="serviceDeskAnalyst">Service Desk Analyst</option>
+                    <option value="ITSupportTechnician">IT Support Technician</option>
+                    <option value="ITSupportSpecialist">IT Support Specialist</option>
+                </select>
+            </fieldset>
 
         <fieldset id="genderInput">
             <legend>Gender</legend>
-            <label for="genderMale">Male:</label>
-            <input type="radio" value="male" name="genderInput" id="genderMale" required>
-            <label for="genderFemale">Female:</label>
-            <input type="radio" value="female" name="genderInput" id="genderFemale" required>
+            <label for="genderMan">Man:</label>
+            <input type="radio" value="man" name="genderInput" id="genderMan" required>
+            <label for="genderWoman">Woman:</label>
+            <input type="radio" value="woman" name="genderInput" id="genderWoman" required>
         </fieldset>
 
-        <fieldset id="addressInput">
-            <legend>Address</legend>
-            <label for="streetAddress">Street Address:</label>
-            <input type="text" name="streetAddress" id="streetAddress" placeholder="Street Address" pattern=".{1,40}" required>
-            <label for="suburbTown">Suburb/Town:</label>
-            <input type="text" name="suburbTown" id="suburbTown" placeholder="Suburb/Town" pattern=".{1,40}" required>
-            <label for="state">State:</label>
-            <select name="state" id="state" required>
-                <option value="">Select State</option>
-                <option value="ACT">ACT</option>
-                <option value="VIC">VIC</option>
-                <option value="NSW">NSW</option>
-                <option value="QLD">QLD</option>
-                <option value="SA">SA</option>
-                <option value="WA">WA</option>
-                <option value="NT">NT</option>
-            </select>
-            <label for="postcode">Postcode:</label>
-            <input type="text" id="postcode" name="postcode" pattern=".[0-9]{3,3}" required>
-        </fieldset>
+            <fieldset id="addressInput">
+                <legend>Address</legend>
+                <label for="streetAddress">Street Address:</label>
+                <input type="text" name="streetAddress" id="streetAddress" placeholder="Street Address" pattern=".{1,40}" required>
+                <label for="suburbTown">Suburb/Town:</label>
+                <input type="text" name="suburbTown" id="suburbTown" placeholder="Suburb/Town" pattern=".{1,40}" required>
+                <label for="state">State:</label>
+                <select name="state" id="state" required>
+                    <option value="">Select State</option>
+                    <option value="ACT">ACT</option>
+                    <option value="VIC">VIC</option>
+                    <option value="NSW">NSW</option>
+                    <option value="QLD">QLD</option>
+                    <option value="SA">SA</option>
+                    <option value="WA">WA</option>
+                    <option value="NT">NT</option>
+                </select>
+                <label for="postcode">Postcode:</label>
+                <input type="text" id="postcode" name="postcode" pattern=".[0-9]{3,3}" required>
+            </fieldset>
 
-        <fieldset id="contactInput">
-            <legend>Contact Details</legend>
-            <label for="emailInput">Email:</label>
-            <input type="text" id="emailInput" name="emailInput" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
-            <label for="phoneNumberInput">Phone Number:</label>
-            <input type="text" id="phoneNumberInput" name="phoneNumberInput" pattern=".[0-9\s]{7,11}" required>
-        </fieldset>
+            <fieldset id="contactInput">
+                <legend>Contact Details</legend>
+                <label for="emailInput">Email:</label>
+                <input type="text" id="emailInput" name="emailInput" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                <label for="phoneNumberInput">Phone Number:</label>
+                <input type="text" id="phoneNumberInput" name="phoneNumberInput" pattern=".[0-9\s]{7,11}" required>
+            </fieldset>
 
-        <fieldset id="experienceInput">
-            <legend>Experience</legend>
-            <input type="checkbox" value="troubleshooting" name="troubleshooting" id="skillsTroubleshooting" required>
-            <label for="troubleshooting">Knowledge in Troubleshooting</label>
-            <input type="checkbox" value="networking" name="networking" id="skillsNetworking" required>
-            <label for="networking">Understanding of Network Infrastructure</label>
-            <br>
-            <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
-            <label for="hardware">Knowledge of Computer Hardware</label>
-            <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
-            <label for="software">Proficiency in operating systems</label>
-            <br>
-            <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
-            <label for="hardware">Knowledge of Computer Hardware</label>
-            <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
-            <label for="software">Proficiency in operating systems</label>
-            <br>
-            <input type="checkbox" value="security" name="security" id="skillsSecurity" required>
-            <label for="security">Knowledge of Security Practices</label>
-            <input type="checkbox" value="databaseManagement" name="databaseManagement" id="skillsDatabaseManagement" required>
-            <label for="databaseManagement">Familiarity with Database Concepts</label>
-            <br>
-            <br>
-            <label for="otherSkills">Other skills: (if any)</label>
-            <br>
-            <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="70"></textarea>
-            <br>
-            <input type="submit" value="Apply">
-        </fieldset>
-    </form>
+            <fieldset id="experienceInput">
+                <legend>Experience</legend>
+                <input type="checkbox" value="troubleshooting" name="troubleshooting" id="skillsTroubleshooting" required>
+                <label for="troubleshooting">Knowledge in Troubleshooting</label>
+                <input type="checkbox" value="networking" name="networking" id="skillsNetworking" required>
+                <label for="networking">Understanding of Network Infrastructure</label>
+                <br>
+                <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
+                <label for="hardware">Knowledge of Computer Hardware</label>
+                <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
+                <label for="software">Proficiency in operating systems</label>
+                <br>
+                <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
+                <label for="hardware">Knowledge of Computer Hardware</label>
+                <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
+                <label for="software">Proficiency in operating systems</label>
+                <br>
+                <input type="checkbox" value="security" name="security" id="skillsSecurity" required>
+                <label for="security">Knowledge of Security Practices</label>
+                <input type="checkbox" value="databaseManagement" name="databaseManagement" id="skillsDatabaseManagement" required>
+                <label for="databaseManagement">Familiarity with Database Concepts</label>
+                <br>
+                <br>
+                <label for="otherSkills">Other skills: (if any)</label>
+                <br>
+                <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="70"></textarea>
+                <br>
+                <input type="submit" value="Apply">
+            </fieldset>
+        </form>
+    </main>
+
+
+    <footer>
+        <div class="footer_left">
+            <!-- here we can just talk about anything. could be a company photo or just something that makes the company feel... like the company -->
+            <p>We will fix anything!</p>
+            <p>Add some stuff here, talking about the company or what ever</p>
+        </div>
+
+
+        <div class="footer_links">
+            <!-- Important links required to either go somewhere or link to some area used (jira will go here) -->
+            <ul>
+                <li>
+                    <a href="mailto:example@email.com">Contact us!</a>
+                </li>
+                <li>
+                    <a href="./about.html">About us</a>
+                </li>
+                <li>
+                    <a href="./jobs.html">Our Jobs</a>
+                </li>
+                <li>
+                    <a href="./apply.html">Join the crew</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Page Title</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="icon" type="image/x-icon" href="#">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <!-- body stuff -->
-    </body>
-</html>
-
-
 <!-- 
 Home Page (index.html)
 
@@ -23,3 +8,72 @@ should be in every page of your website with an email link to the companies emai
 info@companyname.com.au
 In the footer include the link to your Jira Project (Don't forget to give access to your tutor) 
 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="./style/styles.css">
+        <link rel="icon" type="image/x-icon" href="#">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <header>
+            <div id="hero_img">
+                <h1>IT support company</h1>
+                <p>Where we fix any of your IT problems</p>
+            </div>
+        </header>
+
+        
+
+        <main>
+            <!-- Main navigation menu that sticks to the top as you scroll down main
+            Also note that when you reach the end of main, the nav menu will no longer follow 
+            -->
+            <nav class="main_navigation">
+                <a class="current" href="#">Home</a>
+                <a href="./content/about.html">About</a>
+                <a href="./content/jobs.html">Jobs</a>
+                <a href="./content/apply.html">Apply</a>
+                <a href="mailto:example@email.com">Email us!</a>
+            </nav>
+
+
+
+        </main>
+
+        <footer>
+            <div class="footer_left">
+                <!-- here we can just talk about anything. could be a company photo or just something that makes the company feel... like the company -->
+                <p>We will fix anything!</p>
+                <p>Add some stuff here, talking about the company or what ever</p>
+            </div>
+
+
+            <div class="footer_links">
+                <!-- Important links required to either go somewhere or link to some area used (jira will go here) -->
+                <ul>
+                    <li>
+                        <a href="mailto:example@email.com">Contact us!</a>
+                    </li>
+                    <li>
+                        <a href="./content/about.html">About us</a>
+                    </li>
+                    <li>
+                        <a href="./content/jobs.html">Our Jobs</a>
+                    </li>
+                    <li>
+                        <a href="./content/apply.html">Join the crew</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+
+</html>
+
+
+
+
