@@ -61,6 +61,7 @@ tested.
         <form id="jobApplicationForm" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
             <fieldset id="personalDetailsInput">
                 <legend>Personal Details</legend>
+                <label for="title">Title:</label>
                 <select name="title" id="title" required>
                     <option value="">Select Title</option>
                     <option value="Mr">Mr</option>
@@ -87,10 +88,10 @@ tested.
 
         <fieldset id="genderInput">
             <legend>Gender</legend>
-            <label for="genderMan">Man:</label>
-            <input type="radio" value="man" name="genderInput" id="genderMan" required>
-            <label for="genderWoman">Woman:</label>
-            <input type="radio" value="woman" name="genderInput" id="genderWoman" required>
+            <label for="genderMale">Male:</label>
+            <input type="radio" value="male" name="genderInput" id="genderMale" required>
+            <label for="genderFemale">Female:</label>
+            <input type="radio" value="female" name="genderInput" id="genderFemale" required>
         </fieldset>
 
             <fieldset id="addressInput">
@@ -125,24 +126,19 @@ tested.
             <fieldset id="experienceInput">
                 <legend>Experience</legend>
                 <input type="checkbox" value="troubleshooting" name="troubleshooting" id="skillsTroubleshooting" required>
-                <label for="troubleshooting">Knowledge in Troubleshooting</label>
+                <label for="skillsTroubleshooting">Knowledge in Troubleshooting</label>
                 <input type="checkbox" value="networking" name="networking" id="skillsNetworking" required>
-                <label for="networking">Understanding of Network Infrastructure</label>
+                <label for="skillsNetworking">Understanding of Network Infrastructure</label>
                 <br>
                 <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
-                <label for="hardware">Knowledge of Computer Hardware</label>
+                <label for="skillsHardware">Knowledge of Computer Hardware</label>
                 <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
-                <label for="software">Proficiency in operating systems</label>
-                <br>
-                <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
-                <label for="hardware">Knowledge of Computer Hardware</label>
-                <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
-                <label for="software">Proficiency in operating systems</label>
+                <label for="skillsSoftware">Proficiency in Operating Systems</label>
                 <br>
                 <input type="checkbox" value="security" name="security" id="skillsSecurity" required>
-                <label for="security">Knowledge of Security Practices</label>
+                <label for="skillsSecurity">Knowledge of Security Practices</label>
                 <input type="checkbox" value="databaseManagement" name="databaseManagement" id="skillsDatabaseManagement" required>
-                <label for="databaseManagement">Familiarity with Database Concepts</label>
+                <label for="skillsDatabaseManagement">Familiarity with Database Concepts</label>
                 <br>
                 <br>
                 <label for="otherSkills">Other skills: (if any)</label>
