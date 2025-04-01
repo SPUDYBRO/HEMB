@@ -32,7 +32,6 @@ This is for styling every single page */
         /* Styling the entire body of all pages */
         background-color: var(--background_color);
 
-
         margin: 0px; /* removes the default margin */
         min-width: 312px;
     }
