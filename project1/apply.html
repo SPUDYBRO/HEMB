@@ -59,7 +59,7 @@ tested.
         
     
         <form id="jobApplicationForm" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
-            <fieldset id="personalDetailsInput">
+            <fieldset id="personalDetailsLegend">
                 <legend>Personal Details</legend>
                 <label for="title">Title:</label>
                 <select name="title" id="title" required>
@@ -86,15 +86,15 @@ tested.
                 </select>
             </fieldset>
 
-        <fieldset id="genderInput">
-            <legend>Gender</legend>
-            <label for="genderMale">Male:</label>
-            <input type="radio" value="male" name="genderInput" id="genderMale" required>
-            <label for="genderFemale">Female:</label>
-            <input type="radio" value="female" name="genderInput" id="genderFemale" required>
-        </fieldset>
+            <fieldset id="genderLegend">
+                <legend>Gender</legend>
+                <label for="genderMale">Male:</label>
+                <input type="radio" value="male" name="genderInput" id="genderMale" required>
+                <label for="genderFemale">Female:</label>
+                <input type="radio" value="female" name="genderInput" id="genderFemale" required>
+            </fieldset>
 
-            <fieldset id="addressInput">
+            <fieldset id="addressLegend">
                 <legend>Address</legend>
                 <label for="streetAddress">Street Address:</label>
                 <input type="text" name="streetAddress" id="streetAddress" placeholder="Street Address" pattern=".{1,40}" required>
@@ -115,7 +115,7 @@ tested.
                 <input type="text" id="postcode" name="postcode" pattern=".[0-9]{3,3}" required>
             </fieldset>
 
-            <fieldset id="contactInput">
+            <fieldset id="contactLegend">
                 <legend>Contact Details</legend>
                 <label for="emailInput">Email:</label>
                 <input type="text" id="emailInput" name="emailInput" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
@@ -123,32 +123,39 @@ tested.
                 <input type="text" id="phoneNumberInput" name="phoneNumberInput" pattern=".[0-9\s]{7,11}" required>
             </fieldset>
 
-            <fieldset id="experienceInput">
-                <legend>Experience</legend>
-                <input type="checkbox" value="troubleshooting" name="troubleshooting" id="skillsTroubleshooting" required>
-                <label for="skillsTroubleshooting">Knowledge in Troubleshooting</label>
-                <input type="checkbox" value="networking" name="networking" id="skillsNetworking" required>
-                <label for="skillsNetworking">Understanding of Network Infrastructure</label>
-                <br>
-                <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
-                <label for="skillsHardware">Knowledge of Computer Hardware</label>
-                <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
-                <label for="skillsSoftware">Proficiency in Operating Systems</label>
-                <br>
-                <input type="checkbox" value="security" name="security" id="skillsSecurity" required>
-                <label for="skillsSecurity">Knowledge of Security Practices</label>
-                <input type="checkbox" value="databaseManagement" name="databaseManagement" id="skillsDatabaseManagement" required>
-                <label for="skillsDatabaseManagement">Familiarity with Database Concepts</label>
-                <br>
-                <br>
-                <label for="otherSkills">Other skills: (if any)</label>
-                <br>
-                <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="70"></textarea>
-                <br>
-                <input type="submit" value="Apply">
-            </fieldset>
+
+            <div id="experienceAndOtherSkillsContainer">
+                <fieldset id="experienceLegend">
+                    <legend>Experience</legend>
+                    <input type="checkbox" value="troubleshooting" name="troubleshooting" id="skillsTroubleshooting" required>
+                    <label for="skillsTroubleshooting">Knowledge in Troubleshooting</label>
+                    <input type="checkbox" value="networking" name="networking" id="skillsNetworking" required>
+                    <label for="skillsNetworking">Understanding of Network Infrastructure</label>
+                    <br>
+                    <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
+                    <label for="skillsHardware">Knowledge of Computer Hardware</label>
+                    <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
+                    <label for="skillsSoftware">Proficiency in Operating Systems</label>
+                    <br>
+                    <input type="checkbox" value="security" name="security" id="skillsSecurity" required>
+                    <label for="skillsSecurity">Knowledge of Security Practices</label>
+                    <input type="checkbox" value="databaseManagement" name="databaseManagement" id="skillsDatabaseManagement" required>
+                    <label for="skillsDatabaseManagement">Familiarity with Database Concepts</label>
+                    <br>
+                    <br>
+                    <input type="submit" value="Apply">
+                </fieldset>
+
+                <fieldset id="otherSkillsLegend">
+                    <legend>Other Skills</legend>
+                    <label for="otherSkills">Other skills: (if any)</label>
+                    <br>
+                    <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="88"></textarea>
+                </fieldset>
+            </div>
         </form>
     </main>
+
 
 
     <footer>
