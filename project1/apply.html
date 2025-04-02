@@ -41,7 +41,7 @@ tested.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <main>
+    <main id="applyPage">
         <!-- Main navigation menu that sticks to the top as you scroll down main
         Also note that when you reach the end of main, the nav menu will no longer follow 
         -->
@@ -113,16 +113,16 @@ tested.
                         <option value="NT">NT</option>
                     </select>
                     <label for="postcode">Postcode:</label>
-                    <input type="text" id="postcode" name="postcode" pattern=".[0-9]{3,3}" required>
+                    <input type="text" id="postcode" name="postcode" placeholder="0000" pattern=".[0-9]{3,3}" required>
                 </fieldset>
             </div>
 
             <fieldset id="contactLegend">
                 <legend>Contact Details</legend>
                 <label for="emailInput">Email:</label>
-                <input type="text" id="emailInput" name="emailInput" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                <input type="text" id="emailInput" name="emailInput" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
                 <label for="phoneNumberInput">Phone Number:</label>
-                <input type="text" id="phoneNumberInput" name="phoneNumberInput" pattern=".[0-9\s]{7,11}" required>
+                <input type="text" id="phoneNumberInput" name="phoneNumberInput" placeholder="(0000-000-000)" pattern=".[0-9\s]{7,11}" required>
             </fieldset>
 
 
@@ -152,7 +152,7 @@ tested.
                     <legend>Other Skills</legend>
                     <label for="otherSkills">Other skills: (if any)</label>
                     <br>
-                    <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="88"></textarea>
+                    <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="88" rows="4"></textarea>
                 </fieldset>
             </div>
         </form>
