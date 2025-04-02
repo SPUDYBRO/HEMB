@@ -130,19 +130,45 @@ This is for styling every single page */
 
 
 
-/* Apply page styling */
-#experienceAndOtherSkillsContainer {
+/* Apply Page Styling */
+
+/* Putting the experience and other skills fieldset 
+tags into a container so that they can be side by side */
+#containerForExperienceAndOtherSkills {
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 #experienceLegend {
     width: fit-content;
     display: inline-block;
-    padding: 4px;
+    padding: 6px;
 }
 
 #otherSkillsLegend {
     width: fit-content;
     display: inline-block;
-    padding: 4px;
+    padding: 6px;
+}
+
+/* Putting the gender and address fieldset tags 
+into a container so that they can be side by side */
+#containerForGenderAndAddress {
+    display: flex;
+    gap: 5px;
+}
+
+#containerForGenderAndAddress input, select {
+    margin-right: 20.6px;
+}
+
+#genderLegend {
+    width: fit-content;
+    display: inline-block;
+    padding: 6px;
+}
+
+#addressLegend {
+    width: fit-content;
+    display: inline-block;
+    padding: 6px;
 }

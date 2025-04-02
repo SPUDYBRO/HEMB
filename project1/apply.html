@@ -86,34 +86,36 @@ tested.
                 </select>
             </fieldset>
 
-            <fieldset id="genderLegend">
-                <legend>Gender</legend>
-                <label for="genderMale">Male:</label>
-                <input type="radio" value="male" name="genderInput" id="genderMale" required>
-                <label for="genderFemale">Female:</label>
-                <input type="radio" value="female" name="genderInput" id="genderFemale" required>
-            </fieldset>
+            <div id="containerForGenderAndAddress">
+                <fieldset id="genderLegend">
+                    <legend>Gender</legend>
+                    <label for="genderMale">Male:</label>
+                    <input type="radio" value="male" name="genderInput" id="genderMale" required>
+                    <label for="genderFemale">Female:</label>
+                    <input type="radio" value="female" name="genderInput" id="genderFemale" required>
+                </fieldset>
 
-            <fieldset id="addressLegend">
-                <legend>Address</legend>
-                <label for="streetAddress">Street Address:</label>
-                <input type="text" name="streetAddress" id="streetAddress" placeholder="Street Address" pattern=".{1,40}" required>
-                <label for="suburbTown">Suburb/Town:</label>
-                <input type="text" name="suburbTown" id="suburbTown" placeholder="Suburb/Town" pattern=".{1,40}" required>
-                <label for="state">State:</label>
-                <select name="state" id="state" required>
-                    <option value="">Select State</option>
-                    <option value="ACT">ACT</option>
-                    <option value="VIC">VIC</option>
-                    <option value="NSW">NSW</option>
-                    <option value="QLD">QLD</option>
-                    <option value="SA">SA</option>
-                    <option value="WA">WA</option>
-                    <option value="NT">NT</option>
-                </select>
-                <label for="postcode">Postcode:</label>
-                <input type="text" id="postcode" name="postcode" pattern=".[0-9]{3,3}" required>
-            </fieldset>
+                <fieldset id="addressLegend">
+                    <legend>Address</legend>
+                    <label for="streetAddress">Street Address:</label>
+                    <input type="text" name="streetAddress" id="streetAddress" placeholder="Street Address" pattern=".{1,40}" required>
+                    <label for="suburbTown">Suburb/Town:</label>
+                    <input type="text" name="suburbTown" id="suburbTown" placeholder="Suburb/Town" pattern=".{1,40}" required>
+                    <label for="state">State:</label>
+                    <select name="state" id="state" required>
+                        <option value="">Select State</option>
+                        <option value="ACT">ACT</option>
+                        <option value="VIC">VIC</option>
+                        <option value="NSW">NSW</option>
+                        <option value="QLD">QLD</option>
+                        <option value="SA">SA</option>
+                        <option value="WA">WA</option>
+                        <option value="NT">NT</option>
+                    </select>
+                    <label for="postcode">Postcode:</label>
+                    <input type="text" id="postcode" name="postcode" pattern=".[0-9]{3,3}" required>
+                </fieldset>
+            </div>
 
             <fieldset id="contactLegend">
                 <legend>Contact Details</legend>
@@ -124,7 +126,7 @@ tested.
             </fieldset>
 
 
-            <div id="experienceAndOtherSkillsContainer">
+            <div id="containerForExperienceAndOtherSkills">
                 <fieldset id="experienceLegend">
                     <legend>Experience</legend>
                     <input type="checkbox" value="troubleshooting" name="troubleshooting" id="skillsTroubleshooting" required>
