@@ -19,7 +19,6 @@
     --link_text_color_hover: rgb(38, 47, 100);
 
 
-
     /*note that most values are going to be blank/ placeholders for actual styles*/
 }
 
@@ -131,3 +130,64 @@ This is for styling every single page */
 
 
 
+/* Apply Page Styling */
+
+/* Defines the base color theme for the job page (May incorporate this theme across all pages with group approval. */
+
+#applyPage {
+    background-color: rgb(208, 197, 174);
+}
+
+#applyPage fieldset {
+    border: 2px solid rgb(146, 127, 86) ;
+}
+
+#applyPage input, select, textarea {
+    background-color: rgb(190, 173, 137);
+    border: 1.5px solid rgb(146, 127, 86);
+}
+
+#applyPage input::placeholder, textarea::placeholder {
+    color: black;
+}
+
+/* Putting the experience and other skills fieldset 
+tags into a container so that they can be side by side */
+#containerForExperienceAndOtherSkills {
+    display: flex;
+    gap: 4px;
+}
+#experienceLegend {
+    width: fit-content;
+    display: inline-block;
+    padding: 6px;
+}
+
+#otherSkillsLegend {
+    width: fit-content;
+    display: inline-block;
+    padding: 6px;
+}
+
+/* Putting the gender and address fieldset tags 
+into a container so that they can be side by side */
+#containerForGenderAndAddress {
+    display: flex;
+    gap: 4px;
+}
+
+#containerForGenderAndAddress input, select {
+    margin-right: 21.3px;
+}
+
+#genderLegend {
+    width: fit-content;
+    display: inline-block;
+    padding: 6px;
+}
+
+#addressLegend {
+    width: fit-content;
+    display: inline-block;
+    padding: 6px;
+}
