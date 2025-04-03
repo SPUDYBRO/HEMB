@@ -47,6 +47,8 @@ This is for styling every single page */
             width: 100%;
             padding: 1% 0px;
             background-color: var(--nav_background_color);
+            position: sticky;
+            top: 0;
 
             /* flex styles */
             display: flex;
