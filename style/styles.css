@@ -7,7 +7,7 @@
     
     --background_color: #fff;
 
-    --hero_image_background: linear-gradient(to bottom right, red, blue); /* note that this is a `background-image` */
+    --hero_image_background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/hero_image.png'); /* note that this is a `background-image` */
 
     --nav_background_color: rgb(180, 180, 180);
     --nav_button_color: rgb(181, 183, 255);
@@ -116,6 +116,9 @@ This is for styling every single page */
         height: 90vh;
 
         background-image: var(--hero_image_background);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 
         display: flex;
         flex-direction: column;
