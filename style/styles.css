@@ -140,6 +140,18 @@ This is for styling every single page */
     }
 
 
+/* About_Us.html styling (only put things relevant to index here) */
+
+/* main {
+    width: %70 
+} */
+
+#About_Main {
+    width: 85%;
+    margin: 0px auto;
+}
+
+
 
 /* Apply Page Styling */
 
