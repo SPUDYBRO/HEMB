@@ -41,23 +41,20 @@ tested.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
+    <!-- Main Navigation -->
+    <nav class="main_navigation">
+        <!-- Applies to all pages -->
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./jobs.html">Jobs</a>
+        <a class="current" href="./apply.html">Apply</a>
+        <a href="mailto:example@email.com">Email us!</a>
+    </nav>
+
+
     <main id="applyPage">
-        <!-- Main navigation menu that sticks to the top as you scroll down main
-        Also note that when you reach the end of main, the nav menu will no longer follow 
-        -->
-        <nav class="main_navigation">
-            <a href="./index.html">Home</a>
-            <a href="./about.html">About</a>
-            <a href="./jobs.html">Jobs</a>
-            <a class="current" href="./apply.html">Apply</a>
-            <a href="mailto:example@email.com">Email us!</a>
-            <!--Your content should go under the navigation but still stay inside the main.
-            if you have stuff outside of main the sticky nav will stop when you finish scrolling main
-            if this happens then move nav into the body
-            -->
-        </nav>
         
-    
         <form id="jobApplicationForm" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
             <fieldset id="personalDetailsLegend">
                 <legend>Personal Details</legend>

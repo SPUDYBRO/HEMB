@@ -9,10 +9,11 @@
 
     --hero_image_background: url('./images/hero_image.png'); /* note that this is a `background-image` */
 
-    --nav_background_color: rgb(197, 216, 214);
+    --nav_background_color: rgba(170, 200, 220, 0.9);
     --nav_button_color: rgb(181, 183, 255);
     --nav_button_hover_color: rgb(247, 248, 250);
     --nav_active_button_color: rgb(150 213 255);
+    --nav_border_color: rgb(52, 121, 182);
     --nav_element_gap: 3%;
 
     --link_text_color: rgb(44, 75, 255);
@@ -52,7 +53,7 @@ This is for styling every single page */
             top: 0;
 
             /* border */
-            border: 3px solid rgb(0, 169, 138);
+            border: 3px solid var(--nav_border_color);
             border-radius: 30px;
 
             /* flex styles */
@@ -60,7 +61,7 @@ This is for styling every single page */
             justify-content: center;
             gap: var(--nav_element_gap);
 
-            box-shadow: 5px 5px black;
+            box-shadow: 5px 5px 20px -5px black;
         }
 
         .main_navigation a {
@@ -151,16 +152,24 @@ This is for styling every single page */
         background-size: cover;
     }
 
-    #hero_img h1, p{
-        margin: 0px;
-    }
-
     #hero_text {
         position: absolute;
         top: 20%;
         left: 28%;
         transform: translate(-50%, -50%);
         text-align: center;
+    }
+    #hero_text h1{
+        font-size: 4em;
+        color: rgb(40, 69, 92);
+        text-shadow: 5px 5px 4px rgb(129, 189, 230);
+        margin: 0px;
+    }
+    #hero_text p{
+        font-size: 1.3em;
+        color: rgb(40, 69, 92);
+        text-shadow: 5px 5px 4px rgb(129, 189, 230);
+        margin: 0px;
     }
     
 
