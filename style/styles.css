@@ -1,3 +1,63 @@
+/*
+
+
+
+How to read and write this CSS file
+
+
+indent the code to show where it starts and ends. for example:
+
+/ Page the file relates to /
+
+    #example_element_1{
+        style: value;
+    }
+    #example_element_2{
+        style: value;
+    }
+
+
+/ another page /
+
+    #example_element_3{
+        style: value;
+    }
+    #example_element_4{
+        style: value;
+    }
+
+
+this way we can see which elements are related to which page. which will make it easier to read and write the code
+between multiple people.
+
+you can also intent further to explain a cirtain area of code, for example:
+
+    #example_element_1{
+        style: value;
+    }
+    #example_element_2{
+        style: value;
+    }
+    
+    / this code is focused on something specific /
+        #example_element_3{
+            style: value;
+        }
+        #example_element_4{
+            style: value;
+        }
+    
+    #example_element_5{
+        style: value;
+    }
+
+*/
+
+
+
+
+
+
 
 /* Declaring global scale variables by using :root */
 :root {
