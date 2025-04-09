@@ -146,12 +146,55 @@ This is for styling every single page */
     width: %70 
 } */
 
-#About_Main {
-    width: 85%;
-    margin: 0px auto;
-}
+    /* Line Breaks */
 
+    #line_break {
+        color: black;
+    }
 
+    /* About Us - Title / What We Do Content */
+
+    #About_Main {
+        width: 85%;
+        margin: 0px auto;
+    }
+
+    #about_us_heading {
+        text-align: center;
+        padding: 7px;
+    }
+
+    #about_us {
+
+    }
+
+    /* Evan Harrison Section on Page */
+
+    #evan_harrison {
+        border: 2px solid black;
+    }
+
+    #evan_harrison legend {
+        font-size: 25px;
+        text-decoration: underline;
+    }
+
+    #evan_info {
+        border: 1px double rgb(0, 0, 0);
+        width: 300px;
+        height: 95px;
+        text-align: left;
+    }
+
+    #evan_details {
+        border: 1px double rgb(0, 0, 0);
+        width: 600px;
+        text-align: center;
+    }
+
+    #evan_info, #evan_details {
+        display: inline-block;
+    }
 
 /* Apply Page Styling */
 
