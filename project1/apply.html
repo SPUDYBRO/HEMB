@@ -73,13 +73,13 @@ tested.
                 <input type="text" name="lastNameInput" id="lastNameInput" placeholder="Last Name" pattern=".[A-Za-z]{1,20}" required>
                 <label for="date">Date of Birth:</label>
                 <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
-                <label for="jobTitleInterestedIn">Job Title:</label>
-                <select name="jobTitleInterestedIn" id="jobTitleInterestedIn" required>
+                <label for="jobReferenceNumber">Job Title:</label>
+                <select name="jobReferenceNumber" id="jobReferenceNumber" required>
                     <option value="">Select Job Title</option>
-                    <option value="desktopSupportTechnician">Desktop Support Technician</option>
-                    <option value="serviceDeskAnalyst">Service Desk Analyst</option>
-                    <option value="ITSupportTechnician">IT Support Technician</option>
-                    <option value="ITSupportSpecialist">IT Support Specialist</option>
+                    <option value="ITSupportTechnician">IT30</option>
+                    <option value="ITSupportSpecialist">IT24</option>
+                    <option value="desktopSupportTechnician">IT35</option>
+                    <option value="serviceDeskAnalyst">IT09</option>
                 </select>
             </fieldset>
 
@@ -113,19 +113,30 @@ tested.
                     <input type="text" id="postcode" name="postcode" placeholder="0000" pattern=".[0-9]{3,3}" required>
                 </fieldset>
             </div>
+            
+            <div id="containerForContactDetailsAndPreferredSkills">
+                <fieldset id="contactLegend">
+                    <legend>Contact Details</legend>
+                    <label for="emailInput">Email:</label>
+                    <input type="text" id="emailInput" name="emailInput" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                    <label for="phoneNumberInput">Phone Number:</label>
+                    <input type="text" id="phoneNumberInput" name="phoneNumberInput" placeholder="(0000-000-000)" pattern=".[0-9\s]{7,11}" required>
+                </fieldset>
 
-            <fieldset id="contactLegend">
-                <legend>Contact Details</legend>
-                <label for="emailInput">Email:</label>
-                <input type="text" id="emailInput" name="emailInput" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
-                <label for="phoneNumberInput">Phone Number:</label>
-                <input type="text" id="phoneNumberInput" name="phoneNumberInput" placeholder="(0000-000-000)" pattern=".[0-9\s]{7,11}" required>
-            </fieldset>
+                <fieldset id="preferredSkillsLegend">
+                    <legend>Preferred Skills</legend>
+                    <input type="checkbox" value="communication" name="communication" id="skillsCommunication" required>
+                    <label for="skillsCommunication">Communication</label>
+                    <input type="checkbox" value="teamwork" name="teamwork" id="skillsTeamwork" required>
+                    <label for="skillsTeamwork">Teamwork</label>
+                </fieldset>
+            </div>
+            
 
 
-            <div id="containerForExperienceAndOtherSkills">
-                <fieldset id="experienceLegend">
-                    <legend>Experience</legend>
+            <div id="containerForTechnicalSkillsAndOtherSkills">
+                <fieldset id="technicalSkillsLegend">
+                    <legend>Technical Skills</legend>
                     <input type="checkbox" value="troubleshooting" name="troubleshooting" id="skillsTroubleshooting" required>
                     <label for="skillsTroubleshooting">Knowledge in Troubleshooting</label>
                     <input type="checkbox" value="networking" name="networking" id="skillsNetworking" required>
@@ -149,7 +160,7 @@ tested.
                     <legend>Other Skills</legend>
                     <label for="otherSkills">Other skills: (if any)</label>
                     <br>
-                    <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="88" rows="4"></textarea>
+                    <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="87" rows="4"></textarea>
                 </fieldset>
             </div>
         </form>
