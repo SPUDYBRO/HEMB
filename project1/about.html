@@ -28,17 +28,21 @@ the techniques you apply in your assignment, and could include:
     <body>
         <!-- body stuff -->
 
-        <main>
+        <!-- Main Navigation -->
+        <nav class="main_navigation">
+            <!-- Applies to all pages -->
+            <a href="./index.html">Home</a>
+            <a class="current" href="./about.html">About</a>
+            <a href="./jobs.html">Jobs</a>
+            <a href="./apply.html">Apply</a>
+            <a href="mailto:example@email.com">Email us!</a>
+        </nav>
+
+        <main id="About_Main">
             <!-- Main navigation menu that sticks to the top as you scroll down main
             Also note that when you reach the end of main, the nav menu will no longer follow 
             -->
-            <nav class="main_navigation">
-                <a href="./index.html">Home</a>
-                <a class="current" href="./about.html">About</a>
-                <a href="./jobs.html">Jobs</a>
-                <a href="./apply.html">Apply</a>
-                <a href="mailto:example@email.com">Email us!</a>
-            </nav>
+            
 
             <!--Your content should go under the navigation but still stay inside the main.
             if you have stuff outside of main the sticky nav will stop when you finish scrolling main
@@ -48,61 +52,63 @@ the techniques you apply in your assignment, and could include:
             <!--Add group photo at the head of website page like the home page-->
             <!--Add table with Student ID / Tutor Name / Class Times / Interests-->
 
-            <h1>About Us</h1>
-            <hr>
-            <fieldset id = what_we_do>
-                <legend>What We do!</legend>
-                <!--Add content explaining the goal and project of the assignment.-->
-                <p>At HEMB IT Solutions, we specialize in providing top-tier IT support
-                    solutions tailored to businesses of all sizes. Out team of skilled technicians
-                    are dedicated to ensuring your technology runs smoothly, minimizing downtime and maiximizing productivity.
-                </p>
+            <h1 id="about_us_heading">About Us</h1>
+            <h2 id="about_us">What We do!</h2>
+            <!--Add content explaining the goal and project of the assignment.-->
+            <p id="about_us">At HEMB IT Solutions, we specialize in providing top-tier IT support
+                solutions tailored to businesses of all sizes. Out team of skilled technicians
+                are dedicated to ensuring your technology runs smoothly, minimizing downtime and maiximizing productivity.
+            </p>
 
-                <p>From troubleshooting hardware and software issues to network security and 
-                    system optimization, we offer comprehensive support designed to keep your
-                    business operations efficient nad secure. Whether you need on-site 
-                    assistance, remote support, or proactive maintenance, we're here to help.
-                </p>
+            <p id="about_us">From troubleshooting hardware and software issues to network security and 
+                system optimization, we offer comprehensive support designed to keep your
+                business operations efficient nad secure. Whether you need on-site 
+                assistance, remote support, or proactive maintenance, we're here to help.
+            </p>
 
-                <p>With a customer-first approach, we pride ourselves on delivering fast, 
-                    reliable, and cost-effective IT solutions. Our goal is to take the stress
-                    out of technology so you can focus on what matters most - growing your
-                    business.
-                    Partner with HEMB IT Solutions and experience seemless IT support that
-                    keeps you connected, secure, and ahead of the curve.
-                </p>
-            </fieldset>
+            <p id="about_us">With a customer-first approach, we pride ourselves on delivering fast, 
+                reliable, and cost-effective IT solutions. Our goal is to take the stress
+                out of technology so you can focus on what matters most - growing your
+                business.
+                Partner with HEMB IT Solutions and experience seemless IT support that
+                keeps you connected, secure, and ahead of the curve.
+            </p>
 
             <fieldset id = evan_harrison>
                 <legend>Evan Harrison</legend>
                 <!--Add Image for every member-->
-                <table>
+                <table id="evan_info">
                     <tbody>
                         <tr>
-                            <th class="Student_ID" scope="row">Student ID</th>
+                            <th class="Student_ID" scope="row">Student ID:</th>
                             <td>105929605</td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
-                            <th class="Tutor" scope="row">Tutor Name</th>
+                            <th class="Tutor" scope="row">Tutor Name:</th>
                             <td>Nick</td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
-                            <th class="Class_Times" scope="row">Class Times</th>
+                            <th class="Class_Times" scope="row">Class Times:</th>
                             <td>Thursday 14:30-16:30</td>
                         </tr>
                     </tbody>
+                    <tbody>
+                        <tr>
+                            <th class="Web_Goal" scope="row">Website Goal:</th>
+                            <td>Home Page</td>
+                        </tr>
+                    </tbody>
                 </table>
-                <p>Evan Harrison is creating the Home page.</p>
                 <!--
                 Add description of skills, passions, talents, working experiences, Information related to group
                 Demographic inforation and information of their hometown / where they're from (Backstory.)
                 A list of favourite books / games / media etc...
                 -->
-                <p>Evan Harrison is our troubleshooting expert, dedicating to keeping our technology running smoothly.
+                <p id="evan_details">Evan Harrison is our troubleshooting expert, dedicating to keeping our technology running smoothly.
                     With a sharp problem-solving mindset and extensive technical knowledge, they're rapidfire at handing
                     hardware and software issues. Whether it's fixing system errors, optimizing performance, or ensuring seamless
                     connectivity, Evan is always up to tackle any IT challenge you throw his way.
