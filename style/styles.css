@@ -7,6 +7,9 @@
     
     --background_color: rgb(232, 232, 232);
 
+    --legend_and_input_color: rgb(33, 110, 123);
+    --input_background_color: rgb(198, 198, 198);
+
     --hero_image_background: url('./images/hero_image.png'); /* note that this is a `background-image` */
 
     --nav_background_color: rgba(170, 200, 220, 0.9);
@@ -226,21 +229,23 @@ This is for styling every single page */
         display: inline-block;
     }
 
+
+
 /* Apply Page Styling */
 
     /* Defines the base color theme for the job page (May incorporate this theme across all pages with group approval. */
 
         #applyPage {
-            background-color: rgb(208, 197, 174);
+            background-color: var(--background_color);
         }
 
         #applyPage fieldset {
-            border: 2px solid rgb(146, 127, 86) ;
+            border: 2px solid var(--legend_and_input_color);
         }
 
         #applyPage input, select, textarea {
-            background-color: rgb(190, 173, 137);
-            border: 1.5px solid rgb(146, 127, 86);
+            background-color: var(--input_background_color);
+            border: 1.5px solid var(--legend_and_input_color);
         }
 
         #applyPage input::placeholder, textarea::placeholder {
@@ -282,6 +287,10 @@ This is for styling every single page */
             width: fit-content;
             display: inline-block;
             padding: 6px;
+        }
+
+        #preferredSkillsLegend label {
+            margin-right: 20px;
         }
 
 
