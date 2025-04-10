@@ -267,13 +267,31 @@ This is for styling every single page */
 
     }
 
+/*
+filename: Michael Sharpley
+author: Michael Sharpley
+created: 10/04/2025
+last modified: 10/04/2025
+description: jobs.html styling
+*/
 
+    /* #jobs_page_main{
+        position: relative;
+        width: 100%;
+        float: left
+    } */
 
-/* jobs.html styling */
-
-    #jobs_aside {
-        text-align: right;
+    #jobs_page_aside {
+        position: absolute;
+        width: 25%;
+        /* height: 50%; */
+        float: right;
+        right: 0%;
+        top: 50%;
         border: 3px solid var(--legend_and_input_color);
+        margin: -30px auto 40px auto;
+        padding: 1% 0px;
+        background-color: var(--nav_background_color);
     }
 
 
