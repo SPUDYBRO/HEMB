@@ -246,10 +246,6 @@ This is for styling every single page */
 
     /* Line Breaks */
 
-    #line_break {
-        color: black;
-    }
-
     /* About Us - Title / What We Do Content */
 
     #About_Main {
@@ -263,32 +259,6 @@ This is for styling every single page */
     }
 
     /* Evan Harrison Section on Page */
-
-    #evan_harrison {
-        border: 2px solid black;
-    }
-
-    #evan_harrison legend {
-        font-size: 25px;
-        text-decoration: underline;
-    }
-
-    #evan_info {
-        border: 1px double rgb(0, 0, 0);
-        width: 300px;
-        height: 95px;
-        text-align: left;
-    }
-
-    #evan_details {
-        border: 1px double rgb(0, 0, 0);
-        width: 600px;
-        text-align: center;
-    }
-
-    #evan_info, #evan_details {
-        display: inline-block;
-    }
 
 
 
