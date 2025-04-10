@@ -109,6 +109,7 @@ This is for styling every single page */
     /* Main navigation styling; Note: values should be changed from the variables not from here */
         .main_navigation {
             width: 30%;
+            min-width: 500px;
             margin: -30px auto 40px auto;
             padding: 1% 0px;
             background-color: var(--nav_background_color);
@@ -133,8 +134,8 @@ This is for styling every single page */
             background-color: var(--nav_button_color);
             border-radius: 50px;
             transition: background-color 0.3s ease;
-
-            padding: 1% 2%;
+            font-size: calc(1em + 0.5vw);
+            padding: 1% 2%; 
         }
 
         .main_navigation a.current {
