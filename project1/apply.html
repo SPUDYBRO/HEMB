@@ -70,9 +70,9 @@ tested.
                         <option value="Dr">Dr</option>
                     </select>
                     <label for="first_Name_Input">First Name:</label>
-                    <input type="text" name="first_Name_Input" id="first_Name_Input" placeholder="First Name" pattern=".[A-Za-z]{1,20}" required>
+                    <input type="text" name="first_Name_Input" id="first_Name_Input" placeholder="First Name" pattern="[A-Za-z]{1,20}" required>
                     <label for="last_Name_Input">Last Name</label>
-                    <input type="text" name="last_Name_Input" id="last_Name_Input" placeholder="Last Name" pattern=".[A-Za-z]{1,20}" required>
+                    <input type="text" name="last_Name_Input" id="last_Name_Input" placeholder="Last Name" pattern="[A-Za-z]{1,20}" required>
                     <label for="date">Date of Birth:</label>
                     <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
                     <label for="job_Reference_Number">Job Title:</label>
@@ -95,9 +95,9 @@ tested.
                     <fieldset id="address_Legend">
                         <legend>Address</legend>
                         <label for="street_Address">Street Address:</label>
-                        <input type="text" name="street_Address" id="street_Address" placeholder="Street Address" pattern=".{1,40}" required>
+                        <input type="text" name="street_Address" id="street_Address" placeholder="Street Address" pattern="{1,40}" required>
                         <label for="suburb_Town">Suburb/Town:</label>
-                        <input type="text" name="suburb_Town" id="suburb_Town" placeholder="Suburb/Town" pattern=".{1,40}" required>
+                        <input type="text" name="suburb_Town" id="suburb_Town" placeholder="Suburb/Town" pattern="{1,40}" required>
                         <label for="state">State:</label>
                         <select name="state" id="state" required>
                             <option value="">Select State</option>
@@ -110,7 +110,7 @@ tested.
                             <option value="NT">NT</option>
                         </select>
                         <label for="postcode">Postcode:</label>
-                        <input type="text" id="postcode" name="postcode" placeholder="0000" pattern=".[0-9]{3,3}" required>
+                        <input type="text" id="postcode" name="postcode" placeholder="0000" pattern="[0-9]{3,3}" required>
                     </fieldset>
                 </div>
                 
@@ -120,7 +120,7 @@ tested.
                         <label for="email_Input">Email:</label>
                         <input type="text" id="email_Input" name="email_Input" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
                         <label for="phone_Number_Input">Phone Number:</label>
-                        <input type="text" id="phone_Number_Input" name="phone_Number_Input" placeholder="(0000-000-000)" pattern=".[0-9\s]{7,11}" required>
+                        <input type="text" id="phone_Number_Input" name="phone_Number_Input" placeholder="(0000-000-000)" pattern="[0-9\s]{7,11}" required>
                     </fieldset>
                     <fieldset id="preferred_Skills_Legend">
                         <legend>Preferred Skills</legend>
