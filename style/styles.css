@@ -261,10 +261,26 @@ This is for styling every single page */
         padding: 7px;
     }
 
+    #employee_info h3 {
+        text-decoration: underline;
+    }
+
     .individual_employee {
         display: flex;
         flex-direction: row;
 
+    }
+
+    .individual_employee > h3 {
+        width: 13%;
+    }
+
+    .individual_employee > ul {
+        width: 37%
+    }
+
+    .individual_employee > p {
+        width: 50%
     }
 
 
