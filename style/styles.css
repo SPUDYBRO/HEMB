@@ -461,80 +461,87 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         #apply_Page input, select, textarea {
-            background-color: var(--input_background_color);
             border: 1.5px solid var(--legend_and_input_color);
+            background-color: var(--input_background_color);
         }
 
         #apply_Page input::placeholder, textarea::placeholder {
             color: black;
         }
 
-    /* Putting the experience and other skills fieldset 
-    tags into a container so that they can be side by side */
-        #container_For_Technical_Skills_And_Other_Skills {
-            display: flex;
-            gap: 4px;
-        }
-        #technical_Skills_Legend {
-            width: fit-content;
-            display: inline-block;
-            padding: 6px;
+        #apply_Form_Container {
+            background-color: var(--nav_background_color);
+            box-shadow: 5px 5px 20px -5px black;
+            border-radius: 3vh;
+            margin: auto;
+            padding: 1%;
+            height: 80%;
+            width: 92%;
         }
 
-        #other_Skills_Legend {
-            width: fit-content;
-            display: inline-block;
-            padding: 6px;
-        }
-    
-    /* Putting the contact and preffered skills fieldset
-    tags into a container so that they can be side by side */
-        #container_For_Contact_And_Preferred_Skills {
+
+    /* Putting the Personal Details fieldset tag 
+        into a container so that it can be spaced evenly in the form */
+        #container_For_Presonal_Details {
+            justify-content: center;
             display: flex;
             gap: 4px;
         }
 
-        #contact_Legend {
-            width: fit-content;
+        #personal_Details_Legend {
             display: inline-block;
+            width: fit-content;
             padding: 6px;
         }
 
-        #preferred_Skills_Legend {
-            width: fit-content;
-            display: inline-block;
-            padding: 6px;
-        }
 
-        #preferred_Skills_Legend label {
-            margin-right: 20px;
-        }
-
-
-
-    /* Putting the gender and address fieldset tags 
-        into a container so that they can be side by side */
-        #container_For_Gender_And_Address {
+    /* Putting the Details fieldset tag 
+        into a container so that it can be spaced evenly in the form */
+        #container_For_Address {
+            justify-content: center;
             display: flex;
             gap: 4px;
-        }
-
-        #container_For_Gender_And_Address input, select {
-            margin-right: 20.5px;
-        }
-
-        #gender_Legend {
-            width: fit-content;
-            display: inline-block;
-            padding: 6px;
         }
 
         #address_Legend {
-            width: fit-content;
             display: inline-block;
+            width: fit-content;
+            padding: 6px;
+        }
+    
+
+    /* Putting the contact and preffered skills fieldset
+        tags into a container so that they can be side by side */
+        #container_For_Contact_Details_And_Gender {
+            justify-content: center;
+            display: flex;
+            gap: 4px;
+        }
+
+        #contact_Legend, 
+        #gender_Legend {
+            display: inline-block;
+            width: fit-content;
             padding: 6px;
         }
 
+
+    /* Putting the experience and other skills fieldset 
+    tags into a container so that they can be side by side */
+        #container_For_Technical_Preferred_And_Other_Skills {
+            justify-content: center;
+            display: flex;
+            gap: 4px;
+        }
+
+        #technical_Skills_Legend, 
+        #preferred_Skills_Legend, 
+        #other_Skills_Legend {
+            display: inline-block;
+            width: fit-content;
+            text-align: left;
+            padding: 6px;
+        }
 
 
 /*
