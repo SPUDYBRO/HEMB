@@ -261,7 +261,11 @@ This is for styling every single page */
         padding: 7px;
     }
 
-    /* Evan Harrison Section on Page */
+    .individual_employee {
+        display: flex;
+        flex-direction: row;
+
+    }
 
 
 
@@ -403,6 +407,7 @@ you can also intent further to explain a certain area of code, for example:
             display: inline-block;
             padding: 6px;
         }
+
 
 
 /*
