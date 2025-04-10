@@ -73,7 +73,12 @@ you can also intent further to explain a certain area of code, for example:
     --hero_image_background: url('./images/hero_image.png'); /* note that this is a `background-image` */
 
     --nav_background_color: rgba(170, 200, 220, 0.9);
-    --nav_button_color: rgb(181, 183, 255);
+
+    --nav_text_color: rgb(255, 255, 255);
+    --nav_hover_text_color: rgb(0, 0, 0);
+    --nav_active_text_color: rgb(0, 0, 0);
+
+    --nav_button_color: rgb(74, 129, 169);
     --nav_button_hover_color: rgb(247, 248, 250);
     --nav_active_button_color: rgb(150 213 255);
     --nav_border_color: rgb(52, 121, 182);
@@ -81,6 +86,9 @@ you can also intent further to explain a certain area of code, for example:
 
     --link_text_color: rgb(44, 75, 255);
     --link_text_color_hover: rgb(38, 47, 100);
+
+    --footer_link_color: #4fd1ff;
+    --footer_link_color_hover: #01f8c3;
 
 
     /*note that most values are going to be blank/ placeholders for actual styles*/
@@ -130,51 +138,74 @@ This is for styling every single page */
 
         .main_navigation a {
             text-decoration: none;
-            color: black;
+            color: var(--nav_text_color);
             background-color: var(--nav_button_color);
             border-radius: 50px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             font-size: calc(1em + 0.5vw);
             padding: 1% 2%; 
+            box-shadow: 3px 2px 0px 0px black;
         }
 
         .main_navigation a.current {
             background-color: var(--nav_active_button_color);
+            color: var(--nav_active_text_color);
         }
 
         .main_navigation a:hover {
+            color: var(--nav_hover_text_color);
             background-color: var(--nav_button_hover_color);
+            transform: translateY(2px) translateX(3px);
+            box-shadow: 0px 0px 0px 0px black;
         }
 
 
     /* Footer styling, this will be basic for now but will carry all important links*/
         footer {
+            display: grid;
             position: static;
             bottom: 0;
-            background-color: rgb(155, 155, 155);
+            background-image: linear-gradient(to bottom, rgb(40, 61, 80), rgb(13 22 30)80%), url(./images/hero_image.png);
             height: 40vh;
-            display: flex;
-            gap: 5%;
-        }
-        .footer_left {
-            width: 45%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            grid-template-columns: 40% 25% 6% 6% 6%;
             text-align: center;
+            color: #e2e2e2;
+            margin-top: 100px;
+        }
+        #footer_company_description {
+            padding: 2%;
+            font-size: calc(1em + 0.2vw);
         }
         .footer_links {
-            padding-left: 5%;
+            font-size: calc(1em + 0.1vw);
+        }
+        .footer_links nav {
             display: flex;
-            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2%;
         }
         .footer_links a {
-            color: var(--link_text_color);
+            text-decoration: none;
+            color: var(--footer_link_color);
+            transition: color 0.3s ease, text-decoration 0.3s ease;
         }
         .footer_links a:hover {
-            color: var(--link_text_color_hover);
+            color: var(--footer_link_color_hover);
+            text-decoration: underline;
+        }
+
+        #footer_image {
+            position: relative;
+        }
+        #footer_image img {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.05;
+            width: 99vw;
+            height: 10vh;
+            z-index: 2;
         }
 
 
@@ -201,7 +232,7 @@ This is for styling every single page */
             1. IT Support company
             2. A man in a suit
             3. light theme
-            4. abstract or somthing"
+            4. abstract or something"
 
             reason for using GEN AI to create image:
                 1. our team does not have the graphic design skills to create a hero image
@@ -237,6 +268,62 @@ This is for styling every single page */
         color: rgb(40, 69, 92);
         text-shadow: 5px 5px 4px rgb(129, 189, 230);
         margin: 0px;
+    }
+
+
+    #index_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        gap: 5%;
+        width: 100%;
+        height: 100%;
+    }
+
+    #index_content > section {
+        width: 85%;
+        margin: 0px auto;
+        padding: 2% 0px;
+        background-color: var(--nav_background_color);
+        border-radius: 30px;
+        box-shadow: 5px 5px 20px -5px black;
+
+    }
+
+    #index_content h2 {
+        font-size: 3em;
+        color: rgb(40, 69, 92);
+        text-shadow: 4px 4px 0px rgb(129, 189, 230);
+        margin: 0px;
+    }
+    #index_content p {
+        font-size: 1.3em;
+        margin: 0px;
+        width: 80%;
+        text-align: center;
+        margin: 0px auto;
+    }
+    #index_content a {
+        display: inline-block;
+        margin-top: 15px;
+        text-decoration: none;
+        color: white;
+        background-color: var(--nav_button_color);
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 1.2em;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #index_content a:hover {
+        background-color: var(--nav_button_hover_color);
+        color: black;
+        transform: translateY(-5px);
+        box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.6);
     }
     
 
