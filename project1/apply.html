@@ -53,121 +53,118 @@ tested.
     </nav>
 
 
-    <main id="applyPage">
+    <main id="apply_Page">
         
-        <form id="jobApplicationForm" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
-            <fieldset id="personalDetailsLegend">
-                <legend>Personal Details</legend>
-                <label for="title">Title:</label>
-                <select name="title" id="title" required>
-                    <option value="">Select Title</option>
-                    <option value="Mr">Mr</option>
-                    <option value="Mrs">Mrs</option>
-                    <option value="Ms">Ms</option>
-                    <option value="Miss">Miss</option>
-                    <option value="Dr">Dr</option>
-                </select>
-                <label for="firstNameInput">First Name:</label>
-                <input type="text" name="firstNameInput" id="firstNameInput" placeholder="First Name" pattern=".[A-Za-z]{1,20}" required>
-                <label for="lastNameInput">Last Name</label>
-                <input type="text" name="lastNameInput" id="lastNameInput" placeholder="Last Name" pattern=".[A-Za-z]{1,20}" required>
-                <label for="date">Date of Birth:</label>
-                <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
-                <label for="jobReferenceNumber">Job Title:</label>
-                <select name="jobReferenceNumber" id="jobReferenceNumber" required>
-                    <option value="">Select Job Title</option>
-                    <option value="ITSupportTechnician">IT30</option>
-                    <option value="ITSupportSpecialist">IT24</option>
-                    <option value="desktopSupportTechnician">IT35</option>
-                    <option value="serviceDeskAnalyst">IT09</option>
-                </select>
-            </fieldset>
-
-            <div id="containerForGenderAndAddress">
-                <fieldset id="genderLegend">
-                    <legend>Gender</legend>
-                    <label for="genderMale">Male:</label>
-                    <input type="radio" value="male" name="genderInput" id="genderMale" required>
-                    <label for="genderFemale">Female:</label>
-                    <input type="radio" value="female" name="genderInput" id="genderFemale" required>
-                </fieldset>
-
-                <fieldset id="addressLegend">
-                    <legend>Address</legend>
-                    <label for="streetAddress">Street Address:</label>
-                    <input type="text" name="streetAddress" id="streetAddress" placeholder="Street Address" pattern=".{1,40}" required>
-                    <label for="suburbTown">Suburb/Town:</label>
-                    <input type="text" name="suburbTown" id="suburbTown" placeholder="Suburb/Town" pattern=".{1,40}" required>
-                    <label for="state">State:</label>
-                    <select name="state" id="state" required>
-                        <option value="">Select State</option>
-                        <option value="ACT">ACT</option>
-                        <option value="VIC">VIC</option>
-                        <option value="NSW">NSW</option>
-                        <option value="QLD">QLD</option>
-                        <option value="SA">SA</option>
-                        <option value="WA">WA</option>
-                        <option value="NT">NT</option>
+        <form id="job_Application_Form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+      
+            <div id="apply_Form_Container">
+                <fieldset id="personal_Details_Legend">
+                    <legend>Personal Details</legend>
+                    <label for="title">Title:</label>
+                    <select name="title" id="title" required>
+                        <option value="">Select Title</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Ms">Ms</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Dr">Dr</option>
                     </select>
-                    <label for="postcode">Postcode:</label>
-                    <input type="text" id="postcode" name="postcode" placeholder="0000" pattern=".[0-9]{3,3}" required>
+                    <label for="first_Name_Input">First Name:</label>
+                    <input type="text" name="first_Name_Input" id="first_Name_Input" placeholder="First Name" pattern=".[A-Za-z]{1,20}" required>
+                    <label for="last_Name_Input">Last Name</label>
+                    <input type="text" name="last_Name_Input" id="last_Name_Input" placeholder="Last Name" pattern=".[A-Za-z]{1,20}" required>
+                    <label for="date">Date of Birth:</label>
+                    <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
+                    <label for="job_Reference_Number">Job Title:</label>
+                    <select name="job_Reference_Number" id="job_Reference_Number" required>
+                        <option value="">Select Job Title</option>
+                        <option value="IT_Support_Technician">IT30</option>
+                        <option value="IT_Support_Specialist">IT24</option>
+                        <option value="desktop_Support_Technician">IT35</option>
+                        <option value="service_Desk_Analyst">IT09</option>
+                    </select>
                 </fieldset>
-            </div>
-            
-            <div id="containerForContactDetailsAndPreferredSkills">
-                <fieldset id="contactLegend">
-                    <legend>Contact Details</legend>
-                    <label for="emailInput">Email:</label>
-                    <input type="text" id="emailInput" name="emailInput" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
-                    <label for="phoneNumberInput">Phone Number:</label>
-                    <input type="text" id="phoneNumberInput" name="phoneNumberInput" placeholder="(0000-000-000)" pattern=".[0-9\s]{7,11}" required>
-                </fieldset>
-
-                <fieldset id="preferredSkillsLegend">
-                    <legend>Preferred Skills</legend>
-                    <input type="checkbox" value="communication" name="communication" id="skillsCommunication" required>
-                    <label for="skillsCommunication">Communication</label>
-                    <input type="checkbox" value="teamwork" name="teamwork" id="skillsTeamwork" required>
-                    <label for="skillsTeamwork">Teamwork</label>
-                    <input type="checkbox" value="timeManagment" name="timeManagment" id="skillsTimeManagment" required>
-                    <label for="skillsTimeManagment">Time Managment</label>
-                    <input type="checkbox" value="autonomous" name="autonomous" id="skillsAutonomous" required>
-                    <label for="skillsAutonomous">Autonomous</label>
-                    <input type="checkbox" value="Autonomous" name="Autonomous" id="skillsFastLearner" required>
-                    <label for="skillsFastLearner">Fast Learner</label>
-                </fieldset>
-            </div>
-            
-
-
-            <div id="containerForTechnicalSkillsAndOtherSkills">
-                <fieldset id="technicalSkillsLegend">
-                    <legend>Technical Skills</legend>
-                    <input type="checkbox" value="troubleshooting" name="troubleshooting" id="skillsTroubleshooting" required>
-                    <label for="skillsTroubleshooting">Knowledge in Troubleshooting</label>
-                    <input type="checkbox" value="networking" name="networking" id="skillsNetworking" required>
-                    <label for="skillsNetworking">Understanding of Network Infrastructure</label>
-                    <br>
-                    <input type="checkbox" value="hardware" name="hardware" id="skillsHardware" required>
-                    <label for="skillsHardware">Knowledge of Computer Hardware</label>
-                    <input type="checkbox" value="software" name="software" id="skillsSoftware" required>
-                    <label for="skillsSoftware">Proficiency in Operating Systems</label>
-                    <br>
-                    <input type="checkbox" value="security" name="security" id="skillsSecurity" required>
-                    <label for="skillsSecurity">Knowledge of Security Practices</label>
-                    <input type="checkbox" value="databaseManagement" name="databaseManagement" id="skillsDatabaseManagement" required>
-                    <label for="skillsDatabaseManagement">Familiarity with Database Concepts</label>
-                    <br>
-                    <br>
-                    <input type="submit" value="Apply">
-                </fieldset>
-
-                <fieldset id="otherSkillsLegend">
-                    <legend>Other Skills</legend>
-                    <label for="otherSkills">Other skills: (if any)</label>
-                    <br>
-                    <textarea name="otherSkills" id="otherSkills" placeholder="Enter other skills here" cols="87" rows="4"></textarea>
-                </fieldset>
+                <div id="container_For_Gender_And_Address">
+                    <fieldset id="gender_Legend">
+                        <legend>Gender</legend>
+                        <label for="gender_Male">Male:</label>
+                        <input type="radio" value="male" name="gender_Input" id="gender_Male" required>
+                        <label for="gender_Female">Female:</label>
+                        <input type="radio" value="female" name="gender_Input" id="gender_Female" required>
+                    </fieldset>
+                    <fieldset id="address_Legend">
+                        <legend>Address</legend>
+                        <label for="street_Address">Street Address:</label>
+                        <input type="text" name="street_Address" id="street_Address" placeholder="Street Address" pattern=".{1,40}" required>
+                        <label for="suburb_Town">Suburb/Town:</label>
+                        <input type="text" name="suburb_Town" id="suburb_Town" placeholder="Suburb/Town" pattern=".{1,40}" required>
+                        <label for="state">State:</label>
+                        <select name="state" id="state" required>
+                            <option value="">Select State</option>
+                            <option value="ACT">ACT</option>
+                            <option value="VIC">VIC</option>
+                            <option value="NSW">NSW</option>
+                            <option value="QLD">QLD</option>
+                            <option value="SA">SA</option>
+                            <option value="WA">WA</option>
+                            <option value="NT">NT</option>
+                        </select>
+                        <label for="postcode">Postcode:</label>
+                        <input type="text" id="postcode" name="postcode" placeholder="0000" pattern=".[0-9]{3,3}" required>
+                    </fieldset>
+                </div>
+                
+                <div id="container_For_Contact_Details_And_Preferred_Skills">
+                    <fieldset id="contact_Legend">
+                        <legend>Contact Details</legend>
+                        <label for="email_Input">Email:</label>
+                        <input type="text" id="email_Input" name="email_Input" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                        <label for="phone_Number_Input">Phone Number:</label>
+                        <input type="text" id="phone_Number_Input" name="phone_Number_Input" placeholder="(0000-000-000)" pattern=".[0-9\s]{7,11}" required>
+                    </fieldset>
+                    <fieldset id="preferred_Skills_Legend">
+                        <legend>Preferred Skills</legend>
+                        <input type="checkbox" value="communication" name="communication" id="skills_Communication" required>
+                        <label for="skills_Communication">Communication</label>
+                        <input type="checkbox" value="teamwork" name="teamwork" id="skills_Teamwork" required>
+                        <label for="skills_Teamwork">Teamwork</label>
+                        <input type="checkbox" value="time_Managment" name="time_Managment" id="skills_Time_Managment" required>
+                        <label for="skills_Time_Managment">Time Managment</label>
+                        <input type="checkbox" value="autonomous" name="autonomous" id="skills_Autonomous" required>
+                        <label for="skills_Autonomous">Autonomous</label>
+                        <input type="checkbox" value="Autonomous" name="Autonomous" id="skills_Fast_Learner" required>
+                        <label for="skills_Fast_Learner">Fast Learner</label>
+                    </fieldset>
+                </div>
+                
+                <div id="container_For_Technical_Skills_And_Other_Skills">
+                    <fieldset id="technical_Skills_Legend">
+                        <legend>Technical Skills</legend>
+                        <input type="checkbox" value="trouble_Shooting" name="trouble_Shooting" id="skills_Trouble_Shooting" required>
+                        <label for="skills_Trouble_Shooting">Knowledge in Troubleshooting</label>
+                        <input type="checkbox" value="networking" name="networking" id="skills_Networking" required>
+                        <label for="skills_Networking">Understanding of Network Infrastructure</label>
+                        <br>
+                        <input type="checkbox" value="hardware" name="hardware" id="skills_Hardware" required>
+                        <label for="skills_Hardware">Knowledge of Computer Hardware</label>
+                        <input type="checkbox" value="software" name="software" id="skills_Software" required>
+                        <label for="skills_Software">Proficiency in Operating Systems</label>
+                        <br>
+                        <input type="checkbox" value="security" name="security" id="skills_Security" required>
+                        <label for="skills_Security">Knowledge of Security Practices</label>
+                        <input type="checkbox" value="database_Management" name="database_Management" id="skills_Database_Management" required>
+                        <label for="skills_Database_Management">Familiarity with Database Concepts</label>
+                        <br>
+                        <br>
+                        <input type="submit" value="Apply">
+                    </fieldset>
+                    <fieldset id="other_Skills_Legend">
+                        <legend>Other Skills</legend>
+                        <label for="other_Skills">Other skills: (if any)</label>
+                        <br>
+                        <textarea name="other_Skills" id="other_Skills" placeholder="Enter other skills here" cols="87" rows="4"></textarea>
+                    </fieldset>
+                </div>
             </div>
         </form>
     </main>

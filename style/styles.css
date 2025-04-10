@@ -295,36 +295,36 @@ This is for styling every single page */
 
     /* Defines the base color theme for the job page (May incorporate this theme across all pages with group approval. */
 
-        #applyPage {
+        #apply_Page {
             background-color: var(--background_color);
         }
 
-        #applyPage fieldset {
+        #apply_Page fieldset {
             border: 2px solid var(--legend_and_input_color);
         }
 
-        #applyPage input, select, textarea {
+        #apply_Page input, select, textarea {
             background-color: var(--input_background_color);
             border: 1.5px solid var(--legend_and_input_color);
         }
 
-        #applyPage input::placeholder, textarea::placeholder {
+        #apply_Page input::placeholder, textarea::placeholder {
             color: black;
         }
 
     /* Putting the experience and other skills fieldset 
     tags into a container so that they can be side by side */
-        #containerForTechnicalSkillsAndOtherSkills {
+        #container_For_Technical_Skills_And_Other_Skills {
             display: flex;
             gap: 4px;
         }
-        #technicalSkillsLegend {
+        #technical_Skills_Legend {
             width: fit-content;
             display: inline-block;
             padding: 6px;
         }
 
-        #otherSkillsLegend {
+        #other_Skills_Legend {
             width: fit-content;
             display: inline-block;
             padding: 6px;
@@ -332,24 +332,24 @@ This is for styling every single page */
     
     /* Putting the contact and preffered skills fieldset
     tags into a container so that they can be side by side */
-        #containerForContactAndPreferredSkills {
+        #container_For_Contact_And_Preferred_Skills {
             display: flex;
             gap: 4px;
         }
 
-        #contactLegend {
+        #contact_Legend {
             width: fit-content;
             display: inline-block;
             padding: 6px;
         }
 
-        #preferredSkillsLegend {
+        #preferred_Skills_Legend {
             width: fit-content;
             display: inline-block;
             padding: 6px;
         }
 
-        #preferredSkillsLegend label {
+        #preferred_Skills_Legend label {
             margin-right: 20px;
         }
 
@@ -357,22 +357,22 @@ This is for styling every single page */
 
     /* Putting the gender and address fieldset tags 
         into a container so that they can be side by side */
-        #containerForGenderAndAddress {
+        #container_For_Gender_And_Address {
             display: flex;
             gap: 4px;
         }
 
-        #containerForGenderAndAddress input, select {
+        #container_For_Gender_And_Address input, select {
             margin-right: 20.5px;
         }
 
-        #genderLegend {
+        #gender_Legend {
             width: fit-content;
             display: inline-block;
             padding: 6px;
         }
 
-        #addressLegend {
+        #address_Legend {
             width: fit-content;
             display: inline-block;
             padding: 6px;
