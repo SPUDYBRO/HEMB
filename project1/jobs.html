@@ -47,7 +47,7 @@ subsections, lists etc. using the appropriate HTML elements.
             <a href="mailto:example@email.com">Email us!</a>
         </nav>
 
-        <main id="jobs_page_main">
+        <main id="jobs_main">
             
             <h1>Position Descriptions</h1>
             <!-- Source: https://www.zippia.com/employer/how-to-write-a-job-description/  -->
@@ -299,28 +299,47 @@ subsections, lists etc. using the appropriate HTML elements.
 
         <!-- Footer -->
         <footer>
-            <div class="footer_left">
-                <!-- here we can just talk about anything. could be a company photo or just something that makes the company feel... like the company -->
+            <div id="footer_company_description">
+                <h2>HEMB IT Solutions</h2>
                 <p>We will fix anything!</p>
                 <p>Add some stuff here, talking about the company or what ever</p>
             </div>
 
+            <div>
+                <!-- Create an empty row in the footer grid -->
+            </div>
+
             <div class="footer_links">
-                <!-- Important links required to either go somewhere or link to some area used (jira will go here) -->
-                <ul>
-                    <li>
-                        <a href="mailto:example@email.com">Contact us!</a>
-                    </li>
-                    <li>
-                        <a href="./about.html">About us</a>
-                    </li>
-                    <li>
-                        <a href="./jobs.html">Our Jobs</a>
-                    </li>
-                    <li>
-                        <a href="./apply.html">Join the crew</a>
-                    </li>
-                </ul>
+                <p>Pages</p>
+                <nav>
+                    <a href="./index.html">Home</a>
+                    <a href="./about.html">About</a>
+                    <a href="./jobs.html">Jobs</a>
+                    <a href="./apply.html">Apply</a>
+                </nav>
+                <a href="mailto:example@email.com">Contact us!</a>
+            </div>
+
+            <div class="footer_links">
+                <p>Social Media</p>
+                <nav>
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+                    <a href="https://www.twitter.com/" target="_blank">Twitter</a>
+                </nav>
+            </div>
+
+            <div class="footer_links">
+                <p>Useful Links</p>
+                <nav>
+                    <a href="#" target="_blank">Github Repo</a>
+                    <a href="#" target="_blank">Jira</a>
+                </nav>
+            </div>
+
+            <div id="footer_image">
+                <img src="../images/Untitled-2.png" alt="text saying 'HEMB IT Solutions'">
             </div>
         </footer>
     </body>

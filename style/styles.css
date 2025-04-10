@@ -105,6 +105,7 @@ This is for styling every single page */
 
         margin: 0px; /* removes the default margin */
         min-width: 312px;
+        position: relative;
     }
 
     main {
@@ -328,11 +329,11 @@ This is for styling every single page */
     
 
 
-/* About_Us.html styling (only put things relevant to index here) */
+/* About_Us.html styling */
 
-/* main {
-    width: %70 
-} */
+    /* main {
+        width: %70 
+    } */
 
     /* Line Breaks */
 
@@ -370,31 +371,21 @@ This is for styling every single page */
         width: 50%
     }
 
-/*
-filename: Michael Sharpley
-author: Michael Sharpley
-created: 10/04/2025
-last modified: 10/04/2025
-description: jobs.html styling
-*/
 
-    /* #jobs_page_main{
-        position: relative;
-        width: 100%;
-        float: left
-    } */
+
+
+/* Jobs Page styling by Michael Sharpley */
+
 
     #jobs_page_aside {
-        position: absolute;
         width: 25%;
-        /* height: 50%; */
-        float: right;
-        right: 0%;
-        top: 50%;
         border: 3px solid var(--legend_and_input_color);
-        margin: -30px auto 40px auto;
         padding: 1% 0px;
         background-color: var(--nav_background_color);
+
+        position: absolute;
+        bottom: 45vh;
+        right: 5%;
     }
 
 
