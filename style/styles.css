@@ -214,6 +214,9 @@ This is for styling every single page */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+
+
+        box-shadow: inset 0px -2px 20px -5px black
     }
 
     #hero_text {
