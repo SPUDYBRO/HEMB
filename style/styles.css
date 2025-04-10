@@ -109,6 +109,7 @@ This is for styling every single page */
     /* Main navigation styling; Note: values should be changed from the variables not from here */
         .main_navigation {
             width: 30%;
+            min-width: 500px;
             margin: -30px auto 40px auto;
             padding: 1% 0px;
             background-color: var(--nav_background_color);
@@ -133,8 +134,8 @@ This is for styling every single page */
             background-color: var(--nav_button_color);
             border-radius: 50px;
             transition: background-color 0.3s ease;
-
-            padding: 1% 2%;
+            font-size: calc(1em + 0.5vw);
+            padding: 1% 2%; 
         }
 
         .main_navigation a.current {
@@ -213,6 +214,9 @@ This is for styling every single page */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+
+
+        box-shadow: inset 0px -2px 20px -5px black
     }
 
     #hero_text {
@@ -245,10 +249,6 @@ This is for styling every single page */
 
     /* Line Breaks */
 
-    #line_break {
-        color: black;
-    }
-
     /* About Us - Title / What We Do Content */
 
     #About_Main {
@@ -263,32 +263,58 @@ This is for styling every single page */
 
     /* Evan Harrison Section on Page */
 
-    #evan_harrison {
-        border: 2px solid black;
+
+
+/* jobs.html styling */
+    
+
+/*
+
+/ Page the file relates to /
+
+    #example_element_1{
+        style: value;
+    }
+    #example_element_2{
+        style: value;
     }
 
-    #evan_harrison legend {
-        font-size: 25px;
-        text-decoration: underline;
+
+/ another page /
+
+    #example_element_3{
+        style: value;
+    }
+    #example_element_4{
+        style: value;
     }
 
-    #evan_info {
-        border: 1px double rgb(0, 0, 0);
-        width: 300px;
-        height: 95px;
-        text-align: left;
+
+this way we can see which elements are related to which page. which will make it easier to read and write the code
+between multiple people.
+
+you can also intent further to explain a certain area of code, for example:
+
+    #example_element_1{
+        style: value;
+    }
+    #example_element_2{
+        style: value;
+    }
+    
+    / this code is focused on something specific /
+        #example_element_3{
+            style: value;
+        }
+        #example_element_4{
+            style: value;
+        }
+    
+    #example_element_5{
+        style: value;
     }
 
-    #evan_details {
-        border: 1px double rgb(0, 0, 0);
-        width: 600px;
-        text-align: center;
-    }
-
-    #evan_info, #evan_details {
-        display: inline-block;
-    }
-
+*/    
 
 
 /* Apply Page Styling */
