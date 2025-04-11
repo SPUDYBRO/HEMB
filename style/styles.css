@@ -504,10 +504,6 @@ you can also intent further to explain a certain area of code, for example:
 
     /* Defines the base color theme for the job page (May incorporate this theme across all pages with group approval. */
 
-        #apply_Page {
-            background-color: var(--background_color);
-        }
-
         #apply_Page h1 {
             text-align: center;
         }
@@ -535,7 +531,7 @@ you can also intent further to explain a certain area of code, for example:
             margin: auto;
             padding: 1%;
             height: 80%;
-            width: 92%;
+            width: 98%;
         }
 
 
@@ -552,6 +548,10 @@ you can also intent further to explain a certain area of code, for example:
             width: 100%;
             display: inline-block;
             padding: 6px;
+        }
+
+        #personal_Details_Legend input{
+            width: 12%;
         }
 
 
@@ -616,7 +616,7 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         #other_Skills_Legend textarea {
-            width: 100%;
+            width: 98%;
         }
 
 
