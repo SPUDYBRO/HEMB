@@ -159,6 +159,23 @@ This is for styling every single page */
             transform: translateY(2px) translateX(3px);
             box-shadow: 0px 0px 0px 0px black;
         }
+        @media (max-width: 600px) {
+            .main_navigation {
+                min-width: 20px;
+                width: 80%;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                padding: 10px;
+                scrollbar-width: thin;
+            }
+        
+            .main_navigation a {
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+        }
+        
 
 
     /* Footer styling, this will be basic for now but will carry all important links*/
