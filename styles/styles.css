@@ -276,7 +276,7 @@ This is for styling every single page */
     #index_main {
         display: flex;
         flex-direction: column;
-      
+      align-items: center;
         justify-content: space-around;
     }
 
@@ -338,7 +338,7 @@ This is for styling every single page */
 
     .index_content {
         width: 85%;
-        margin: 0px auto;
+        margin: 50px 0px;
         padding: 2% 0px;
         background-color: var(--nav_background_color);
         background-image: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
