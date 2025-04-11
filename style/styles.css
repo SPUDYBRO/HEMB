@@ -520,6 +520,10 @@ you can also intent further to explain a certain area of code, for example:
             background-color: var(--input_background_color);
         } 
 
+        .input_Background {
+            accent-color: var(--input_background_color);
+        } 
+
         #apply_Page input::placeholder, textarea::placeholder {
             color: black;
         }
