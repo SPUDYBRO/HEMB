@@ -498,6 +498,10 @@ you can also intent further to explain a certain area of code, for example:
             background-color: var(--background_color);
         }
 
+        #apply_Page h1 {
+            text-align: center;
+        }
+
         #apply_Page fieldset {
             border: 2px solid var(--legend_and_input_color);
         }
