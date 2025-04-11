@@ -104,7 +104,7 @@ This is for styling every single page */
         background-color: var(--background_color);
 
         margin: 0px; /* removes the default margin */
-        min-width: 312px;
+        min-width: 248px;
         position: relative;
     }
 
