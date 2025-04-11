@@ -1,12 +1,9 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Workflow to deploy static site with project1, styles, and images folders
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -34,8 +31,11 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Deploy only the project1/ folder
-          path: 'project1'
+          # Upload required folders for the site
+          path: |
+            project1
+            styles
+            images
 
       - name: Deploy to GitHub Pages
         id: deployment
