@@ -93,7 +93,6 @@ you can also intent further to explain a certain area of code, for example:
     --content_background_color: rgba(170, 200, 220, 0.9);
     --content_background_gradient_color: rgba(111, 197, 255, 0.9);
 
-
     /*note that most values are going to be blank/ placeholders for actual styles*/
 }
 
@@ -109,6 +108,7 @@ This is for styling every single page */
         margin: 0px; /* removes the default margin */
         min-width: 248px;
         position: relative;
+        overflow-x: hidden;
     }
 
     main {
