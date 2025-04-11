@@ -68,7 +68,7 @@ you can also intent further to explain a certain area of code, for example:
     --background_color: rgb(232, 232, 232);
 
     --legend_and_input_color: rgb(33, 110, 123);
-    --input_background_color: rgb(198, 198, 198);
+    --input_background_color: rgb(167, 189, 199);
 
     --hero_image_background: url('./images/hero_image.png'); /* note that this is a `background-image` */
 
@@ -462,8 +462,11 @@ you can also intent further to explain a certain area of code, for example:
 
         #apply_Page input, select, textarea {
             border: 1.5px solid var(--legend_and_input_color);
-            background-color: var(--input_background_color);
         }
+
+        .input_Background {
+            background-color: var(--input_background_color);
+        } 
 
         #apply_Page input::placeholder, textarea::placeholder {
             color: black;
@@ -483,14 +486,15 @@ you can also intent further to explain a certain area of code, for example:
     /* Putting the Personal Details fieldset tag 
         into a container so that it can be spaced evenly in the form */
         #container_For_Presonal_Details {
-            justify-content: center;
+            width: 100%;
+            justify-content: space-evenly;
             display: flex;
             gap: 4px;
         }
 
         #personal_Details_Legend {
+            width: 100%;
             display: inline-block;
-            width: fit-content;
             padding: 6px;
         }
 
@@ -498,7 +502,8 @@ you can also intent further to explain a certain area of code, for example:
     /* Putting the Details fieldset tag 
         into a container so that it can be spaced evenly in the form */
         #container_For_Address {
-            justify-content: center;
+            width: 100%;
+            justify-content: space-evenly;
             display: flex;
             gap: 4px;
         }
@@ -507,13 +512,15 @@ you can also intent further to explain a certain area of code, for example:
             display: inline-block;
             width: fit-content;
             padding: 6px;
+            width: 100%;
         }
     
 
     /* Putting the contact and preffered skills fieldset
         tags into a container so that they can be side by side */
         #container_For_Contact_Details_And_Gender {
-            justify-content: center;
+            width: 100%;
+            justify-content: space-evenly;
             display: flex;
             gap: 4px;
         }
@@ -529,18 +536,31 @@ you can also intent further to explain a certain area of code, for example:
     /* Putting the experience and other skills fieldset 
     tags into a container so that they can be side by side */
         #container_For_Technical_Preferred_And_Other_Skills {
-            justify-content: center;
+            width: 100%;
+            justify-content: space-evenly;
             display: flex;
             gap: 4px;
         }
 
         #technical_Skills_Legend, 
-        #preferred_Skills_Legend, 
-        #other_Skills_Legend {
+        #preferred_Skills_Legend {
             display: inline-block;
             width: fit-content;
             text-align: left;
+            width: 100%;
             padding: 6px;
+        }
+
+        #other_Skills_Legend {
+            display: inline-block;
+            overflow-x: hidden;
+            width: fit-content;
+            padding: 6px;
+            width: 100%;
+        }
+
+        #other_Skills_Legend textarea {
+            width: 100%;
         }
 
 
