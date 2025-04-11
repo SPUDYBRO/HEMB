@@ -529,6 +529,7 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         #apply_Form_Container {
+            background-image: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
             background-color: var(--nav_background_color);
             box-shadow: 5px 5px 20px -5px black;
             border-radius: 3vh;
