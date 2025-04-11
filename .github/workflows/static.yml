@@ -34,7 +34,7 @@ jobs:
           # Upload required folders for the site
           path: |
             project1
-            styles
+            style
             images
 
       - name: Deploy to GitHub Pages
