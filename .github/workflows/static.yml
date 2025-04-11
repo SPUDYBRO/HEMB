@@ -1,28 +1,21 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Workflow to deploy static site with project1 (HTML), style, and images folders
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -31,13 +24,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Prepare deployment artifact
+        run: |
+          # Create a new folder for deploy artifact
+          mkdir deploy
+          # Copy HTML files from project1 into deploy so index.html lands at the root
+          cp -r project1/* deploy/
+          # Copy the style and images folders (note: you are using "style" for CSS)
+          cp -r style deploy/
+          cp -r images deploy/
+          # Update paths in HTML files: change "../style/" to "style/" and "../images/" to "images/"
+          for file in deploy/*.html; do
+            sed -i 's|\.\./style/|style/|g' "$file"
+            sed -i 's|\.\./images/|images/|g' "$file"
+          done
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Deploy the prepared folder
+          path: deploy
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
