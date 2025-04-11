@@ -341,7 +341,7 @@ This is for styling every single page */
         margin: 0px auto;
         padding: 2% 0px;
         background-color: var(--nav_background_color);
-        background-image: linear-gradient(to left, var(--nav_background_color)90%, rgba(111, 197, 255, 0.9));
+        background-image: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
         border-radius: 30px;
         box-shadow: 5px 5px 20px -5px black;
         text-align: center;
