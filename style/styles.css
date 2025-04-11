@@ -324,13 +324,13 @@ This is for styling every single page */
         text-align: center;
     }
     #hero_text h1{
-        font-size: 4em;
+        font-size: calc(2em + 2vw);
         color: rgb(40, 69, 92);
         text-shadow: 5px 5px 4px rgb(129, 189, 230);
         margin: 0px;
     }
     #hero_text p{
-        font-size: 1.3em;
+        font-size: calc(0.3em + 1vw);
         color: rgb(40, 69, 92);
         text-shadow: 5px 5px 4px rgb(129, 189, 230);
     }
