@@ -90,6 +90,9 @@ you can also intent further to explain a certain area of code, for example:
     --footer_link_color: #4fd1ff;
     --footer_link_color_hover: #01f8c3;
 
+    --content_background_color: rgba(170, 200, 220, 0.9);
+    --content_background_gradient_color: rgba(111, 197, 255, 0.9);
+
 
     /*note that most values are going to be blank/ placeholders for actual styles*/
 }
@@ -109,9 +112,16 @@ This is for styling every single page */
     }
 
     main {
-        /* styles all mains to be a min of 100vh so that the footer stays at the bottom 
-        we might not need this in the future*/
+        /* styles for all main content elements */
         min-height: 100vh;
+
+        width: 80%;
+        padding: 40px;
+        margin: 0px auto;
+        background-color: #fff;
+        border: 3px solid rgb(136, 158, 173);
+        border-radius: 80px;
+
     }
 
 
@@ -135,6 +145,8 @@ This is for styling every single page */
             gap: var(--nav_element_gap);
 
             box-shadow: 5px 5px 20px -5px black;
+
+            z-index: 10;
         }
 
         .main_navigation a {
@@ -174,6 +186,7 @@ This is for styling every single page */
             color: #e2e2e2;
             margin-top: 100px;
             width: 100%;
+            box-shadow: inset -7px 9px 20px -5px black;
         }
         #footer_links_flex_container {
             display: flex;
@@ -259,6 +272,14 @@ This is for styling every single page */
 
 
 /* index.html styling (only put things relevant to index here) */
+    
+    #index_main {
+        display: flex;
+        flex-direction: column;
+      
+        justify-content: space-around;
+    }
+
     #hero_img {
         /* Basic styling for the hero image (giant img the user sees when they first load in) */
 
@@ -303,54 +324,43 @@ This is for styling every single page */
         text-align: center;
     }
     #hero_text h1{
-        font-size: 4em;
+        font-size: calc(2em + 2vw);
         color: rgb(40, 69, 92);
         text-shadow: 5px 5px 4px rgb(129, 189, 230);
         margin: 0px;
     }
     #hero_text p{
-        font-size: 1.3em;
+        font-size: calc(0.3em + 1vw);
         color: rgb(40, 69, 92);
         text-shadow: 5px 5px 4px rgb(129, 189, 230);
-        margin: 0px;
     }
 
 
-    #index_content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-
-        gap: 5%;
-        width: 100%;
-        height: 100%;
-    }
-
-    #index_content > section {
+    .index_content {
         width: 85%;
         margin: 0px auto;
         padding: 2% 0px;
         background-color: var(--nav_background_color);
+        background-image: linear-gradient(to left, var(--nav_background_color)90%, rgba(111, 197, 255, 0.9));
         border-radius: 30px;
         box-shadow: 5px 5px 20px -5px black;
-
+        text-align: center;
     }
 
-    #index_content h2 {
-        font-size: 3em;
+    .index_content h2 {
+        font-size: 2.2em;
         color: rgb(40, 69, 92);
         text-shadow: 4px 4px 0px rgb(129, 189, 230);
         margin: 0px;
     }
-    #index_content p {
+    .index_content p {
         font-size: 1.3em;
         margin: 0px;
         width: 80%;
         text-align: center;
         margin: 0px auto;
     }
-    #index_content a {
+    .index_content a {
         display: inline-block;
         margin-top: 15px;
         text-decoration: none;
@@ -364,7 +374,7 @@ This is for styling every single page */
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    #index_content a:hover {
+    .index_content a:hover {
         background-color: var(--nav_button_hover_color);
         color: black;
         transform: translateY(-5px);
