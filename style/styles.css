@@ -113,7 +113,6 @@ This is for styling every single page */
 
     main {
         /* styles for all main content elements */
-        min-height: 100vh;
 
         width: 80%;
         padding: 40px;
@@ -510,10 +509,12 @@ you can also intent further to explain a certain area of code, for example:
 
         #apply_Page fieldset {
             border: 2px solid var(--legend_and_input_color);
+            border-radius: 10px;
         }
 
         #apply_Page input, select, textarea {
             border: 1.5px solid var(--legend_and_input_color);
+            border-radius: 4px;
         }
 
         .input_Background {
