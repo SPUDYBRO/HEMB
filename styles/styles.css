@@ -541,56 +541,31 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         #apply_Form_Container > h1 {
+            text-shadow: 4px 4px 0px rgb(129, 189, 230);
+            color: rgb(40, 69, 92);
             text-align: center;
             font-size: 2.5em;
-            color: rgb(40, 69, 92);
-            text-shadow: 4px 4px 0px rgb(129, 189, 230);
-        }
-
-        /* Apply page for small devices */
-        @media (max-width: 600px) {
-            
-            #apply_Page input::placeholder, select, textarea::placeholder, label {
-                font-size: 0.8em; 
-            }
         }
 
 
     /* Putting the Personal Details fieldset tag 
         into a container so that it can be spaced evenly in the form */
         #container_For_Presonal_Details {
-            width: 100%;
             justify-content: space-evenly;
             display: flex;
+            width: 100%;
             gap: 4px;
         }
 
         #personal_Details_Legend {
-            width: 100%;
+            max-width: fit-content;
             display: inline-block;
             padding: 6px;
-            max-width: fit-content;
+            width: 100%;
         }
 
         #personal_Details_Legend input{
             width: 12%;
-        }
-
-        /* Personal Details for small devices */
-        @media (max-width: 600px) {
-            #container_For_Personal_Details {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 4px;
-            }
-
-            #personal_Details_Legend select {
-                width: 98%;
-            }
-
-            #personal_Details_Legend input {
-                width: 96%;
-            }
         }
 
 
@@ -598,44 +573,26 @@ you can also intent further to explain a certain area of code, for example:
         into a container so that it can be spaced evenly in the form */
 
         #container_For_Presonal_Details {
-            width: 100%;
             justify-content: space-evenly;
             display: flex;
+            width: 100%;
             gap: 4px;
         }
 
         #address_Legend {
+            max-width: fit-content;
             display: inline-block;
             padding: 6px;
             width: 100%;
-            max-width: fit-content;
-        }
-
-        /* Address Details for small devices */
-        @media (max-width: 600px) {
-
-            #container_For_Address_Details {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-
-            #address_Legend select {
-                width: 98%;
-            }
-
-            #address_Legend input {
-                width: 96%;
-            }
         }
 
     
     /* Putting the contact and preffered skills fieldset
         tags into a container so that they can be side by side */
         #container_For_Contact_Details_And_Gender {
-            width: 100%;
             justify-content: space-evenly;
             display: flex;
+            width: 100%;
             gap: 4px;
         }
 
@@ -644,31 +601,20 @@ you can also intent further to explain a certain area of code, for example:
             display: inline-block;
             width: fit-content;
             padding: 6px;
+            width: 100%;
         }
 
         #gender_Legend {   
             width: 30vh;
         }
 
-        /* Contact and Gender Details for small devices */
-        @media (max-width: 600px) {
-
-            #contact_Legend input {
-                width: 96%;
-            }
-
-            #gender_Legend {
-                width: 20vh;
-            }
-        }
-
 
     /* Putting the experience and other skills fieldset 
     tags into a container so that they can be side by side */
         #container_For_Technical_Preferred_And_Other_Skills {
-            width: 100%;
             justify-content: space-evenly;
             display: flex;
+            width: 100%;
             gap: 4px;
             
         }
@@ -694,21 +640,41 @@ you can also intent further to explain a certain area of code, for example:
             width: 98%;
         }
 
-        /* Contact and Gender Details for small devices */
-        @media (max-width: 600px) {
-
-            #container_For_Technical_Preferred_And_Other_Skills {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-
-            #technical_Skills_Legend, 
-            #preferred_Skills_Legend, 
-            #other_Skills_Legend {
-                width: 100%;
-            }
+    /* Apply form for small devices */
+    @media (max-width: 600px) {
+        #apply_Page input::placeholder, select, textarea::placeholder, label {
+            font-size: 0.8em; 
         }
+
+        #container_For_Personal_Details,
+        #container_For_Address_Details,
+        #container_For_Technical_Preferred_And_Other_Skills {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+        }
+
+        #personal_Details_Legend select,
+        #address_Legend select {
+            width: 98%;
+        }
+
+        #personal_Details_Legend input,
+        #address_Legend input,
+        #contact_Legend input {
+            width: 96%;
+        }
+
+        #gender_Legend {
+            width: 20vh;
+        }
+
+        #technical_Skills_Legend, 
+        #preferred_Skills_Legend, 
+        #other_Skills_Legend {
+            width: 100%;
+        }
+    }
 
 
 /*
