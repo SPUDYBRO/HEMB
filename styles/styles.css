@@ -127,7 +127,6 @@ This is for styling every single page */
     /* Main navigation styling; Note: values should be changed from the variables not from here */
         .main_navigation {
             width: 60%;
-            min-width: 500px;
             margin: -30px auto 40px auto;
             padding: 1% 0px;
             background-color: var(--nav_background_color);
@@ -303,7 +302,6 @@ This is for styling every single page */
             /* Main navigation for small devices */
                 @media (max-width: 1000px) {
                     .main_navigation {
-                        min-width: 20px;
                         width: max-content;
                         overflow-x: auto;
                         flex-wrap: nowrap;
@@ -314,6 +312,19 @@ This is for styling every single page */
                 
                     .main_navigation a {
                         flex: 0 0 auto;
+                    }
+                }
+
+                @media (max-width: 340px) {
+                    .main_navigation {
+                        width: 100%;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 0px;
+                    }
+                    .main_navigation a {
+                        width: 100%;
+                        justify-content: center;
                     }
                 }
         
