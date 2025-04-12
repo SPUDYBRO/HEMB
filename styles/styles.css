@@ -126,7 +126,7 @@ This is for styling every single page */
 
     /* Main navigation styling; Note: values should be changed from the variables not from here */
         .main_navigation {
-            width: 30%;
+            width: 60%;
             min-width: 500px;
             margin: -30px auto 40px auto;
             padding: 1% 0px;
