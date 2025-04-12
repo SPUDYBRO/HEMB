@@ -566,14 +566,14 @@ you can also intent further to explain a certain area of code, for example:
             gap: 4px;
         }
 
-        #personal_Details_Legend {
+        #personal_Details_Fieldset {
             max-width: fit-content;
             display: inline-block;
             padding: 6px;
             width: 100%;
         }
 
-        #personal_Details_Legend input{
+        #personal_Details_Fieldset input{
             width: 12%;
         }
 
@@ -587,7 +587,7 @@ you can also intent further to explain a certain area of code, for example:
             gap: 4px;
         }
 
-        #address_Legend {
+        #address_Fieldset {
             flex-direction: row;
             flex-wrap: wrap;
             display: flex;
@@ -604,15 +604,15 @@ you can also intent further to explain a certain area of code, for example:
             gap: 4px;
         }
 
-        #contact_Legend, 
-        #gender_Legend {
+        #contact_Fieldset, 
+        #gender_Fieldset {
             display: inline-block;
             width: fit-content;
             padding: 6px;
             width: 100%;
         }
 
-        #gender_Legend {   
+        #gender_Fieldset {   
             width: 32vh;
         }
 
@@ -627,8 +627,8 @@ you can also intent further to explain a certain area of code, for example:
             
         }
 
-        #technical_Skills_Legend,
-        #preferred_Skills_Legend {
+        #technical_Skills_Fieldset,
+        #preferred_Skills_Fieldset {
             display: inline-block;
             width: fit-content;
             text-align: left;
@@ -636,7 +636,7 @@ you can also intent further to explain a certain area of code, for example:
             width: 100%;
         }
 
-        #other_Skills_Legend {
+        #other_Skills_Fieldset {
             display: inline-block;
             overflow-x: hidden;
             width: fit-content;
@@ -644,7 +644,7 @@ you can also intent further to explain a certain area of code, for example:
             width: 100%;
         }
 
-        #other_Skills_Legend textarea {
+        #other_Skills_Fieldset textarea {
             width: 98%;
         }
 
@@ -662,24 +662,24 @@ you can also intent further to explain a certain area of code, for example:
             display: flex;
         }
 
-        #personal_Details_Legend select,
+        #personal_Details_Fieldset select,
         #address_Legend select {
             width: 98%;
         }
 
-        #personal_Details_Legend input,
+        #personal_Details_Fieldset input,
         #address_Legend input,
         #contact_Legend input {
             width: 96%;
         }
 
-        #gender_Legend {
+        #gender_Fieldset {
             width: 20vh;
         }
 
-        #technical_Skills_Legend, 
-        #preferred_Skills_Legend, 
-        #other_Skills_Legend {
+        #technical_Skills_Fieldset, 
+        #preferred_Skills_Fieldset, 
+        #other_Skills_Fieldset {
             width: 100%;
         }
     }
