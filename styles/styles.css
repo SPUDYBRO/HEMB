@@ -571,8 +571,7 @@ you can also intent further to explain a certain area of code, for example:
 
     /* Putting the Address Details fieldset tag 
         into a container so that it can be spaced evenly in the form */
-
-        #container_For_Presonal_Details {
+        #container_For_Address_Details {
             justify-content: space-evenly;
             display: flex;
             width: 100%;
@@ -580,10 +579,10 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         #address_Legend {
-            max-width: fit-content;
-            display: inline-block;
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
             padding: 6px;
-            width: 100%;
         }
 
     
@@ -605,7 +604,7 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         #gender_Legend {   
-            width: 30vh;
+            width: 32vh;
         }
 
 
