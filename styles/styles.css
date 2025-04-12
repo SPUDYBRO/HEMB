@@ -641,7 +641,7 @@ you can also intent further to explain a certain area of code, for example:
         }
 
     /* Apply form for small devices */
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
         #apply_Page input::placeholder, select, textarea::placeholder, label {
             font-size: 0.8em; 
         }
