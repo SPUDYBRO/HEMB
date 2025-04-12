@@ -407,12 +407,8 @@ This is for styling every single page */
     }
 
     #employee_info {
-        background-color: var(--nav_background_color);
+        width: 100%;
         padding: 6px;
-        background-image: linear-gradient(to left, var(--content_background_color) 90%, var(--content_background_gradient_color));
-        border-radius: 30px;
-        box-shadow: 5px 5px 20px -5px black;
-        text-align: center;
     }
 
     #about_us_heading {
@@ -439,9 +435,6 @@ This is for styling every single page */
 
     .individual_employee > p {
         width: 63%
-    }
-
-    .individual_employee > img {
     }
 
     .title_image {
