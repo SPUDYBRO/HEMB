@@ -407,8 +407,12 @@ This is for styling every single page */
     }
 
     #employee_info {
-        width: 100%;
+        background-color: var(--nav_background_color);
         padding: 6px;
+        background-image: linear-gradient(to left, var(--content_background_color) 90%, var(--content_background_gradient_color));
+        border-radius: 30px;
+        box-shadow: 5px 5px 20px -5px black;
+        text-align: center;
     }
 
     #about_us_heading {
@@ -437,6 +441,9 @@ This is for styling every single page */
         width: 63%
     }
 
+    .individual_employee > img {
+    }
+
     .title_image {
         border-right: 1px solid black;
         padding-right: 10px;
@@ -445,27 +452,6 @@ This is for styling every single page */
 
     #thank_you_text {
         font-size: 25px;
-    }
-
-    @media (max-width: 800px) {
-        body, html {
-            height: 100%;
-            margin: 0;
-        }
-        
-        .individual_employee {
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* center horizontally */
-            align-items: center;     /* center vertically */
-            text-align: center;
-            height: 100vh;           /* full viewport height */
-            flex-direction: column;
-        }
-
-        .title_image {
-            border-right: 0px black;
-        }
     }
 
 
