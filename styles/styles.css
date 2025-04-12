@@ -540,6 +540,13 @@ you can also intent further to explain a certain area of code, for example:
             width: 98%;
         }
 
+        #apply_Form_Container > h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: rgb(40, 69, 92);
+            text-shadow: 4px 4px 0px rgb(129, 189, 230);
+        }
+
         /* Apply page for small devices */
         @media (max-width: 600px) {
             
@@ -608,9 +615,9 @@ you can also intent further to explain a certain area of code, for example:
         @media (max-width: 600px) {
 
             #container_For_Address_Details {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 4px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
             }
 
             #address_Legend select {
@@ -691,9 +698,9 @@ you can also intent further to explain a certain area of code, for example:
         @media (max-width: 600px) {
 
             #container_For_Technical_Preferred_And_Other_Skills {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 4px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
             }
 
             #technical_Skills_Legend, 
