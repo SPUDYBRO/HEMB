@@ -151,6 +151,7 @@ This is for styling every single page */
         .main_navigation a {
             display: flex;
             align-items: center;
+            vertical-align: middle;
             text-decoration: none;
             color: var(--nav_text_color);
             background-color: var(--nav_button_color);
