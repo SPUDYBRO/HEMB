@@ -413,10 +413,6 @@ This is for styling every single page */
 
     .individual_employee > h3 {
         width: 9%;
-        border-right: 1px solid black;
-        padding-right: 10px;
-        display: inline-block;
-        vertical-align: top;
     }
 
     .individual_employee > ul {
@@ -428,7 +424,13 @@ This is for styling every single page */
     }
 
     .individual_employee > img {
-        display: flex;
+    }
+
+    .title_image {
+        border-right: 1px solid black;
+        padding-right: 10px;
+        display: inline-block;
+        vertical-align: top;
     }
 
 
