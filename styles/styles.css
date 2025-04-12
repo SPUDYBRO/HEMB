@@ -359,7 +359,7 @@ This is for styling every single page */
         justify-content: space-around;
     }
 
-    #index_section {
+    .index_section {
         margin: 50px 0px;
     }
 
