@@ -676,13 +676,13 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         #personal_Details_Fieldset select,
-        #address_Legend select {
+        #address_Fieldset select {
             width: 98%;
         }
 
         #personal_Details_Fieldset input,
-        #address_Legend input,
-        #contact_Legend input {
+        #address_Fieldset input,
+        #contact_Fieldset input {
             width: 96%;
         }
 
