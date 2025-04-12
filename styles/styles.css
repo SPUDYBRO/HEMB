@@ -149,6 +149,8 @@ This is for styling every single page */
         }
 
         .main_navigation a {
+            display: flex;
+            align-items: center;
             text-decoration: none;
             color: var(--nav_text_color);
             background-color: var(--nav_button_color);
@@ -169,6 +171,17 @@ This is for styling every single page */
             background-color: var(--nav_button_hover_color);
             transform: translateY(2px) translateX(3px);
             box-shadow: inset 1px 2px 0px 0px black;
+        }
+
+        .main_navigation img {
+            filter: invert(100%);
+        }
+
+        .main_navigation a.current > img {
+            filter: invert(0%);
+        }
+        .main_navigation a:hover > img {
+            filter: invert(0%);
         }
         
 
@@ -287,10 +300,10 @@ This is for styling every single page */
         /* Responsive design for small width devices */
 
             /* Main navigation for small devices */
-                @media (max-width: 600px) {
+                @media (max-width: 1000px) {
                     .main_navigation {
                         min-width: 20px;
-                        width: 80%;
+                        width: max-content;
                         overflow-x: auto;
                         flex-wrap: nowrap;
                         justify-content: flex-start;
