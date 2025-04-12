@@ -409,19 +409,26 @@ This is for styling every single page */
     .individual_employee {
         display: flex;
         flex-direction: row;
-
     }
 
     .individual_employee > h3 {
-        width: 13%;
+        width: 9%;
+        border-right: 1px solid black;
+        padding-right: 10px;
+        display: inline-block;
+        vertical-align: top;
     }
 
     .individual_employee > ul {
-        width: 37%
+        width: 25%
     }
 
     .individual_employee > p {
-        width: 50%
+        width: 66%
+    }
+
+    .individual_employee > img {
+        display: flex;
     }
 
 
