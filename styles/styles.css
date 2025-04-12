@@ -229,6 +229,61 @@ This is for styling every single page */
         }
 
 
+
+
+
+
+        /* Section styling */
+
+        .main_section {
+            width: 85%;
+            margin: 50px 0px;
+            padding: 2% 0px;
+            background-color: var(--nav_background_color);
+            background-image: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
+            border-radius: 30px;
+            box-shadow: 5px 5px 20px -5px black;
+            text-align: center;
+        }
+
+        .main_section > h2 {
+            font-size: 2.2em;
+            color: rgb(40, 69, 92);
+            text-shadow: 4px 4px 0px rgb(129, 189, 230);
+            margin: 0px;
+        }
+
+        .main_section > p {
+            font-size: 1.3em;
+            margin: 0px;
+            width: 80%;
+            text-align: center;
+            margin: 0px auto;
+        }
+
+        .main_section > a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: white;
+            background-color: var(--nav_button_color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .main_section a:hover {
+            background-color: var(--nav_button_hover_color);
+            color: black;
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.6);
+        }
+
+
+
         /* Responsive design for small width devices */
 
             /* Main navigation for small devices */
@@ -335,52 +390,6 @@ This is for styling every single page */
     }
 
 
-    .index_content {
-        width: 85%;
-        margin: 50px 0px;
-        padding: 2% 0px;
-        background-color: var(--nav_background_color);
-        background-image: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
-        border-radius: 30px;
-        box-shadow: 5px 5px 20px -5px black;
-        text-align: center;
-    }
-
-    .index_content h2 {
-        font-size: 2.2em;
-        color: rgb(40, 69, 92);
-        text-shadow: 4px 4px 0px rgb(129, 189, 230);
-        margin: 0px;
-    }
-    .index_content p {
-        font-size: 1.3em;
-        margin: 0px;
-        width: 80%;
-        text-align: center;
-        margin: 0px auto;
-    }
-    .index_content a {
-        display: inline-block;
-        margin-top: 15px;
-        text-decoration: none;
-        color: white;
-        background-color: var(--nav_button_color);
-        padding: 10px 20px;
-        border-radius: 30px;
-        font-size: 1.2em;
-        font-weight: bold;
-        transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .index_content a:hover {
-        background-color: var(--nav_button_hover_color);
-        color: black;
-        transform: translateY(-5px);
-        box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.6);
-    }
-    
-
 
 /* About_Us.html styling */
 
@@ -443,7 +452,6 @@ This is for styling every single page */
 
     #thank_you_text {
         font-size: 25px;
-        font: bold;
     }
 
 
@@ -552,14 +560,12 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         #apply_Form_Container {
-            background-image: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
-            background-color: var(--nav_background_color);
-            box-shadow: 5px 5px 20px -5px black;
             border-radius: 3vh;
             margin: auto;
             padding: 1%;
             height: 80%;
             width: 98%;
+            text-align: left;
         }
 
         #apply_Form_Container > h1 {
