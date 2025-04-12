@@ -247,11 +247,11 @@ This is for styling every single page */
 
 
 
-        /* Section styling */
+    /* Section styling */
 
         .main_section {
             width: 85%;
-            margin: 50px 0px;
+            margin: 0px auto;
             padding: 2% 0px;
             background-color: var(--nav_background_color);
             background-image: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
@@ -346,6 +346,10 @@ This is for styling every single page */
         flex-direction: column;
       align-items: center;
         justify-content: space-around;
+    }
+
+    #index_section {
+        margin: 50px 0px;
     }
 
     #hero_img {
@@ -455,53 +459,105 @@ This is for styling every single page */
         width: 63%
     }
 
+    .title_image_and_list_flex_container {
+        display: flex;
+        flex-direction: row;
+        width: 45%;
+    }
+
     .title_image {
         border-right: 1px solid black;
         padding-right: 10px;
         display: inline-block;
     }
 
-    #thank_you_text {
-        font-size: 25px;
-    }
-
     @media (max-width: 800px) {
-        body, html {
-            height: 100%;
-            margin: 0;
+
+        #employee_info {
+            margin: 0px;
+            width: 100%;
+        }
+        .title_image_and_list_flex_container {
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .individual_employee > p{
+            width: 90%;
         }
         
         .individual_employee {
-            display: flex;
             flex-direction: column;
-            justify-content: center; /* center horizontally */
-            align-items: center;     /* center vertically */
-            text-align: center;
-            height: 100vh;           /* full viewport height */
-            flex-direction: column;
+            align-items: center;
+            width: 100%;
         }
 
-        .title_image {
-            border-right: 0px black;
-        }
     }
 
 
 
 /* Jobs Page styling by Michael Sharpley */
 
-
+    #jobs_main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     #jobs_page_aside {
         width: 25%;
         border: 3px solid var(--legend_and_input_color);
-        padding: 1% 0px;
+        padding: 25px;
         background-color: var(--nav_background_color);
 
         position: absolute;
-        bottom: 45vh;
-        right: 5%;
+        top: 17vh;
+        right: 2%;
+        text-align: center;
+        
     }
 
+    #jobs_page_aside > h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    #jobs_page_aside div > p,
+    #jobs_page_aside div > h3 {
+        margin: 0px;
+    }
+
+    #jobs_page_aside div {
+        margin-bottom: 20px;
+    }
+
+    .jobs_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px 0px;
+    }
+
+    .jobs_section div > h3 {
+        margin-bottom: 3px;
+    }
+
+    .jobs_section div > ul, 
+    .jobs_section div > ol {
+        width: fit-content;
+        text-align: left;
+        margin-top: 3px;
+    }
+
+
+    @media (max-width: 1400px) {
+        #jobs_page_aside {
+            position: static;
+            width: 70%;
+            margin: 0px auto;
+            top: 0;
+        }
+    }
 
 /*
 
