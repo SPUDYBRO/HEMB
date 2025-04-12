@@ -447,6 +447,27 @@ This is for styling every single page */
         font-size: 25px;
     }
 
+    @media (max-width: 800px) {
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        
+        .individual_employee {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* center horizontally */
+            align-items: center;     /* center vertically */
+            text-align: center;
+            height: 100vh;           /* full viewport height */
+            flex-direction: column;
+        }
+
+        .title_image {
+            border-right: 0px black;
+        }
+    }
+
 
 /* Jobs Page styling by Michael Sharpley */
 
