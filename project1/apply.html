@@ -31,10 +31,14 @@ this part of the assignment (we will do this in Part 2) this will allow the form
 tested.
 -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Application Form</title>
+    <meta name="description" content="HEMB IT Solutions - Apply Page, Application Form">
+    <meta name="keywords" content="HEMB, IT, Solutions, Application, Form">
+    <meta name="author" content="Henry Bennett, Evan Harrision">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="icon" type="image/x-icon" href="../images/fav_icon.png">
@@ -59,16 +63,16 @@ tested.
     </nav>
 
 
-    <main id="apply_Page">
+    <main id="apply_page">
         
-        <form id="job_Application_Form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
-            <div id="apply_Form_Container" class="main_section">
+        <form id="job_application_form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+            <div id="apply_form_container" class="main_section">
                 <h1>Show Your Interest Now</h1>
-                <div id="container_For_Presonal_Details">
-                    <fieldset id="personal_Details_Fieldset">
+                <div id="container_for_presonal_details">
+                    <fieldset id="personal_details_fieldset">
                         <legend>Personal Details</legend>
                         <label for="title">Title:</label>
-                        <select name="title" id="title" class="input_Background" required>
+                        <select name="title" id="title" class="input_background" required>
                             <option value="">Select Title</option>
                             <option value="Mr">Mr</option>
                             <option value="Mrs">Mrs</option>
@@ -76,32 +80,32 @@ tested.
                             <option value="Miss">Miss</option>
                             <option value="Dr">Dr</option>
                         </select>
-                        <label for="first_Name_Input">First Name:</label>
-                        <input type="text" name="first_Name_Input" id="first_Name_Input" class="input_Background" placeholder="First Name" pattern="[A-Za-z]{1,20}" required>
-                        <label for="last_Name_Input">Last Name</label>
-                        <input type="text" name="last_Name_Input" id="last_Name_Input" class="input_Background" placeholder="Last Name" pattern="[A-Za-z]{1,20}" required>
+                        <label for="first_name_input">First Name:</label>
+                        <input type="text" name="first_name_input" id="first_name_input" class="input_background" placeholder="First Name" pattern="[A-Za-z]{1,20}" required>
+                        <label for="last_name_input">Last Name</label>
+                        <input type="text" name="last_name_input" id="last_name_input" class="input_background" placeholder="Last Name" pattern="[A-Za-z]{1,20}" required>
                         <label for="date">Date of Birth:</label>
-                        <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" class="input_Background" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
-                        <label for="job_Reference_Number">Job Title:</label>
-                        <select name="job_Reference_Number" id="job_Reference_Number" class="input_Background" required>
+                        <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" class="input_background" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
+                        <label for="job_reference_number">Job Title:</label>
+                        <select name="job_reference_number" id="job_reference_number" class="input_background" required>
                             <option value="">Select Job Title</option>
-                            <option value="IT30">IT30</option>
-                            <option value="IT24">IT24</option>
-                            <option value="IT35">IT35</option>
-                            <option value="IT09">IT09</option>
+                            <option value="IT300">IT300</option>
+                            <option value="IT240">IT240</option>
+                            <option value="IT350">IT350</option>
+                            <option value="IT090">IT090</option>
                         </select>
                     </fieldset>
                 </div>
 
-                <div id="container_For_Address">
-                    <fieldset id="address_Fieldset">
+                <div id="container_for_address">
+                    <fieldset id="address_fieldset">
                         <legend>Address</legend>
-                        <label for="street_Address">Street Address:</label>
-                        <input type="text" name="street_Address" id="street_Address" class="input_Background" placeholder="Street Address" pattern=".{1,40}" required>
-                        <label for="suburb_Town">Suburb/Town:</label>
-                        <input type="text" name="suburb_Town" id="suburb_Town" class="input_Background" placeholder="Suburb/Town" pattern=".{1,40}" required>
+                        <label for="street_address">Street Address:</label>
+                        <input type="text" name="street_address" id="street_address" class="input_background" placeholder="Street Address" pattern=".{1,40}" required>
+                        <label for="suburb_town">Suburb/Town:</label>
+                        <input type="text" name="suburb_town" id="suburb_town" class="input_background" placeholder="Suburb/Town" pattern=".{1,40}" required>
                         <label for="state">State:</label>
-                        <select name="state" id="state" class="input_Background" required>
+                        <select name="state" id="state" class="input_background" required>
                             <option value="">Select State</option>
                             <option value="ACT">ACT</option>
                             <option value="VIC">VIC</option>
@@ -112,39 +116,39 @@ tested.
                             <option value="NT">NT</option>
                         </select>
                         <label for="postcode">Postcode:</label>
-                        <input type="text" id="postcode" class="input_Background" name="postcode" placeholder="0000" pattern="[0-9]{4,4}" required>
+                        <input type="text" id="postcode" class="input_background" name="postcode" placeholder="0000" pattern="[0-9]{4,4}" required>
                     </fieldset>
                 </div>
                 
-                <div id="container_For_Contact_Details_And_Gender">
-                    <fieldset id="gender_Fieldset">
+                <div id="container_for_contact_details_and_gender">
+                    <fieldset id="gender_fieldset">
                         <legend>Gender</legend>
-                        <label for="gender_Male">Male:</label>
-                        <input type="radio" value="Male" name="gender_Input" id="gender_Male" class="input_Background" required>
-                        <label for="gender_Female">Female:</label>
-                        <input type="radio" value="Female" name="gender_Input" id="gender_Female" class="input_Background" required>
+                        <label for="gender_male">Male:</label>
+                        <input type="radio" value="Male" name="gender_input" id="gender_Mmle" class="input_background" required>
+                        <label for="gender_female">Female:</label>
+                        <input type="radio" value="Female" name="gender_input" id="gender_female" class="input_background" required>
                     </fieldset>
 
-                    <fieldset id="contact_Fieldset">
+                    <fieldset id="contact_fieldset">
                         <legend>Contact Details</legend>
-                        <label for="email_Input">Email:</label>
-                        <input type="text" id="email_Input" class="input_Background" name="email_Input" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
-                        <label for="phone_Number_Input">Phone Number:</label>
-                        <input type="text" id="phone_Number_Input" class="input_Background" name="phone_Number_Input" placeholder="(0000-000-000)" pattern="[0-9\s]{4,4}-[0-9\s]{3,3}-[0-9\s]{3,3}" required>
+                        <label for="email_input">Email:</label>
+                        <input type="text" id="email_input" class="input_background" name="email_input" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                        <label for="phone_number_input">Phone Number:</label>
+                        <input type="text" id="phone_number_input" class="input_background" name="phone_number_input" placeholder="0000 000 000" pattern="[0-9\s]{8,12}" required>
                     </fieldset>
                 </div>
 
-                <div id="container_For_Technical_Preferred_And_Other_Skills">
-                    <fieldset id="technical_Skills_Fieldset">
+                <div id="container_for_technical_preferred_and_other_skills">
+                    <fieldset id="technical_skills_fieldset">
                         <legend>Technical Skills</legend>
-                        <input type="checkbox" value="Trouble Shooting" name="techinical_Skills[]" id="skills_Trouble_Shooting" class="input_Background" required>
-                        <label for="skills_Trouble_Shooting">Knowledge in Troubleshooting</label>
+                        <input type="checkbox" value="Trouble Shooting" name="techinical_skills[]" id="skills_trouble_shooting" class="input_background" required>
+                        <label for="skills_trouble_shooting">Knowledge in Troubleshooting</label>
                         <br>
-                        <input type="checkbox" value="Networking" name="techinical_Skills[]" id="skills_Networking" class="input_Background" required>
-                        <label for="skills_Networking">Understanding of Network Infrastructure</label>
+                        <input type="checkbox" value="Networking" name="techinical_skills[]" id="skills_networking" class="input_background" required>
+                        <label for="skills_networking">Understanding of Network Infrastructure</label>
                         <br>
-                        <input type="checkbox" value="Hardware" name="techinical_Skills[]" id="skills_Hardware" class="input_Background" required>
-                        <label for="skills_Hardware">Knowledge of Computer Hardware</label>
+                        <input type="checkbox" value="Hardware" name="techinical_skills[]" id="skills_hardware" class="input_background" required>
+                        <label for="skills_hardware">Knowledge of Computer Hardware</label>
                         <br>
                         <input type="checkbox" value="Software" name="techinical_Skills[]" id="skills_Software" class="input_Background" required>
                         <label for="skills_Software">Proficiency in Operating Systems</label>

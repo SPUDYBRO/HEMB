@@ -437,6 +437,10 @@ This is for styling every single page */
         margin: 0px auto;
     }
 
+    #About_Main dd {
+        margin: 0px;
+    }
+
     #employee_info {
         background-color: var(--nav_background_color);
         padding: 6px;
