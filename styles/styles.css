@@ -317,7 +317,7 @@ This is for styling every single page */
                     }
                 }
 
-                @media (max-width: 340px) {
+                @media (max-width: 600px) {
                     .main_navigation {
                         width: 100%;
                         flex-direction: column;
