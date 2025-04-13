@@ -587,34 +587,41 @@ This is for styling every single page */
 
 /* Apply Page Styling */
 
-    /* Defines the base color theme for the job page (May incorporate this theme across all pages with group approval. */
+    /* Sets the base styling of the whole apply.html page. */
 
+        /* center the apply page h1 tag. */
         #apply_page h1 {
             text-align: center;
         }
 
+        /* Sets the fieldsets border and color in the apply.html page. */
         #apply_page fieldset {
             border: 2px solid var(--legend_and_input_color);
             border-radius: 10px;
         }
 
+        /* Sets the border of the input, select and textarea inputs in the apply.html page. */
         #apply_page input, select, textarea {
             border: 1.5px solid var(--legend_and_input_color);
             border-radius: 4px;
         }
 
+        /* Sets the background color of all inputs (input, select, etc.) in the apply.html page. */
         .input_background {
             background-color: var(--input_background_color);
         } 
 
+        /* Sets the background color of all checkboxs once ticked. */
         .input_background {
             accent-color: var(--input_background_color);
         } 
 
+        /* Sets the color of the placeholders in the apply.html page to black. */
         #apply_page input::placeholder, textarea::placeholder {
             color: black;
         }
 
+        /* Sets the size and positioning of the form. */
         #apply_form_container {
             border-radius: 3vh;
             margin: auto;
@@ -624,6 +631,7 @@ This is for styling every single page */
             text-align: left;
         }
 
+        /* Sets the style and size of the <h1> tag in the apply.html page. */
         #apply_form_container > h1 {
             text-shadow: 4px 4px 0px rgb(129, 189, 230);
             color: rgb(40, 69, 92);
@@ -631,69 +639,10 @@ This is for styling every single page */
             font-size: 2.5em;
         }
 
-
-    /* Putting the Personal Details fieldset tag 
-        into a container so that it can be spaced evenly in the form */
-        #container_for_presonal_details {
-            justify-content: space-evenly;
-            display: flex;
-            width: 100%;
-            gap: 4px;
-        }
-
-        #personal_details_fieldset {
-            max-width: fit-content;
-            display: inline-block;
-            padding: 6px;
-            width: 100%;
-        }
-
-        #personal_details_fieldset input{
-            width: 12%;
-        }
-
-
-    /* Putting the Address Details fieldset tag 
-        into a container so that it can be spaced evenly in the form */
-        #container_for_address_details {
-            justify-content: space-evenly;
-            display: flex;
-            width: 100%;
-            gap: 4px;
-        }
-
-        #address_fieldset {
-            flex-direction: row;
-            flex-wrap: wrap;
-            display: flex;
-            padding: 6px;
-        }
-
-    
-    /* Putting the contact and preffered skills fieldset
-        tags into a container so that they can be side by side */
-        #container_for_contact_details_and_gender {
-            justify-content: space-evenly;
-            display: flex;
-            width: 100%;
-            gap: 4px;
-        }
-
-        #contact_fieldset, 
-        #gender_fieldset {
-            display: inline-block;
-            width: fit-content;
-            padding: 6px;
-            width: 100%;
-        }
-
-        #gender_fieldset {   
-            width: 32vh;
-        }
-
-
-    /* Putting the experience and other skills fieldset 
-    tags into a container so that they can be side by side */
+        /* Allows for the contact and gender fieldsets to be side by side 
+        along with the technical skills, preferred skills and other 
+        skills fieldsets to be side by side as well in the apply.html page. */
+        #container_for_contact_details_and_gender,
         #container_for_technical_preferred_and_other_skills {
             justify-content: space-evenly;
             display: flex;
@@ -702,6 +651,28 @@ This is for styling every single page */
             
         }
 
+        /* Keeps the personal and address fieldsets inside of the apply form in 
+        the apply.html page. */
+        #personal_details_fieldset,
+        #address_fieldset {
+            flex-direction: row;
+            flex-wrap: wrap;
+            display: flex;
+            padding: 6px;
+        }
+        
+        /* Sets the attributes the contact and gender filedsets so that 
+        they can be side by side in the apply.html page. */
+        #contact_fieldset, 
+        #gender_fieldset {
+            display: inline-block;
+            width: fit-content;
+            padding: 6px;
+            width: 100%;
+        }
+
+        /* Sets the attributes the technical and preferred skills filedsets 
+        so that they can be side by side in the apply.html page. */
         #technical_skills_fieldset,
         #preferred_skills_fieldset {
             display: inline-block;
@@ -711,24 +682,39 @@ This is for styling every single page */
             width: 100%;
         }
 
+        /* Sets the attributes the other skills filedset in the apply.html page. */
         #other_skills_fieldset {
             display: inline-block;
             overflow-x: hidden;
             width: fit-content;
             padding: 6px;
             width: 100%;
+        }  
+
+        /* Sets the width of the inputs of the apply form in the apply.html page. */
+        #personal_details_fieldset input{
+            width: 12%;
+        }
+           
+        /* Sets the width of the gender fieldset in the apply.html page. */
+        #gender_fieldset {   
+            width: 32vh;
         }
 
+        /* Sets the width of the other skills textarea in the apply.html page. */
         #other_skills_fieldset textarea {
             width: 98%;
         }
 
-    /* Apply form for small devices */
+
+    /* Apply form for small devices. (under 800px in width) */
     @media (max-width: 800px) {
+        /* Decreases the font size to reduced space. */
         #apply_page input::placeholder, select, textarea::placeholder, label {
             font-size: 0.8em; 
         }
 
+        /* Makes the fieldsets to go downwards rather than across. */
         #container_for_personal_details,
         #container_for_address_details,
         #container_for_technical_preferred_and_other_skills {
@@ -737,28 +723,31 @@ This is for styling every single page */
             display: flex;
         }
 
+        /* Sets the width of the select tag. */
         #personal_details_fieldset select,
         #address_fieldset select {
             width: 98%;
         }
 
+        /* Sets the width of the input tag. */
         #personal_details_fieldset input,
         #address_fieldset input,
         #contact_fieldset input {
             width: 96%;
         }
 
+        /* Sets the width of the gender fieldset. */
         #gender_fieldset {
             width: 20vh;
         }
 
+        /* Sets the width of all fieldsets inside the form. (apart form the gender fieldset) */
         #technical_skills_fieldset, 
         #preferred_skills_fieldset, 
         #other_skills_fieldset {
             width: 100%;
         }
     }
-
 
 /*
 
