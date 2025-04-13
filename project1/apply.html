@@ -35,6 +35,7 @@ tested.
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tages, linking to CSS and fav icon -->
     <title>Apply | HEMB-IT</title>
     <meta name="description" content="HEMB IT Solutions - Apply Page, Application Form">
     <meta name="keywords" content="HEMB, IT, Solutions, Application, Form">
@@ -62,15 +63,20 @@ tested.
         <a href="mailto:example@email.com"><img src="../images/mail_icon.png" alt="an image of a mail icon">Email us!</a>
     </nav>
 
-
+    <!-- Apply Page -->
     <main id="apply_page">
-        
+        <!-- Apply Form -->
         <form id="job_application_form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+            <!-- Div element to style the apply form -->
             <div id="apply_form_container" class="main_section">
+                <!-- Header for the apply form -->
                 <h1>Show Your Interest Now</h1>
+                <!-- Div element to style the personal details fieldset -->
                 <div id="container_for_presonal_details">
+                    <!-- Personal details fieldset -->
                     <fieldset id="personal_details_fieldset">
                         <legend>Personal Details</legend>
+                        <!-- Title Input -->
                         <label for="title">Title:</label>
                         <select name="title" id="title" class="input_background" required>
                             <option value="">Select Title</option>
@@ -80,12 +86,16 @@ tested.
                             <option value="Miss">Miss</option>
                             <option value="Dr">Dr</option>
                         </select>
+                        <!-- First Name Input -->
                         <label for="first_name_input">First Name:</label>
                         <input type="text" name="first_name_input" id="first_name_input" class="input_background" placeholder="First Name" pattern="[A-Za-z]{1,20}" required>
+                        <!-- Last Name Input -->
                         <label for="last_name_input">Last Name</label>
                         <input type="text" name="last_name_input" id="last_name_input" class="input_background" placeholder="Last Name" pattern="[A-Za-z]{1,20}" required>
+                        <!-- Date of Birth Input -->
                         <label for="date">Date of Birth:</label>
                         <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" class="input_background" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" required>
+                        <!-- Job Reference Number Input -->
                         <label for="job_reference_number">Job Title:</label>
                         <select name="job_reference_number" id="job_reference_number" class="input_background" required>
                             <option value="">Select Job Title</option>
@@ -97,13 +107,18 @@ tested.
                     </fieldset>
                 </div>
 
+                <!-- Div element to style the address fieldset -->
                 <div id="container_for_address">
+                    <!-- Address fieldset -->
                     <fieldset id="address_fieldset">
                         <legend>Address</legend>
+                        <!-- Address Input -->
                         <label for="street_address">Street Address:</label>
                         <input type="text" name="street_address" id="street_address" class="input_background" placeholder="Street Address" pattern=".{1,40}" required>
+                        <!-- Suburb/Town Input -->
                         <label for="suburb_town">Suburb/Town:</label>
                         <input type="text" name="suburb_town" id="suburb_town" class="input_background" placeholder="Suburb/Town" pattern=".{1,40}" required>
+                        <!-- State Input -->
                         <label for="state">State:</label>
                         <select name="state" id="state" class="input_background" required>
                             <option value="">Select State</option>
@@ -115,32 +130,42 @@ tested.
                             <option value="WA">WA</option>
                             <option value="NT">NT</option>
                         </select>
+                        <!-- Postcode Input -->
                         <label for="postcode">Postcode:</label>
                         <input type="text" id="postcode" class="input_background" name="postcode" placeholder="0000" pattern="[0-9]{4,4}" required>
                     </fieldset>
                 </div>
-                
+
+                <!-- Div element to style the contact and gedner fieldsets -->
                 <div id="container_for_contact_details_and_gender">
+                    <!-- Gender fieldset -->
                     <fieldset id="gender_fieldset">
                         <legend>Gender</legend>
+                        <!-- Gender Input -->
                         <label for="gender_male">Male:</label>
                         <input type="radio" value="Male" name="gender_input" id="gender_male" class="input_background" required>
                         <label for="gender_female">Female:</label>
                         <input type="radio" value="Female" name="gender_input" id="gender_female" class="input_background" required>
                     </fieldset>
 
+                    <!-- Contact details fieldset -->
                     <fieldset id="contact_fieldset">
                         <legend>Contact Details</legend>
+                        <!-- Email Input -->
                         <label for="email_input">Email:</label>
                         <input type="text" id="email_input" class="input_background" name="email_input" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                        <!-- Phone number Input -->
                         <label for="phone_number_input">Phone Number:</label>
                         <input type="text" id="phone_number_input" class="input_background" name="phone_number_input" placeholder="0000 000 000" pattern="[0-9\s]{8,12}" required>
                     </fieldset>
                 </div>
 
+                <!-- Div element to style the technical, preferred and other skills fieldsets -->
                 <div id="container_for_technical_preferred_and_other_skills">
+                    <!-- Technical skills fieldset -->
                     <fieldset id="technical_skills_fieldset">
                         <legend>Technical Skills</legend>
+                        <!-- Technical skills Checkboxs -->
                         <input type="checkbox" value="Trouble Shooting" name="techinical_skills[]" id="skills_trouble_shooting" class="input_background" required>
                         <label for="skills_trouble_shooting">Knowledge in Troubleshooting</label>
                         <br>
@@ -161,9 +186,11 @@ tested.
                         <br>
                         <br>
                     </fieldset>
-                    
+
+                    <!-- Preferred skills fieldset -->
                     <fieldset id="preferred_skills_fieldset">
                         <legend>Preferred Skills</legend>
+                        <!-- Preferred skills Checkboxs -->
                         <input type="checkbox" value="Communication" name="preferred_skills[]" id="skills_communication" class="input_background">
                         <label for="skills_communication">Communication</label>
                         <br>
@@ -179,12 +206,15 @@ tested.
                         <input type="checkbox" value="Fast Learner" name="preferred_skills[]" id="skills_fast_learner" class="input_background">
                         <label for="skills_fast_learner">Fast Learner</label>
                     </fieldset>
-                    
+
+                    <!-- Other skills fieldset -->
                     <fieldset id="other_skills_fieldset">
                         <legend>Other Skills</legend>
+                        <!-- Other skills Input -->
                         <label for="other_skills">Other skills: (if any)</label>
                         <br>
                         <textarea name="other_skills" id="other_skills" class="input_background" placeholder="Enter other skills here" cols="20" rows="6"></textarea>
+                        <!-- Apply Button -->
                         <input type="submit" value="Apply" class="input_background">
                     </fieldset>
                 </div>
@@ -192,6 +222,7 @@ tested.
         </form>
     </main>
 
+    <!-- Footer Section -->
     <footer>
         <div id="footer_company_description">
             <h2>HEMB IT Solutions</h2>
@@ -203,7 +234,9 @@ tested.
             <!-- Create an empty row in the footer grid -->
         </div>
 
+        <!-- Footer Links Section -->
         <div id="footer_links_flex_container">
+            <!-- Page Links -->
             <div class="footer_links">
                 <p>Pages</p>
                 <nav>
@@ -214,6 +247,7 @@ tested.
                 </nav>
             </div>
 
+            <!-- Social Media Links -->
             <div class="footer_links">
                 <p>Social Media</p>
                 <nav>
@@ -225,6 +259,7 @@ tested.
                 </nav>
             </div>
 
+            <!-- Useful Links (Jira, Github etc) -->
             <div class="footer_links">
                 <p>Useful Links</p>
                 <nav>
@@ -234,6 +269,7 @@ tested.
                 </nav>
             </div>
 
+            <!-- Footer Image -->
             <div id="footer_image">
                 <img src="../images/footer_image.png" alt="text saying 'HEMB IT Solutions'">
             </div>
