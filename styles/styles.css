@@ -526,6 +526,7 @@ This is for styling every single page */
         flex-direction: column;
         align-items: center;
     }
+
     #jobs_page_aside {
         width: 25%;
         border: 3px solid var(--legend_and_input_color);
@@ -536,7 +537,6 @@ This is for styling every single page */
         background-color: var(--nav_background_color);
         float: right;
         text-align: center;
-        
     }
 
     #jobs_main > h1 {
@@ -583,64 +583,6 @@ This is for styling every single page */
             top: 0;
         }
     }
-
-/*
-
-5. Position Descriptions Page: Demonstrated the following specific CSS rules on the jobs.html
-page:
-• <h1> elements should have their font variant, size and family etc. set using the
-short-hand font property.
-• The <aside> should be 25% of the width of page and float to the right.
-• The <aside> should have a coloured border with an appropriate margin and
-padding.
-• The footer should cover the full width of the page the footer text should be in a
-small font and centred in the footer.
-
-/ Page the file relates to /
-
-    #example_element_1{
-        style: value;
-    }
-    #example_element_2{
-        style: value;
-    }
-
-
-/ another page /
-
-    #example_element_3{
-        style: value;
-    }
-    #example_element_4{
-        style: value;
-    }
-
-
-this way we can see which elements are related to which page. which will make it easier to read and write the code
-between multiple people.
-
-you can also intent further to explain a certain area of code, for example:
-
-    #example_element_1{
-        style: value;
-    }
-    #example_element_2{
-        style: value;
-    }
-    
-    / this code is focused on something specific /
-        #example_element_3{
-            style: value;
-        }
-        #example_element_4{
-            style: value;
-        }
-    
-    #example_element_5{
-        style: value;
-    }
-
-*/    
 
 
 /* Apply Page Styling */
