@@ -589,33 +589,33 @@ This is for styling every single page */
 
     /* Defines the base color theme for the job page (May incorporate this theme across all pages with group approval. */
 
-        #apply_Page h1 {
+        #apply_page h1 {
             text-align: center;
         }
 
-        #apply_Page fieldset {
+        #apply_page fieldset {
             border: 2px solid var(--legend_and_input_color);
             border-radius: 10px;
         }
 
-        #apply_Page input, select, textarea {
+        #apply_page input, select, textarea {
             border: 1.5px solid var(--legend_and_input_color);
             border-radius: 4px;
         }
 
-        .input_Background {
+        .input_background {
             background-color: var(--input_background_color);
         } 
 
-        .input_Background {
+        .input_background {
             accent-color: var(--input_background_color);
         } 
 
-        #apply_Page input::placeholder, textarea::placeholder {
+        #apply_page input::placeholder, textarea::placeholder {
             color: black;
         }
 
-        #apply_Form_Container {
+        #apply_form_container {
             border-radius: 3vh;
             margin: auto;
             padding: 1%;
@@ -624,7 +624,7 @@ This is for styling every single page */
             text-align: left;
         }
 
-        #apply_Form_Container > h1 {
+        #apply_form_container > h1 {
             text-shadow: 4px 4px 0px rgb(129, 189, 230);
             color: rgb(40, 69, 92);
             text-align: center;
@@ -634,35 +634,35 @@ This is for styling every single page */
 
     /* Putting the Personal Details fieldset tag 
         into a container so that it can be spaced evenly in the form */
-        #container_For_Presonal_Details {
+        #container_for_presonal_details {
             justify-content: space-evenly;
             display: flex;
             width: 100%;
             gap: 4px;
         }
 
-        #personal_Details_Fieldset {
+        #personal_details_fieldset {
             max-width: fit-content;
             display: inline-block;
             padding: 6px;
             width: 100%;
         }
 
-        #personal_Details_Fieldset input{
+        #personal_details_fieldset input{
             width: 12%;
         }
 
 
     /* Putting the Address Details fieldset tag 
         into a container so that it can be spaced evenly in the form */
-        #container_For_Address_Details {
+        #container_for_address_details {
             justify-content: space-evenly;
             display: flex;
             width: 100%;
             gap: 4px;
         }
 
-        #address_Fieldset {
+        #address_fieldset {
             flex-direction: row;
             flex-wrap: wrap;
             display: flex;
@@ -672,29 +672,29 @@ This is for styling every single page */
     
     /* Putting the contact and preffered skills fieldset
         tags into a container so that they can be side by side */
-        #container_For_Contact_Details_And_Gender {
+        #container_for_contact_details_and_gender {
             justify-content: space-evenly;
             display: flex;
             width: 100%;
             gap: 4px;
         }
 
-        #contact_Fieldset, 
-        #gender_Fieldset {
+        #contact_fieldset, 
+        #gender_fieldset {
             display: inline-block;
             width: fit-content;
             padding: 6px;
             width: 100%;
         }
 
-        #gender_Fieldset {   
+        #gender_fieldset {   
             width: 32vh;
         }
 
 
     /* Putting the experience and other skills fieldset 
     tags into a container so that they can be side by side */
-        #container_For_Technical_Preferred_And_Other_Skills {
+        #container_for_technical_preferred_and_other_skills {
             justify-content: space-evenly;
             display: flex;
             width: 100%;
@@ -702,8 +702,8 @@ This is for styling every single page */
             
         }
 
-        #technical_Skills_Fieldset,
-        #preferred_Skills_Fieldset {
+        #technical_skills_fieldset,
+        #preferred_skills_fieldset {
             display: inline-block;
             width: fit-content;
             text-align: left;
@@ -711,7 +711,7 @@ This is for styling every single page */
             width: 100%;
         }
 
-        #other_Skills_Fieldset {
+        #other_skills_fieldset {
             display: inline-block;
             overflow-x: hidden;
             width: fit-content;
@@ -719,42 +719,42 @@ This is for styling every single page */
             width: 100%;
         }
 
-        #other_Skills_Fieldset textarea {
+        #other_skills_fieldset textarea {
             width: 98%;
         }
 
     /* Apply form for small devices */
     @media (max-width: 800px) {
-        #apply_Page input::placeholder, select, textarea::placeholder, label {
+        #apply_page input::placeholder, select, textarea::placeholder, label {
             font-size: 0.8em; 
         }
 
-        #container_For_Personal_Details,
-        #container_For_Address_Details,
-        #container_For_Technical_Preferred_And_Other_Skills {
+        #container_for_personal_details,
+        #container_for_address_details,
+        #container_for_technical_preferred_and_other_skills {
             flex-direction: row;
             flex-wrap: wrap;
             display: flex;
         }
 
-        #personal_Details_Fieldset select,
-        #address_Fieldset select {
+        #personal_details_fieldset select,
+        #address_fieldset select {
             width: 98%;
         }
 
-        #personal_Details_Fieldset input,
-        #address_Fieldset input,
-        #contact_Fieldset input {
+        #personal_details_fieldset input,
+        #address_fieldset input,
+        #contact_fieldset input {
             width: 96%;
         }
 
-        #gender_Fieldset {
+        #gender_fieldset {
             width: 20vh;
         }
 
-        #technical_Skills_Fieldset, 
-        #preferred_Skills_Fieldset, 
-        #other_Skills_Fieldset {
+        #technical_skills_fieldset, 
+        #preferred_skills_fieldset, 
+        #other_skills_fieldset {
             width: 100%;
         }
     }
