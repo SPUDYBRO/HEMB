@@ -468,15 +468,20 @@ This is for styling every single page */
 
     /* About Us - Title / What We Do Content */
 
+    /* Width of Screen Text */
+
     #About_Main {
         width: 85%;
         margin: 0px auto;
     }
 
+    
+    /* Removes default spacing */
     #About_Main dd {
         margin: 0px;
     }
 
+    /* Creates a gradient in the content background */
     #employee_info {
         background-color: var(--nav_background_color);
         padding: 6px;
@@ -486,49 +491,65 @@ This is for styling every single page */
         text-align: center;
     }
 
+    /* Aligns #about_us_heading to the center */
     #about_us_heading {
         text-align: center;
         padding: 7px;
     }
 
+    /* Adds an underline to the #employee_info text */
     #employee_info h3 {
         text-decoration: underline;
     }
 
+    /* Puts .individual_employee content in an eastern facing row for styling */
     .individual_employee {
         display: flex;
         flex-direction: row;
     }
 
+    /* Changes width for content to size and setup flex-direction: row*/
     .individual_employee > h3 {
         width: 12%;
     }
 
+    /* Changes width for content to size and setup flex-direction: row*/
     .individual_employee > ul {
         width: 25%
     }
 
+    /* Changes width for content to size and setup flex-direction: row*/
     .individual_employee > p {
         width: 63%
     }
 
+    /* Setups image height and width for all individual photos */
     .individual_employee_photos {
         width: 140px;
         height: 140px;
     }
 
+    /* Setups horizontal flex container */
     .title_image_and_list_flex_container {
         display: flex;
         flex-direction: row;
         width: 45%;
     }
 
+    /* Adds a line to the right of title_images using the border for styling. */
     .title_image {
         border-right: 1px solid black;
         padding-right: 10px;
         display: inline-block;
     }
 
+    /* Changes width and height of group photo */
+    #Group_Photo {
+        width: 300px;
+        height: 215px;
+    }
+
+    /* When the screen goes less than 800px the style of the website will chagne, modifying the flex-direction: row; into a flex-direction: column so it can fit on phone screens etc... */
     @media (max-width: 800px) {
 
         #employee_info {
