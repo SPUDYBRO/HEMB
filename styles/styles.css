@@ -578,6 +578,21 @@ This is for styling every single page */
 
     }
 
+    @media (max-width: 480px) {
+        .title_image_and_list_flex_container {
+            flex-direction: column;
+            border-bottom: 1px solid black;
+        }
+        .title_image {
+            border-right: none;
+        }
+        #Group_Photo {
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+
 
 
 /* Jobs Page styling by Michael Sharpley */
