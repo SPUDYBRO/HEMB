@@ -466,27 +466,6 @@ This is for styling every single page */
         height: 215px;
     }
 
-    #member_contributions > h2,
-    #member_contributions > h3,
-    #member_contributions > p {
-        margin: 0px;
-    }
-
-    .contribution_flex_container > h3,
-    .contribution_flex_container > p {
-        margin: 0px;
-        text-align: center;
-        height: min-content;
-    }
-
-    .contribution_flex_container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
 
 
 /* Jobs Page styling by Evan for Micheal (delegated task) */
@@ -740,10 +719,6 @@ This is for styling every single page */
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
-            }
-
-            .contribution_flex_container {
-                border-bottom: 1px solid black;
             }
 
     }
