@@ -651,24 +651,15 @@ This is for styling every single page */
             
         }
 
-        /* Keeps the personal and address fieldsets inside of the apply form in 
+        /* Keeps the personal, address, contact and gender fieldsets inside of the apply form in 
         the apply.html page. */
         #personal_details_fieldset,
-        #address_fieldset {
-            flex-direction: row;
-            flex-wrap: wrap;
-            display: flex;
-            padding: 6px;
-        }
-        
-        /* Sets the attributes the contact and gender filedsets so that 
-        they can be side by side in the apply.html page. */
+        #address_fieldset,
         #contact_fieldset, 
         #gender_fieldset {
-            display: inline-block;
-            width: fit-content;
+            flex-direction: row;
+            flex-wrap: wrap;
             padding: 6px;
-            width: 100%;
         }
 
         /* Sets the attributes the technical and preferred skills filedsets 
@@ -708,7 +699,7 @@ This is for styling every single page */
 
 
     /* Apply form for small devices. (under 800px in width) */
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
         /* Decreases the font size to reduced space. */
         #apply_page input::placeholder, select, textarea::placeholder, label {
             font-size: 0.8em; 
