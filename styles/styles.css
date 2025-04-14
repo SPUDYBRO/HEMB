@@ -125,6 +125,14 @@ This is for styling every single page */
         line-height: 2;
     }
 
+    @media (max-width: 430px) {
+        main {
+            width: 100%;
+            padding: 20px 20px;
+            border-radius: 25px;
+        }
+    }
+
 
     /* Main navigation styling; Note: values should be changed from the variables not from here */
         .main_navigation {
@@ -319,10 +327,12 @@ This is for styling every single page */
 
                 @media (max-width: 600px) {
                     .main_navigation {
-                        width: 100%;
+                        width: 90%;
                         flex-direction: column;
                         align-items: center;
                         gap: 0px;
+                        margin: 0px auto;
+                        overflow-x: hidden;
                     }
                     .main_navigation a {
                         width: 100%;
@@ -357,7 +367,7 @@ This is for styling every single page */
     #index_main {
         display: flex;
         flex-direction: column;
-      align-items: center;
+        align-items: center;
         justify-content: space-around;
     }
 
@@ -420,15 +430,41 @@ This is for styling every single page */
         text-shadow: 5px 5px 4px rgb(129, 189, 230);
     }
 
-
+    @media (max-width: 600px) {
+        #hero_img {
+            min-height: 0px;
+            height: 60vh;
+            font-size: larger;
+        }
+        #hero_text > p {
+            font-size: medium;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        #hero_img {
+            min-height: 0px;
+            height: 50vh;
+            font-size: medium;
+        }
+        #hero_text > p {
+            font-size: small;
+        }
+    }
+    @media (max-width: 340px) {
+        #hero_img {
+            min-height: 0px;
+            height: 40vh;
+        }
+        #hero_text {
+            top: 0%;
+            left: 0%;
+            transform: translate(0%, 0%);
+            background-color: rgba(78, 78, 78, 0.438);
+        }
+    }
 
 /* About_Us.html styling */
-
-    /* main {
-        width: %70 
-    } */
-
-    /* Line Breaks */
 
     /* About Us - Title / What We Do Content */
 
