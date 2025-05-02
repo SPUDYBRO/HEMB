@@ -59,7 +59,7 @@
         </div>
 
         <div id="footer_image">
-            <img src="../images/footer_image.png" alt="text saying 'HEMB IT Solutions'">
+            <img src="../images/footer_image.webp" alt="text saying 'HEMB IT Solutions'">
         </div>
     
     </div>
