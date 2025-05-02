@@ -550,6 +550,12 @@ This is for styling every single page */
             border-radius: 4px;
         }
 
+        #apply_page textarea {
+            resize: vertical;
+            max-height: 32vh;
+            min-height: 17vh;
+        }
+
         /* Sets the background color of all inputs (input, select, etc.) in the apply.html page. */
         .input_background {
             background-color: var(--input_background_color);
