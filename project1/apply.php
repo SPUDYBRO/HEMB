@@ -38,9 +38,10 @@ tested.
 <?php
     include '../php/functionality.php';
     session_start();
-
-    if (!isset($_SESSION['accessibility'])) { // check if the accessibility array is set for this user
-        set_accessibility_defaults();
+    if (!isset($_SESSION['accessibility']) ||
+        !isset($_SESSION['accessibility']['color_scheme']) ||
+        !isset($_SESSION['accessibility']['text_size'])) { // check if the accessibility array is set for this user
+            set_accessibility_defaults();
     }
 
 

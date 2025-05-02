@@ -22,9 +22,10 @@ In the footer include the link to your Jira Project (Don't forget to give access
 <?php
     include '../php/functionality.php';
     session_start();
-
-    if (!isset($_SESSION['accessibility'])) { // check if the accessibility array is set for this user
-        set_accessibility_defaults();
+    if (!isset($_SESSION['accessibility']) ||
+        !isset($_SESSION['accessibility']['color_scheme']) ||
+        !isset($_SESSION['accessibility']['text_size'])) { // check if the accessibility array is set for this user
+            set_accessibility_defaults();
     }
 
 
@@ -97,7 +98,6 @@ In the footer include the link to your Jira Project (Don't forget to give access
         include '../inc/navigation.inc'; 
         
         ?>
-
 
 
         

@@ -1,25 +1,31 @@
 <?php
 
-
     if (isset($_GET['accessibility'])) {
         session_start();
 
         if (!isset($_SESSION['accessibility'])) {
-            echo "session not set, setting defaults<br>";
-            set_accessibility_defaults(); // ensures that the session variable is set to default values
+            set_accessibility_defaults();
         }
 
-        if ($_GET['accessibility'] == 'color_scheme'){
+        if ($_GET['accessibility'] == 'color_scheme') {
             if ($_SESSION['accessibility']['color_scheme'] == 'default') {
-                echo "session set, setting black white<br>";
                 $_SESSION['accessibility']['color_scheme'] = "black_white";
-            }
-            else {
+            } else {
                 echo "session set, setting default<br>";
                 $_SESSION['accessibility']['color_scheme'] = 'default';
             }
         }
-        
+
+        if ($_GET['accessibility'] == 'text_size') {
+            if ($_SESSION['accessibility']['text_size'] == 'default') {
+                $_SESSION['accessibility']['text_size'] = "text_large";
+            } elseif ($_SESSION['accessibility']['text_size'] == 'text_large') {
+                $_SESSION['accessibility']['text_size'] = 'text_small';
+            } else {
+                $_SESSION['accessibility']['text_size'] = 'default';
+            }
+        }
 
         header("Location: " . $_SERVER['HTTP_REFERER']);
-    }
+        exit;
+}
