@@ -17,8 +17,38 @@ the techniques you apply in your assignment, and could include:
 • A list of your group members’ favourite books, music, films etc.
 -->
 
+
+
+
+<!-- PHP code to set accessability preferences for the website -->
+<?php
+    include '../php/functionality.php';
+    session_start();
+
+    if (!isset($_SESSION['accessibility'])) { // check if the accessibility array is set for this user
+        set_accessibility_defaults();
+    }
+
+
+    
+    
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="<?php 
+    if ($_SESSION['accessibility']['color_scheme'] != 'default') {
+        echo $_SESSION['accessibility']['color_scheme'];
+    }
+    ?>">
+
+
+
+
     <head>
         <title>About Us | HEMB-IT</title>
         <meta name="description" content="HEMB IT Solutions - About Page">
@@ -38,13 +68,29 @@ the techniques you apply in your assignment, and could include:
     <body>
         <!-- body stuff -->
 
+        <section id="access_dropdown">
+            <section id="dropdown_preview">
+                <img src="../images/accessibility_icon.png" alt="an image of a person with a disability icon">
+            </section>
+            <section id="dropdown_menu">
+                <form method="get" action="../php/accessability.php">
+                    <button type="submit" name="accessibility" value="color_scheme" class="accessibility_button" title="Turn on/off color blindness mode">
+                        <img src="../images/colour_blind.png" alt="An image of a black and white droplet symbolizing color blindness">
+                    </button>
+                </form>
+                
+                <img src="../images/accessibility_icon.png" alt="an image of a person with a disability icon"> <!-- these are placeholders until functionality is made -->
+                <img src="../images/accessibility_icon.png" alt="an image of a person with a disability icon">
+            </section>
+        </section>
+
         <!-- Main Navigation -->
         <nav class="main_navigation">
             <!-- Applies to all pages -->
-            <a href="./index.html"><img src="../images/home_icon.png" alt="an image of a house icon">Home</a>
-            <a class="current" href="./about.html"><img src="../images/about_icon.png" alt="an image of a sheet of paper icon">About</a>
-            <a href="./jobs.html"><img src="../images/job_icon.png" alt="an image of a brief case icon">Jobs</a>
-            <a href="./apply.html"><img src="../images/apply_icon.png" alt="an image of a pen and paper icon">Apply</a>
+            <a href="./index.php"><img src="../images/home_icon.png" alt="an image of a house icon">Home</a>
+            <a class="current" href="./about.php"><img src="../images/about_icon.png" alt="an image of a sheet of paper icon">About</a>
+            <a href="./jobs.php"><img src="../images/job_icon.png" alt="an image of a brief case icon">Jobs</a>
+            <a href="./apply.php"><img src="../images/apply_icon.png" alt="an image of a pen and paper icon">Apply</a>
             <a href="mailto:example@email.com"><img src="../images/mail_icon.png" alt="an image of a mail icon">Email us!</a>
         </nav>
 
@@ -89,7 +135,7 @@ the techniques you apply in your assignment, and could include:
             Add group Photo
             -->
 
-            <div id="employee_info" class="main_section">
+            <section id="employee_info" class="main_section">
 
 
 
@@ -237,7 +283,7 @@ the techniques you apply in your assignment, and could include:
         
 
                 <img id="Group_Photo" src="../images/Group_Photo.jpg" alt="A Photo of 4 people showing the developer team">
-            </div>
+            </section>
 
         </main>
 

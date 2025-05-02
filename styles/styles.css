@@ -72,28 +72,61 @@ you can also intent further to explain a certain area of code, for example:
     
     --background_color: rgb(232, 232, 232);
 
+    --main_background_color: rgb(255, 255, 255);
+    --main_border_color: rgb(136, 158, 173);
+
     --legend_and_input_color: rgb(33, 110, 123);
     --input_background_color: rgb(167, 189, 199);
 
-    --hero_image_background: url('./images/hero_image.png'); /* note that this is a `background-image` */
+    --text_color: black;
 
-    --nav_background_color: rgba(170, 200, 220, 0.9);
+    --title_color: rgb(40, 69, 92);
+    --title_shadow_color: rgb(129, 189, 230);
 
-    --nav_text_color: rgb(255, 255, 255);
-    --nav_hover_text_color: rgb(0, 0, 0);
-    --nav_active_text_color: rgb(0, 0, 0);
 
-    --nav_button_color: rgb(74, 129, 169);
-    --nav_button_hover_color: rgb(247, 248, 250);
-    --nav_active_button_color: rgb(150 213 255);
-    --nav_border_color: rgb(52, 121, 182);
-    --nav_element_gap: 3%;
+    /* hero image styles */
+        --hero_image_background: url('./images/hero_image.webp'); /* note that this is a `background-image` */
+        --hero_image_text_h1_color: rgb(40, 69, 92);
+        --hero_image_text_h1_shadow_color: rgb(129, 189, 230);
+        --hero_image_text_p_color: rgb(40, 69, 92);
+        --hero_image_text_p_shadow_color: rgb(129, 189, 230);
 
-    --link_text_color: rgb(44, 75, 255);
-    --link_text_color_hover: rgb(38, 47, 100);
 
-    --footer_link_color: #4fd1ff;
-    --footer_link_color_hover: #01f8c3;
+
+    /* Navigation Styles */
+        --nav_background_color: rgba(170, 200, 220, 0.9);
+
+        --nav_button_color: rgb(74, 129, 169);
+        --nav_active_button_color: rgb(150 213 255);
+        --nav_button_hover_color: rgb(247, 248, 250);
+
+        --nav_border_color: rgb(52, 121, 182);
+
+        --nav_text_color: rgb(255, 255, 255);
+        --nav_hover_text_color: rgb(0, 0, 0);
+        --nav_active_text_color: rgb(0, 0, 0);
+
+        --nav_icon_filter: invert(100%);
+        --nav_icon_active_filter: invert(0%);
+        --nav_icon_hover_filter: invert(0%);
+
+        --nav_element_gap: 3%;
+
+
+    /* Main section styles */
+        --main_content_background_color: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
+        --main_section_h2_color: rgb(40, 69, 92);
+        --main_section_h2_shadow_color: rgb(129, 189, 230);
+    
+
+
+    /* Footer styles */
+        --footer_background_gradient: linear-gradient(to bottom, rgb(40, 61, 80), rgb(13 22 30)80%);
+        --footer_text_color: #e2e2e2;
+        --footer_link_color: #4fd1ff;
+        --footer_link_color_hover: #01f8c3;
+
+
 
     --content_background_color: rgba(170, 200, 220, 0.9);
     --content_background_gradient_color: rgba(111, 197, 255, 0.9);
@@ -101,6 +134,58 @@ you can also intent further to explain a certain area of code, for example:
     /*note that most values are going to be blank/ placeholders for actual styles*/
 }
 
+
+/* ALTERNATE STYLES FOR ACCESSIBILITY */
+    /* simply add a class, then change the variables to the new values */
+    .black_white { /* accessibility for color blind people */
+
+
+        /* General styles */
+            --main_background_color: rgb(65, 65, 65);
+            --main_border_color: black;
+
+
+
+            /* Navigation styles */
+                --nav_background_color: white;
+                --nav_text_color: white;
+                --nav_button_color: black;
+                --nav_active_button_color: gray;
+                --nav_active_text_color: white;
+                --nav_border_color: black;
+                --nav_icon_active_filter: invert(100%);
+
+            /* Hero image styles */
+                --hero_image_background: url('./images/hero_image_black_white.webp');
+                --hero_image_text_h1_color: Black;
+                --hero_image_text_h1_shadow_color: gray;
+                --hero_image_text_p_color: black;
+                --hero_image_text_p_shadow_color: gray;
+            
+
+            /* Main section styles */
+                --main_content_background_color: linear-gradient(to left, white 90%, rgb(165, 165, 165));
+                --main_section_h2_color: black;
+                --main_section_h2_shadow_color: rgb(214, 214, 214);
+            
+
+            
+            /* Footer styles */
+                --footer_background_gradient: linear-gradient(to bottom, rgb(185, 185, 185), rgb(70, 70, 70) 80%);
+                --footer_text_color: black;
+                --footer_link_color: rgb(0, 0, 0);
+                --footer_link_color_hover: rgb(75, 75, 75);
+
+
+
+
+        /* Specific stylings */
+            --text_color: white;
+            --title_color: black;
+            --title_shadow_color: rgb(214, 214, 214);
+            --legend_and_input_color: black;
+            --input_background_color: lightgray;
+    }
 
 
 /* General styling
@@ -122,9 +207,10 @@ This is for styling every single page */
         width: 80%;
         padding: 40px;
         margin: 0px auto;
-        background-color: #fff;
-        border: 3px solid rgb(136, 158, 173);
+        background-color: var(--main_background_color);
+        border: 3px solid var(--main_border_color);
         border-radius: 80px;
+        
 
 
         line-height: 2;
@@ -136,7 +222,7 @@ This is for styling every single page */
     /* Main navigation styling; Note: values should be changed from the variables not from here */
         .main_navigation {
             width: 60%;
-            margin: -30px auto 40px auto;
+            margin: 0px auto 40px auto;
             padding: 1% 0px;
             background-color: var(--nav_background_color);
             position: sticky;
@@ -183,14 +269,14 @@ This is for styling every single page */
         }
 
         .main_navigation img {
-            filter: invert(100%);
+            filter: var(--nav_icon_filter);
         }
 
         .main_navigation a.current > img {
-            filter: invert(0%);
+            filter: var(--nav_icon_active_filter);
         }
         .main_navigation a:hover > img {
-            filter: invert(0%);
+            filter: var(--nav_icon_hover_filter);
         }
         
 
@@ -200,11 +286,11 @@ This is for styling every single page */
             display: grid;
             position: static;
             bottom: 0;
-            background-image: linear-gradient(to bottom, rgb(40, 61, 80), rgb(13 22 30)80%), url(./images/hero_image.png);
+            background-image: var(--footer_background_gradient);
             height: 40vh;
             grid-template-columns: 40% 25% 35%;
             text-align: center;
-            color: #e2e2e2;
+            color: var(--footer_text_color);
             margin-top: 100px;
             width: 100%;
             box-shadow: inset -7px 9px 20px -5px black;
@@ -262,7 +348,7 @@ This is for styling every single page */
             margin: 0px auto;
             padding: 2% 0px;
             background-color: var(--nav_background_color);
-            background-image: linear-gradient(to left, var(--content_background_color)90%, var(--content_background_gradient_color));
+            background-image: var(--main_content_background_color);
             border-radius: 30px;
             box-shadow: 5px 5px 20px -5px black;
             text-align: center;
@@ -270,8 +356,8 @@ This is for styling every single page */
 
         .main_section > h2 {
             font-size: 2.2em;
-            color: rgb(40, 69, 92);
-            text-shadow: 4px 4px 0px rgb(129, 189, 230);
+            color: var(--main_section_h2_color);
+            text-shadow: 4px 4px 0px var(--main_section_h2_shadow_color);
             margin: 0px;
         }
 
@@ -306,7 +392,65 @@ This is for styling every single page */
 
 
 
-        /* Responsive design for small width devices */
+    /* Accessability Button Styles */
+        #access_dropdown {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+
+            width: 6vh;
+            height: 6vh;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 50px;
+            overflow-y: hidden;
+            
+            background-color: var(--background_color);
+
+            display: flex;
+            flex-direction: column;
+
+            transition: height 0.3s ease;
+        }
+        #access_dropdown > section > img,
+        #access_dropdown > section > form > button > img {
+            width: 100%;
+        }
+        .accessibility_button {
+            all: unset;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .accessibility_button:hover {
+            background-color: lightgray;
+        }
+        #dropdown_menu{
+            visibility: hidden;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            height: 100%;
+        }
+        #access_dropdown:hover {
+            height: 25vh;
+        }
+
+        #access_dropdown:hover > #dropdown_menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #access_dropdown:hover > #dropdown_preview {
+            border-bottom: 1px solid black;
+        }
+        #dropdown_preview {
+            transition: border 0.3s ease;
+        }
+
+        
 
             
                 
@@ -320,6 +464,10 @@ This is for styling every single page */
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+    }
+
+    #index_nav {
+        margin: -30px auto 40px auto;
     }
 
     .index_section {
@@ -371,14 +519,14 @@ This is for styling every single page */
     }
     #hero_text h1{
         font-size: calc(2em + 2vw);
-        color: rgb(40, 69, 92);
-        text-shadow: 5px 5px 4px rgb(129, 189, 230);
+        color: var(--hero_image_text_h1_color);
+        text-shadow: 5px 5px 4px var(--hero_image_text_h1_shadow_color);
         margin: 0px;
     }
     #hero_text p{
         font-size: calc(0.3em + 1vw);
-        color: rgb(40, 69, 92);
-        text-shadow: 5px 5px 4px rgb(129, 189, 230);
+        color: var(--hero_image_text_p_color);
+        text-shadow: 5px 5px 4px var(--hero_image_text_p_shadow_color);
     }
 
 /* About_Us.html styling */
@@ -398,11 +546,14 @@ This is for styling every single page */
         margin: 0px;
     }
 
+    .about_us {
+        --about-us_color: var(black);
+        color: var(--text_color);
+    }
+
     /* Creates a gradient in the content background */
     #employee_info {
-        background-color: var(--nav_background_color);
         padding: 6px;
-        background-image: linear-gradient(to left, var(--content_background_color) 90%, var(--content_background_gradient_color));
         border-radius: 30px;
         box-shadow: 5px 5px 20px -5px black;
         text-align: center;
@@ -410,6 +561,7 @@ This is for styling every single page */
 
     /* Aligns #about_us_heading to the center */
     #about_us_heading {
+        color: var(--text_color);
         text-align: center;
         padding: 7px;
     }
@@ -476,6 +628,10 @@ This is for styling every single page */
         align-items: center;
     }
 
+    #jobs_main > hr {
+        width: 100%;
+    }
+
     #jobs_page_aside {
         width: 25%;
         border: 3px solid var(--legend_and_input_color);
@@ -491,6 +647,7 @@ This is for styling every single page */
 
     #jobs_main > h1 {
         font: 3em 'Arial', sans-serif;
+        color: var(--text_color);
     }
 
     #jobs_page_aside > h2 {
@@ -583,8 +740,8 @@ This is for styling every single page */
 
         /* Sets the style and size of the <h1> tag in the apply.html page. */
         #apply_form_container > h1 {
-            text-shadow: 4px 4px 0px rgb(129, 189, 230);
-            color: rgb(40, 69, 92);
+            text-shadow: 4px 4px 0px var(--title_shadow_color);
+            color: var(--title_color);
             text-align: center;
             font-size: 2.5em;
         }

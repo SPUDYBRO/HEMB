@@ -15,8 +15,39 @@ In the footer include the link to your Jira Project (Don't forget to give access
 <!-- Github live link:
     https://spudybro.github.io/HEMB/
 -->
+
+
+
+<!-- PHP code to set accessability preferences for the website -->
+<?php
+    include '../php/functionality.php';
+    session_start();
+
+    if (!isset($_SESSION['accessibility'])) { // check if the accessibility array is set for this user
+        set_accessibility_defaults();
+    }
+
+
+    
+    
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="<?php 
+    if ($_SESSION['accessibility']['color_scheme'] != 'default') {
+        echo $_SESSION['accessibility']['color_scheme'];
+    }
+    ?>">
+
+
     <head>
         <title>Home | HEMB-IT</title>
         <meta name="description" content="HEMB IT Solutions - Home Page">
@@ -54,17 +85,34 @@ In the footer include the link to your Jira Project (Don't forget to give access
                     <h1>HEMB IT Solutions</h1>
                     <p>Applying solutions that are sustainable</p>
                 </section>
+
         </header>
 
-        
+        <section id="access_dropdown">
+            <section id="dropdown_preview">
+                <img src="../images/accessibility_icon.png" alt="an image of a person with a disability icon">
+            </section>
+            <section id="dropdown_menu">
+                <form method="get" action="../php/accessability.php">
+                    <button type="submit" name="accessibility" value="color_scheme" class="accessibility_button" title="Turn on/off color blindness mode">
+                        <img src="../images/colour_blind.png" alt="An image of a black and white droplet symbolizing color blindness">
+                    </button>
+                </form>
+                
+                <img src="../images/accessibility_icon.png" alt="an image of a person with a disability icon"> <!-- these are placeholders until functionality is made -->
+                <img src="../images/accessibility_icon.png" alt="an image of a person with a disability icon">
+            </section>
+        </section>
+
+
         <!-- Main Navigation -->
          
-        <nav class="main_navigation">
+        <nav class="main_navigation" id="index_nav">
             <!-- Applies to all pages -->
-            <a class="current" href="./index.html"><img src="../images/home_icon.png" alt="an image of a house icon">Home</a>
-            <a href="./about.html"><img src="../images/about_icon.png" alt="an image of a sheet of paper icon">About</a>
-            <a href="./jobs.html"><img src="../images/job_icon.png" alt="an image of a brief case icon">Jobs</a>
-            <a href="./apply.html"><img src="../images/apply_icon.png" alt="an image of a pen and paper icon">Apply</a>
+            <a class="current" href="./index.php"><img src="../images/home_icon.png" alt="an image of a house icon">Home</a>
+            <a href="./about.php"><img src="../images/about_icon.png" alt="an image of a sheet of paper icon">About</a>
+            <a href="./jobs.php"><img src="../images/job_icon.png" alt="an image of a brief case icon">Jobs</a>
+            <a href="./apply.php"><img src="../images/apply_icon.png" alt="an image of a pen and paper icon">Apply</a>
             <a href="mailto:hemb.ithelp@gmail.com"><img src="../images/mail_icon.png" alt="an image of a mail icon">Email us!</a>
         </nav>
 
