@@ -81,15 +81,7 @@ tested.
 </head>
 <body>
 
-    <!-- Main Navigation -->
-    <nav class="main_navigation">
-        <!-- Applies to all pages -->
-        <a href="./index.php"><img src="../images/home_icon.png" alt="an image of a house icon">Home</a>
-        <a href="./about.php"><img src="../images/about_icon.png" alt="an image of a sheet of paper icon">About</a>
-        <a href="./jobs.php"><img src="../images/job_icon.png" alt="an image of a brief case icon">Jobs</a>
-        <a class="current" href="./apply.html"><img src="../images/apply_icon.png" alt="an image of a pen and paper icon">Apply</a>
-        <a href="mailto:hemb.ithelp@gmail.com"><img src="../images/mail_icon.png" alt="an image of a mail icon">Email us!</a>
-    </nav>
+    <?php include '../inc/navigation.inc'; ?>
 
 
 
@@ -269,57 +261,6 @@ tested.
     </main>
 
     <!-- Footer Section -->
-    <footer>
-        <div id="footer_company_description">
-            <h2>HEMB IT Solutions</h2>
-            <p>Your trusted partner for reliable IT solutions.</p>
-            <p>Empowering businesses with expert support and innovation.</p>
-        </div>
-
-        <div id="footer_empty_row">
-            <!-- Create an empty row in the footer grid -->
-        </div>
-
-        <!-- Footer Links Section -->
-        <div id="footer_links_flex_container">
-            <!-- Page Links -->
-            <div class="footer_links">
-                <p>Pages</p>
-                <nav>
-                    <a href="./index.html">Home</a>
-                    <a href="./about.html">About</a>
-                    <a href="./jobs.html">Jobs</a>
-                    <a href="./apply.html">Apply</a>
-                </nav>
-            </div>
-
-            <!-- Social Media Links -->
-            <div class="footer_links">
-                <p>Social Media</p>
-                <nav>
-                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
-                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-                    <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-                    <a href="https://www.twitter.com/" target="_blank">Twitter</a>
-                    <a href="mailto:hemb.ithelp@gmail.com">Email</a>
-                </nav>
-            </div>
-
-            <!-- Useful Links (Jira, Github etc) -->
-            <div class="footer_links">
-                <p>Useful Links</p>
-                <nav>
-                    <a href="https://github.com/SPUDYBRO/HEMB" target="_blank">Github Repository</a>
-                    <a href="https://hemb-it-support.atlassian.net/jira/software/projects/SCRUM/boards/1" target="_blank">Jira</a>
-                    <a href="https://spudybro.github.io/HEMB/" target="_blank">Live link</a>
-                </nav>
-            </div>
-
-            <!-- Footer Image -->
-            <div id="footer_image">
-                <img src="../images/footer_image.png" alt="text saying 'HEMB IT Solutions'">
-            </div>
-        </div>
-    </footer>
+    <?php include '../inc/footer.inc'; ?>
 </body>
 </html>
