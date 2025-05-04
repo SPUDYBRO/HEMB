@@ -3,16 +3,6 @@
 <!-- PHP code to set accessability preferences for the website -->
 <?php
     include '../php/functionality.php';
-    session_start();
-    if (!isset($_SESSION['accessibility']) ||
-        !isset($_SESSION['accessibility']['color_scheme']) ||
-        !isset($_SESSION['accessibility']['text_size'])) { // check if the accessibility array is set for this user
-            set_accessibility_defaults();
-    }
-
-
-    
-    
 ?>
 
 
@@ -22,9 +12,7 @@
 
 <!DOCTYPE html>
 <html lang="en" class="<?php 
-    if ($_SESSION['accessibility']['color_scheme'] != 'default') {
-        echo $_SESSION['accessibility']['color_scheme'];
-    }
+    set_accessibility();
     ?>">
 
 

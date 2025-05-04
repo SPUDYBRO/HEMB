@@ -18,9 +18,9 @@
 
         if ($_GET['accessibility'] == 'text_size') {
             if ($_SESSION['accessibility']['text_size'] == 'default') {
-                $_SESSION['accessibility']['text_size'] = "text_large";
-            } elseif ($_SESSION['accessibility']['text_size'] == 'text_large') {
-                $_SESSION['accessibility']['text_size'] = 'text_small';
+                $_SESSION['accessibility']['text_size'] = "font_large";
+            } elseif ($_SESSION['accessibility']['text_size'] == 'font_large') {
+                $_SESSION['accessibility']['text_size'] = 'font_small';
             } else {
                 $_SESSION['accessibility']['text_size'] = 'default';
             }

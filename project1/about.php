@@ -22,17 +22,7 @@ the techniques you apply in your assignment, and could include:
 
 <!-- PHP code to set accessability preferences for the website -->
 <?php
-    include '../php/functionality.php';
-    session_start();
-    if (!isset($_SESSION['accessibility']) ||
-        !isset($_SESSION['accessibility']['color_scheme']) ||
-        !isset($_SESSION['accessibility']['text_size'])) { // check if the accessibility array is set for this user
-            set_accessibility_defaults();
-    }
-
-
-    
-    
+    include '../php/functionality.php'; 
 ?>
 
 
@@ -42,9 +32,7 @@ the techniques you apply in your assignment, and could include:
 
 <!DOCTYPE html>
 <html lang="en" class="<?php 
-    if ($_SESSION['accessibility']['color_scheme'] != 'default') {
-        echo $_SESSION['accessibility']['color_scheme'];
-    }
+    set_accessibility();
     ?>">
 
 
