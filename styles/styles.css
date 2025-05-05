@@ -872,6 +872,59 @@ you can also intent further to explain a certain area of code, for example:
 
 
 
+
+
+/* info messages */
+    .card {
+        width: 330px;
+        height: 80px;
+        border-radius: 8px;
+
+        background-color: #ffffff;
+        box-shadow: rgba(0, 0, 0, 0.3) 3px 2px 5px 4px;
+        
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+    .countdown {
+        background-color: black;
+        width: 10px;
+        height: 100%;
+
+        justify-self: flex-start;
+    }
+    .icon_container {
+        background-color: rgba(4, 228, 0, 0.1);
+        width: 40px;
+        height: 40px;
+
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon_container > img {
+        width: 80%;
+        height: 80%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 /*scalability for the entire website*/
     
     @media (max-width: 1500px) {

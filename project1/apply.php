@@ -236,6 +236,14 @@ tested.
         </form>
     </main>
 
+    <div class="card">
+        <div class="countdown"></div>
+        <div class="icon_container">
+            <img src="../images/check_circle.svg" alt="check mark">
+        </div>
+    </div>
+
+
     <!-- Footer Section -->
     <?php include '../inc/footer.inc'; ?>
 </body>
