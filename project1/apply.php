@@ -80,7 +80,7 @@ tested.
     <!-- Apply Page -->
     <main id="apply_page">
         <!-- Apply Form -->
-        <form id="job_application_form" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+        <form id="job_application_form" method="post" action="../php/temp_form_handle.php" novalidate>
             <!-- Div element to style the apply form -->
             <div id="apply_form_container" class="main_section">
                 <!-- Header for the apply form -->
@@ -236,15 +236,28 @@ tested.
         </form>
     </main>
 
+
+    <!--
     <div class="card">
         <div class="countdown"></div>
         <div class="icon_container">
             <img src="../images/check_circle.svg" alt="check mark">
         </div>
+        <div class="card_text">
+            <h2>Success</h2>
+            <p>Everything went smoothly</p>
+        </div>
     </div>
 
+    -->
 
-    <!-- Footer Section -->
-    <?php include '../inc/footer.inc'; ?>
+    
+
+
+    
+    <?php 
+    include '../inc/form_response.inc';
+    # <!-- Footer Section -->
+    include '../inc/footer.inc'; ?>
 </body>
 </html>

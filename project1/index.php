@@ -160,7 +160,10 @@ In the footer include the link to your Jira Project (Don't forget to give access
 
 
 
-        <?php include '../inc/footer.inc'; ?>
+        <?php 
+            include '../inc/form_response.inc';
+            # <!-- Footer Section -->
+            include '../inc/footer.inc'; ?>
 
     </body>
 

@@ -880,6 +880,8 @@ you can also intent further to explain a certain area of code, for example:
         height: 80px;
         border-radius: 8px;
 
+        z-index: 1000;
+
         background-color: #ffffff;
         box-shadow: rgba(0, 0, 0, 0.3) 3px 2px 5px 4px;
         
@@ -891,18 +893,42 @@ you can also intent further to explain a certain area of code, for example:
         position: fixed;
         bottom: 20px;
         right: 20px;
+
+        animation: 
+            slide_in 0.5s forwards,
+            slide_out 0.5s 3.5s forwards;
+
+    }
+    
+    html.font_large .card {
+        width: 360px;
+        height: 110px;
+    }
+    html.font_small .card {
+        width: 280px;
+        height: 60px;
     }
     .countdown {
-        background-color: black;
         width: 10px;
         height: 100%;
 
-        justify-self: flex-start;
+        animation: countdown 3s 0.5s linear forwards;
+
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+    }
+    .card_success > .countdown {
+        background-color: green;
+    }
+    .card_error > .countdown {
+        background-color: red;
     }
     .icon_container {
-        background-color: rgba(4, 228, 0, 0.1);
         width: 40px;
         height: 40px;
+
+        margin-left: 30px;
 
         border-radius: 50%;
         display: flex;
@@ -910,8 +936,30 @@ you can also intent further to explain a certain area of code, for example:
         align-items: center;
     }
     .icon_container > img {
-        width: 80%;
-        height: 80%;
+        width: 100%;
+        height: 100%;
+    }
+    .card_text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .card_text > h2, .card_text > p{
+        margin: 0px;
+    }
+
+    .card_success .card_text > h2 {
+        color: rgb(57, 166, 57);
+    }
+    .card_error .card_text > h2 {
+        color: rgb(255, 0, 0);
+    }
+    .card_text > p {
+        color: black;
     }
 
 
@@ -926,6 +974,23 @@ you can also intent further to explain a certain area of code, for example:
 
 
 /*scalability for the entire website*/
+
+
+    @keyframes slide_in {
+        0%      {right: -350px;}
+        100%    {right: 20px;}
+    }
+
+    @keyframes countdown {
+        0%      {height: 100%;}
+        100%    {height: 0%;}
+    }
+
+    @keyframes slide_out {
+        0%      {right: 20px;}
+        98%     {right: -350px;}
+        100%    {display: none;}
+    }
     
     @media (max-width: 1500px) {
             /* footer styles across all pages for when the font is set to large */

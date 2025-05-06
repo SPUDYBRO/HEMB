@@ -331,6 +331,9 @@
 
 
         <!-- Footer -->
-        <?php include '../inc/footer.inc'; ?>
+        <?php 
+            include '../inc/form_response.inc';
+            # <!-- Footer Section -->
+            include '../inc/footer.inc'; ?>
     </body>
 </html>
