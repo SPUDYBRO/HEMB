@@ -134,6 +134,13 @@ you can also intent further to explain a certain area of code, for example:
         --list_items_font_size: 1em;
         --a_font_size: 1em;
         --legend_font_size: 1.5em;
+    
+
+    /* info card defaults (success) */
+    --card_title_color: green;
+    --card_p_color: black;
+    --card_countdown_color: green;
+    --card_icon_color: green;
 
 
     --content_background_color: rgba(170, 200, 220, 0.9);
@@ -876,8 +883,11 @@ you can also intent further to explain a certain area of code, for example:
 
 /* info messages */
     .card {
-        width: 330px;
-        height: 80px;
+        --card_width: 330px;
+        --card_height: 80px;
+
+        width: var(--card_width);
+        height: var(--card_height);
         border-radius: 8px;
 
         z-index: 1000;
@@ -885,34 +895,127 @@ you can also intent further to explain a certain area of code, for example:
         background-color: #ffffff;
         box-shadow: rgba(0, 0, 0, 0.3) 3px 2px 5px 4px;
         
-        overflow: hidden;
         display: flex;
         align-items: center;
         gap: 15px;
 
         position: fixed;
         bottom: 20px;
-        right: 20px;
+        right: -350px;
 
         animation: 
-            slide_in 0.5s forwards,
-            slide_out 0.5s 3.5s forwards;
+            slide_in 0.5s forwards /*,
+            slide_out 0.5s 3.5s forwards*/; 
 
+        transition: width 0.3s ease, height 0.3s ease;
+
+        cursor: pointer;
+
+    }
+    .card > summary {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        list-style: none;
+    }
+    .card > summary::marker {
+        display: none;
+        content: none;
+    }
+    .card_preview_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        height: 100%;
+    }
+    .countdown {
+        width: 10px;
+        height: 100%;
+        background-color: var(--card_countdown_color);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .card_text {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+    }
+    .card_text > h2 {
+        color: var(--card_title_color);
+        margin: 0px;
+    }
+    .card_text > p {
+        color: var(--card_p_color);
+        margin: 0px;
+    }
+    .icon_container {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon_container > svg {
+        width: 100%;
+        height: 100%;
+        color: var(--card_icon_color);
+    }
+
+    .card[open]{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80vw;
+        height: 80vh;
+        display: block;
+    }
+    .card[open] > summary {
+        position: absolute;
+        top: 0px;
+        width: 80vw;
+        height: 80vh;
+        opacity: 0;
+    }
+    .card[open] > .card_detailed {
+        width: 100%;
+        height: 100%;
+    }
+    
+
+
+
+
+
+    /*
+    .card:hover, .card:hover .countdown {
+        animation-play-state: paused;
+    }
+    .card:hover {
+        width: calc(var(--card_width) + 30px);
+        height: calc(var(--card_height) + 10px);
     }
     
     html.font_large .card {
-        width: 360px;
-        height: 110px;
+        --card_width: 560px;
+        --card_height: 110px;
     }
     html.font_small .card {
-        width: 280px;
-        height: 60px;
+        --card_width: 300px;
+        --card_height: 60px;
     }
     .countdown {
         width: 10px;
         height: 100%;
 
-        animation: countdown 3s 0.5s linear forwards;
+        /*animation: countdown 3s 0.5s linear forwards;
+
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
 
         position: absolute;
         left: 0px;
@@ -935,7 +1038,7 @@ you can also intent further to explain a certain area of code, for example:
         justify-content: center;
         align-items: center;
     }
-    .icon_container > img {
+    .icon_container > svg {
         width: 100%;
         height: 100%;
     }
@@ -944,24 +1047,48 @@ you can also intent further to explain a certain area of code, for example:
         flex-direction: column;
         justify-content: space-around;
 
-        width: 100%;
+        width: 70%;
         height: 100%;
     }
 
     .card_text > h2, .card_text > p{
         margin: 0px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
     }
+
+    
 
     .card_success .card_text > h2 {
         color: rgb(57, 166, 57);
     }
+    .card_success .icon_container > svg {
+        color: #269B24;
+    }
     .card_error .card_text > h2 {
         color: rgb(255, 0, 0);
     }
+    .card_error .icon_container > svg {
+        color: red;
+    }
+
     .card_text > p {
         color: black;
     }
 
+    html.black_white .card > .countdown {
+        background-color: black;
+    }
+    html.black_white .card > .card_text > h2 {
+        color: black;
+    }
+
+    html.black_white .card > .icon_container > svg {
+        color: black;
+    }
+    */
 
 
 
@@ -977,19 +1104,15 @@ you can also intent further to explain a certain area of code, for example:
 
 
     @keyframes slide_in {
-        0%      {right: -350px;}
         100%    {right: 20px;}
     }
 
     @keyframes countdown {
-        0%      {height: 100%;}
         100%    {height: 0%;}
     }
 
     @keyframes slide_out {
-        0%      {right: 20px;}
-        98%     {right: -350px;}
-        100%    {display: none;}
+        100%    {visibility: hidden; right: calc((var(--card_width) * -1) - 20px);;}
     }
     
     @media (max-width: 1500px) {

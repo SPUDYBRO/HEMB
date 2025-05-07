@@ -19,8 +19,8 @@
             } else {
                 /* was something else so change to default */
                 $_SESSION['accessibility']['color_scheme'] = 'default';
-                $success_message = "Color scheme set to default";
-
+                $success_message =  "Color scheme set to default";
+                                    
             }
 
         }
