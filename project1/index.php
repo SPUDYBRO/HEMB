@@ -208,10 +208,9 @@ In the footer include the link to your Jira Project (Don't forget to give access
                     </div>
 
                 </div>
-
-
-                <p class="card_detailed_note">Click anywhere Inside to close this box</p>
             </div>
+
+            <p class="card_detailed_note">Click anywhere Inside to close this box</p>
 
             
         </details>
