@@ -148,6 +148,7 @@ you can also intent further to explain a certain area of code, for example:
             --card_p_color: black;
             --card_countdown_color: green;
             --card_icon_color: green;
+            --card_detailed_border_colour: lightgreen;
             
 
 
@@ -156,6 +157,15 @@ you can also intent further to explain a certain area of code, for example:
 
     /*note that most values are going to be blank/ placeholders for actual styles*/
 }
+
+/* Card Styles */
+    /*Note that success is in root */
+    .card_error {
+        --card_countdown_color: red;
+        --card_icon_color: red;
+        --card_title_color: red;
+        --card_detailed_border_colour: red;
+    }
 
 
 /* ALTERNATE STYLES FOR ACCESSIBILITY */
@@ -202,6 +212,9 @@ you can also intent further to explain a certain area of code, for example:
             /* Info card styles */
                 --card_title_color: black;
                 --card_debug_table_border_color: white;
+                --card_countdown_color: black;
+                --card_detailed_border_colour: black;
+                --card_icon_color: black;
 
 
         /* Specific stylings */
@@ -506,7 +519,8 @@ you can also intent further to explain a certain area of code, for example:
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .accessibility_button:hover {
+        .accessibility_button:hover,
+        .accessibility_button:focus {
             background-color: lightgray;
         }
         #dropdown_menu{
@@ -518,16 +532,20 @@ you can also intent further to explain a certain area of code, for example:
             transition: opacity 0.3s ease;
             height: 100%;
         }
-        #access_dropdown:hover {
+        #access_dropdown:hover,
+        #access_dropdown:focus-within {
             height: 25vh;
         }
 
-        #access_dropdown:hover > #dropdown_menu {
+
+        #access_dropdown:hover > #dropdown_menu,
+        #access_dropdown:focus-within > #dropdown_menu {
             visibility: visible;
             opacity: 1;
         }
 
-        #access_dropdown:hover > #dropdown_preview {
+        #access_dropdown:hover > #dropdown_preview,
+        #access_dropdown:focus-within > #dropdown_preview {
             border-bottom: 1px solid black;
         }
         #dropdown_preview {
@@ -914,8 +932,8 @@ you can also intent further to explain a certain area of code, for example:
         right: -350px;
 
         animation: 
-            slide_in 0.5s forwards /*,
-            slide_out 0.5s 3.5s forwards*/; 
+            slide_in 0.5s forwards,
+            slide_out 0.5s 3.5s forwards; 
 
         transition: width 0.3s ease, height 0.3s ease;
 
@@ -928,6 +946,13 @@ you can also intent further to explain a certain area of code, for example:
             height: 100%;
             overflow: hidden;
             list-style: none;
+        }
+        .card > summary:focus {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            list-style: none;
+            border: 1px solid black;
         }
         .card > summary::marker {
             display: none;
@@ -945,8 +970,9 @@ you can also intent further to explain a certain area of code, for example:
             width: 10px;
             height: 100%;
             background-color: var(--card_countdown_color);
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-top-right-radius: 20px;
+            animation: countdown 3s 0.5s linear forwards;
+            transform-origin: bottom;
         }
         .card_text {
             width: 100%;
@@ -961,6 +987,8 @@ you can also intent further to explain a certain area of code, for example:
         .card_text > h2 {
             color: var(--card_title_color);
             margin: 0px;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
         .card_text > p {
             color: var(--card_p_color);
@@ -980,6 +1008,12 @@ you can also intent further to explain a certain area of code, for example:
             height: 100%;
             color: var(--card_icon_color);
         }
+        /* card preview hover effect */
+            .card:hover {
+                width: calc(var(--card_width) * 1.2);
+                height: calc(var(--card_height) * 1.2);
+            }
+        
     /* Card detailed styles */
         .card[open]{
             top: 50%;
@@ -989,7 +1023,7 @@ you can also intent further to explain a certain area of code, for example:
             height: 80vh;
             display: block;
             box-shadow: rgba(0, 0, 0, 0.3) 3px 2px 5px 4px;
-            border: rgba(173, 255, 47, 0.5) 15px solid;
+            border: var(--card_detailed_border_colour) 5px outset;
             overflow-y: scroll;
             overflow-x: hidden;
         
@@ -1003,10 +1037,10 @@ you can also intent further to explain a certain area of code, for example:
             left: 0px;
             width: calc(80vw - 15px * 2);
             height: calc(80vh - 15px * 2);
-            opacity: 0;
+            opacity: 1;
         }
         .card[open] .card_preview_container {
-            display: none;
+            visibility: hidden;
         }
 
         .card[open] > .card_detailed {
@@ -1033,7 +1067,7 @@ you can also intent further to explain a certain area of code, for example:
             transform: translate(50%, 0%);
             text-align: center;
 
-            font-size: calc(var(--p_font_size) / 1.3);
+            font-size: calc(var(--p_font_size) * 0.75);
 
             z-index: 1;
         }
@@ -1044,10 +1078,11 @@ you can also intent further to explain a certain area of code, for example:
             text-align: center;
             box-shadow: rgba(0, 0, 0, 0.3) 2px 1px 10px inset;
             padding: 10px;
+            border-radius: 20px;
         }
         .card_detailed_status > h3 {
             margin: 0px;
-            font-size: calc(var(--h3_font_size) * 1.5);
+            font-size: var(--h3_font_size);
         }
         .card_detailed_status > p {
             color: var(--card_title_color);
@@ -1095,13 +1130,19 @@ you can also intent further to explain a certain area of code, for example:
                 margin-bottom: 20px;
             }
 
-            .card_detailed_debug_dropdown:hover {
+            .card_detailed_debug_dropdown:hover,
+            .card_detailed_debug_dropdown:focus,
+            .card_detailed_debug_dropdown:focus-within {
                 animation: card_detailed_debug_anim 0.3s ease-out forwards;
             }
-            .card_detailed_debug_dropdown:hover .card_detailed_debug_dropdown_content {
+            .card_detailed_debug_dropdown:hover .card_detailed_debug_dropdown_content,
+            .card_detailed_debug_dropdown:focus .card_detailed_debug_dropdown_content,
+            .card_detailed_debug_dropdown:focus-within .card_detailed_debug_dropdown_content {
                 visibility: visible;
             }
-            .card_detailed_debug_dropdown:hover .card_detailed_debug_dropdown_preview{
+            .card_detailed_debug_dropdown:hover .card_detailed_debug_dropdown_preview,
+            .card_detailed_debug_dropdown:focus .card_detailed_debug_dropdown_preview,
+            .card_detailed_debug_dropdown:focus-within .card_detailed_debug_dropdown_preview {
                 height: 15%;
             }
 
@@ -1116,6 +1157,7 @@ you can also intent further to explain a certain area of code, for example:
                 border: 1px solid var(--card_debug_table_border_color);
                 padding: 8px;
                 text-align: center;
+                font-size: var(--p_font_size);
             }
     
     /* Card Animation keyframes */
@@ -1124,7 +1166,7 @@ you can also intent further to explain a certain area of code, for example:
         }
 
         @keyframes countdown {
-            100%    {height: 0%;}
+            100%    {transform: scaleY(0);}
         }
 
         @keyframes slide_out {
@@ -1136,6 +1178,16 @@ you can also intent further to explain a certain area of code, for example:
 
             100% {width: 60%; height: 400px;}
         }
+
+        /* pause animations when card is hovered over or open */
+            .card:hover,
+            .card:hover .countdown,
+            .card[open],
+            .card[open] .countdown,
+            .card:focus-within,
+            .card:focus-within .countdown {
+                animation-play-state: paused;
+            }
         
 
     

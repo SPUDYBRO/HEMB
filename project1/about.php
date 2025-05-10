@@ -58,6 +58,8 @@ the techniques you apply in your assignment, and could include:
         <!-- body stuff -->
 
         <?php 
+        display_info_card();
+
         
         include '../inc/accessibility.inc';
         include '../inc/navigation.inc'; 
@@ -258,7 +260,7 @@ the techniques you apply in your assignment, and could include:
         </main>
 
         <?php 
-            include '../inc/form_response.inc';
+            display_info_card();
             # <!-- Footer Section -->
             include '../inc/footer.inc'; ?>
 

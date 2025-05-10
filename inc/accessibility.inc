@@ -1,10 +1,10 @@
 <section id="access_dropdown">
-    <section id="dropdown_preview">
+    <section id="dropdown_preview" tabindex="0">
         <img src="../images/accessibility_icon.webp" alt="an image of a person with a disability icon">
     </section>
     <section id="dropdown_menu">
         <form method="get" action="../php/accessability.php">
-            <button type="submit" name="accessibility" value="color_scheme" class="accessibility_button" title="Turn on/off color blindness mode">
+            <button type="submit" name="accessibility" value="colour_scheme" class="accessibility_button" title="Turn on/off color blindness mode">
                 <img src="../images/colour_blind.webp" alt="An image of a black and white droplet symbolizing color blindness">
             </button>
 

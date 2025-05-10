@@ -37,6 +37,8 @@
         
 
         <?php 
+        display_info_card();
+
         
         include '../inc/accessibility.inc';
         include '../inc/navigation.inc'; 
@@ -332,7 +334,7 @@
 
         <!-- Footer -->
         <?php 
-            include '../inc/form_response.inc';
+            display_info_card();
             # <!-- Footer Section -->
             include '../inc/footer.inc'; ?>
     </body>

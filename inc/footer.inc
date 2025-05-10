@@ -30,10 +30,10 @@
             <!-- Important links required to either go somewhere or link to some area used (jira will go here) -->
             <p>Pages</p>
             <nav>
-                <a href="./index.html">Home</a>
-                <a href="./about.html">About</a>
-                <a href="./jobs.html">Jobs</a>
-                <a href="./apply.html">Apply</a>
+                <a href="./index.php">Home</a>
+                <a href="./about.php">About</a>
+                <a href="./jobs.php">Jobs</a>
+                <a href="./apply.php">Apply</a>
             </nav>
         </div>
 
