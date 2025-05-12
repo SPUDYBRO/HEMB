@@ -101,10 +101,6 @@ you can also intent further to explain a certain area of code, for example:
         --nav_hover_text_color: rgb(0, 0, 0);
         --nav_active_text_color: rgb(0, 0, 0);
 
-        --nav_icon_filter: invert(100%);
-        --nav_icon_active_filter: invert(0%);
-        --nav_icon_hover_filter: invert(0%);
-
         --nav_element_gap: 3%;
 
 
@@ -186,7 +182,6 @@ you can also intent further to explain a certain area of code, for example:
                 --nav_active_button_color: gray;
                 --nav_active_text_color: white;
                 --nav_border_color: black;
-                --nav_icon_active_filter: invert(100%);
 
             /* Hero image styles */
                 --hero_image_background: url('./images/hero_image_black_white.webp');
@@ -371,15 +366,9 @@ you can also intent further to explain a certain area of code, for example:
             box-shadow: inset 1px 2px 0px 0px black;
         }
 
-        .main_navigation img {
-            filter: var(--nav_icon_filter);
-        }
-
-        .main_navigation a.current > img {
-            filter: var(--nav_icon_active_filter);
-        }
-        .main_navigation a:hover > img {
-            filter: var(--nav_icon_hover_filter);
+        .main_navigation > a > svg {
+            width: 1em;
+            height: 1em;
         }
         
 
@@ -429,7 +418,7 @@ you can also intent further to explain a certain area of code, for example:
             position: absolute;
             bottom: 0px;
             left: 0px;
-            opacity: 0.05;
+            opacity: 0.5;
             width: 99vw;
             height: 10vh;
             z-index: 2;

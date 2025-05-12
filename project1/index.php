@@ -21,9 +21,8 @@ In the footer include the link to your Jira Project (Don't forget to give access
 <!-- PHP code to set accessability preferences for the website -->
 <?php
     include '../php/functionality.php';
+    display_info_card();
 ?>
-
-
 
 
 
@@ -66,7 +65,7 @@ In the footer include the link to your Jira Project (Don't forget to give access
                     1. IT Support company
                     2. A man in a suit
                     3. light theme
-                    4. abstract or somthing"
+                    4. abstract or something"
 
                     reason for using GEN AI to create image:
                         1. our team does not have the graphic design skills to create a hero image
@@ -85,8 +84,6 @@ In the footer include the link to your Jira Project (Don't forget to give access
 
 
         <?php 
-        display_info_card();
-
         
         include '../inc/accessibility.inc';
         include '../inc/navigation.inc'; 
@@ -160,64 +157,6 @@ In the footer include the link to your Jira Project (Don't forget to give access
 
 
         </main>
-
-<!--
-        <details class="card card_success">
-            <summary>
-                <div class="card_preview_container">
-                    <div class="countdown"></div>
-                    <div class="icon_container">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M44 22.16V24C43.9975 28.3128 42.601 32.5094 40.0187 35.9636C37.4363 39.4179 33.8066 41.945 29.6707 43.1678C25.5349 44.3906 21.1145 44.2438 17.0689 42.7492C13.0234 41.2545 9.5693 38.4922 7.22191 34.8741C4.87452 31.2561 3.75957 26.9761 4.04334 22.6726C4.32711 18.3691 5.9944 14.2727 8.79655 10.9941C11.5987 7.71564 15.3856 5.43076 19.5924 4.48029C23.7992 3.52982 28.2005 3.96467 32.14 5.72M44 8L24 28.02L18 22.02"
-                                stroke="currentColor" stroke-opacity="1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="card_text">
-                        <h2>Success</h2>
-                        <p>Color Scheme has been changed</p>
-                    </div>
-                </div>
-            </summary>
-            <div class="card_detailed">
-                <h1>Colour Scheme Change Request</h1>
-                <div class="card_detailed_status">
-                    <h3>Status</h3>
-                    <p>Success</p>
-                </div>
-                <p>The Color Scheme change request has been processed.<br>See Status in the top left to see if it succeeded or not</p>
-
-                <p>The color schemes are mode that allow people who have colour blindness to some or all colours, this feature allows users to switch to an all black and white format so everyone can read it</p>
-
-
-                <div class="card_detailed_debug_dropdown">
-                    <div class="card_detailed_debug_dropdown_preview">
-                        <p>Debug</p>
-                    </div>
-                    <div class="card_detailed_debug_dropdown_content">
-                        <h3>Post request data</h3>
-                        <p>For advanced users only</p>
-                        <table class="card_detailed_debug_table">
-                            <thead>
-                                <th>Name</th>
-                                <th>Value</th>
-                            </thead>
-                            <tbody>
-                                <td>accessibility</td>
-                                <td>["color_scheme" => "default",<br>"text_size" => "default"]</td>
-                            </tbody>
-
-                        </table>
-                        <p>This table shows all data sent through POST or GET</p>
-                    </div>
-
-                </div>
-            </div>
-
-            <p class="card_detailed_note">Click anywhere Inside to close this box</p>
-
-            
-        </details>
-                    -->
 
 
         <?php 
