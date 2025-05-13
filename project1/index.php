@@ -1,22 +1,8 @@
-<!-- 
-Home Page (index.html)
-
-This page should contain appropriate title, a description and graphic related to the company (with
-company name, and logo). It is up to you to make up the details of the company that is advertising
-the jobs. It should contain a menu that links to the other pages on your Web site. This same menu
-should be in every page of your website with an email link to the companies email in the format of
-info@companyname.com.au
-In the footer include the link to your Jira Project (Don't forget to give access to your tutor) 
--->
-
-
-
+<!-- Home Page (index.html) -->
 
 <!-- Github live link:
     https://spudybro.github.io/HEMB/
 -->
-
-
 
 <!-- PHP code to set accessability preferences for the website -->
 <?php
@@ -25,19 +11,10 @@ In the footer include the link to your Jira Project (Don't forget to give access
 ?>
 
 
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" class="<?php 
     set_accessibility();
     ?>">
-
-
 
 
     <head>
@@ -80,16 +57,11 @@ In the footer include the link to your Jira Project (Don't forget to give access
 
         </header>
 
-        
 
-
-        <?php 
-        
+        <?php         
         include '../inc/accessibility.inc';
         include '../inc/navigation.inc'; 
-        
         ?>
-
 
         
         <main id="index_main">
@@ -138,7 +110,8 @@ In the footer include the link to your Jira Project (Don't forget to give access
                 -->
                 <a href="./about.html">Meet the team</a>
             </section>
-                
+
+
             <section class="main_section index_section">
                 <h2>Our Github Repository</h2>
                 <p>Check out our Github repository to see our projects, contributions, and the innovative solutions we are working on. Collaborate with us and explore the world of IT support and development.</p>
@@ -164,5 +137,4 @@ In the footer include the link to your Jira Project (Don't forget to give access
             include '../inc/footer.inc'; ?>
 
     </body>
-
 </html>

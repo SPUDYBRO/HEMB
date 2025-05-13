@@ -1,24 +1,4 @@
-<!-- 
-A page about your group (about.html)
-
-This page will contain information on the following:
-Information HTML element to be used
-Your group name - Class time and day A Nested List (Any)
-All your student IDs
-Your tutor’s name
-Members Contribution to this project Definition list (Name, Contribution)
-Photo of your group (Group photo) < 300k HTML figure element
-Members Interests HTML table (Most have cell or row merged with a caption)
-It could also include group profile, such as programming skills, working experiences,, or
-information that is related to your group. This extra information gives you an opportunity to extend
-the techniques you apply in your assignment, and could include:
-• Demographic information about all of you
-• Description of your hometown
-• A list of your group members’ favourite books, music, films etc.
--->
-
-
-
+<!-- A page about your group (about.html) -->
 
 <!-- PHP code to set accessability preferences for the website -->
 <?php
@@ -26,16 +6,10 @@ the techniques you apply in your assignment, and could include:
 ?>
 
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" class="<?php 
     set_accessibility();
     ?>">
-
-
 
 
     <head>
@@ -59,12 +33,11 @@ the techniques you apply in your assignment, and could include:
 
         <?php 
         display_info_card();
-
         
         include '../inc/accessibility.inc';
         include '../inc/navigation.inc'; 
-        
         ?>
+
 
         <main id="About_Main">
 
@@ -101,15 +74,8 @@ the techniques you apply in your assignment, and could include:
 
             <hr>
 
-            <!--
-            Turn Lists into Unordered / Dotpoints.
-            Restructure HTML without legends and put into three rows [ Names | Details | Info ]
-            Add group Photo
-            -->
 
             <section id="employee_info" class="main_section">
-
-
 
                 <!--Evan Harrison Details-->
                 <div class= "individual_employee">

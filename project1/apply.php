@@ -1,38 +1,4 @@
-<!-- 
-Job Application (apply.html)
-
-This page has a form that allows a potential candidate to register their interest in the advertised
-position. HTML5 data validation should be used to check the user’s input.
-The form will allow a potential applicant to fill in the following:
-Field Format requirement
-Job reference number drop down selection including all jobs ref numbers
-First name max 20 alpha characters                                                                     xxxxx
-Last name max 20 alpha characters                                                                      xxxxx
-Date of birth dd/mm/yyyy                                                                               xxxxx
-Gender radio inputs grouped using a fieldset and legend                                                xxxxx
-Street Address max 40 characters                                                                       xxxxx
-Suburb/town max 40 characters                                                                          xxxxx
-State drop down selection from                                                                         xxxxx
-VIC,NSW,QLD,NT,WA,SA,TAS,ACT                                                                           xxxxx
-Postcode exactly 4 digits based on States                                                              xxxxx
-Email address validate format with regular expression & patterns                                       xxxxx
-Phone number 8 to 12 digits, or spaces                                                                 xxxxx
-Required technical list checkbox inputs                                                                xxxxx
-Other skills textarea                                                                                  xxxxx
-All inputs should have labels. All form values, except the "Other Skills" textarea are ‘required’ or   xxxxx
-have a default value (e.g. select and checkbox inputs). The user should not be able to submit the
-form if any of these required fields are blank or incorrectly filled.
-Data Submission to Server
-The form should have a submit button labelled “Apply”. When this button is clicked the name-           xxxxx
-values from the associated form should be sent to the server using the post http method. The
-server action address is https://mercury.swin.edu.au/it000000/formtest.php. The server will then
-just echo back the name value pairs to the client. While nothing will be stored on the server in
-this part of the assignment (we will do this in Part 2) this will allow the form submission to be
-tested.
--->
-
-
-
+<!-- Job Application (apply.html) -->
 
 <!-- PHP code to set accessability preferences for the website -->
 <?php
@@ -40,15 +6,10 @@ tested.
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html lang="en" class="<?php 
     set_accessibility();
     ?>">
-
-
 
 
 <head>
@@ -75,7 +36,6 @@ tested.
 
     include '../inc/accessibility.inc';
     include '../inc/navigation.inc'; 
-    
     ?>
 
     <!-- Apply Page -->
@@ -236,24 +196,6 @@ tested.
             </div>
         </form>
     </main>
-
-
-    <!--
-    <div class="card">
-        <div class="countdown"></div>
-        <div class="icon_container">
-            <img src="../images/check_circle.svg" alt="check mark">
-        </div>
-        <div class="card_text">
-            <h2>Success</h2>
-            <p>Everything went smoothly</p>
-        </div>
-    </div>
-
-    -->
-
-    
-
 
     
     <?php 

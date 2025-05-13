@@ -1,13 +1,7 @@
-
-
 <!-- PHP code to set accessability preferences for the website -->
 <?php
     include '../php/functionality.php';
 ?>
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -39,10 +33,8 @@
         <?php 
         display_info_card();
 
-        
         include '../inc/accessibility.inc';
         include '../inc/navigation.inc'; 
-        
         ?>
 
 
