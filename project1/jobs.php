@@ -1,6 +1,11 @@
 <!-- PHP code to set accessability preferences for the website -->
 <?php
     include '../php/functionality.php';
+
+    if (!isset($_SESSION['username'])) {
+      header("Location: login.html");
+      exit();
+    }
 ?>
 
 

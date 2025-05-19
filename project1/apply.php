@@ -41,7 +41,7 @@
     <!-- Apply Page -->
     <main id="apply_page">
         <!-- Apply Form -->
-        <form id="job_application_form" method="post" action="../php/temp_form_handle.php" novalidate>
+        <form id="job_application_form" method="post" action="../process_eoi.php" novalidate>
             <!-- Div element to style the apply form -->
             <div id="apply_form_container" class="main_section">
                 <!-- Header for the apply form -->
