@@ -7,5 +7,5 @@ Password and database need to be changed. -->
     $host = "localhost";
     $user = "root";
     $pwd = "";
-    $sql_db = "";
+    $sql_db = "hemb_db";
 ?>
