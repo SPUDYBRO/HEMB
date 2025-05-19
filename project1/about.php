@@ -41,11 +41,8 @@
 
         <main id="About_Main">
 
-            <!--Add group photo at the head of website page like the home page-->
-            <!--Add table with Student ID / Tutor Name / Class Times / Interests-->
             <h1 id="about_us_heading">About Us</h1>
             <h2 class="about_us">What We do!</h2>
-            <!--Add content explaining the goal and project of the assignment.-->
             <p class="about_us">At HEMB IT Solutions, we specialize in delivering top-tier IT support
                 tailored to businesses of all sizes and industries. Our team of highly skilled and 
                 experienced technicians is committed to ensuring your technology infrastructure operates

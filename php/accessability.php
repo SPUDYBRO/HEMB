@@ -20,6 +20,12 @@
         TEXT_SIZE_SMALL
     ]);
 
+    function set_accessibility_defaults(): void {
+        // Set default values for accessibility settings
+        $_SESSION['accessibility']['colour_scheme'] = COLOUR_SCHEME_DEFAULT;
+        $_SESSION['accessibility']['text_size'] = TEXT_SIZE_DEFAULT;
+    }
+
 
     // Function to toggle between modes
 
