@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2025 at 11:32 AM
+-- Generation Time: May 21, 2025 at 10:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,7 +36,8 @@ CREATE TABLE `eoi` (
   `Email Address` varchar(40) NOT NULL,
   `Phone Number` int(12) NOT NULL,
   `Skills` varchar(100) NOT NULL,
-  `Other Skills` varchar(100) NOT NULL
+  `Other Skills` varchar(100) NOT NULL,
+  `Status` varchar(5) NOT NULL DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
