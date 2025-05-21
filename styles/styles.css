@@ -1183,6 +1183,37 @@ you can also intent further to explain a certain area of code, for example:
 
 
 
+/* LOGIN PAGE STYLES */
+    #login_body {
+        background-image: var(--hero_image_background);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #login_main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 30vw;
+        height: 70vh;
+
+        border-radius: 15px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    #login_main > h1 {
+        color: var(--title_color);
+        text-shadow: 4px 4px 0px var(--title_shadow_color);
+        margin: 0px;
+        margin-top: -25px;
+    }
+    #login_main > p {
+        color: var(--text_color);
+        margin-top: -25px;
+        margin-bottom: 45px;
+    }
+
 
 
 
