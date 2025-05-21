@@ -1516,6 +1516,123 @@ you can also intent further to explain a certain area of code, for example:
 
 
 
+/* manage.php styles */
+    #manage_main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    #manage_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+    }
+    #manage_header > h1 {
+        color: var(--title_color);
+        font-size: var(--h1_font_size);
+        margin: 0px;
+    }
+    #manage_header > p {
+        color: var(--text_color);
+        font-size: var(--p_font_size);
+        text-align: center;
+        margin: 0px;
+    }
+    #manager_options button{
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+        text-decoration: none;
+        color: var(--nav_text_color);
+        background-color: var(--nav_button_color);
+        border-radius: 50px;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        font-size: calc(1em + 0.5vw);
+        padding: 10px 20px; 
+        box-shadow: 3px 2px 0px 0px black;
+    }
+    #manager_options button:hover {
+        color: var(--nav_hover_text_color);
+        background-color: var(--nav_button_hover_color);
+        transform: translateY(2px) translateX(3px);
+        box-shadow: inset 1px 2px 0px 0px black;
+    }
+    #manager_options button.current {
+        background-color: var(--nav_active_button_color);
+        color: var(--nav_active_text_color);
+    }
+
+    #manager_options {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .result {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(74, 129, 169, 0.3);
+        box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
+        border: rgb(61, 17, 97) 6px outset;
+        border-radius: 15px;
+        padding: 25px;
+    }
+    .result_table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 15px;
+    }
+    .result_table,
+    .result_table th,
+    .result_table td {
+        border: 2px solid #333333;
+    }
+
+    .result_table th {
+        font-weight: bold;
+        background-color: #e0e0e0;
+    }
+
+    .result_table td {
+        background-color: #f8f8f8;
+        transition: background-color 0.2s;
+    }
+
+    .result_table tr:hover td {
+        background-color: #d6eaff;
+    }
+    .result_text {
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        gap: 20px;
+        color: var(--text_color);
+        font-size: var(--p_font_size);
+        text-align: center;
+        margin: 0px;
+        background-color: var(--nav_background_color);
+        border: #000000 1px solid;
+        margin: 5px;
+        padding: 5px;
+    }
+    .result_text > h4 {
+        margin: 0px;
+        font-size: var(--p_font_size);
+        width: 20%;
+    }
+    .result_text > p {
+        width: 80%;
+        margin: 0px;
+        font-size: var(--p_font_size);
+    }
 
 
 
@@ -1524,10 +1641,28 @@ you can also intent further to explain a certain area of code, for example:
 
 
 
-
-
-
-
+/* Post request files */
+/* this just styes files that only accept post requests and dont do anything else */
+    #post_request {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 100vw;
+        height: 100vh;
+    }
+    #post_request > h1 {
+        color: var(--title_color);
+        font-size: var(--h1_font_size);
+        margin: 0px;
+    }
+    #post_request > p {
+        color: var(--text_color);
+        font-size: var(--p_font_size);
+        text-align: center;
+        margin: 0px;
+    }
 
 
 

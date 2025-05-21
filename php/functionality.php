@@ -102,3 +102,16 @@
         unset($_SESSION['PHP_RESPONSE']); // Clear the PHP_RESPONSE after displaying it
     }
 
+
+    function set_data_response($status, $preview_title, $preview_message, $detailed_title, $detailed_message, $detailed_description, $post_debug_data): void {
+        $_SESSION['PHP_RESPONSE'] = [
+            'status' => $status,
+            'preview_title' => $preview_title,
+            'preview_message' => $preview_message,
+            'detailed_title' => $detailed_title,
+            'detailed_message' => $detailed_message,
+            'detailed_description' => $detailed_description,
+            'post_debug_data' => $post_debug_data
+        ];
+    }
+
