@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    include "functionality.php";
     // Constants for colour schemes
     define('COLOUR_SCHEME_DEFAULT', 'default');
     define('COLOUR_SCHEME_BLACK_WHITE', 'black_white');
@@ -116,19 +116,6 @@
             'detailed_description' => $detailed_description
         ];
 
-    }
-
-
-    function set_data_response($status, $preview_title, $preview_message, $detailed_title, $detailed_message, $detailed_description, $post_debug_data): void {
-        $_SESSION['PHP_RESPONSE'] = [
-            'status' => $status,
-            'preview_title' => $preview_title,
-            'preview_message' => $preview_message,
-            'detailed_title' => $detailed_title,
-            'detailed_message' => $detailed_message,
-            'detailed_description' => $detailed_description,
-            'post_debug_data' => $post_debug_data
-        ];
     }
 
 
