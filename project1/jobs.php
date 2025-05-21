@@ -1,4 +1,9 @@
 <!-- PHP code to set accessability preferences for the website -->
+<?php
+    include '../php/functionality.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" class="<?php 
     set_accessibility();

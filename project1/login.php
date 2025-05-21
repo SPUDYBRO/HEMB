@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php include '../php/functionality.php';?>
+
+
+<!DOCTYPE html>
+<html lang="en" class="<?php set_accessibility();?>">
+    <?php display_info_card();?>
 
 <head class="<?php set_accessibility();?>">
     <meta charset="UTF-8">
@@ -17,17 +19,27 @@
 
 
         <main id="login_main">
-            <h1>Admin Login</h1>
-            <p>Login as administrator</p>
+            <div>
+                <h1>Admin Login</h1>
+                <p>Login as administrator</p>
+                <hr>
+            </div>
             <form action="login.php" method="POST">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <div class="login_field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
                 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                
+
+                <div class="login_field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
                 <button type="submit">Login</button>
             </form>
+
+            <p>Staff access only</p>
+
         </main>
 
         <?php include "../inc/footer.inc";?>
