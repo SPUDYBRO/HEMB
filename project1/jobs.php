@@ -1,14 +1,4 @@
 <!-- PHP code to set accessability preferences for the website -->
-<?php
-    include '../php/functionality.php';
-
-    if (!isset($_SESSION['username'])) {
-      header("Location: login.html");
-      exit();
-    }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en" class="<?php 
     set_accessibility();
