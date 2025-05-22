@@ -1199,8 +1199,8 @@ you can also intent further to explain a certain area of code, for example:
         flex-direction: column;
         align-items: center;
 
-        width: 30vw;
-        height: 70vh;
+        width: 30%;
+        height: 30%;
 
         border-radius: 15px;
         padding: 20px;
@@ -1364,6 +1364,13 @@ you can also intent further to explain a certain area of code, for example:
             }
     }
 
+    @media (max-width: 830px) {
+        #login_main {
+            width: 70%;
+            height: 50%;
+        }
+    }
+
     @media (max-width: 800px) {
 
         /* about page styles */
@@ -1476,6 +1483,14 @@ you can also intent further to explain a certain area of code, for example:
                 min-height: 0px;
                 height: 50vh;
             }
+        
+        
+        #login_main {
+            width: 90%;
+            height: 60%;
+            padding: 15px;
+            text-align: center;
+        }
     }
 
     @media (max-width: 380px) {
