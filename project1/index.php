@@ -31,7 +31,6 @@
                     reason for using GEN AI to create image:
                         (reasons are under hero image)
         -->
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
