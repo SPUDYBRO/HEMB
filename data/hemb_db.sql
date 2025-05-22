@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2025 at 10:18 PM
+-- Generation Time: May 22, 2025 at 06:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,15 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `eoi` (
   `EOInumber` int(11) NOT NULL,
-  `Job Ref Num` int(11) NOT NULL,
-  `First name` varchar(20) NOT NULL,
-  `Last name` varchar(20) NOT NULL,
+  `Job_Ref_Num` int(11) NOT NULL,
+  `Firstname` varchar(20) NOT NULL,
+  `Lastname` varchar(20) NOT NULL,
   `Address` varchar(80) NOT NULL,
-  `Email Address` varchar(40) NOT NULL,
-  `Phone Number` int(12) NOT NULL,
-  `Skills` varchar(100) NOT NULL,
-  `Other Skills` varchar(100) NOT NULL,
-  `Status` varchar(5) NOT NULL DEFAULT 'New'
+  `Email_Address` varchar(40) NOT NULL,
+  `Phone_Number` int(12) NOT NULL,
+  `Technical_Skills` varchar(100) NOT NULL,
+  `Preferred_Skills` varchar(100) NOT NULL,
+  `Other_Skills` varchar(100) NOT NULL,
+  `Status` varchar(7) NOT NULL DEFAULT 'New'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
