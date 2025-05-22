@@ -58,9 +58,43 @@
             <!-- Source: https://www.zippia.com/employer/how-to-write-a-job-description/  -->
             <hr>
 
+            <?php
+            require_once "settings.php";
+            $dbconn = @mysqli_connect ($host,$user,$pwd,$sql_db);
 
+            if ($dbconn) {
+                $query = "SELECT * FROM jobs";
+                $result = mysqli_query ($dbconn, $query);
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<section class="main_section jobs_section">'
+                        echo '<h2>' . $row['title'] . '</h2>'
+                        echo '<p><strong>JOB TYPE:</strong>' . $row['type'] . '</p>'
+                        echo '<p><strong>WORK HOURS:</strong>' . $row['work_hours'] . '</p>'
+                        echo '<p><strong>SALARY:</strong>' . $row['salary'] . '</p>'
+                        echo '<p><strong>SUPERVISOR:</strong>' . $row['supervisor'] . '</p>'
+                        echo '<p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong>' . $row['reference_number'] . '</p>'
+                        echo '<br>'
+                        echo '<p>' . $row['description'] . '</p>'
+                        // echo '' . $row['responsibilities'] . ''
+                        // echo '' . $row['essential_qualifications'] . ''
+                        // echo '' . $row['preferable_qualifications'] . ''
+                        echo '<h3>Benefits</h3>'
+                        echo '' . $row['benefits'] . ''
+                    }
+                }
+                else {
+                    echo "There are no cars to display.";
+                }
+                mysqli_close($dbconn);
+            } else echo "<p>Unable to connect to the db.</p>";
+            
+            echo '<section class="main_section jobs_section">'
+            
+
+            ?>
             <!-- JOB 1 / IT Support Technician -->
-            <section class="main_section jobs_section">                 
+            <section class="main_section jobs_section">
                 <h2>IT Support Technician</h2>
                 <p><strong>JOB TYPE:</strong> Full Time</p>
                 <p><strong>WORK HOURS:</strong> 9:00 AM - 5:00 PM, Monday - Friday</p>
