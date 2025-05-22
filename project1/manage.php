@@ -74,7 +74,7 @@ include '../php/functionality.php';
                         for ($i = 0; $i < mysqli_num_rows($result); $i++) {
                             $row = mysqli_fetch_assoc($result);
                             echo "<section class='result'>";
-                            echo "<h3>" . htmlspecialchars($row['First name']) . " " . htmlspecialchars($row['Last name']) . "</h3>";
+                            echo "<h3>" . htmlspecialchars($row['Firstname']) . " " . htmlspecialchars($row['Lastname']) . "</h3>";
 
                             echo "<h4><br>Information</h4>";
                             echo "<table class='result_table'>";
@@ -90,20 +90,20 @@ include '../php/functionality.php';
                             echo "<tbody>";
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($row['EOInumber']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['Job Ref Num']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Job_Ref_Num']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['Address']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['Email Address']) . "</td>";
-                            echo "<td>" . htmlspecialchars($row['Phone Number']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Email_Address']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Phone_Number']) . "</td>";
                             echo "</tr>";
                             echo "</tbody>";
                             echo "</table>";
 
                             echo "<div class='result_text'>";
                             echo "<h4>Skills:</h4>";
-                            echo "<p>" . htmlspecialchars($row['Skills']) . "</p>";
+                            echo "<p>" . htmlspecialchars($row['Technical_Skills']) . "</p>";
                             echo "</div><div class='result_text'>";
                             echo "<h4>Other Skills:</h4>";
-                            echo "<p>" . htmlspecialchars($row['Other Skills']) . "</p>";
+                            echo "<p>" . htmlspecialchars($row['Other_Skills']) . "</p>";
                             echo "</div>";
 
                             echo '<form>Status: 
