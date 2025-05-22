@@ -28,7 +28,7 @@ $preferred_skills = $_POST['preferred_skills'];
 $other_skills = $_POST['other_skills'];
 
     
-$prep = $conn->prepare("INSERT INTO users (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$prep = $conn->prepare("INSERT INTO eoi (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $prep->bind_param("iissssissss", $EOInumber, $Job_Ref_Num, $Firstname, $Lastname, $Address, $Email_Address, $Phone_Number, $Technical_Skills, $Preferred_Skills, $Other_Skills, $Status);
 
 
@@ -38,7 +38,6 @@ $prep->bind_param("iissssissss", $EOInumber, $Job_Ref_Num, $Firstname, $Lastname
 #  echo "Error: " . $prep->error;
 # }
 
-$prep->close();
-$conn->close();
 
+$conn->close();
 ?>
