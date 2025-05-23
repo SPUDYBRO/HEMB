@@ -17,18 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     die();
 }
 
+
+
+date_default_timezone_set('Australia/Melbourne');
+
 $error = [];
 
 
 
 // Check if the user has attempted to login more then times
-if (!isset($_SESSION['login_requests'])) {
-    $_SESSION['login_requests'] = 0;
-} else {
-    $_SESSION['login_requests']++;
-}
-
-
 
 if (isset($_SESSION['Block_Time'])) {
     if (time() - $_SESSION['Block_Time'] > 600) {
@@ -37,17 +34,18 @@ if (isset($_SESSION['Block_Time'])) {
     }
 }
 
-if ($_SESSION['login_requests'] > 5) {
+if ($_SESSION['login_requests'] >= 5) {
     if (!isset($_SESSION['Block_Time'])) {
         $_SESSION['Block_Time'] = time();
     }
+    $time_lift_formatted = date("h:i a", $_SESSION['Block_Time'] + 600) . " (AEST)";
     set_data_response(
         "error",
         "Too many attempts",
-        "Please Wait 10 minutes",
+        "Please Wait 10 minutes | Till " . $time_lift_formatted,
         "Too many login attempts!",
         "You will be able to attempt to login again after 10 minutes",
-        "Your login ban will be lifted at: " . date("H:i", $_SESSION['Block_Time'] + 600),
+        "Your login ban will be lifted at: " . $time_lift_formatted,
         ["Sensitive data, no debug available" => "No data"]
     );
     header("Location: ../project1/login.php");
@@ -82,6 +80,12 @@ if (empty($_POST['password'])) {
 
 // There was an error somewhere, so set the error message and return back to the login page
 if (count($error) > 0) {
+
+    if (!isset($_SESSION['login_requests'])) {
+        $_SESSION['login_requests'] = 0;
+    } else {
+        $_SESSION['login_requests']++;
+    }
     $error_msg = "";
 
     if (count($error) == 1) { $preview_message = $error[0]; }
@@ -90,7 +94,13 @@ if (count($error) > 0) {
     foreach ($error as $err) {
         $error_msg .= $err . "\n";
     }
-    set_data_response("error", "Error", $preview_message . " | attempts " . $_SESSION['login_requests'] . "/5", "The values you submitted didn't meet the requirements to be passed", "Something in the form you submitted wasn't accepted and caused an error", "The following are the errors that were found:<br><pre>" . $error_msg . "</pre>", ["Sensitive data, no debug available" => "No data"]);
+    set_data_response("error", 
+    "Error", 
+    $preview_message . " | attempts " . $_SESSION['login_requests'] . "/5", 
+    "The values you submitted didn't meet the requirements to be passed", 
+    "Something in the form you submitted wasn't accepted and caused an error", 
+    "The following are the errors that were found:<br><pre>" . $error_msg . "</pre>", 
+    ["Sensitive data, no debug available" => "No data"]);
     header("Location: ../project1/login.php");
     die();
 }
