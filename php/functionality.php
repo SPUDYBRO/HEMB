@@ -103,7 +103,29 @@
     }
 
 
-    function set_data_response($status, $preview_title, $preview_message, $detailed_title, $detailed_message, $detailed_description, $post_debug_data): void {
+
+    /**
+     * This function sets the session data required for displaying the information cards
+     * User must be redirected or refreshed to see the info-card after this function is called
+     * 
+     * 
+     * There are two types of messages that can be displayed:
+     * Preview message: A short message that is displayed in the preview (when the little card slides in)
+     * Detailed message: A longer message that is displayed when the user clicks on the preview message
+     * 
+     * keep preview message short and simple as the card can only contain a few characters and all overflow will get cut off
+     * The detailed message can be as long as you want, Keep information informative and useful. make people understand why something happened
+     *
+     * @param string $status The type. Can only be "success" or "error" (case sensitive)
+     * @param string $preview_title The title of the preview message.
+     * @param string $preview_message The message to display in the preview
+     * @param string $detailed_title The title of the detailed message
+     * @param string $detailed_message The detailed message to display. Usually this contains info about what happened and why
+     * @param string $detailed_description A description of the detailed message. usually this contains info about what the user can do, or further details the error or success
+     * @param array $post_debug_data (Optional. pass null if not needed) An array of data to display in the debug table. This is usually the $_POST or $_GET data that was sent to the server
+     * @return void
+     */
+    function set_data_response($status, $preview_title, $preview_message, $detailed_title, $detailed_message, $detailed_description, $post_debug_data = ["No data" => "No data"]): void {
         $_SESSION['PHP_RESPONSE'] = [
             'status' => $status,
             'preview_title' => $preview_title,
