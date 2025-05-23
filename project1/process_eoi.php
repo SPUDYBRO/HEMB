@@ -11,26 +11,34 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$title = $_POST['title'];
-$firstname = $_POST['first_name_input'];
-$lastname = $_POST['last_name_input'];
-$date = $_POST['date'];
-$job_ref_num =  $_POST['job_reference_number'];
-$street = $_POST['street_address'];
-$suburb = $_POST['suburb_town'];
-$state = $_POST['state'];
-$postcode = $_POST['postcode'];
-$gender = $_POST['gender_input'];
-$email_address = $_POST['email_input'];
-$phone_number = $_POST['phone_number_input'];
-$technical_skills = $_POST['technical_skills'];
+
 $preferred_skills = $_POST['preferred_skills'];
 $other_skills = $_POST['other_skills'];
 
     
 $prep = $conn->prepare("INSERT INTO eoi (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $prep->bind_param("iissssissss", $EOInumber, $Job_Ref_Num, $Firstname, $Lastname, $Address, $Email_Address, $Phone_Number, $Technical_Skills, $Preferred_Skills, $Other_Skills, $Status);
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["title"]) || empty($_POST["first_name_input"]) || empty($_POST["last_name_input"]) || empty($_POST["date"]) || empty($_POST["job_reference_number"]) || empty($_POST["street_address"]) || empty($_POST["suburb_town"]) || empty($_POST["state"]) || empty($_POST["postcode"]) || empty($_POST["gender_input"]) || empty($_POST["email_input"]) || empty($_POST["phone_number_input"]) || empty($_POST["technical_skills"])) {
+        echo "Please fill in all required fields.";
+        exit;
+    }
+    else {
+        $title = $_POST['title'];
+        $firstname = $_POST['first_name_input'];
+        $lastname = $_POST['last_name_input'];
+        $date = $_POST['date'];
+        $job_ref_num =  $_POST['job_reference_number'];
+        $street = $_POST['street_address'];
+        $suburb = $_POST['suburb_town'];
+        $state = $_POST['state'];
+        $postcode = $_POST['postcode'];
+        $gender = $_POST['gender_input'];
+        $email_address = $_POST['email_input'];
+        $phone_number = $_POST['phone_number_input'];
+        $technical_skills = $_POST['technical_skills'];
+    }
+}
 
 # if ($prep->execute()) {
 #  echo "New record created successfully";
