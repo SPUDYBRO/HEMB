@@ -24,7 +24,7 @@
                 <p>Login as administrator</p>
                 <hr>
             </div>
-            <form action="login.php" method="POST">
+            <form action="../php/login_handle.php" method="POST" novalidate>
                 <div class="login_field">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
