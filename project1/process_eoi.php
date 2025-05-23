@@ -11,6 +11,158 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+
+
+
+/* Note from Evan:
+
+When organising the code there are 3 sections / types of validation you need to do:
+
+1. Existence validation. Here you will check if what was submitted exists or not. and if it is empty or not.
+2. Type checking. Here you check if the data entered is of what you expect. for example if you require a string but get a number.
+3. range checking. Here is where you check if the data is within the limits of what you expect. for example does it only contain A-Z or 0-9.
+
+
+
+I have added These sections into your code. And organized your code into 4 sections. 3 being validation and the last being the database insertion.
+*/
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+    // ======================================= EXISTENCE VALIDATION ==========================================
+    
+
+        // ------------------------- Isset? -------------------------
+            if (!isset($_POST["title"])) {
+                #set error using my function `set_php_response()` found in functionality.php
+                #Then redirect them and die()
+            }
+            if (!isset($_POST["first_name_input"])) {
+                # Code
+            }
+            if (!isset($_POST["last_name_input"])) {
+                # Code
+            }
+            if (!isset($_POST["date"])) {
+                # Code
+            }
+            if (!isset($_POST["job_reference_number"])) {
+                # Code
+            }
+            if (!isset($_POST["street_address"])) {
+                # Code
+            }
+            if (!isset($_POST["suburb_town"])) {
+                # Code
+            }
+            if (!isset($_POST["state"])) {
+                # Code
+            }
+            if (!isset($_POST["postcode"])) {
+                # Code
+            }
+            if (!isset($_POST['gender_input'])) {
+                # Code
+            }
+            if (!isset($_POST["email_input"])) {
+                # Code
+            }
+            if (!isset($_POST["phone_number_input"])) {
+                # Code
+            }
+            if (!isset($_POST["technical_skills"])) {
+                # Code
+            }
+            if (!isset($_POST["preferred_skills"])) {
+                # Code
+            }
+            if (!isset($_POST["other_skills"])) {
+                # Code
+            }
+        
+        // ------------------------- Empty? -------------------------
+            if (!empty($_POST["title"])) {
+                // set_php_response("Title is required.");
+                // redirect and die();
+            }
+            if (!empty($_POST["first_name_input"])) {
+                # Code
+            }
+            if (!empty($_POST["last_name_input"])) {
+                # Code
+            }
+            if (!empty($_POST["date"])) {
+                # Code
+            }
+            if (!empty($_POST["job_reference_number"])) {
+                # Code
+            }
+            if (!empty($_POST["street_address"])) {
+                # Code
+            }
+            if (!empty($_POST["suburb_town"])) {
+                # Code
+            }
+            if (!empty($_POST["state"])) {
+                # Code
+            }
+            if (!empty($_POST["postcode"])) {
+                # Code
+            }
+            if (!empty($_POST["gender_input"])) {
+                # Code
+            }
+            if (!empty($_POST["email_input"])) {
+                # Code
+            }
+            if (!empty($_POST["phone_number_input"])) {
+                # Code
+            }
+            if (!empty($_POST["technical_skills"])) {
+                # Code
+            }
+            if (!empty($_POST["preferred_skills"])) {
+                # Code
+            }
+            if (!empty($_POST["other_skills"])) {
+                # Code
+            }
+        
+
+
+
+        
+    // ======================================= TYPE VALIDATION ==========================================
+
+
+        # Code for this. Not everything needs to be type validated. just stuff that needs to be integers or something like that.
+
+    
+
+    // ======================================= RANGE VALIDATION ==========================================
+
+        # Code for this. This would include the !preg_match() stuff you have in your code.
+
+
+
+
+
+
+        # once all the validation is done. You can check if you got any errors by making an array an inserting the errors into it.
+        # then if the array has an element in it. use the `set_php_response()` function to set the error message and redirect them back to the form.
+        # this will make the info card i showed you pop up with the error message
+        # if you dont know what to put in the `set_php_response()` function. look in functionality.php and i have written a comment on what to put in there.
+
+    // ======================================= DATABASE INSERTION ==========================================
+
+        # You don't need to make a giant list turning the $_POST data into variables. You can just use the $_POST data directly in the SQL statement.
+        # on top. at this point you can assume that the data is valid and safe to use. (still use prepared statements though)
+
+}
+
 $prep = $conn->prepare("INSERT INTO eoi (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $prep->bind_param("iissssissss", $EOInumber, $Job_Ref_Num, $Firstname, $Lastname, $Address, $Email_Address, $Phone_Number, $Technical_Skills, $Preferred_Skills, $Other_Skills, $Status);
 
