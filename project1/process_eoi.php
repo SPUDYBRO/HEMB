@@ -23,12 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $title = $_POST['title'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["first_name_input"]) || empty($_POST["last_name_input"])) {
         echo "Please fill in firstname and lastname.";
         exit;
@@ -37,14 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $title = $_POST['title'];
-        $firstname = $_POST['first_name_input'];
-        $lastname = $_POST['last_name_input']; 
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["date"])) {
         echo "Please fill in date of birth.";
         exit;
@@ -53,12 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $date = $_POST['date'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["job_reference_number"])) {
         echo "Please fill in job reference number.";
         exit;
@@ -67,12 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $job_ref_num = $_POST['job_reference_number'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["street_address"])) {
         echo "Please fill in street address.";
         exit;
@@ -81,12 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $street = $_POST['street_address'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["suburb_town"])) {
         echo "Please fill in suburb/town.";
         exit;
@@ -95,12 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $suburb = $_POST['suburb_town'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["state"])) {
         echo "Please fill in state.";
         exit;
@@ -109,12 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $state = $_POST['state'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["postcode"])) {
         echo "Please fill in postcode.";
         exit;
@@ -123,12 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $postcode = $_POST['postcode'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["gender_input"])) {
         echo "Please fill in postcode.";
         exit;
@@ -137,12 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $gender = $_POST["gender_input"];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["email_input"])) {
         echo "Please fill in email address.";
         exit;
@@ -151,12 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $email_address = $_POST['email_input'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["phone_number_input"])) {
         echo "Please fill in phone number.";
         exit;
@@ -165,12 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     }
-    else {
-        $phone_number = $_POST['phone_number_input'];
-    }
-}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["technical_skills"])) {
         echo "Please fill in technical skills.";
         exit;
@@ -178,9 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Only letters and white space allowed in technical skills";
             exit;
         }
-    }
-    else {
-        $technical_skills = $_POST['technical_skills'];
     }
 }
 
