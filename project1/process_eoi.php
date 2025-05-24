@@ -3,16 +3,10 @@ session_start();
 
 require_once("settings.php");
 
-# I think it should be a html file but i just guessed so feel free to change it
-
-# its gonna be a php because it will need t include the header and footer and stuff - Evan
 $conn = mysqli_connect($host, $user, $password, $database);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-
-
 
 /* Note from Evan:
 
@@ -27,7 +21,9 @@ When organising the code there are 3 sections / types of validation you need to 
 I have added These sections into your code. And organized your code into 4 sections. 3 being validation and the last being the database insertion.
 */
 
+require_once("functionality.php");
 
+$error = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -37,98 +33,98 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // ------------------------- Isset? -------------------------
             if (!isset($_POST["title"])) {
-                #set error using my function `set_php_response()` found in functionality.php
+                #set error using my function `set_data_response()` found in functionality.php
                 #Then redirect them and die()
+                $error[] = "No title field was submitted";
             }
             if (!isset($_POST["first_name_input"])) {
-                # Code
+                $error[] = "No firstname field was submitted";
             }
             if (!isset($_POST["last_name_input"])) {
-                # Code
+                $error[] = "No lastname field was submitted";
             }
             if (!isset($_POST["date"])) {
-                # Code
+                $error[] = "No date field was submitted";
             }
             if (!isset($_POST["job_reference_number"])) {
-                # Code
+                $error[] = "No job reference number field was submitted";
             }
             if (!isset($_POST["street_address"])) {
-                # Code
+                $error[] = "No street address field was submitted";
             }
             if (!isset($_POST["suburb_town"])) {
-                # Code
+                $error[] = "No suburb town field was submitted";
             }
             if (!isset($_POST["state"])) {
-                # Code
+                $error[] = "No state field was submitted";
             }
             if (!isset($_POST["postcode"])) {
-                # Code
+                $error[] = "No postcode field was submitted";
             }
             if (!isset($_POST['gender_input'])) {
-                # Code
+                $error[] = "No gender field was submitted";
             }
             if (!isset($_POST["email_input"])) {
-                # Code
+                $error[] = "No email field was submitted";
             }
             if (!isset($_POST["phone_number_input"])) {
-                # Code
+                $error[] = "No phone field was submitted";
             }
             if (!isset($_POST["technical_skills"])) {
-                # Code
+                $error[] = "No technical field was submitted";
             }
             if (!isset($_POST["preferred_skills"])) {
-                # Code
+                $error[] = "No preferred field was submitted";
             }
             if (!isset($_POST["other_skills"])) {
-                # Code
+                $error[] = "No other field was submitted";
             }
         
         // ------------------------- Empty? -------------------------
             if (!empty($_POST["title"])) {
-                // set_php_response("Title is required.");
-                // redirect and die();
+                $error[] = "Title field is empty.";
             }
             if (!empty($_POST["first_name_input"])) {
-                # Code
+                $error[] = "Firstname field is empty.";
             }
             if (!empty($_POST["last_name_input"])) {
-                # Code
+                $error[] = "Lastname field is empty.";
             }
             if (!empty($_POST["date"])) {
-                # Code
+                $error[] = "Date field is empty.";
             }
             if (!empty($_POST["job_reference_number"])) {
-                # Code
+                $error[] = "Job reference number field is empty.";
             }
             if (!empty($_POST["street_address"])) {
-                # Code
+                $error[] = "Street address field is empty.";
             }
             if (!empty($_POST["suburb_town"])) {
-                # Code
+                $error[] = "Suburb town field is empty.";
             }
             if (!empty($_POST["state"])) {
-                # Code
+                $error[] = "State field is empty.";
             }
             if (!empty($_POST["postcode"])) {
-                # Code
+                $error[] = "Postcode field is empty.";
             }
             if (!empty($_POST["gender_input"])) {
-                # Code
+                $error[] = "Gender field is empty.";
             }
             if (!empty($_POST["email_input"])) {
-                # Code
+                $error[] = "Email field is empty.";
             }
             if (!empty($_POST["phone_number_input"])) {
-                # Code
+                $error[] = "Phone number field is empty.";
             }
             if (!empty($_POST["technical_skills"])) {
-                # Code
+                $error[] = "Technical skills field is empty.";
             }
             if (!empty($_POST["preferred_skills"])) {
-                # Code
+                $error[] = "Preferred skills field is empty.";
             }
             if (!empty($_POST["other_skills"])) {
-                # Code
+                $error[] = "Other skills field is empty.";
             }
         
 
