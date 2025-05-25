@@ -6,7 +6,14 @@ require_once("../php/settings.php");
 
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    set_data_response("error",
+    "Error",
+    "Database connection failed",
+    "Unable to connect to the database",
+    "There was an issue connecting to the database",
+    "Please check your internet and try again.");
+    header("Location: ./apply.php");
+    die();
 }
 
 $error = [];
