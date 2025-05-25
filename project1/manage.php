@@ -2,14 +2,31 @@
 <?php 
 require_once '../php/settings.php';
 include '../php/functionality.php';
+
+
+
+if (!is_logged_in()) {
+    set_data_response('error', 'Access Denied', 'This page is only for staff', 'This page is only allowed for staff', "You are not allowed to access this page", "if you are staff, please navigate to the login page to get access");
+    header('Location: ' . "../project1/index.php");
+    die();
+}
+
+if (isset($_GET['Mode'])) {
+    if ($_GET['Mode'] == "Logout") {
+        logout();
+        header('Location: ' . "../project1/index.php");
+        die();
+    }
+}
+
+
 ?>
 
 
 
-
 <!DOCTYPE html>
-<html lang="en">
-<head class="<?php set_accessibility();?>">
+<html lang="en" class="<?php set_accessibility();?>">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Admin management page for handling data for the website">
@@ -27,15 +44,20 @@ include '../php/functionality.php';
     <main id="manage_main">
         <div id="manage_header">
             <h1>Admin Management</h1>
-            <!-- Since the session isn't built yet, we will use a default name ME!!! mwhaaha-->
-            <p>Welcome <?php echo htmlspecialchars(isset($_SESSION['username']) ? $_SESSION['username'] : "Evan"); ?></p>
+            <p>Welcome <?php echo $_SESSION['User']->Username; ?></p>
             <hr>
         </div>
 
         <form id="manager_options" method="get" action="manage.php">
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "EOI") { echo "current";}?>" type="submit" name="Mode" value="EOI">EOIS</button>
-            <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Accounts") { echo "current";}?>" type="submit" name="Mode" value="Accounts">Accounts</button>
+            <?php
+            if ($_SESSION['User']->Role == "Admin") {
+                if (isset($_GET['Mode']) && $_GET['Mode'] == "Accounts") { $current = "current";} else { $current = ""; }
+                echo "<button class=" . $current . " type='submit' name='Mode' value='Accounts'>All Accounts</button>";
+            }
+            ?>
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Employees") { echo "current";}?>" type="submit" name="Mode" value="Employees">Employees</button>
+            <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Logout") { echo "current";}?>" type="submit" name="Mode" value="Logout">Logout</button>
         </form>
 
 
@@ -106,13 +128,15 @@ include '../php/functionality.php';
                             echo "<p>" . htmlspecialchars($row['Other_Skills']) . "</p>";
                             echo "</div>";
 
-                            echo '<form>Status: 
+                            echo '<form method="post" action="../php/process_manage.php" autocomplete="off">Status: 
+                                <input type="hidden" name="EOInumber" value="' . htmlspecialchars($row['EOInumber']) . '">
                                 <select name="status">
                                     <option value="New"' . ($row['Status'] == 'New' ? ' selected' : '') . '>New</option>
                                     <option value="Current"' . ($row['Status'] == 'Current' ? ' selected' : '') . '>Current</option>
                                     <option value="Final"' . ($row['Status'] == 'Final' ? ' selected' : '') . '>Final</option>
                                 </select>
-                                <button type="submit" name="update" value="' . htmlspecialchars($row['EOInumber']) . '">Update</button>
+                                <button type="submit" name="EOI_Update">Update</button>
+                                <button type="submit" name="EOI_Delete">Delete</button>
                             </form>';
                             echo "</section>";
                         }
@@ -125,8 +149,91 @@ include '../php/functionality.php';
 
                 } elseif ($_GET['Mode'] == "Accounts") {
                     // =================== Account Management ===================
-                    echo "<h2>Account Management</h2>";
-                    echo "<p>Manage the account data here</p>";
+
+                    if ($_SESSION['User']->Role != "Admin") {
+                        echo "<h2>Access Denied</h2>";
+                        echo "<p>You do not have permission to access this page</p>";
+                    } else {
+                        echo "<h2>Account Management</h2>";
+                        echo "<p>Manage the account data here</p>";
+                        echo "<form method='post' action='manage.php?Mode=Accounts'>
+                                <button type='submit' name='Account_Create'>Create New Account</button>
+                            </form>";
+
+                        $db = mysqli_connect($host, $user, $pwd, $sql_db);
+                        if (!$db) {
+                            set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . mysqli_connect_error() . "</pre>", $_GET);
+                            echo '<meta http-equiv="refresh" content="0;url=manage.php">';
+                            die();
+                        }
+
+                        $stmt = $db->prepare("SELECT * FROM users");
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        if (!$result) {
+                            set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
+                            echo '<meta http-equiv="refresh" content="0;url=manage.php">';
+                            die();
+                        }
+
+                        if (isset($_POST['Account_Create'])) {
+                            echo "<form method='post' action='../php/process_manage.php'>";
+                            echo "<input type='text' name='Username' placeholder='Username' required>";
+                            echo "<input type='password' name='Password' placeholder='Password' required>";
+                            echo "<select name='Role' required>
+                                    <option value='Member'>Member</option>
+                                    <option value='Admin'>Admin</option>
+                                </select>";
+                            echo "<button type='submit' name='Account_Create'>Create Account</button>";
+                            echo "</form>";
+                        }
+
+                        if (mysqli_num_rows($result) == 0) {
+                            echo "<p>No accounts found</p>";
+                        } else {
+                            for( $i = 0; $i < mysqli_num_rows($result); $i++) {
+                                $row = mysqli_fetch_assoc($result);
+                                echo "<section class='result'>";
+                                $title = "<h3>" . htmlspecialchars($row['Username']);
+                                if ($_SESSION['User']->ID == $row['ID']) {
+                                    $title .= " | (you)</h3>";
+                                } else { $title .= "</h3>"; }
+                                
+                                echo $title;
+                                echo "<table class='result_table'>";
+                                echo "<thead>";
+                                echo "<tr>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Password (can only be changed)</th>
+                                    <th>Role</th>
+                                    <th>Action</th>
+                                  </tr>";
+                                echo "</thead>";
+                                echo "<form method='post' action='../php/process_manage.php' autocomplete='off'>";
+                                echo "<tbody>";
+                                echo "<tr>";
+                                echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
+                                echo "<input type='hidden' name='ID' value='". $row['ID'] . "'>";
+                                echo "<td> <input type='text' name='Username' value='" . htmlspecialchars($row['Username']) . "' required></td>";
+                                echo "<td> <input type='password' name='Password' placeholder='Leave blank to keep current password' autocomplete='new-password'></td>";
+                                echo "<td>
+                                    <select name='Role'>
+                                        <option value='User'" . ($row['Role'] == 'Member' ? ' selected' : '') . ">Member</option>
+                                        <option value='Admin'" . ($row['Role'] == 'Admin' ? ' selected' : '') . ">Admin</option>
+                                    </select>";
+                                echo "</td>";
+                                echo "<td><button type='submit' name='Account_Update'>Update</button>
+                                        <button type='submit' name='Account_Delete'>Delete</button></td>";
+                                echo "</tr>";
+                                echo "</tbody>";
+                                echo "</form>";
+                                echo "</table>";
+                                echo "</section>";
+                            }
+                        }
+                    }
+                    
 
 
 
