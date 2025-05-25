@@ -8,4 +8,5 @@ Password and database need to be changed. -->
     $user = "root";
     $pwd = "";
     $sql_db = "hemb_db";
+    $employees_db = "employees";
 ?>
