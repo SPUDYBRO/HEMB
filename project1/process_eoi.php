@@ -4,7 +4,7 @@
 require("../php/functionality.php");
 require_once("../php/settings.php");
 
-$conn = mysqli_connect($host, $user, $password, $database);
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[0-9 ]*$/", $_POST["postcode"])) {
                 $error[] = "Only numbers allowed in postcode";
             }
-            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["gender_input"])) {
+            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["gender_input[]"])) {
                 $error[] = "Only letters and white space allowed";
             }
             if (!filter_var($_POST["email_input"], FILTER_VALIDATE_EMAIL)) {
@@ -154,9 +154,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[0-9 ]*$/", $_POST["phone_number_input"])) {
                 $error[] = "Only numbers allowed in phone number";
             }
-            for ($i = 0; $i < count($_POST["technical_skills"]); $i++) {
-                if (!in_array($_POST["technical_skills"][$i], $technical_skills_map)) {
-                    $error[] = "Invalid technical skill: " . $_POST["technical_skills"][$i];
+            for ($i = 0; $i < count($_POST["technical_skills[]"]); $i++) {
+                if (!in_array($_POST["technical_skills[]"][$i], $technical_skills_map)) {
+                    $error[] = "Invalid technical skill: " . $_POST["technical_skills[]"][$i];
                 }
             }
             for ($i = 0; $i < count($_POST["preferred_skills"]); $i++) {
