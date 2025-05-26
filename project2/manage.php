@@ -24,7 +24,8 @@ if (isset($_GET['Mode'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Admin management page for handling data for the website">
+    <meta name="description" content="HEMB IT Solutions - Manager Page for administrators to manage
+     the data within the company. Administrators can manage the employee data, job data,">
     <meta name="keywords" content="HEMB, IT, Solutions, Admin, Management, Data">
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Manager | HEMB-IT</title>

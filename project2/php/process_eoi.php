@@ -181,13 +181,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!in_array($_POST["gender_input"], $gender_input_map)) {
                 $error[] = "Invalid gender_input. Only Male or Female are allowed.";
             }
-            if (isset($POST["preferred_skills"]) && !empty($_POST["preferred_skills"])) {
-                foreach ($_POST["preferred_skills"] as $skill) {
-                    if (!in_array($skill, $preferred_skills_map)) {
-                        $error[] = "Invalid preferred skill: " . htmlspecialchars($skill);
-                    }
-                }
-            }
 }
 
 
@@ -215,8 +208,18 @@ $Address = $_POST["street_address"] . ", " . $_POST["suburb_town"] . ", " . $_PO
 
 
 $other_skills = htmlspecialchars($_POST["other_skills"]);
-$technical_skills = implode(", ", $_POST["technical_skills"]);
-$preferred_skills = implode(", ", $_POST["preferred_skills"]);
+if (isset($_POST["technical_skills"]) && !empty($_POST["technical_skills"])) {
+    $technical_skills = implode(", ", $_POST["technical_skills"]);
+}
+else {
+    $preferred_skills = [];
+}
+if (isset($_POST["preferred_skills"]) && !empty($_POST["preferred_skills"])) {
+    $preferred_skills = implode(", ", $_POST["preferred_skills"]);
+}
+else {
+    $preferred_skills = [];
+}
 
 $prep = $conn->prepare("INSERT INTO eoi 
     (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills) 
