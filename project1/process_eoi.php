@@ -17,6 +17,7 @@ if (!$conn) {
 
 $error = [];
 
+$gender_input_map = ["male", "female"];
 $technical_skills_map = ["Knowledge in Troubleshooting", "Understanding of Network Infrastructure", "Knowledge of Computer Hardware", "Proficiency in Operating Systems", "Knowledge of Security Practices", "Familiarity with Database Concepts"];
 $preferred_skills_map = ["Communication", "Teamwork", "Time Management", "Autonomous", "Fast Learner"];
 
@@ -57,17 +58,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!isset($_POST['gender_input'])) {
                 $error[] = "No gender field was submitted";
             }
-            if (!isset($_POST["email_input"])) {
-                $error[] = "No email field was submitted";
+            if (isset($_POST["gender_input"]) && !in_array($_POST["gender_input"], $gender_input_map)) {
+                $error[] = "Invalid gender_input: " . $_POST["gender_input"];
             }
             if (!isset($_POST["phone_number_input"])) {
                 $error[] = "No phone field was submitted";
             }
-            if (!isset($_POST["technical_skills"])) {
-                $error[] = "No technical field was submitted";
+            if (isset($_POST["technical_skills"]) && !in_array($_POST["technical_skills"], $gender_input_map)) {
+                $error[] = "Invalid technical_skills: " . $_POST["technical_skills"];
             }
-            if (!isset($_POST["preferred_skills"])) {
-                $error[] = "No preferred field was submitted";
+            if (isset($_POST["preferred_skills"]) && !in_array($_POST["preferred_skills"], $gender_input_map)) {
+                $error[] = "Invalid preferred_skills: " . $_POST["preferred_skills"];
             }
             if (!isset($_POST["other_skills"])) {
                 $error[] = "No other field was submitted";
@@ -151,24 +152,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[0-9 ]*$/", $_POST["postcode"])) {
                 $error[] = "Only numbers allowed in postcode";
             }
-            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["gender_input[]"])) {
-                $error[] = "Only letters and white space allowed";
-            }
             if (!filter_var($_POST["email_input"], FILTER_VALIDATE_EMAIL)) {
                 $error[] = "Invalid email format";
             }
             if (!preg_match("/^[0-9 ]*$/", $_POST["phone_number_input"])) {
                 $error[] = "Only numbers allowed in phone number";
-            }
-            for ($i = 0; $i < count($_POST["technical_skills[]"]); $i++) {
-                if (!in_array($_POST["technical_skills[]"][$i], $technical_skills_map)) {
-                    $error[] = "Invalid technical skill: " . $_POST["technical_skills[]"][$i];
-                }
-            }
-            for ($i = 0; $i < count($_POST["preferred_skills"]); $i++) {
-                if (!in_array($_POST["preferred_skills"][$i], $preferred_skills_map)) {
-                    $error[] = "Invalid preferred skill: " . $_POST["preferred_skills"][$i];
-                }
             }
             if (!preg_match("/^[a-zA-Z0-9, ]*$/", $_POST["other_skills"])) {
                 $error[] = "Only letters, numbers, commas and white space allowed in other skills";
