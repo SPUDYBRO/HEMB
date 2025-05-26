@@ -1,10 +1,6 @@
 <?php
     include '../php/functionality.php'; 
-
-    $host = "localhost";
-    $user = "root";
-    $pwd = "";
-    $employees_db = "employees";
+    require_once '../php/settings.php';
 
     // Establish a connection to the employees database
     $conn = new mysqli($host, $user, $pwd, $employees_db);
@@ -63,7 +59,6 @@
             troubleshooting and system maintenance to network optimization and cybersecurity
             solutions, we deliver proactive, personalized support that empowers your business
             to thrive in a fast-paced digital world.
-            <!-- (Trimmed for brevity; your full text goes here) -->
         </p>
         <hr>
 
@@ -78,7 +73,7 @@
                             <div class="title_image">
                                 <h3><?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?></h3>
                                 <img class="individual_employee_photos" 
-                                     src="<?= htmlspecialchars($row['photo']) ?>" 
+                                     src="../images/<?= htmlspecialchars($row['photo']) ?>" 
                                      alt="<?= htmlspecialchars($row['photo_alt']) ?>" 
                                      loading="lazy">
                             </div>
@@ -100,7 +95,7 @@
 
         <section id="member_contributions">
             <h2>Member Contributions</h2>
-            <p>Each member of our team played a vital role in the success of this project. Below is a detailed summary of individual contributions:</p>
+            <p>Each member of our team played a vital role in the success of this project. Below is a summary of individual contributions:</p>
 
             <?php
                 $query = "
@@ -119,13 +114,14 @@
                     while ($row = $result->fetch_assoc()):
             ?>
                         <div class="member-contribution">
-                            <h3><?php echo htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></h3>
+                            <h3><?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></h3>
+                            <hr>
                             <ul>
                                 <?php
                                     $contributions = explode(', ', $row['contributions']);
                                     foreach ($contributions as $contribution):
                                 ?>
-                                    <li><?php echo htmlspecialchars($contribution); ?></li>
+                                    <li><?= htmlspecialchars($contribution); ?></li>
                                 <?php endforeach; ?>
                             </ul>
                         </div>
@@ -137,6 +133,9 @@
             ?>
         </section>
 
+        <hr>
+
+        <h2>Group Photo</h2>
         <img id="Group_Photo" src="../images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team" loading="lazy">
     </main>
 

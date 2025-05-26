@@ -626,6 +626,10 @@ you can also intent further to explain a certain area of code, for example:
 
     /* Width of Screen Text */
 
+    h3 {
+        margin: 0.5em 0; /* Adjust the values as needed */
+    }
+
     #About_Main {
         width: 85%;
         margin: 0px auto;
@@ -666,6 +670,23 @@ you can also intent further to explain a certain area of code, for example:
     .individual_employee {
         display: flex;
         flex-direction: row;
+        align-items: flex-start; /* add this */
+    }
+
+    .member-contribution {
+        margin-bottom: 1.5em;
+        text-align: left;
+        width: 100%;
+    }
+
+    .member-contribution h3 {
+        margin: 0 0 0.5em 0;
+    }
+
+    .member-contribution ul {
+        margin: 0;
+        padding-left: 1.5em;
+        list-style: disc;
     }
 
     /* Changes width for content to size and setup flex-direction: row*/
@@ -707,6 +728,23 @@ you can also intent further to explain a certain area of code, for example:
     #Group_Photo {
         width: 300px;
         height: 215px;
+    }
+
+    #member_contributions h2, #member_contributions p {
+        margin-top: 0;
+        margin-bottom: 0.5em; /* Adjust as needed */
+    }
+
+    #member_contributions {
+        margin: 0;
+        padding: 0;
+    }
+
+    #member_contributions h2,
+    #member_contributions p {
+        margin-top: 0;
+        margin-bottom: 0.5rem; /* Adjust as needed */
+        padding: 0;
     }
 
 
