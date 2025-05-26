@@ -1,10 +1,39 @@
 <?php
     include '../php/functionality.php'; 
+
+    $host = "localhost";
+    $user = "root";
+    $pwd = "";
+    $employees_db = "employees";
+
+    // Establish a connection to the employees database
+    $conn = new mysqli($host, $user, $pwd, $employees_db);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // SQL query to fetch employee data with joins
+    $query = "
+        SELECT 
+            e.id, e.first_name, e.last_name, e.student_id, e.photo, e.photo_alt, e.description,
+            t.name AS tutor_name,
+            CONCAT(ct.day, ' ', TIME_FORMAT(ct.start_time, '%H:%i'), ' - ', TIME_FORMAT(ct.end_time, '%H:%i')) AS class_time,
+            GROUP_CONCAT(c.contribution SEPARATOR ', ') AS contributions
+        FROM employees e
+        LEFT JOIN tutors t ON e.tutor_id = t.tutor_id
+        LEFT JOIN class_times ct ON e.id = ct.employee_id
+        LEFT JOIN contributions c ON e.id = c.employee_id
+        GROUP BY e.id
+        ORDER BY e.id ASC
+    ";
+
+    $result = $conn->query($query);
 ?>
 
 <!DOCTYPE html>
 <html lang="en" class="<?php set_accessibility(); ?>">
-
 <head>
     <title>About Us | HEMB-IT</title>
     <meta name="description" content="HEMB IT Solutions - About Page">
@@ -15,143 +44,105 @@
     <link rel="icon" type="image/x-icon" href="../images/fav_icon.webp">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
-
-<?php 
-    display_info_card();
-    include '../inc/accessibility.inc';
-    include '../inc/navigation.inc'; 
-?>
-
-<main id="About_Main">
-
-<?php
-    $conn = new mysqli("localhost", "root", "", "hemb_db");
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sections = ['about', 'what_we_do'];
-
-    foreach ($sections as $section) {
-        $stmt = $conn->prepare("SELECT heading, content FROM about_us_content WHERE section = ?");
-        $stmt->bind_param("s", $section);
-        $stmt->execute();
-        $stmt->bind_result($heading, $content);
-
-        if ($stmt->fetch()) {
-            if ($section === 'about') {
-                echo "<h1 id='about_us_heading'>" . htmlspecialchars($heading) . "</h1><hr>";
-            } else {
-                echo "<h2 class='about_us'>" . htmlspecialchars($heading) . "</h2>";
-            }
-
-            if (!empty($content)) {
-                echo "<p class='about_us'>" . nl2br(htmlspecialchars($content)) . "</p>";
-            }
-        }
-
-        $stmt->close();
-    }
-?>
-
-<hr>
-
-<section id="employee_info" class="main_section">
-    <?php
-        $sql = "SELECT name, student_id, tutor_name, class_times, website_goal, description FROM team_members";
-        $result = $conn->query($sql);
-
-        $images = [
-            "Evan Harrison"      => "../images/Evan_Harrison.webp",
-            "Henry Bennett"      => "../images/Henry_Bennett.webp",
-            "Ben Romano"         => "../images/Ben_Romano.webp",
-            "Michael Sharpley"   => "../images/Michael_Sharpley.webp"
-        ];
-
-        if ($result && $result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $name = htmlspecialchars($row['name']);
-                $image = isset($images[$name]) ? $images[$name] : "../images/default.webp";
-
-                echo '<div class="individual_employee">';
-                echo '  <div class="title_image_and_list_flex_container">';
-                echo '      <div class="title_image">';
-                echo "          <h3>$name</h3>";
-                echo "          <img class='individual_employee_photos' src='$image' alt='Photo of $name' loading='lazy'>";
-                echo '      </div>';
-                echo '      <ul>';
-                echo "          <li><strong>Student ID:</strong> " . htmlspecialchars($row['student_id']) . "</li>";
-                echo "          <li><strong>Tutor Name:</strong> " . htmlspecialchars($row['tutor_name']) . "</li>";
-                echo "          <li><strong>Class Times:</strong> " . htmlspecialchars($row['class_times']) . "</li>";
-                echo '      </ul>';
-                echo '  </div>';
-                echo '  <p>' . nl2br(htmlspecialchars($row['description'])) . '</p>';
-                echo '</div><hr>';
-            }
-        } else {
-            echo "<p>No team member data found.</p>";
-        }
+    <?php 
+        display_info_card();
+        include '../inc/accessibility.inc';
+        include '../inc/navigation.inc'; 
     ?>
-</section>
 
-<section id="contributions">
-    <?php
-        $stmt = $conn->prepare("SELECT heading, content FROM about_us_content WHERE section = 'contributions'");
-        $stmt->execute();
-        $stmt->bind_result($heading, $content);
+    <main id="About_Main">
+        <h1 id="about_us_heading">About Us</h1>
+        <hr>
+        <h2 class="about_us">What We Do!</h2>
+        <p class="about_us">
+            At HEMB IT Solutions, we are committed to providing reliable, high-quality IT
+            support tailored to meet the unique needs of businesses of all sizes. Whether
+            you're a small startup or a large enterprise, our experienced team is dedicated
+            to ensuring your technology runs smoothly, efficiently, and securely. From
+            troubleshooting and system maintenance to network optimization and cybersecurity
+            solutions, we deliver proactive, personalized support that empowers your business
+            to thrive in a fast-paced digital world.
+            <!-- (Trimmed for brevity; your full text goes here) -->
+        </p>
+        <hr>
 
-        if ($stmt->fetch()) {
-            echo "<h2>" . htmlspecialchars($heading) . "</h2><hr>";
-            echo "<p>" . nl2br(htmlspecialchars($content)) . "</p>";
-        } else {
-            echo "<p>No contributions section found.</p>";
-        }
+        <section id="employee_info" class="main_section">
+            <h2>Meet the Team</h2>
+            <hr>
 
-        $stmt->close();
+            <?php if ($result && $result->num_rows > 0): ?>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <div class="individual_employee">
+                        <div class="title_image_and_list_flex_container">
+                            <div class="title_image">
+                                <h3><?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?></h3>
+                                <img class="individual_employee_photos" 
+                                     src="<?= htmlspecialchars($row['photo']) ?>" 
+                                     alt="<?= htmlspecialchars($row['photo_alt']) ?>" 
+                                     loading="lazy">
+                            </div>
+                            <ul>
+                                <li><strong>Student ID:</strong> <?= htmlspecialchars($row['student_id']) ?></li>
+                                <li><strong>Tutor Name:</strong> <?= htmlspecialchars($row['tutor_name']) ?></li>
+                                <li><strong>Class Times:</strong> <?= htmlspecialchars($row['class_time']) ?></li>
+                                <li><strong>Contributions:</strong> <?= htmlspecialchars($row['contributions']) ?></li>
+                            </ul>
+                        </div>
+                        <p><?= htmlspecialchars($row['description']) ?></p>
+                    </div>
+                    <hr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p>No employee data found.</p>
+            <?php endif; ?>
+        </section>
+
+        <section id="member_contributions">
+            <h2>Member Contributions</h2>
+            <p>Each member of our team played a vital role in the success of this project. Below is a detailed summary of individual contributions:</p>
+
+            <?php
+                $query = "
+                    SELECT 
+                        e.id, e.first_name, e.last_name, 
+                        GROUP_CONCAT(c.contribution SEPARATOR ', ') AS contributions
+                    FROM employees e
+                    LEFT JOIN contributions c ON e.id = c.employee_id
+                    GROUP BY e.id
+                    ORDER BY e.id ASC
+                ";
+
+                $result = $conn->query($query);
+
+                if ($result && $result->num_rows > 0):
+                    while ($row = $result->fetch_assoc()):
+            ?>
+                        <div class="member-contribution">
+                            <h3><?php echo htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></h3>
+                            <ul>
+                                <?php
+                                    $contributions = explode(', ', $row['contributions']);
+                                    foreach ($contributions as $contribution):
+                                ?>
+                                    <li><?php echo htmlspecialchars($contribution); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+            <?php
+                    endwhile;
+                else:
+                    echo "<p>No contributions found.</p>";
+                endif;
+            ?>
+        </section>
+
+        <img id="Group_Photo" src="../images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team" loading="lazy">
+    </main>
+
+    <?php 
+        display_info_card();
+        include '../inc/footer.inc'; 
     ?>
-</section>
-
-<section id="member_roles">
-    <?php
-        $stmt = $conn->prepare("SELECT heading, content FROM about_us_content WHERE section = 'member_roles'");
-        $stmt->execute();
-        $stmt->bind_result($heading, $content);
-
-        if ($stmt->fetch()) {
-            echo "<h2>" . htmlspecialchars($heading) . "</h2><hr>";
-            echo "<p>" . nl2br(htmlspecialchars($content)) . "</p>";
-        }
-
-        $stmt->close();
-
-        $sql = "SELECT name, contribution FROM member_roles";
-        $result = $conn->query($sql);
-
-        if ($result && $result->num_rows > 0) {
-            echo '<dl class="member-roles-list">';
-            while ($row = $result->fetch_assoc()) {
-                echo "<dt><strong><u>" . htmlspecialchars($row['name']) . "</u></strong></dt>";
-                echo "<dd>" . htmlspecialchars($row['contribution']) . "</dd>";
-            }
-            echo '</dl>';
-        } else {
-            echo "<p>No member roles found.</p>";
-        }
-    ?>
-</section>
-
-<img id="Group_Photo" src="../images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team" loading="lazy">
-
-</main>
-
-<?php 
-    display_info_card();
-    include '../inc/footer.inc'; 
-    $conn->close();
-?>
-
 </body>
 </html>
