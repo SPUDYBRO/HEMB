@@ -1071,6 +1071,7 @@ you can also intent further to explain a certain area of code, for example:
             border: var(--card_detailed_border_colour) 5px outset;
             overflow-y: scroll;
             overflow-x: hidden;
+            padding-top: 8%;
         
         }
         .card[open] > summary {
@@ -1080,8 +1081,9 @@ you can also intent further to explain a certain area of code, for example:
             position: absolute;
             top: 0px;
             left: 0px;
-            width: calc(80vw - 15px * 2);
-            height: calc(80vh - 15px * 2);
+            width: 100%;
+            height: 140vh;
+            margin: auto;
             opacity: 1;
         }
         .card[open] .card_preview_container {
@@ -1095,25 +1097,22 @@ you can also intent further to explain a certain area of code, for example:
             justify-content: center;
             align-items: center;
             gap: 10px;
-            width: 100%;
             height: 100%;
+            width: 100%;
             text-align: center;
         }
         .card[open] > .card_detailed > h1 {
             color: var(--title_color);
-            text-shadow: 4px 4px 0px var(--main_section_h2_shadow_color);
+            font-size: clamp(1.5em, 3vw, 2.5em);
+            text-shadow: 2px 2px 0px var(--main_section_h2_shadow_color);
             margin: 0px;
         }
-
         .card_detailed_note {
-            position: absolute;
+            position: relative;
             bottom: 0px;
-            right: 50%;
-            transform: translate(50%, 0%);
+            width: 100%;
             text-align: center;
-
             font-size: calc(var(--p_font_size) * 0.75);
-
             z-index: 1;
         }
         .card_detailed_status {
@@ -1127,11 +1126,12 @@ you can also intent further to explain a certain area of code, for example:
         }
         .card_detailed_status > h3 {
             margin: 0px;
-            font-size: var(--h3_font_size);
+            font-size: clamp(1em, 3vw, 2.5em);
         }
         .card_detailed_status > p {
             color: var(--card_title_color);
             margin: 0px;
+            font-size: clamp(1em, 3vw, 2.5em);;
         }
         
     /* Card Animation keyframes */
@@ -1507,6 +1507,10 @@ you can also intent further to explain a certain area of code, for example:
             html.font_large #hero_text {
                 left: 35%;
             }
+        /* Info Card Styles */   
+            .card[open]{
+                padding-top: 10%;
+            }
     }
 
     @media (max-width: 1000px) {
@@ -1540,21 +1544,9 @@ you can also intent further to explain a certain area of code, for example:
                 width: 100%;
             }
 
-        /* Card detailed styles */
-            .card[open] > summary {
-                width: 100%;
-                height: 120vh;
-            }
-            .card[open] > .card_detailed {
-                /* align and format elements */
-                width: 80%;
-                height: 80%;
-            }
-            .card[open] > .card_detailed > h1 {
-                color: var(--title_color);
-                font-size: clamp(1.5em, 3vw, 2.5em);
-                text-shadow: 2px 2px 0px var(--main_section_h2_shadow_color);
-                margin: 0px;
+        /* Info Card Styles */   
+            .card[open]{
+                padding-top: 12%;
             }
     }
 
@@ -1627,6 +1619,11 @@ you can also intent further to explain a certain area of code, for example:
                 width: 100%;
                 text-align: center;
             }
+        
+        /* Info Card Styles */    
+            .card[open]{
+                padding-top: 14%;
+            }
     }
 
     @media (max-width: 600px) {
@@ -1682,6 +1679,10 @@ you can also intent further to explain a certain area of code, for example:
                 --hero_image_text_h1_shadow_color: rgba(0, 0, 0, 0.2);
                 --hero_image_text_p_shadow_color: rgba(0, 0, 0, 0.2);
             }
+        /* Info Card Styles */   
+            .card[open]{
+                padding-top: 18%;
+            }
         }
 
     @media (max-width: 480px) {
@@ -1697,6 +1698,10 @@ you can also intent further to explain a certain area of code, for example:
             #Group_Photo {
                 width: 100%;
                 height: 100%;
+            }
+        /* Info Card Styles */   
+            .card[open]{
+                padding-top: 22%;
             }
 
     }

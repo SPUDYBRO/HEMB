@@ -104,6 +104,7 @@
                             <option value="SA">SA</option>
                             <option value="WA">WA</option>
                             <option value="NT">NT</option>
+                            <option value="TAS">TAS</option>
                         </select>
                         <!-- Postcode Input 0200-9944 --> 
                         <label for="postcode">Postcode:</label>

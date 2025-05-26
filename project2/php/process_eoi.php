@@ -21,6 +21,8 @@ $error = [];
 
 $EOInumber = rand(1000, 9999);
 $gender_input_map = ["Male", "Female"];
+$job_reference_numbers_map = ["IT300", "IT240", "IT350", "IT090"];
+$state_map = ["ACT", "VIC", "NSW", "QLD", "SA", "WA", "NT", "TAS"];
 $technical_skills_map = ["Trouble Shooting", "Networking", "Hardware", "Software", "Security", "Database Management"];
 $preferred_skills_map = ["Communication", "Teamwork", "Time Management", "Autonomous", "Fast Learner"];
 
@@ -147,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[a-zA-Z ]*$/", $_POST["suburb_town"])) {
                 $error[] = "Only letters and white space allowed in suburb";
             }
-            if (!in_array($_POST["state"], ["NSW", "QLD", "VIC", "SA", "WA", "TAS", "ACT", "NT"])) {
+            if (!in_array($_POST["state"], $state_map)) {
                 $error[] = "Only valid Austrlian states allowed in state";
             }
             if (!preg_match("/^[0-9 ]*$/", $_POST["postcode"])) {
@@ -173,8 +175,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ======================================= INPUT VALIDATION ==========================================
 
             // ------------------------- Valid Input?  -------------------------
-            if (!in_array($_POST["job_reference_number"], ["IT300", "IT240", "IT350", "IT090"])) {
-                $error[] = "Not a valid job reference number. Only IT3869, IT2245, or IT2025 are allowed.";
+            if (!in_array($_POST["job_reference_number"], $job_reference_numbers_map)) {
+                $error[] = "Invalid job reference number. Please select from the dropdown.";
             } 
             if (!in_array($_POST["gender_input"], $gender_input_map)) {
                 $error[] = "Invalid gender_input. Only Male or Female are allowed.";
@@ -186,7 +188,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 }
             }
-
 }
 
 
@@ -235,9 +236,6 @@ $prep->bind_param(
 );
 
 
-    
-
-
 if ($prep->execute()) {
     set_data_response("success", 
     "Success", 
@@ -259,6 +257,4 @@ if ($prep->execute()) {
     header("Location: ../apply.php");
     die();
 }
-
-
 ?>

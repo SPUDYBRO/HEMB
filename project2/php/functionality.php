@@ -90,8 +90,8 @@
                 </div>
                 <p>$detailed_message</p>
                 <p>$detailed_description</p>
+                <p class='card_detailed_note'>Click anywhere Inside to close this box</p>
             </div>
-            <p class='card_detailed_note'>Click anywhere Inside to close this box</p>
         </details>";
 
         unset($_SESSION['PHP_RESPONSE']); // Clear the PHP_RESPONSE after displaying it
