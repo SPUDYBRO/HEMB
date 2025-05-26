@@ -76,11 +76,18 @@
                         echo '<p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong>' . $row['reference_number'] . '</p>'
                         echo '<br>'
                         echo '<p>' . $row['description'] . '</p>'
-                        // echo '' . $row['responsibilities'] . ''
-                        // echo '' . $row['essential_qualifications'] . ''
-                        // echo '' . $row['preferable_qualifications'] . ''
+                        echo '<h3>Responsibilities</h3>'
+                        echo '<ol></ol>'
+                        echo '<li>' . $row['responsibilities'] . '</li>'
+                        echo '<h3>Essential Qualifications</h3>'
+                        echo '<ol></ol>'
+                        echo '<li>' . $row['essential_qualifications'] . '</li>'
+                        echo '<h3>Preferable Qualifications</h3>'
+                        echo '<ol></ol>'
+                        echo '<li>' . $row['preferable_qualifications'] . '</li>'
                         echo '<h3>Benefits</h3>'
-                        echo '' . $row['benefits'] . ''
+                        echo '<ul></ul>'
+                        echo '<li>' . $row['benefits'] . '</li>'
                     }
                 }
                 else {
