@@ -9,7 +9,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | HEMB-IT</title>
-    <meta name="description" content="Admin login page for HEMB IT Solutions to get access to a variety of admin options">
+    <meta name="description" content="HEMB IT Solutions - Login Page for administrators to access 
+    the admin panel so that they can utilies their modification tools. The login page contains a
+    form for the administrator to enter their username and password. If the login is successful, the
+    administrator will be redirected to the admin panel. If the login is unsuccessful, an error 
+    message will be displayed.">
     <meta name="keywords" content="HEMB, IT, Solutions, Admin, Login, sign in">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="icon" type="image/x-icon" href="./images/fav_icon.webp">
