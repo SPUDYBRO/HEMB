@@ -1,7 +1,6 @@
-
 <?php 
-require_once './settings.php';
-include './functionality.php';
+require_once './php/settings.php';
+include './php/functionality.php';
 
 
 
@@ -27,13 +26,13 @@ if (isset($_GET['Mode'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Admin management page for handling data for the website">
     <meta name="keywords" content="HEMB, IT, Solutions, Admin, Management, Data">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>Manager | HEMB-IT</title>
 </head>
 <body>
     <?php display_info_card();?>
-    <?php include '../accessibility.inc'; ?>
-    <?php include '../navigation.inc'; ?>
+    <?php include 'inc/accessibility.inc'; ?>
+    <?php include 'inc/navigation.inc'; ?>
 
 
 
@@ -125,7 +124,7 @@ if (isset($_GET['Mode'])) {
                             echo "<p>" . htmlspecialchars($row['Other_Skills']) . "</p>";
                             echo "</div>";
 
-                            echo '<form method="post" action="./process_manage.php" autocomplete="off">
+                            echo '<form method="post" action="./php/process_manage.php" autocomplete="off">
                                 <input type="hidden" name="EOInumber" value="' . htmlspecialchars($row['EOInumber']) . '">
                                 <label for="status_' . htmlspecialchars($row['EOInumber']) . '">Status:</label>
                                 <select name="status" id="status_' . htmlspecialchars($row['EOInumber']) . '">
@@ -180,7 +179,7 @@ if (isset($_GET['Mode'])) {
                         }
 
                         if (isset($_POST['Account_Create'])) {
-                            echo "<form method='post' action='./process_manage.php' class='result'>";
+                            echo "<form method='post' action='./php/process_manage.php' class='result'>";
                             echo "<h3>Create New Account</h3>";
                             echo "<div><label for='username'>Username: </label>";
                             echo "<input type='text' name='Username' placeholder='Username' id='username' required></div>";
@@ -217,7 +216,7 @@ if (isset($_GET['Mode'])) {
                                     <th>Action</th>
                                   </tr>";
                                 echo "</thead>";
-                                echo "<form method='post' action='./process_manage.php' autocomplete='off'>";
+                                echo "<form method='post' action='./php/process_manage.php' autocomplete='off'>";
                                 echo "<tbody>";
                                 echo "<tr>";
                                 echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
@@ -303,7 +302,7 @@ if (isset($_GET['Mode'])) {
                         echo "</thead>";
 
                         echo "<tbody>";
-                        echo "<form method='post' action='./process_manage.php' autocomplete='off'>";
+                        echo "<form method='post' action='./php/process_manage.php' autocomplete='off'>";
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
                         echo "<input type='hidden' name='ID' value='" . htmlspecialchars($row['ID']) . "'>";
@@ -330,7 +329,7 @@ if (isset($_GET['Mode'])) {
                         echo "<label for='description_" . $row['ID'] . "'>Description:</label>";
                         echo "<textarea id='description_" . $row['ID'] . "' name='description' placeholder='Description' required>" . htmlspecialchars($row['Description']) . "</textarea>";
 
-                        echo "<img src='../images/" . htmlspecialchars($row['Photo']) . "' alt='" . htmlspecialchars($row['Photo_Alt']) . "'</img>";
+                        echo "<img src='images/" . htmlspecialchars($row['Photo']) . "' alt='" . htmlspecialchars($row['Photo_Alt']) . "'></img>";
 
                         echo "<button type='submit' name='Employee_Update'>Update</button>";
                         echo "<button type='submit' name='Employee_Delete'>Delete</button>";
@@ -381,9 +380,9 @@ if (isset($_GET['Mode'])) {
                           </tr>";
                         echo "</thead>";
                         echo "<tbody>";
-                        echo "<form method='post' action='./process_manage.php' autocomplete='off'>";
+                        echo "<form method='post' action='./php/process_manage.php' autocomplete='off'>";
                         echo "<tr>";
-                        echo "<td><input id='reference_number_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Reference_Number' value='" . htmlspecialchars($row['reference_number']) . "' required readonly></td>";
+                        echo "<td><input id='reference_number_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Reference_Number' value='" . htmlspecialchars($row['reference_number']) . "' required></td>";
                         echo "<input type='hidden' name='Reference_Number_old' value='" . htmlspecialchars($row['reference_number']) . "'>";
                         echo "<td><input id='Job_Title_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Job_Title' value='" . htmlspecialchars($row['title']) . "' required></td>";
                         echo "<td><input id='Type_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Type' value='" . htmlspecialchars($row['type']) . "' required></td>";
@@ -426,7 +425,7 @@ if (isset($_GET['Mode'])) {
         </section>
 
     </main>
-    <?php include '../footer.inc';?>
+    <?php include 'inc/footer.inc';?>
     
 </body>
 </html>
