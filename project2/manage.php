@@ -156,12 +156,16 @@ if (isset($_GET['Mode'])) {
                                 <button type='submit' name='Account_Create'>Create New Account</button>
                             </form>";
 
-                        $db = mysqli_connect($host, $user, $pwd, $sql_db);
-                        if (!$db) {
-                            set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . mysqli_connect_error() . "</pre>", $_GET);
+
+                        try {
+                            $db = mysqli_connect($host, $user, $pwd, $sql_db);
+                        } catch (Exception $e) {
+                            set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . $e->getMessage() . "</pre>", $_GET);
                             echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
                             die();
                         }
+                        
+                        
 
                         $stmt = $db->prepare("SELECT * FROM users");
                         $stmt->execute();
@@ -237,12 +241,16 @@ if (isset($_GET['Mode'])) {
                     echo "<h2>Employee Management</h2>";
                     echo "<p>Manage the employee data here</p>";
 
-                    $db = mysqli_connect($host, $user, $pwd, $employees_db);
-                    if (!$db) {
-                        set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . mysqli_connect_error() . "</pre>", $_GET);
+                    try {
+                        $db = mysqli_connect($host, $user, $pwd, $employees_db);
+                    } catch (Exception $e) {
+                        set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . $e->getMessage() . "</pre>", $_GET);
                         echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
                         die();
                     }
+                    
+
+
                     $result = $db->query("
                     SELECT
                         e.*,
