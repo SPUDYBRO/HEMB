@@ -99,21 +99,19 @@
 
                 ?>
                 <hr>
-                
-                <?php
-                echo "<section id='member_contributions'>";
-                echo "<h2>Member Contributions</h2>";
-                echo "<p>Each member of our team has played a crucial role in the development of this project. Below is a summary of each member's contributions:</p>";
-                echo "<dl>";
-                $result = $conn->query($query);
-                while ($row = $result->fetch_assoc()) {
-                    echo "<dt>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</dt>";
-                    echo "<dd>" . htmlspecialchars($row['contributions']) . "</dd>";
-                }
-                echo "</dl>";
-                echo "</section>";
-                ?>
-
+                <section id='member_contributions'>
+                    <h2>Member Contributions</h2>
+                    <p>Each member of our team has played a crucial role in the development of this project. Below is a summary of each member's contributions:</p>
+                    <dl>
+                    <?php
+                    $result = $conn->query($query);
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<dt>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</dt>";
+                        echo "<dd>" . htmlspecialchars($row['contributions']) . "</dd>";
+                    }
+                    ?>
+                </dl>
+                </section>
                 <img id="Group_Photo" src="../images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team">
         </div>
     </main>
