@@ -3,22 +3,23 @@
 require("./functionality.php");
 require_once("./settings.php");
 
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
-if (!$conn) {
-    set_data_response("error",
-    "Error",
-    "Database connection failed",
-    "Unable to connect to the database",
-    "There was an issue connecting to the database",
-    "Please check your internet and try again.");
+try {
+    $conn = new mysqli($host, $user, $pwd, $sql_db);
+} catch (Exception $e) {
+    set_data_response("error", 
+    "Database Connection Error", 
+    "Unable to connect to the database", 
+    "Please check your database settings", 
+    "The application could not connect to the database. Please ensure that the database server is running and the credentials are correct.", 
+    "If the problem persists, contact support.");
     header("Location: ./apply.php");
     die();
 }
 
+
 $error = [];
 
 $EOInumber = rand(1000, 9999);
-$job_reference_numbers_map = ["IT3869", "IT2245", "IT2025"];
 $gender_input_map = ["Male", "Female"];
 $technical_skills_map = ["Trouble Shooting", "Networking", "Hardware", "Software", "Security", "Database Management"];
 $preferred_skills_map = ["Communication", "Teamwork", "Time Management", "Autonomous", "Fast Learner"];
@@ -57,11 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!isset($_POST["postcode"])) {
                 $error[] = "No postcode field was submitted";
             }
-            if (!isset($_POST["gender_input"])) {
+            if (!isset($_POST['gender_input'])) {
                 $error[] = "No gender field was submitted";
-            }
-            if (!isset($_POST["email_input"])) {
-                $error[] = "No email field was submitted";
             }
             if (!isset($_POST["phone_number_input"])) {
                 $error[] = "No phone field was submitted";
@@ -175,16 +173,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ======================================= INPUT VALIDATION ==========================================
 
             // ------------------------- Valid Input?  -------------------------
-            if (!in_array($_POST["job_reference_number"], $job_reference_numbers_map)) {
+            if (!in_array($_POST["job_reference_number"], ["IT300", "IT240", "IT350", "IT090"])) {
                 $error[] = "Not a valid job reference number. Only IT3869, IT2245, or IT2025 are allowed.";
             } 
             if (!in_array($_POST["gender_input"], $gender_input_map)) {
                 $error[] = "Invalid gender_input. Only Male or Female are allowed.";
-            }
-            foreach ($_POST["technical_skills"] as $skill) {
-                if (!in_array($skill, $technical_skills_map)) {
-                    $error[] = "Invalid technical skill: " . htmlspecialchars($skill);
-                }
             }
             if (isset($POST["preferred_skills"]) && !empty($_POST["preferred_skills"])) {
                 foreach ($_POST["preferred_skills"] as $skill) {
@@ -193,14 +186,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 }
             }
+
 }
 
 
 if (count($error) > 0) {
 
-    echo "<pre>";
-    print_r($error);
-    echo "</pre>";
     $error_msg = "";
 
     if (count($error) == 1) { $preview_message = $error[0]; }
@@ -215,7 +206,7 @@ if (count($error) > 0) {
     "The values you submitted didn't meet the requirements to be passed", 
     "Something in the application you submitted wasn't accepted and caused an error", 
     "The following are the errors that were found:<br><pre>" . $error_msg . "</pre>");
-    #header("Location: ./apply.php");
+    header("Location: ./apply.php");
     die();
 }
 
