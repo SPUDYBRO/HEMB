@@ -133,7 +133,7 @@
 
         <?php 
             # <!-- Footer Section -->
-            include '../footer.inc'; ?>
-
+            include '../footer.inc';
+        ?>
     </body>
 </html>
