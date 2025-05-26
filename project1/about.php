@@ -88,6 +88,7 @@
         </section>
 
         <section id="member_contributions">
+            <p></p>
             <h2>Member Contributions</h2>
             <p>Each member of our team played a vital role in the success of this project. Below is a summary of individual contributions:</p>
 
