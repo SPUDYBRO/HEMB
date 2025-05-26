@@ -248,6 +248,85 @@ if (isset($_GET['Mode'])) {
                     echo "<h2>Employee Management</h2>";
                     echo "<p>Manage the employee data here</p>";
 
+                    $db = mysqli_connect($host, $user, $pwd, $employees_db);
+                    if (!$db) {
+                        set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . mysqli_connect_error() . "</pre>", $_GET);
+                        echo '<meta http-equiv="refresh" content="0;url=manage.php">';
+                        die();
+                    }
+                    $result = $db->query("
+                    SELECT
+                        e.*,
+                        t.Name       	    AS tutor_Name,
+                        ct.Day              AS class_time_Day,
+                        ct.Start_Time       AS class_start_time,
+                        ct.End_Time         AS class_end_time,
+                        GROUP_CONCAT(c.Contribution ORDER BY c.Contribution SEPARATOR ',') AS contributions
+                    FROM employees AS e
+                    LEFT JOIN tutors AS t
+                        ON e.Tutor_ID = t.Tutor_ID
+                    LEFT JOIN class_times AS ct
+                        ON e.Class_Time_ID = ct.Class_Time_ID
+                    LEFT JOIN contributions AS c
+                        ON e.ID = c.Employee_ID
+                    GROUP BY e.ID;
+                    ");
+                    if (!$result) {
+                        set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
+                        echo '<meta http-equiv="refresh" content="0;url=manage.php?Mode=Employees">';
+                        die();
+                    }
+                    if (mysqli_num_rows($result) == 0) {
+                        set_data_response('info', 'No Employees Found', 'There are no employees in the database', 'No Employees Found', 'There are no employees in the database', '', $_GET);
+                        echo '<meta http-equiv="refresh" content="0;url=manage.php?Mode=Employees">';
+                        die();
+                    }
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<section class='result'>";
+                        echo "<h3>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</h3>";
+
+                        echo "<table class='result_table'>";
+
+                        echo "<thead>";
+                        echo "<tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Student ID</th>
+                            <th>Tutor</th>
+                            <th>Class Time</th>";
+                        echo "</tr>";
+                        echo "</thead>";
+
+                        echo "<tbody>";
+                        echo "<form method='post' action='../php/process_manage.php' autocomplete='off'>";
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
+                        echo "<input type='hidden' name='ID' value='" . htmlspecialchars($row['ID']) . "'>";
+                        echo "<td><input type='text' name='First_name' value='" . htmlspecialchars($row['First_name']) . "' required></td>";
+                        echo "<td><input type='text' name='Last_name' value='" . htmlspecialchars($row['Last_name']) . "' required></td>";
+                        echo "<td><input type='text' name='Student_ID' value='" . htmlspecialchars($row['Student_ID']) . "' required></td>";
+                        echo "<td><input type='text' name='Tutor_ID' value='" . htmlspecialchars($row['tutor_Name']) . "' required></td>";
+                        echo "<input type='hidden' name='Tutor_ID' value='" . htmlspecialchars($row['Tutor_ID']) . "'>";
+                        echo "<td><input type='text' placeholder='Day start Time -- End time' name='Class_Time' value='" . htmlspecialchars($row['class_time_Day']) . " " . htmlspecialchars($row['class_start_time']). " - " . htmlspecialchars($row['class_end_time']) . "' required></td>";
+                        
+                        echo "</tr>";
+                        echo "</tbody>";
+
+                        echo "</table>";
+
+
+                        echo "<textarea name='contributions' placeholder='Contributions (comma separated)' required>" . htmlspecialchars($row['contributions']) . "</textarea>";
+
+                        echo "<textarea name='description' placeholder='Description' required>" . htmlspecialchars($row['Description']) . "</textarea>";
+
+                        echo "<img src='../images/" . htmlspecialchars($row['Photo']) . "' alt='" . htmlspecialchars($row['Photo_Alt']) . "'</img>";
+                        echo "</form>";
+
+                        echo "</section>";
+
+                        
+                    }
 
 
 
@@ -257,6 +336,10 @@ if (isset($_GET['Mode'])) {
 
                 }
 
+ 
+                if (isset($db)) {
+                    mysqli_close($db);
+                }
             ?>
         </section>
 
