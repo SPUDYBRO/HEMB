@@ -122,7 +122,6 @@
                 mysqli_close($dbconn);
             } else echo "<p>Unable to connect to the db.</p>";
             
-            echo '<section class="main_section jobs_section">'
             ?>
             <!-- Sources: 
             https://www.jobsandskills.gov.au/data/occupation-and-industry-profiles/occupations/3131-ict-support-technicians  
