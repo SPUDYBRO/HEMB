@@ -20,7 +20,7 @@ $error = [];
 $EOInumber = rand(1000, 9999);
 $job_reference_numbers_map = ["IT3869", "IT2245", "IT2025"];
 $gender_input_map = ["Male", "Female"];
-$technical_skills_map = ["Knowledge in Troubleshooting", "Understanding of Network Infrastructure", "Knowledge of Computer Hardware", "Proficiency in Operating Systems", "Knowledge of Security Practices", "Familiarity with Database Concepts"];
+$technical_skills_map = ["Trouble Shooting", "Networking", "Hardware", "Software", "Security", "Database Management"];
 $preferred_skills_map = ["Communication", "Teamwork", "Time Management", "Autonomous", "Fast Learner"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -66,8 +66,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!isset($_POST["phone_number_input"])) {
                 $error[] = "No phone field was submitted";
             }
-            if (!isset($_POST["technical_skills"])) {
-                $error[] = "No technical skills have been submitted";  
+            if (isset($_POST["technical_skills"])) {
+                for ($i = 0; $i < count($_POST["technical_skills"]); $i++) {
+                    if (!in_array($_POST["technical_skills"][$i], $technical_skills_map)) {
+                        $error[] = "Invalid technical_skills: " . $_POST["technical_skills"][$i];
+                    }
+                }
+            }
+            if (isset($_POST["preferred_skills"])) {
+                for ($i = 0; $i < count($_POST["preferred_skills"]); $i++) {
+                    if (!in_array($_POST["preferred_skills"][$i], $preferred_skills_map)) {
+                        $error[] = "Invalid preferred_skills: " . $_POST["preferred_skills"][$i];
+                    }
+                }
             }
             if (!isset($_POST["other_skills"])) {
                 $error[] = "No other field was submitted";
@@ -126,16 +137,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first_name_input"]) || !preg_match("/^[a-zA-Z ]*$/", $_POST["last_name_input"])) {
                 $error[] = "Only letters and white space allowed in first name, lastname";
             }
-            if (!preg_match("/^[0-9 ]*$/", $_POST["date"])) {
-                $error[] = "Not a valid date.";
+            if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $_POST["date"])) {
+                $error[] = "Not a valid date. Please use the format YYYY-MM-DD.";
             }
-            if (!preg_match("/^\d*\s?[A-Za-z\s]+(?:Court|Ct|Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Lane|Ln|Drive|Dr)\.?$/i", $_POST["street_address"])) {
-                $error[] = "Only letters, numbers and white space allowed in street address";
+            if (!preg_match("/^[IT0-9 ]*$/", $_POST["job_reference_number"])) {
+                $error[] = "Not a valid job reference number.";
+            }
+            if (strlen($_POST["street_address"]) < 1 || strlen($_POST["street_address"]) > 40) {
+                $error[] = "Street address must be between 1 and 40 characters long.";
             }
             if (!preg_match("/^[a-zA-Z ]*$/", $_POST["suburb_town"])) {
                 $error[] = "Only letters and white space allowed in suburb";
             }
-            if (!preg_match("/^[?:ACT|VIC|NSW|QLD|SA|WA|NT]*$/", $_POST["state"])) {
+            if (!in_array($_POST["state"], ["NSW", "QLD", "VIC", "SA", "WA", "TAS", "ACT", "NT"])) {
                 $error[] = "Only valid Austrlian states allowed in state";
             }
             if (!preg_match("/^[0-9 ]*$/", $_POST["postcode"])) {
@@ -147,8 +161,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[0-9 ]*$/", $_POST["phone_number_input"])) {
                 $error[] = "Only numbers allowed in phone number";
             }
-            if (!preg_match("/^[a-zA-Z0-9, ]*$/", $_POST["other_skills"])) {
-                $error[] = "Only letters, numbers, commas and white space allowed in other skills";
+
+            if (isset($_POST["technical_skills"])) {
+                $selected_skills = $_POST["technical_skills"];
+                // Check if all possible technical skills are selected
+                if (count(array_diff($technical_skills_map, $selected_skills)) > 0) {
+                    $error[] = "You must select all technical skills.";
+                }
+            } else {
+                $error[] = "Technical skills field is missing.";
             }
 
     // ======================================= INPUT VALIDATION ==========================================
@@ -200,23 +221,32 @@ if (count($error) > 0) {
 
 $Address = $_POST["street_address"] . ", " . $_POST["suburb_town"] . ", " . $_POST["state"] . ", " . $_POST["postcode"];
 
+
+$other_skills = htmlspecialchars($_POST["other_skills"]);
+$technical_skills = implode(", ", $_POST["technical_skills"]);
+$preferred_skills = implode(", ", $_POST["preferred_skills"]);
+
 $prep = $conn->prepare("INSERT INTO eoi 
-    (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills, Status) 
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$prep->bind_param("
-    iissssissss", 
+    (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$prep->bind_param(
+    "isssssssss", 
     $EOInumber, 
-    $Job_Ref_Num, 
-    $Firstname, 
-    $Lastname, 
-    $Address, 
-    $Email_Address, 
-    $Phone_Number, 
-    $Technical_Skills, 
-    $Preferred_Skills, 
-    $Other_Skills, $Status
+    $_POST["job_reference_number"], 
+    $_POST['first_name_input'], 
+    $_POST['last_name_input'],
+    $Address,
+    $_POST['email_input'],
+    $_POST['phone_number_input'],
+    $technical_skills,
+    $preferred_skills,
+    $other_skills
 );
+
+
     
+
+
 if ($prep->execute()) {
     set_data_response("success", 
     "Success", 
@@ -225,8 +255,10 @@ if ($prep->execute()) {
     "Your application has been received and is being processed", 
     "We appreciate the time you spent to express your interest. We will review it and get back to you soon.");
     header("Location: ./apply.php");
+    
     die();
 } else {
+    $conn->close();
     set_data_response("error", 
     "Error", 
     "There was an error submitting your application", 
@@ -237,5 +269,5 @@ if ($prep->execute()) {
     die();
 }
 
-$conn->close();
+
 ?>
