@@ -15,7 +15,9 @@
 <head>
     <!-- Meta tages, linking to CSS and fav icon -->
     <title>Apply | HEMB-IT</title>
-    <meta name="description" content="HEMB IT Solutions - Apply Page, Application Form">
+    <meta name="description" content="HEMB IT Solutions - Apply Page containing a form to apply for 
+    a job at HEMB IT Solutions. The form will require infromation about you in regards to personal 
+    details, address, contact details, technical skills, preferred skills and other skills.">
     <meta name="keywords" content="HEMB, IT, Solutions, Application, Form">
     <meta name="author" content="Henry Bennett, Evan Harrision">
     <meta charset="UTF-8">

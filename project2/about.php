@@ -46,7 +46,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | HEMB-IT</title>
-    <meta name="description" content="HEMB IT Solutions - About Page">
+    <meta name="description" content="HEMB IT Solutions - About Page containing information 
+    about the team and their contributions. In addition, it contains information about 
+    the emplotees regarding their class times, tutor names, student IDs and overall general insight.">
     <meta name="keywords" content="HEMB, IT, Solutions, About Page">
     <meta name="author" content="Ben Romano, Evan Harrison, Henry Bennett">
     <link rel="stylesheet" href="./styles/styles.css">
