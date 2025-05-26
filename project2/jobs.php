@@ -88,19 +88,40 @@
                         echo '<h3>Benefits</h3>';
                         echo '<ul></ul>';
                         echo '<li>' . $row['benefits'] . '</li>';
+                        echo '</section>';
                     }
                 }
                 else {
-                    # We aint doing cars???
-                    echo "There are no cars to display.";
+                    echo "There are no jobs to display.";
                 }
                 mysqli_close($dbconn);
             } else echo "<p>Unable to connect to the db.</p>";
             
             echo '<section class="main_section jobs_section">'
-            
-
             ?>
+            <!-- Sources: 
+            https://www.jobsandskills.gov.au/data/occupation-and-industry-profiles/occupations/3131-ict-support-technicians  
+            https://itology.com/uncategorized/it-support-specialist-vs-it-technician-the-crucial-differences/  
+            https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  
+            https://www.open.edu.au/advice/careers/it-computer-science/it-support-technician 
+            https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC
+            https://www.fairwork.gov.au/leave/annual-leave
+            https://itology.com/uncategorized/it-support-specialist-vs-it-technician-the-crucial-differences/ 
+            https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC
+            https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC
+            https://au.indeed.com/q-service-desk-analyst-l-melbourne-vic-jobs.html?vjk=82f84d8b81617b4c
+            https://www.seek.com.au/career-advice/role/service-desk-analyst
+            https://au.indeed.com/career-advice/finding-a-job/what-does-a-desktop-support-technician-do
+            https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC
+            https://www.seek.com.au/career-advice/role/service-desk-analyst
+            https://au.indeed.com/career-advice/finding-a-job/what-does-a-desktop-support-technician-do
+            https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC
+            https://www.fairwork.gov.au/leave/annual-leave
+            https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC
+            https://www.tesla.com/careers/search/job/desktop-support-technician-237553
+            https://www.fairwork.gov.au/leave/annual-leave
+             -->
+
             <!-- JOB 1 / IT Support Technician -->
             <section class="main_section jobs_section">
                 <h2>IT Support Technician</h2>
@@ -111,10 +132,6 @@
                 <p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong> IT300</p>
                 <br>
                 <p>As an IT Support Technician, you will provide IT support to a broad range of companies.</p>
-                <!-- Source: https://www.jobsandskills.gov.au/data/occupation-and-industry-profiles/occupations/3131-ict-support-technicians  -->
-                <!-- Source: https://itology.com/uncategorized/it-support-specialist-vs-it-technician-the-crucial-differences/  -->
-                <!-- Source: https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  -->
-                <!-- Source: https://www.open.edu.au/advice/careers/it-computer-science/it-support-technician -->
                 
                 <!-- JOB 1 / Responsibilities -->
                 <div>
@@ -133,7 +150,6 @@
                     <h3>Essential Qualifications:</h3>
                     <ol>
                         <li>Completed a suitable tertiary course in Information Technology.</li>
-                        <!-- Source: https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  -->
                         <li>1 year of work experience in an IT support position.</li>
                         <li>Proficiency in HTML5.</li>
                         <li>Proficiency in Python and Ruby.</li>
@@ -161,7 +177,6 @@
                     <h3>Benefits</h3>
                     <ul>
                         <li>20 days of Paid-Time-Off per year</li>
-                        <!-- Source: https://www.fairwork.gov.au/leave/annual-leave -->
                     </ul>
                 </div>
             </section>
@@ -177,8 +192,6 @@
                 <p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong> IT240</p>
                 <br>
                 <p>As an IT Support Specialist, you will give one-on-one software assistance to clients. You will also manage elements of HEMB-IT's cybersecurity</p>
-                <!-- Source: https://itology.com/uncategorized/it-support-specialist-vs-it-technician-the-crucial-differences/  -->
-                <!-- Source: https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  -->
                 
                 <!-- JOB 2 / Responsibilities -->
                 <div>
@@ -197,7 +210,6 @@
                     <h3>Essential Qualifications:</h3>
                     <ol>
                         <li>Completed a suitable tertiary course in Information Technology.</li>
-                        <!-- Source: https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  -->
                         <li>1 year of work experience in an IT support position.</li>
                         <li>2 months of work experience in a customer support position.</li>
                         <li>Proficiency in HTML5.</li>
@@ -226,7 +238,6 @@
                     <h3>Benefits</h3>
                     <ul>
                         <li>20 days of Paid-Time-Off per year</li>
-                        <!-- Source: https://www.fairwork.gov.au/leave/annual-leave -->
                     </ul>
                 </div>
             </section>
@@ -243,7 +254,6 @@
                 <p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong> IT350</p>
                 <br>
                 <p>As an Desktop Support Technician, your job is to maintain HEMB-IT's software and hardware needs in the office.</p>
-                <!-- Source: https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  -->
 
                 <!-- JOB 3 / Responsibilities -->
                 <div>
@@ -264,8 +274,6 @@
                     <h3>Essential Qualifications:</h3>
                     <ol>
                         <li>Completed a tertiary course in Networks and Switching.</li>
-                        <!-- Source: https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  -->
-                        <!-- Source: https://www.tesla.com/careers/search/job/desktop-support-technician-237553 -->
                         <li>2 years of work experience in an IT support position.</li>
                         <li>Proficiency in Python and Ruby.</li>
                         <li>Indepth knowledge and experience in IP networks, DNS, and DHCP.</li>
@@ -293,7 +301,6 @@
                 <h3>Benefits</h3>
                 <ul>
                     <li>25 days of Paid-Time-Off per year</li>
-                    <!-- Source: https://www.fairwork.gov.au/leave/annual-leave -->
                 </ul>
             </section>
             <hr>
@@ -305,16 +312,10 @@
                 <p><strong>JOB TYPE:</strong> Full Time</p>
                 <p><strong>WORK HOURS:</strong> 9:00 AM - 5:00 PM, Monday - Friday</p>
                 <p><strong>SALARY:</strong> $55,000 - $80,000</p>
-                <!-- Source: https://au.indeed.com/q-service-desk-analyst-l-melbourne-vic-jobs.html?vjk=82f84d8b81617b4c -->
-                <!-- Source: https://www.seek.com.au/career-advice/role/service-desk-analyst -->
-                <!-- Source: https://au.indeed.com/career-advice/finding-a-job/what-does-a-desktop-support-technician-do -->
                 <p><strong>SUPERVISOR:</strong> IT Support Manager</p>
                 <p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong> IT090</p>
                 <br>
                 <p>As an Service Desk Analyst, you will be resolving support tickets by clients.</p>
-                <!-- Source: https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  -->
-                <!-- Source: https://www.seek.com.au/career-advice/role/service-desk-analyst -->
-                <!-- Source: https://au.indeed.com/career-advice/finding-a-job/what-does-a-desktop-support-technician-do -->
                 
                 <!-- JOB 4 / Responsibilities -->
                 <div>
@@ -332,7 +333,6 @@
                     <h3>Essential Qualifications:</h3>
                     <ol>
                         <li>Completed a suitable tertiary course in Information Technology.</li>
-                        <!-- Source: https://www.seek.com.au/it-support-technician-jobs/in-All-Melbourne-VIC  -->
                         <li>6 months of work experience in an IT support position.</li>
                         <li>6 months of work experience in a customer support position.</li>
                         <li>An indepth understanding of HTML5.</li>
@@ -359,7 +359,6 @@
                 <h3>Benefits</h3>
                 <ul>
                     <li>20 days of Paid-Time-Off per year</li>
-                    <!-- Source: https://www.fairwork.gov.au/leave/annual-leave -->
                 </ul>
             </section>
 
