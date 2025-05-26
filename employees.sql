@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2025 at 07:44 AM
+-- Generation Time: May 26, 2025 at 05:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,7 +29,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `class_times` (
   `Class_Time_ID` int(11) UNSIGNED NOT NULL,
-  `Employee_ID` int(11) NOT NULL,
   `Day` enum('Monday','Tuesday','Wednesday','Thursday','Friday') CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
   `Start_Time` time NOT NULL,
   `End_Time` time NOT NULL
@@ -39,11 +38,8 @@ CREATE TABLE `class_times` (
 -- Dumping data for table `class_times`
 --
 
-INSERT INTO `class_times` (`Class_Time_ID`, `Employee_ID`, `Day`, `Start_Time`, `End_Time`) VALUES
-(1, 1, 'Thursday', '14:30:00', '16:30:00'),
-(2, 2, 'Thursday', '14:30:00', '16:30:00'),
-(3, 3, 'Thursday', '14:30:00', '16:30:00'),
-(4, 4, 'Thursday', '14:30:00', '16:30:00');
+INSERT INTO `class_times` (`Class_Time_ID`, `Day`, `Start_Time`, `End_Time`) VALUES
+(1, 'Thursday', '14:30:00', '16:30:00');
 
 -- --------------------------------------------------------
 
@@ -87,9 +83,10 @@ INSERT INTO `contributions` (`Contribution_ID`, `Employee_ID`, `Contribution`) V
 CREATE TABLE `employees` (
   `ID` int(10) UNSIGNED NOT NULL COMMENT 'The employees ID',
   `First_name` varchar(100) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL COMMENT 'The Employees first name',
-  `Last_Name` varchar(100) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL COMMENT 'The Employees last name',
+  `Last_name` varchar(100) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL COMMENT 'The Employees last name',
   `Student_ID` int(9) NOT NULL COMMENT 'The employees student ID',
   `Tutor_ID` int(11) UNSIGNED NOT NULL COMMENT 'The link to the tutor for this employee',
+  `Class_Time_ID` int(11) UNSIGNED NOT NULL,
   `Photo` varchar(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL COMMENT 'The file name for the photo of this employee',
   `Photo_Alt` varchar(255) NOT NULL COMMENT 'The Employees alternate description for the photo incase it doesn''t load or for accessibility reasons',
   `Description` text NOT NULL COMMENT 'The description of what this employee does for the company'
@@ -99,11 +96,11 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`ID`, `First_name`, `Last_Name`, `Student_ID`, `Tutor_ID`, `Photo`, `Photo_Alt`, `Description`) VALUES
-(1, 'Evan', 'Harrison', 105929605, 1, 'Evan_Harrison.webp', 'Front-facing picture of Evan Harrison', 'Evan Harrison is our go-to tech troubleshooter, known for his sharp problem-solving skills and technical expertise. Whether it\'s fixing system crashes, resolving software bugs, or optimizing performance, Evan handles it all with speed and precision. He focuses not just on quick fixes but also long-term solutions—streamlining workflows, securing systems, and integrating new tools. Methodical, resourceful, and always up-to-date with the latest tech trends, Evan is a vital force in keeping our operations running smoothly'),
-(2, 'Henry ', 'Bennett', 105923571, 1, 'Henry_Bennett.webp', 'Front-facing image of Henry Bennett taking a photo with a phone', 'Henry Bennett is our cybersecurity expert, focused on keeping digital systems secure and resilient. From blocking malware to securing networks and access points, he handles threats quickly and effectively. Beyond incident response, Henry implements long-term protections like audits, encryption, and continuous monitoring to ensure data safety and smooth operations.'),
-(3, 'Ben', 'Romano', 105773284, 1, 'Ben_Romano.webp', 'A front-facing picture of Ben Romano', 'Ben Romano is our hardware specialist, ensuring all devices, workstations, and network equipment run smoothly and efficiently. From diagnosing issues to setting up new systems, he handles hardware with precision and care. Ben goes beyond quick fixes, building reliable, scalable setups with quality components and structured cabling. His attention to detail ensures every system is optimized for performance and durability.'),
-(4, 'Michael', 'Sharpley', 105913792, 1, 'Michael_Sharpley.webp', 'A picture of Michael Sharpley with a blue background', 'Michael Sharpley is our database specialist, focused on building and maintaining efficient, scalable, and secure data systems. From designing robust schemas to optimizing queries and implementing backups, he ensures your data is structured for performance and reliability. Whether starting from scratch or improving existing setups, Michael brings a strategic, detail-driven approach that keeps systems fast, stable, and future-ready.');
+INSERT INTO `employees` (`ID`, `First_name`, `Last_name`, `Student_ID`, `Tutor_ID`, `Class_Time_ID`, `Photo`, `Photo_Alt`, `Description`) VALUES
+(1, 'Evan', 'Harrison', 105929605, 1, 1, 'Evan_Harrison.webp', 'Front-facing picture of Evan Harrison', 'Evan Harrison is our go-to tech troubleshooter, known for his sharp problem-solving skills and technical expertise. Whether it\'s fixing system crashes, resolving software bugs, or optimizing performance, Evan handles it all with speed and precision. He focuses not just on quick fixes but also long-term solutions—streamlining workflows, securing systems, and integrating new tools. Methodical, resourceful, and always up-to-date with the latest tech trends, Evan is a vital force in keeping our operations running smoothly'),
+(2, 'Henry ', 'Bennett', 105923571, 1, 1, 'Henry_Bennett.webp', 'Front-facing image of Henry Bennett taking a photo with a phone', 'Henry Bennett is our cybersecurity expert, focused on keeping digital systems secure and resilient. From blocking malware to securing networks and access points, he handles threats quickly and effectively. Beyond incident response, Henry implements long-term protections like audits, encryption, and continuous monitoring to ensure data safety and smooth operations.'),
+(3, 'Ben', 'Romano', 105773284, 1, 1, 'Ben_Romano.webp', 'A front-facing picture of Ben Romano', 'Ben Romano is our hardware specialist, ensuring all devices, workstations, and network equipment run smoothly and efficiently. From diagnosing issues to setting up new systems, he handles hardware with precision and care. Ben goes beyond quick fixes, building reliable, scalable setups with quality components and structured cabling. His attention to detail ensures every system is optimized for performance and durability.'),
+(4, 'Michael', 'Sharpley', 105913792, 1, 1, 'Michael_Sharpley.webp', 'A picture of Michael Sharpley with a blue background', 'Michael Sharpley is our database specialist, focused on building and maintaining efficient, scalable, and secure data systems. From designing robust schemas to optimizing queries and implementing backups, he ensures your data is structured for performance and reliability. Whether starting from scratch or improving existing setups, Michael brings a strategic, detail-driven approach that keeps systems fast, stable, and future-ready.');
 
 -- --------------------------------------------------------
 
@@ -147,7 +144,8 @@ ALTER TABLE `contributions`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `Tutor link` (`Tutor_ID`);
+  ADD KEY `Tutor link` (`Tutor_ID`),
+  ADD KEY `Class_Time link` (`Class_Time_ID`);
 
 --
 -- Indexes for table `tutors`
@@ -191,6 +189,7 @@ ALTER TABLE `tutors`
 -- Constraints for table `employees`
 --
 ALTER TABLE `employees`
+  ADD CONSTRAINT `Class_Time link` FOREIGN KEY (`Class_Time_ID`) REFERENCES `class_times` (`Class_Time_ID`) ON DELETE CASCADE,
   ADD CONSTRAINT `Tutor link` FOREIGN KEY (`Tutor_ID`) REFERENCES `tutors` (`Tutor_ID`) ON DELETE CASCADE;
 COMMIT;
 

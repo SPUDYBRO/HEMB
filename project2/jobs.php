@@ -1,6 +1,6 @@
 <!-- PHP code to set accessability preferences for the website -->
 <?php
-    include '../php/functionality.php';
+    include './functionality.php';
 ?>
 
 
@@ -33,8 +33,8 @@
         <?php 
         display_info_card();
 
-        include '../inc/accessibility.inc';
-        include '../inc/navigation.inc'; 
+        include '../accessibility.inc';
+        include '../navigation.inc'; 
         ?>
 
 
@@ -59,31 +59,32 @@
             <hr>
 
             <?php
-            require_once "settings.php";
-            $dbconn = @mysqli_connect ($host,$user,$pwd,$sql_db);
+            require_once "./settings.php";
+            $dbconn = @mysqli_connect ($host, $user, $pwd, $sql_db);
 
             if ($dbconn) {
                 $query = "SELECT * FROM jobs";
                 $result = mysqli_query ($dbconn, $query);
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<section class="main_section jobs_section">'
-                        echo '<h2>' . $row['title'] . '</h2>'
-                        echo '<p><strong>JOB TYPE:</strong>' . $row['type'] . '</p>'
-                        echo '<p><strong>WORK HOURS:</strong>' . $row['work_hours'] . '</p>'
-                        echo '<p><strong>SALARY:</strong>' . $row['salary'] . '</p>'
-                        echo '<p><strong>SUPERVISOR:</strong>' . $row['supervisor'] . '</p>'
-                        echo '<p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong>' . $row['reference_number'] . '</p>'
-                        echo '<br>'
-                        echo '<p>' . $row['description'] . '</p>'
-                        // echo '' . $row['responsibilities'] . ''
-                        // echo '' . $row['essential_qualifications'] . ''
-                        // echo '' . $row['preferable_qualifications'] . ''
-                        echo '<h3>Benefits</h3>'
-                        echo '' . $row['benefits'] . ''
+                        echo '<section class="main_section jobs_section">';
+                        echo '<h2>' . $row['title'] . '</h2>';
+                        echo '<p><strong>JOB TYPE:</strong>' . $row['type'] . '</p>';
+                        echo '<p><strong>WORK HOURS:</strong>' . $row['work_hours'] . '</p>';
+                        echo '<p><strong>SALARY:</strong>' . $row['salary'] . '</p>';
+                        echo '<p><strong>SUPERVISOR:</strong>' . $row['supervisor'] . '</p>';
+                        echo '<p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong>' . $row['reference_number'] . '</p>';
+                        echo '<br>';
+                        echo '<p>' . $row['description'] . '</p>';
+                        // echo '' . $row['responsibilities'] . '';
+                        // echo '' . $row['essential_qualifications'] . '';
+                        // echo '' . $row['preferable_qualifications'] . '';
+                        echo '<h3>Benefits</h3>';
+                        echo '' . $row['benefits'] . '';
                     }
                 }
                 else {
+                    # We aint doing cars???
                     echo "There are no cars to display.";
                 }
                 mysqli_close($dbconn);
@@ -362,6 +363,6 @@
         <?php 
             display_info_card();
             # <!-- Footer Section -->
-            include '../inc/footer.inc'; ?>
+            include '../footer.inc'; ?>
     </body>
 </html>

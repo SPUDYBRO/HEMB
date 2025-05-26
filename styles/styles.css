@@ -1715,13 +1715,6 @@ you can also intent further to explain a certain area of code, for example:
         font-size: var(--p_font_size);
     }
 
-
-
-
-
-
-
-
 /* Post request files */
 /* this just styes files that only accept post requests and dont do anything else */
     #post_request {

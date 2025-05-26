@@ -1,9 +1,6 @@
 <?php
-
-
-
-    include "functionality.php";
-    require_once "settings.php";
+    include "./functionality.php";
+    require_once "./settings.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +28,7 @@ date_default_timezone_set('Australia/Melbourne');
  
 if (isset($_SESSION['User'])) { # the user is already logged in...
     session_regenerate_id(true);
-    header("Location: ../project1/manage.php");
+    header("Location: ./manage.php");
     die();
 }
 
@@ -63,7 +60,7 @@ if ($_SESSION['login_requests'] >= 5) {
         "Your login ban will be lifted at: " . $time_lift_formatted,
         ["Sensitive data, no debug available" => "No data"]
     );
-    header("Location: ../project1/login.php");
+    header("Location: ./login.php");
     die();
 }
 
@@ -107,7 +104,7 @@ if (empty($_POST['password'])) {
         "The database connection failed", 
         "There was an error connecting to the database", 
         "The following is the error message:<br><pre>" . mysqli_connect_error() . "</pre>");
-        header("Location: ../project1/login.php");
+        header("Location: ../project2/login.php");
         die();
     }
 
@@ -161,12 +158,12 @@ if (count($error) > 0) {
     "Something in the form you submitted wasn't accepted and caused an error", 
     "The following are the errors that were found:<br><pre>" . $error_msg . "</pre>", 
     ["Sensitive data, no debug available" => "No data"]);
-    header("Location: ../project1/login.php");
+    header("Location: ../project2/login.php");
     die();
 } else {
     session_regenerate_id(true);
     $_SESSION['User'] = new User($row['ID'], $row['Username'], $row['Role']);
     $_SESSION['login_requests'] = 0;
-    header("Location: ../project1/manage.php");
+    header("Location: ./manage.php");
     die();
 }

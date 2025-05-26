@@ -1,2 +1,0 @@
-This folder is for SQL databases. When you make a database(the structure has been made), export it as a `.sql` file
-Put the .sql file inside this folder too (data/)

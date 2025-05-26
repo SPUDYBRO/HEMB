@@ -1,5 +1,5 @@
 <?php
-    include "functionality.php";
+    include "./functionality.php";
     // Constants for colour schemes
     define('COLOUR_SCHEME_DEFAULT', 'default');
     define('COLOUR_SCHEME_BLACK_WHITE', 'black_white');
@@ -148,7 +148,7 @@
         if (isset($_SERVER['HTTP_REFERER'])) {
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         } else {
-            header('Location: ../project1/index.php');
+            header('Location: ./index.php');
         }
         exit();
     }

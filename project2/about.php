@@ -1,6 +1,6 @@
 <?php
-    include '../php/functionality.php'; 
-    require_once '../php/settings.php';
+    include './functionality.php'; 
+    require_once './settings.php';
 
     // Connect to the database
     $conn = new mysqli($host, $user, $pwd, $employees_db);
@@ -32,7 +32,7 @@
 
     if (!$result) {
         set_data_response('error', 'Query Error', 'Failed to fetch employee data', 'Query Error', 'Failed to fetch employee data from the database', "Error: <pre>" . $conn->error . "</pre>", $_POST);
-        header('Location: manage.php?Mode=Account');
+        header('Location: ../manage.php?Mode=Account');
         die();
     }
 
@@ -55,8 +55,8 @@
 <body>
     <?php 
         display_info_card();
-        include '../inc/accessibility.inc';
-        include '../inc/navigation.inc'; 
+        include '../accessibility.inc';
+        include '../navigation.inc'; 
     ?>
 
     <main id="About_Main">
@@ -93,10 +93,7 @@
                         echo "<p>" . htmlspecialchars($row['Description']) . "</p>";
 
                         echo "</div>";
-
-
                     }
-
                 ?>
                 <hr>
                 <section id='member_contributions'>
@@ -118,7 +115,7 @@
 
     <?php 
         display_info_card();
-        include '../inc/footer.inc'; 
+        include '../footer.inc'; 
     ?>
 </body>
 </html>

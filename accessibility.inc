@@ -3,7 +3,7 @@
         <img src="../images/accessibility_icon.webp" alt="an image of a person with a disability icon">
     </section>
     <section id="dropdown_menu">
-        <form method="get" action="../php/accessability.php">
+        <form method="get" action="../project2/accessability.php">
             <button type="submit" name="accessibility" value="colour_scheme" class="accessibility_button" title="Turn on/off color blindness mode">
                 <img src="../images/colour_blind.webp" alt="An image of a black and white droplet symbolizing color blindness">
             </button>

@@ -1,7 +1,7 @@
 <?php
 
-require("../php/functionality.php");
-require_once("../php/settings.php");
+require("./functionality.php");
+require_once("./settings.php");
 
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
@@ -18,6 +18,7 @@ if (!$conn) {
 $error = [];
 
 $EOInumber = rand(1000, 9999);
+$job_reference_numbers_map = ["IT3869", "IT2245", "IT2025"];
 $gender_input_map = ["Male", "Female"];
 $technical_skills_map = ["Knowledge in Troubleshooting", "Understanding of Network Infrastructure", "Knowledge of Computer Hardware", "Proficiency in Operating Systems", "Knowledge of Security Practices", "Familiarity with Database Concepts"];
 $preferred_skills_map = ["Communication", "Teamwork", "Time Management", "Autonomous", "Fast Learner"];
@@ -56,8 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!isset($_POST["postcode"])) {
                 $error[] = "No postcode field was submitted";
             }
-            if (!isset($_POST['gender_input'])) {
+            if (!isset($_POST["gender_input"])) {
                 $error[] = "No gender field was submitted";
+            }
+            if (!isset($_POST["email_input"])) {
+                $error[] = "No email field was submitted";
             }
             if (!isset($_POST["phone_number_input"])) {
                 $error[] = "No phone field was submitted";
@@ -150,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ======================================= INPUT VALIDATION ==========================================
 
             // ------------------------- Valid Input?  -------------------------
-            if (!in_array($_POST["job_reference_number"], ["IT300", "IT240", "IT350", "IT090"])) {
+            if (!in_array($_POST["job_reference_number"], $job_reference_numbers_map)) {
                 $error[] = "Not a valid job reference number. Only IT3869, IT2245, or IT2025 are allowed.";
             } 
             if (!in_array($_POST["gender_input"], $gender_input_map)) {
@@ -168,12 +172,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                 }
             }
-
 }
 
 
 if (count($error) > 0) {
 
+    echo "<pre>";
+    print_r($error);
+    echo "</pre>";
     $error_msg = "";
 
     if (count($error) == 1) { $preview_message = $error[0]; }
@@ -188,7 +194,7 @@ if (count($error) > 0) {
     "The values you submitted didn't meet the requirements to be passed", 
     "Something in the application you submitted wasn't accepted and caused an error", 
     "The following are the errors that were found:<br><pre>" . $error_msg . "</pre>");
-    header("Location: ./apply.php");
+    #header("Location: ./apply.php");
     die();
 }
 

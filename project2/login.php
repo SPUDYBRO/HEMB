@@ -1,4 +1,4 @@
-<?php include '../php/functionality.php';?>
+<?php include './functionality.php';?>
 
 
 <!DOCTYPE html>
@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
     <body id="login_body">
-        <?php include '../inc/accessibility.inc'; ?>
-        <?php include '../inc/navigation.inc'; ?>
+        <?php include '../accessibility.inc'; ?>
+        <?php include '../navigation.inc'; ?>
 
 
         <main id="login_main">
@@ -24,7 +24,7 @@
                 <p>Login as administrator</p>
                 <hr>
             </div>
-            <form action="../php/login_handle.php" method="POST" novalidate>
+            <form action="./login_handle.php" method="POST" novalidate>
                 <div class="login_field">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
@@ -42,6 +42,6 @@
 
         </main>
 
-        <?php include "../inc/footer.inc";?>
+        <?php include "../footer.inc";?>
     </body>
 </html>

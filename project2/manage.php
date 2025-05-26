@@ -1,28 +1,24 @@
 
 <?php 
-require_once '../php/settings.php';
-include '../php/functionality.php';
+require_once './settings.php';
+include './functionality.php';
 
 
 
 if (!is_logged_in()) {
     set_data_response('error', 'Access Denied', 'This page is only for staff', 'This page is only allowed for staff', "You are not allowed to access this page", "if you are staff, please navigate to the login page to get access");
-    header('Location: ' . "../project1/index.php");
+    header('Location: ' . "./index.php");
     die();
 }
 
 if (isset($_GET['Mode'])) {
     if ($_GET['Mode'] == "Logout") {
         logout();
-        header('Location: ' . "../project1/index.php");
+        header('Location: ' . "./index.php");
         die();
     }
 }
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en" class="<?php set_accessibility();?>">
@@ -36,8 +32,8 @@ if (isset($_GET['Mode'])) {
 </head>
 <body>
     <?php display_info_card();?>
-    <?php include '../inc/accessibility.inc'; ?>
-    <?php include '../inc/navigation.inc'; ?>
+    <?php include '../accessibility.inc'; ?>
+    <?php include '../navigation.inc'; ?>
 
 
 
@@ -48,7 +44,7 @@ if (isset($_GET['Mode'])) {
             <hr>
         </div>
 
-        <form id="manager_options" method="get" action="manage.php">
+        <form id="manager_options" method="get" action="./manage.php">
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "EOI") { echo "current";}?>" type="submit" name="Mode" value="EOI">EOIS</button>
             <?php
             if ($_SESSION['User']->Role == "Admin") {
@@ -76,7 +72,7 @@ if (isset($_GET['Mode'])) {
                         $db = mysqli_connect($host, $user, $pwd, $sql_db);
                     } catch (Exception $e) {
                         set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . $e->getMessage() . "</pre>", $_GET);
-                        echo '<meta http-equiv="refresh" content="0;url=manage.php">'; // guys this just redirects the user back to this page (clearing the get request) so it can display the error message. and header doesn't work because i have already sent HTML
+                        echo '<meta http-equiv="refresh" content="0;url=./manage.php">'; // guys this just redirects the user back to this page (clearing the get request) so it can display the error message. and header doesn't work because i have already sent HTML
                         die();
                     }
 
@@ -84,13 +80,13 @@ if (isset($_GET['Mode'])) {
                     $result = mysqli_query($db, $query);
                     if (!$result) {
                         set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
-                        echo '<meta http-equiv="refresh" content="0;url=manage.php">';
+                        echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
                         die();
                     }
 
                     if (mysqli_num_rows($result) == 0) {
                         echo "<p>No one have submitted an EOI</p>";
-                        echo "<a href='manage.php?Mode=EOI'>Refresh</a>";
+                        echo "<a href='./manage.php?Mode=EOI'>Refresh</a>";
                     }
                     else {
                         for ($i = 0; $i < mysqli_num_rows($result); $i++) {
@@ -128,7 +124,7 @@ if (isset($_GET['Mode'])) {
                             echo "<p>" . htmlspecialchars($row['Other_Skills']) . "</p>";
                             echo "</div>";
 
-                            echo '<form method="post" action="../php/process_manage.php" autocomplete="off">Status: 
+                            echo '<form method="post" action="./process_manage.php" autocomplete="off">Status: 
                                 <input type="hidden" name="EOInumber" value="' . htmlspecialchars($row['EOInumber']) . '">
                                 <select name="status">
                                     <option value="New"' . ($row['Status'] == 'New' ? ' selected' : '') . '>New</option>
@@ -156,14 +152,14 @@ if (isset($_GET['Mode'])) {
                     } else {
                         echo "<h2>Account Management</h2>";
                         echo "<p>Manage the account data here</p>";
-                        echo "<form method='post' action='manage.php?Mode=Accounts'>
+                        echo "<form method='post' action='./manage.php?Mode=Accounts'>
                                 <button type='submit' name='Account_Create'>Create New Account</button>
                             </form>";
 
                         $db = mysqli_connect($host, $user, $pwd, $sql_db);
                         if (!$db) {
                             set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . mysqli_connect_error() . "</pre>", $_GET);
-                            echo '<meta http-equiv="refresh" content="0;url=manage.php">';
+                            echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
                             die();
                         }
 
@@ -172,12 +168,12 @@ if (isset($_GET['Mode'])) {
                         $result = $stmt->get_result();
                         if (!$result) {
                             set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
-                            echo '<meta http-equiv="refresh" content="0;url=manage.php">';
+                            echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
                             die();
                         }
 
                         if (isset($_POST['Account_Create'])) {
-                            echo "<form method='post' action='../php/process_manage.php'>";
+                            echo "<form method='post' action='./process_manage.php'>";
                             echo "<input type='text' name='Username' placeholder='Username' required>";
                             echo "<input type='password' name='Password' placeholder='Password' required>";
                             echo "<select name='Role' required>
@@ -210,7 +206,7 @@ if (isset($_GET['Mode'])) {
                                     <th>Action</th>
                                   </tr>";
                                 echo "</thead>";
-                                echo "<form method='post' action='../php/process_manage.php' autocomplete='off'>";
+                                echo "<form method='post' action='./process_manage.php' autocomplete='off'>";
                                 echo "<tbody>";
                                 echo "<tr>";
                                 echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
@@ -236,13 +232,6 @@ if (isset($_GET['Mode'])) {
                     
 
 
-
-
-
-
-
-
-
                 } elseif ($_GET['Mode'] == "Employees") {
                     // =================== Employee Management ===================
                     echo "<h2>Employee Management</h2>";
@@ -251,7 +240,7 @@ if (isset($_GET['Mode'])) {
                     $db = mysqli_connect($host, $user, $pwd, $employees_db);
                     if (!$db) {
                         set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . mysqli_connect_error() . "</pre>", $_GET);
-                        echo '<meta http-equiv="refresh" content="0;url=manage.php">';
+                        echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
                         die();
                     }
                     $result = $db->query("
@@ -273,12 +262,12 @@ if (isset($_GET['Mode'])) {
                     ");
                     if (!$result) {
                         set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
-                        echo '<meta http-equiv="refresh" content="0;url=manage.php?Mode=Employees">';
+                        echo '<meta http-equiv="refresh" content="0;url=./manage.php?Mode=Employees">';
                         die();
                     }
                     if (mysqli_num_rows($result) == 0) {
                         set_data_response('info', 'No Employees Found', 'There are no employees in the database', 'No Employees Found', 'There are no employees in the database', '', $_GET);
-                        echo '<meta http-equiv="refresh" content="0;url=manage.php?Mode=Employees">';
+                        echo '<meta http-equiv="refresh" content="0;url=./manage.php?Mode=Employees">';
                         die();
                     }
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -299,7 +288,7 @@ if (isset($_GET['Mode'])) {
                         echo "</thead>";
 
                         echo "<tbody>";
-                        echo "<form method='post' action='../php/process_manage.php' autocomplete='off'>";
+                        echo "<form method='post' action='./process_manage.php' autocomplete='off'>";
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
                         echo "<input type='hidden' name='ID' value='" . htmlspecialchars($row['ID']) . "'>";
@@ -315,7 +304,6 @@ if (isset($_GET['Mode'])) {
 
                         echo "</table>";
 
-
                         echo "<textarea name='contributions' placeholder='Contributions (comma separated)' required>" . htmlspecialchars($row['contributions']) . "</textarea>";
 
                         echo "<textarea name='description' placeholder='Description' required>" . htmlspecialchars($row['Description']) . "</textarea>";
@@ -326,19 +314,9 @@ if (isset($_GET['Mode'])) {
                         echo "<button type='submit' name='Employee_Delete'>Delete</button>";
                         echo "</form>";
 
-                        echo "</section>";
-
-                        
+                        echo "</section>";               
                     }
-
-
-
-
-
-
-
                 }
-
  
                 if (isset($db)) {
                     mysqli_close($db);
@@ -347,7 +325,7 @@ if (isset($_GET['Mode'])) {
         </section>
 
     </main>
-    <?php include '../inc/footer.inc';?>
+    <?php include '../footer.inc';?>
     
 </body>
 </html>

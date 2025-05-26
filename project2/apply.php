@@ -2,7 +2,7 @@
 
 <!-- PHP code to set accessability preferences for the website -->
 <?php
-    include '../php/functionality.php';
+    include './functionality.php';
 ?>
 
 
@@ -32,10 +32,9 @@
 <body>
 
     <?php 
+    include '../accessibility.inc';
+    include '../navigation.inc'; 
     display_info_card();
-
-    include '../inc/accessibility.inc';
-    include '../inc/navigation.inc'; 
     ?>
 
     <!-- Apply Page -->
@@ -201,6 +200,6 @@
     <?php 
     display_info_card();
     # <!-- Footer Section -->
-    include '../inc/footer.inc'; ?>
+    include '../footer.inc'; ?>
 </body>
 </html>

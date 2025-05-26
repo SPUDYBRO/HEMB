@@ -6,7 +6,7 @@
 
 <!-- PHP code to set accessability preferences for the website -->
 <?php
-    include '../php/functionality.php';
+    include './functionality.php';
     display_info_card();
 ?>
 
@@ -58,8 +58,8 @@
 
 
         <?php         
-        include '../inc/accessibility.inc';
-        include '../inc/navigation.inc'; 
+        include '../accessibility.inc';
+        include '../navigation.inc'; 
         ?>
 
         
@@ -74,7 +74,7 @@
                 <p>If you have any IT issues, we can fix them! Not everyone has the availability of having IT personnel to assist with small or large issues. That's why we are here! To bridge that gap and allow small to large companies to request assistance for cheap!</p>
                 <!-- used gpt to find and fix grammar mistakes -->
                  
-                <a href="./about.html">Learn More</a>
+                <a href="./about.php">Learn More</a>
             </section>
 
 
@@ -90,7 +90,7 @@
                         i couldn't think of anything to say, and i wanted to make it longer
                         i also wanted to make it sound more professional and less like a 5 year old wrote it :p
                 -->
-                <a href="./jobs.html">Join us!</a>
+                <a href="./jobs.php">Join us!</a>
             </section>
 
 
@@ -107,7 +107,7 @@
                         i also wanted to make it sound more professional and less like a 5 year old wrote it :p
                         yes its the same reasons as before...
                 -->
-                <a href="./about.html">Meet the team</a>
+                <a href="./about.php">Meet the team</a>
             </section>
 
 
@@ -133,7 +133,7 @@
 
         <?php 
             # <!-- Footer Section -->
-            include '../inc/footer.inc'; ?>
+            include '../footer.inc'; ?>
 
     </body>
 </html>
