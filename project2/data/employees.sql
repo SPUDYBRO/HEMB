@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2025 at 05:02 AM
+-- Generation Time: May 26, 2025 at 01:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `class_times` (
-  `Class_Time_ID` int(11) UNSIGNED NOT NULL,
-  `Day` enum('Monday','Tuesday','Wednesday','Thursday','Friday') CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL,
-  `Start_Time` time NOT NULL,
-  `End_Time` time NOT NULL
+  `Class_Time_ID` int(11) UNSIGNED NOT NULL COMMENT 'The unique identifier of the class time',
+  `Day` enum('Monday','Tuesday','Wednesday','Thursday','Friday') CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL COMMENT 'The day when the class happens',
+  `Start_Time` time NOT NULL COMMENT 'The time when the class starts',
+  `End_Time` time NOT NULL COMMENT 'the time when class ends'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -48,9 +48,9 @@ INSERT INTO `class_times` (`Class_Time_ID`, `Day`, `Start_Time`, `End_Time`) VAL
 --
 
 CREATE TABLE `contributions` (
-  `Contribution_ID` int(11) UNSIGNED NOT NULL,
-  `Employee_ID` int(11) NOT NULL,
-  `Contribution` varchar(100) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL
+  `Contribution_ID` int(11) UNSIGNED NOT NULL COMMENT 'The Unique identifier for the contribution',
+  `Employee_ID` int(11) NOT NULL COMMENT 'The employee who made that contribution',
+  `Contribution` varchar(100) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL COMMENT 'The contribution done but the employee'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -58,13 +58,6 @@ CREATE TABLE `contributions` (
 --
 
 INSERT INTO `contributions` (`Contribution_ID`, `Employee_ID`, `Contribution`) VALUES
-(1, 1, 'Home Page'),
-(2, 1, 'CSS'),
-(3, 1, 'Manage Page'),
-(4, 1, 'Login Page'),
-(5, 1, 'Accessibility Settings'),
-(6, 1, 'Common elements to .inc'),
-(7, 1, 'Info Card'),
 (8, 2, 'Apply Page'),
 (9, 2, 'CSS'),
 (10, 2, 'Process EOI'),
@@ -72,7 +65,14 @@ INSERT INTO `contributions` (`Contribution_ID`, `Employee_ID`, `Contribution`) V
 (12, 3, 'CSS'),
 (13, 3, 'Powerpoint'),
 (14, 4, 'Jobs Page'),
-(15, 4, 'CSS');
+(15, 4, 'CSS'),
+(30, 1, 'Accessibility Settings'),
+(31, 1, 'Common elements to .inc'),
+(32, 1, 'CSS'),
+(33, 1, 'Home Page'),
+(34, 1, 'Info Card'),
+(35, 1, 'Login Page'),
+(36, 1, 'Manage Page');
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE `employees` (
   `Last_name` varchar(100) CHARACTER SET armscii8 COLLATE armscii8_general_ci NOT NULL COMMENT 'The Employees last name',
   `Student_ID` int(9) NOT NULL COMMENT 'The employees student ID',
   `Tutor_ID` int(11) UNSIGNED NOT NULL COMMENT 'The link to the tutor for this employee',
-  `Class_Time_ID` int(11) UNSIGNED NOT NULL,
+  `Class_Time_ID` int(11) UNSIGNED NOT NULL COMMENT 'The foreign key link to the class times',
   `Photo` varchar(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL COMMENT 'The file name for the photo of this employee',
   `Photo_Alt` varchar(255) NOT NULL COMMENT 'The Employees alternate description for the photo incase it doesn''t load or for accessibility reasons',
   `Description` text NOT NULL COMMENT 'The description of what this employee does for the company'
@@ -161,19 +161,19 @@ ALTER TABLE `tutors`
 -- AUTO_INCREMENT for table `class_times`
 --
 ALTER TABLE `class_times`
-  MODIFY `Class_Time_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Class_Time_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'The unique identifier of the class time', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `contributions`
 --
 ALTER TABLE `contributions`
-  MODIFY `Contribution_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Contribution_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'The Unique identifier for the contribution', AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'The employees ID', AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'The employees ID', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tutors`

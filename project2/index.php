@@ -19,7 +19,10 @@
 
     <head>
         <title>Home | HEMB-IT</title>
-        <meta name="description" content="HEMB IT Solutions - Home Page">
+        <meta name="description" content="HEMB IT Solutions - Home Page containing a main picture 
+        of the comapany name and an animate faceless man in a suit folowed by a brif overview 
+        of the company's services, job opportunities, team members and a link to the 
+        company Github repository.">
         <meta name="keywords" content="HEMB, IT, Solutions, Home, Page, IT Support, Company">
         <meta name="author" content="Evan Harrision, Henry Bennett">
         <meta charset="UTF-8">
@@ -127,10 +130,7 @@
                 <a href="https://github.com/SPUDYBRO/HEMB" target="_blank">Github</a>
             </section>
 
-
         </main>
-
-
         <?php 
             # <!-- Footer Section -->
             include './inc/footer.inc';

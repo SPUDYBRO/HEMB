@@ -12,7 +12,13 @@
 
     <head>
         <title>Positions | HEMB-IT</title> <!-- Meta data -->
-        <meta name="description" content="HEMB IT Solutions - Job Page - Position Descriptions">
+        <meta name="description" content="HEMB IT Solutions - Job Page containing a list of all 
+        the available positions at HEMB IT Solutions. At the start of the page, there is a brief 
+        overview if tips on how to aid your application process and general topics you will be 
+        asked about in the interview. In addition, the page contains a list of all available positions
+        at HEMB IT Solutions, with a description of the position, job type, work hours, salary, supervisor,
+        position description reference number, responsibilities, essential qualifications, 
+        preferable qualifications and benefits.">
         <meta name="keywords" content="HEMB, IT, Solutions - Job Page, Position Descriptions, 
         IT Support, IT Support Technician, IT Support Specialist, Desktop Support Technician, Service Desk Analyst">
         <meta name="author" content="Michael Sharpley, Evan Harrision, Henry Bennett">
