@@ -53,6 +53,7 @@ if (isset($_GET['Mode'])) {
             }
             ?>
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Employees") { echo "current";}?>" type="submit" name="Mode" value="Employees">Employees</button>
+            <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Jobs") { echo "current";}?>" type="submit" name="Mode" value="Jobs">Jobs</button>
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Logout") { echo "current";}?>" type="submit" name="Mode" value="Logout">Logout</button>
         </form>
 
@@ -124,9 +125,10 @@ if (isset($_GET['Mode'])) {
                             echo "<p>" . htmlspecialchars($row['Other_Skills']) . "</p>";
                             echo "</div>";
 
-                            echo '<form method="post" action="./process_manage.php" autocomplete="off">Status: 
+                            echo '<form method="post" action="./process_manage.php" autocomplete="off">
                                 <input type="hidden" name="EOInumber" value="' . htmlspecialchars($row['EOInumber']) . '">
-                                <select name="status">
+                                <label for="status_' . htmlspecialchars($row['EOInumber']) . '">Status:</label>
+                                <select name="status" id="status_' . htmlspecialchars($row['EOInumber']) . '">
                                     <option value="New"' . ($row['Status'] == 'New' ? ' selected' : '') . '>New</option>
                                     <option value="Current"' . ($row['Status'] == 'Current' ? ' selected' : '') . '>Current</option>
                                     <option value="Final"' . ($row['Status'] == 'Final' ? ' selected' : '') . '>Final</option>
@@ -178,13 +180,17 @@ if (isset($_GET['Mode'])) {
                         }
 
                         if (isset($_POST['Account_Create'])) {
-                            echo "<form method='post' action='./process_manage.php'>";
-                            echo "<input type='text' name='Username' placeholder='Username' required>";
-                            echo "<input type='password' name='Password' placeholder='Password' required>";
-                            echo "<select name='Role' required>
+                            echo "<form method='post' action='./process_manage.php' class='result'>";
+                            echo "<h3>Create New Account</h3>";
+                            echo "<div><label for='username'>Username: </label>";
+                            echo "<input type='text' name='Username' placeholder='Username' id='username' required></div>";
+                            echo "<div><label for='password'>Password: </label>";
+                            echo "<input type='password' name='Password' placeholder='Password' id='password' required></div>";
+                            echo "<div><label for='role'>Role: </label>";
+                            echo "<select name='Role' id='role' required>
                                     <option value='Member'>Member</option>
                                     <option value='Admin'>Admin</option>
-                                </select>";
+                                </select></div>";
                             echo "<button type='submit' name='Account_Create'>Create Account</button>";
                             echo "</form>";
                         }
@@ -205,9 +211,9 @@ if (isset($_GET['Mode'])) {
                                 echo "<thead>";
                                 echo "<tr>
                                     <th>ID</th>
-                                    <th>Username</th>
-                                    <th>Password</th>
-                                    <th>Role</th>
+                                    <th><label for='username_" . $row['ID'] .  "'>Username</label></th>
+                                    <th><label for='password_" . $row['ID'] .  "'>Password</label></th>
+                                    <th><label for='role_" . $row['ID'] .  "'>Role</label></th>
                                     <th>Action</th>
                                   </tr>";
                                 echo "</thead>";
@@ -216,11 +222,11 @@ if (isset($_GET['Mode'])) {
                                 echo "<tr>";
                                 echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
                                 echo "<input type='hidden' name='ID' value='". $row['ID'] . "'>";
-                                echo "<td> <input type='text' name='Username' value='" . htmlspecialchars($row['Username']) . "' required></td>";
-                                echo "<td> <input type='password' name='Password' placeholder='Leave blank to keep current password' autocomplete='new-password'></td>";
+                                echo "<td> <input id='username_" . $row['ID'] .  "' type='text' name='Username' value='" . htmlspecialchars($row['Username']) . "' required></td>";
+                                echo "<td> <input id='password_" . $row['ID'] .  "' type='password' name='Password' placeholder='Leave blank to keep current password' autocomplete='new-password'></td>";
                                 echo "<td>
-                                    <select name='Role'>
-                                        <option value='User'" . ($row['Role'] == 'Member' ? ' selected' : '') . ">Member</option>
+                                    <select id='role_" . $row['ID'] .  "' name='Role'>
+                                        <option value='Member'" . ($row['Role'] == 'Member' ? ' selected' : '') . ">Member</option>
                                         <option value='Admin'" . ($row['Role'] == 'Admin' ? ' selected' : '') . ">Admin</option>
                                     </select>";
                                 echo "</td>";
@@ -288,11 +294,11 @@ if (isset($_GET['Mode'])) {
                         echo "<thead>";
                         echo "<tr>
                             <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Student ID</th>
-                            <th>Tutor</th>
-                            <th>Class Time</th>";
+                            <th><label for='First_name_" . $row['ID'] . "'>First Name</label></th>
+                            <th><label for='Last_name_" . $row['ID'] . "'>Last Name</label></th>
+                            <th><label for='Student_ID_" . $row['ID'] . "'>Student ID</label></th>
+                            <th><label for='Tutor_" . $row['ID'] . "'>Tutor</label</th>
+                            <th><label for='Class_time_" . $row['ID'] . "'>Class Time</label></th>";
                         echo "</tr>";
                         echo "</thead>";
 
@@ -301,12 +307,12 @@ if (isset($_GET['Mode'])) {
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
                         echo "<input type='hidden' name='ID' value='" . htmlspecialchars($row['ID']) . "'>";
-                        echo "<td><input type='text' name='First_name' value='" . htmlspecialchars($row['First_name']) . "' required></td>";
-                        echo "<td><input type='text' name='Last_name' value='" . htmlspecialchars($row['Last_name']) . "' required></td>";
-                        echo "<td><input type='text' name='Student_ID' value='" . htmlspecialchars($row['Student_ID']) . "' required></td>";
-                        echo "<td><input type='text' name='Tutor_name' value='" . htmlspecialchars($row['tutor_Name']) . "' required></td>";
+                        echo "<td><input id='First_name_" . $row['ID'] . "' type='text' name='First_name' value='" . htmlspecialchars($row['First_name']) . "' required></td>";
+                        echo "<td><input id='Last_name_" . $row['ID'] . "' type='text' name='Last_name' value='" . htmlspecialchars($row['Last_name']) . "' required></td>";
+                        echo "<td><input id='Student_ID_" . $row['ID'] . "' type='text' name='Student_ID' value='" . htmlspecialchars($row['Student_ID']) . "' required></td>";
+                        echo "<td><input id='Tutor_" . $row['ID'] . "' type='text' name='Tutor_name' value='" . htmlspecialchars($row['tutor_Name']) . "' required></td>";
                         echo "<input type='hidden' name='Tutor_ID' value='" . htmlspecialchars($row['Tutor_ID']) . "'>";
-                        echo "<td><input type='text' name='class_time' placeholder='Day start Time -- End time' name='Class_Time' value='" . htmlspecialchars($row['class_time_Day']) . " " . htmlspecialchars($row['class_start_time']). " - " . htmlspecialchars($row['class_end_time']) . "' required></td>";
+                        echo "<td><input id='Class_time_" . $row['ID'] . "' type='text' name='class_time' placeholder='Day start Time -- End time' name='Class_Time' value='" . htmlspecialchars($row['class_time_Day']) . " " . htmlspecialchars($row['class_start_time']). " - " . htmlspecialchars($row['class_end_time']) . "' required></td>";
 
                         echo "<input type='hidden' name='Class_Time_ID' value='" . htmlspecialchars($row['Class_Time_ID']) . "'>";
                         
@@ -315,9 +321,14 @@ if (isset($_GET['Mode'])) {
 
                         echo "</table>";
 
-                        echo "<textarea name='contributions' placeholder='Contributions (comma separated)' required>" . htmlspecialchars($row['contributions']) . "</textarea>";
+                        echo "<label for='contributions_" . $row['ID'] . "'>Contributions (CSV):</label>";
+                        echo "<textarea id='contributions_" . $row['ID'] . "' name='contributions' placeholder='Contributions (comma separated)' required>" . htmlspecialchars($row['contributions']) . "</textarea>";
+                        echo "<input type='hidden' name='contributions_old' value='" . htmlspecialchars($row['contributions']) . "'>";
 
-                        echo "<textarea name='description' placeholder='Description' required>" . htmlspecialchars($row['Description']) . "</textarea>";
+                        echo "<br>";
+
+                        echo "<label for='description_" . $row['ID'] . "'>Description:</label>";
+                        echo "<textarea id='description_" . $row['ID'] . "' name='description' placeholder='Description' required>" . htmlspecialchars($row['Description']) . "</textarea>";
 
                         echo "<img src='../images/" . htmlspecialchars($row['Photo']) . "' alt='" . htmlspecialchars($row['Photo_Alt']) . "'</img>";
 
@@ -328,7 +339,86 @@ if (isset($_GET['Mode'])) {
                         echo "</section>";               
                     }
                 }
- 
+                elseif ($_GET['Mode'] == "Jobs") {
+                    // =================== Job Management ===================
+                    echo "<h2>Job Management</h2>";
+                    echo "<p>Manage the job data here</p>";
+
+                    try {
+                        $db = mysqli_connect($host, $user, $pwd, $sql_db);
+                    } catch (Exception $e) {
+                        set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . $e->getMessage() . "</pre>", $_GET);
+                        echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
+                        die();
+                    }
+
+                    $result = $db->query("SELECT * FROM jobs");
+                    if (!$result) {
+                        set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
+                        echo '<meta http-equiv="refresh" content="0;url=./manage.php?Mode=Jobs">';
+                        die();
+                    }
+                    if (mysqli_num_rows($result) == 0) {
+                        set_data_response('info', 'No Jobs Found', 'There are no jobs in the database', 'No Jobs Found', 'There are no jobs in the database', '', $_GET);
+                        echo '<meta http-equiv="refresh" content="0;url=./manage.php?Mode=Jobs">';
+                        die();
+                    }
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<section class='result'>";
+                        echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
+
+                        echo "<table class='result_table'>";
+
+                        echo "<thead>";
+                        echo "<tr>
+                            <th><label for='reference_number_" . htmlspecialchars($row['reference_number']) . "'>ID</label</th>
+                            <th><label for='Job_Title_" . htmlspecialchars($row['reference_number']) . "'>Job Title</label></th>
+                            <th><label for='Type_" . htmlspecialchars($row['reference_number']) . "'>Type</label></th>
+                            <th><label for='Work_Hours_" . htmlspecialchars($row['reference_number']) . "'>Work Hours</label></th>
+                            <th><label for='Salary_" . htmlspecialchars($row['reference_number']) . "'>Salary</label></th>
+                            <th><label for='Supervisor_" . htmlspecialchars($row['reference_number']) . "'>Supervisor</label></th>
+                            <th><label for='Benefits_" . htmlspecialchars($row['reference_number']) . "'>Benefits</label></th>
+                          </tr>";
+                        echo "</thead>";
+                        echo "<tbody>";
+                        echo "<form method='post' action='./process_manage.php' autocomplete='off'>";
+                        echo "<tr>";
+                        echo "<td><input id='reference_number_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Reference_Number' value='" . htmlspecialchars($row['reference_number']) . "' required readonly></td>";
+                        echo "<input type='hidden' name='Reference_Number_old' value='" . htmlspecialchars($row['reference_number']) . "'>";
+                        echo "<td><input id='Job_Title_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Job_Title' value='" . htmlspecialchars($row['title']) . "' required></td>";
+                        echo "<td><input id='Type_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Type' value='" . htmlspecialchars($row['type']) . "' required></td>";
+                        echo "<td><input id='Work_Hours_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Work_Hours' value='" . htmlspecialchars($row['work_hours']) . "' required></td>";
+                        echo "<td><input id='Salary_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Salary' value='" . htmlspecialchars($row['salary']) . "' required></td>";
+                        echo "<td><input id='Supervisor_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Supervisor' value='" . htmlspecialchars($row['supervisor']) . "' required></td>";
+                        echo "<td><input id='Benefits_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Benefits' value='" . htmlspecialchars($row['benefits']) . "' required></td>";
+                        echo "</tr>";
+                        echo "</tbody>";
+                        echo "</table>";
+
+                        echo "<label for='Description_" . htmlspecialchars($row['reference_number']) . "'>Description:</label>";
+                        echo "<textarea id='Description_" . htmlspecialchars($row['reference_number']) . "' name='Description' placeholder='Description' required>" . htmlspecialchars($row['description']) . "</textarea>";
+
+                        echo "<label for='Responsibilities_" . htmlspecialchars($row['reference_number']) . "'>Responsibilities:</label>";
+                        echo "<textarea id='Responsibilities_" . htmlspecialchars($row['reference_number']) . "' name='Responsibilities' placeholder='Responsibilities' required>" . htmlspecialchars($row['responsibilities']) . "</textarea>";
+
+                        echo "<label for='essential_qualifications_" . htmlspecialchars($row['reference_number']) . "'>Essential Qualifications:</label>";
+                        echo "<textarea id='essential_qualifications_" . htmlspecialchars($row['reference_number']) . "' name='essential_qualifications' placeholder='Essential Qualifications' required>" . htmlspecialchars($row['essential_qualifications']) . "</textarea>";
+
+                        echo "<label for='preferable_qualifications_" . htmlspecialchars($row['reference_number']) . "'>Preferable Qualifications:</label>";
+                        echo "<textarea id='preferable_qualifications_" . htmlspecialchars($row['reference_number']) . "' name='preferable_qualifications' placeholder='Preferable Qualifications' required>" . htmlspecialchars($row['preferable_qualifications']) . "</textarea>";
+
+                        echo "<button type='submit' name='Job_Update'>Update</button>";
+                        echo "<button type='submit' name='Job_Delete'>Delete</button>";
+                        echo "</form>";
+                        echo "</section>";
+
+
+                    }
+                } else {
+                    set_data_response('error', 'Invalid Mode', 'The mode you selected is invalid', 'Invalid Mode', 'The mode you selected is invalid', '', $_GET);
+                    echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
+                    die();
+                }
                 if (isset($db)) {
                     mysqli_close($db);
                 }
