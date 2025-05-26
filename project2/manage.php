@@ -49,7 +49,7 @@ if (isset($_GET['Mode'])) {
             <?php
             if ($_SESSION['User']->Role == "Admin") {
                 if (isset($_GET['Mode']) && $_GET['Mode'] == "Accounts") { $current = "current";} else { $current = ""; }
-                echo "<button class=" . $current . " type='submit' name='Mode' value='Accounts'>All Accounts</button>";
+                echo "<button class=" . $current . " type='submit' name='Mode' value='Accounts'>Accounts</button>";
             }
             ?>
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Employees") { echo "current";}?>" type="submit" name="Mode" value="Employees">Employees</button>
@@ -152,6 +152,7 @@ if (isset($_GET['Mode'])) {
                     } else {
                         echo "<h2>Account Management</h2>";
                         echo "<p>Manage the account data here</p>";
+                        echo "<p>Note: You can only change the passwords NOT view</p>";
                         echo "<form method='post' action='./manage.php?Mode=Accounts'>
                                 <button type='submit' name='Account_Create'>Create New Account</button>
                             </form>";
@@ -205,7 +206,7 @@ if (isset($_GET['Mode'])) {
                                 echo "<tr>
                                     <th>ID</th>
                                     <th>Username</th>
-                                    <th>Password (can only be changed)</th>
+                                    <th>Password</th>
                                     <th>Role</th>
                                     <th>Action</th>
                                   </tr>";
