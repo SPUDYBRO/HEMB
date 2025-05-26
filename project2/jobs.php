@@ -76,18 +76,41 @@
                         echo '<p><strong>POSITION DESCRIPTION REFERENCE NUMBER:</strong>' . $row['reference_number'] . '</p>';
                         echo '<br>';
                         echo '<p>' . $row['description'] . '</p>';
-                        echo '<h3>Responsibilities</h3>';
-                        echo '<ol></ol>';
-                        echo '<li>' . $row['responsibilities'] . '</li>';
-                        echo '<h3>Essential Qualifications</h3>';
-                        echo '<ol></ol>';
-                        echo '<li>' . $row['essential_qualifications'] . '</li>';
-                        echo '<h3>Preferable Qualifications</h3>';
-                        echo '<ol></ol>';
-                        echo '<li>' . $row['preferable_qualifications'] . '</li>';
-                        echo '<h3>Benefits</h3>';
+                        
+                        // Responsibilities
+                        echo '<div><h3 class="jobs_h3">Responsibilities</h3>';
+                        $output = '<ul>';
+                        $items = explode('|', $row['responsibilities']);
+                        foreach ($items as $item) {
+                            $output .= '<li>' . $item . '</li>';
+                        }  
+                        $output .= '</ul></div>';
+                        echo $output;
+
+                        // Essential Qualifications
+                        echo '<div><h3 class="jobs_h3">Essential Qualifications</h3>';
+                        $output = '<ol>';
+                        $items = explode('|', $row['essential_qualifications']);
+                        foreach ($items as $item) {
+                            $output .= '<li>' . $item . '</li>';
+                        }  
+                        $output .= '</ol></div>';
+                        echo $output;
+
+                        // Preferable Qualifications
+                        echo '<div><h3 class="jobs_h3">Preferable Qualifications</h3>';
+                        $output = '<ol>';
+                        $items = explode('|', $row['preferable_qualifications']);
+                        foreach ($items as $item) {
+                            $output .= '<li>' . $item . '</li>';
+                        }  
+                        $output .= '</ol></div>';
+                        echo $output;
+
+                        // Benefits
+                        echo '<div><h3 class="jobs_h3">Benefits</h3>';
                         echo '<ul></ul>';
-                        echo '<li>' . $row['benefits'] . '</li>';
+                        echo '<li>' . $row['benefits'] . '</li></div>';
                         echo '</section>';
                     }
                 }
@@ -96,6 +119,17 @@
                 }
                 mysqli_close($dbconn);
             } else echo "<p>Unable to connect to the db.</p>";
+
+            // function build_ordered_list($string) {
+            //     $output = '<ul>';
+            //     $items = explode('|', $string);
+            //     foreach ($items as $item) {
+            //         $output .= '<li>' . $item . '</li>';
+            //     }  
+            //     $output .= '</ul>';
+
+            //     return $output;
+            // }
             
             echo '<section class="main_section jobs_section">'
             ?>
