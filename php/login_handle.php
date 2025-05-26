@@ -1,22 +1,9 @@
 <?php
 
-    class User {
-        public $id;
-        public $username;
-        public $role;
-
-        function __construct($id, $username, $role) {
-            $this->id = $id;
-            $this->username = htmlspecialchars($username);
-            $this->role = $role;
-        }
-
-    }
 
 
-
-   include "functionality.php";
-    require_once "session.php";
+    include "functionality.php";
+    require_once "settings.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -142,7 +129,7 @@ if (empty($_POST['password'])) {
     $row = $result->fetch_assoc();
 
 
-    if (!password_verify($_POST['password'], $row['password'])) { # The password is incorrect
+    if (!password_verify($_POST['password'], $row['Password'])) { # The password is incorrect
         $error[] = "The password is incorrect";
     }
 
@@ -177,8 +164,8 @@ if (count($error) > 0) {
     header("Location: ../project1/login.php");
     die();
 } else {
-    $_SESSION['User'] = new User($row['ID'], $row['Username'], $row['Role']);
     session_regenerate_id(true);
+    $_SESSION['User'] = new User($row['ID'], $row['Username'], $row['Role']);
     $_SESSION['login_requests'] = 0;
     header("Location: ../project1/manage.php");
     die();

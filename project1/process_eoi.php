@@ -1,33 +1,26 @@
 <?php
-session_start();
 
-require_once("settings.php");
+require("../php/functionality.php");
+require_once("../php/settings.php");
 
-# I think it should be a html file but i just guessed so feel free to change it
-
-# its gonna be a php because it will need t include the header and footer and stuff - Evan
-$conn = mysqli_connect($host, $user, $password, $database);
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    set_data_response("error",
+    "Error",
+    "Database connection failed",
+    "Unable to connect to the database",
+    "There was an issue connecting to the database",
+    "Please check your internet and try again.");
+    header("Location: ./apply.php");
+    die();
 }
 
+$error = [];
 
-
-
-/* Note from Evan:
-
-When organising the code there are 3 sections / types of validation you need to do:
-
-1. Existence validation. Here you will check if what was submitted exists or not. and if it is empty or not.
-2. Type checking. Here you check if the data entered is of what you expect. for example if you require a string but get a number.
-3. range checking. Here is where you check if the data is within the limits of what you expect. for example does it only contain A-Z or 0-9.
-
-
-
-I have added These sections into your code. And organized your code into 4 sections. 3 being validation and the last being the database insertion.
-*/
-
-
+$EOInumber = rand(1000, 9999);
+$gender_input_map = ["Male", "Female"];
+$technical_skills_map = ["Trouble Shooting", "Networking", "Hardware", "Software", "Security", "Database Management"];
+$preferred_skills_map = ["Communication", "Teamwork", "Time Management", "Autonomous", "Fast Learner"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -37,255 +30,238 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // ------------------------- Isset? -------------------------
             if (!isset($_POST["title"])) {
-                #set error using my function `set_php_response()` found in functionality.php
-                #Then redirect them and die()
+                $error[] = "No title field was submitted";
             }
             if (!isset($_POST["first_name_input"])) {
-                # Code
+                $error[] = "No firstname field was submitted";
             }
             if (!isset($_POST["last_name_input"])) {
-                # Code
+                $error[] = "No lastname field was submitted";
             }
             if (!isset($_POST["date"])) {
-                # Code
+                $error[] = "No date field was submitted";
             }
             if (!isset($_POST["job_reference_number"])) {
-                # Code
+                $error[] = "No job reference number field was submitted";
             }
             if (!isset($_POST["street_address"])) {
-                # Code
+                $error[] = "No street address field was submitted";
             }
             if (!isset($_POST["suburb_town"])) {
-                # Code
+                $error[] = "No suburb town field was submitted";
             }
             if (!isset($_POST["state"])) {
-                # Code
+                $error[] = "No state field was submitted";
             }
             if (!isset($_POST["postcode"])) {
-                # Code
+                $error[] = "No postcode field was submitted";
             }
             if (!isset($_POST['gender_input'])) {
-                # Code
-            }
-            if (!isset($_POST["email_input"])) {
-                # Code
+                $error[] = "No gender field was submitted";
             }
             if (!isset($_POST["phone_number_input"])) {
-                # Code
+                $error[] = "No phone field was submitted";
             }
-            if (!isset($_POST["technical_skills"])) {
-                # Code
+            if (isset($_POST["technical_skills"])) {
+                for ($i = 0; $i < count($_POST["technical_skills"]); $i++) {
+                    if (!in_array($_POST["technical_skills"][$i], $technical_skills_map)) {
+                        $error[] = "Invalid technical_skills: " . $_POST["technical_skills"][$i];
+                    }
+                }
             }
-            if (!isset($_POST["preferred_skills"])) {
-                # Code
+            if (isset($_POST["preferred_skills"])) {
+                for ($i = 0; $i < count($_POST["preferred_skills"]); $i++) {
+                    if (!in_array($_POST["preferred_skills"][$i], $preferred_skills_map)) {
+                        $error[] = "Invalid preferred_skills: " . $_POST["preferred_skills"][$i];
+                    }
+                }
             }
             if (!isset($_POST["other_skills"])) {
-                # Code
-            }
-        
-        // ------------------------- Empty? -------------------------
-            if (!empty($_POST["title"])) {
-                // set_php_response("Title is required.");
-                // redirect and die();
-            }
-            if (!empty($_POST["first_name_input"])) {
-                # Code
-            }
-            if (!empty($_POST["last_name_input"])) {
-                # Code
-            }
-            if (!empty($_POST["date"])) {
-                # Code
-            }
-            if (!empty($_POST["job_reference_number"])) {
-                # Code
-            }
-            if (!empty($_POST["street_address"])) {
-                # Code
-            }
-            if (!empty($_POST["suburb_town"])) {
-                # Code
-            }
-            if (!empty($_POST["state"])) {
-                # Code
-            }
-            if (!empty($_POST["postcode"])) {
-                # Code
-            }
-            if (!empty($_POST["gender_input"])) {
-                # Code
-            }
-            if (!empty($_POST["email_input"])) {
-                # Code
-            }
-            if (!empty($_POST["phone_number_input"])) {
-                # Code
-            }
-            if (!empty($_POST["technical_skills"])) {
-                # Code
-            }
-            if (!empty($_POST["preferred_skills"])) {
-                # Code
-            }
-            if (!empty($_POST["other_skills"])) {
-                # Code
+                $error[] = "No other field was submitted";
             }
         
 
+        // ------------------------- Empty -------------------------
+            if (empty($_POST["title"])) {
+                $error[] = "Title field is empty.";
+            }
+            if (empty($_POST["first_name_input"])) {
+                $error[] = "Firstname field is empty.";
+            }
+            if (empty($_POST["last_name_input"])) {
+                $error[] = "Lastname field is empty.";
+            }
+            if (empty($_POST["date"])) {
+                $error[] = "Date field is empty.";
+            }
+            if (empty($_POST["job_reference_number"])) {
+                $error[] = "Job reference number field is empty.";
+            }
+            if (empty($_POST["street_address"])) {
+                $error[] = "Street address field is empty.";
+            }
+            if (empty($_POST["suburb_town"])) {
+                $error[] = "Suburb town field is empty.";
+            }
+            if (empty($_POST["state"])) {
+                $error[] = "State field is empty.";
+            }
+            if (empty($_POST["postcode"])) {
+                $error[] = "Postcode field is empty.";
+            }
+            if (empty($_POST["gender_input"])) {
+                $error[] = "Gender field is empty.";
+            }
+            if (empty($_POST["email_input"])) {
+                $error[] = "Email field is empty.";
+            }
+            if (empty($_POST["phone_number_input"])) {
+                $error[] = "Phone number field is empty.";
+            }
+            if (empty($_POST["technical_skills"])) {
+                $error[] = "Technical skills field is empty.";
+            }
 
-
-        
-    // ======================================= TYPE VALIDATION ==========================================
-
-
-        # Code for this. Not everything needs to be type validated. just stuff that needs to be integers or something like that.
-
-    
 
     // ======================================= RANGE VALIDATION ==========================================
 
-        # Code for this. This would include the !preg_match() stuff you have in your code.
 
+        // ------------------------- Valid? -------------------------
+            if (!preg_match("/^(Mr|Mrs|Miss|Ms|Dr)$/i", $_POST["title"])) {
+                $error[] = "Invalid title. Only Mr, Mrs, Miss, Ms, Dr are allowed.";
+            }
+            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first_name_input"]) || !preg_match("/^[a-zA-Z ]*$/", $_POST["last_name_input"])) {
+                $error[] = "Only letters and white space allowed in first name, lastname";
+            }
+            if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $_POST["date"])) {
+                $error[] = "Not a valid date. Please use the format YYYY-MM-DD.";
+            }
+            if (!preg_match("/^[IT0-9 ]*$/", $_POST["job_reference_number"])) {
+                $error[] = "Not a valid job reference number.";
+            }
+            if (strlen($_POST["street_address"]) < 1 || strlen($_POST["street_address"]) > 40) {
+                $error[] = "Street address must be between 1 and 40 characters long.";
+            }
+            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["suburb_town"])) {
+                $error[] = "Only letters and white space allowed in suburb";
+            }
+            if (!in_array($_POST["state"], ["NSW", "QLD", "VIC", "SA", "WA", "TAS", "ACT", "NT"])) {
+                $error[] = "Only valid Austrlian states allowed in state";
+            }
+            if (!preg_match("/^[0-9 ]*$/", $_POST["postcode"])) {
+                $error[] = "Only numbers allowed in postcode";
+            }
+            if (!filter_var($_POST["email_input"], FILTER_VALIDATE_EMAIL)) {
+                $error[] = "Invalid email format";
+            }
+            if (!preg_match("/^[0-9 ]*$/", $_POST["phone_number_input"])) {
+                $error[] = "Only numbers allowed in phone number";
+            }
 
+            if (isset($_POST["technical_skills"])) {
+                $selected_skills = $_POST["technical_skills"];
+                // Check if all possible technical skills are selected
+                if (count(array_diff($technical_skills_map, $selected_skills)) > 0) {
+                    $error[] = "You must select all technical skills.";
+                }
+            } else {
+                $error[] = "Technical skills field is missing.";
+            }
 
+    // ======================================= INPUT VALIDATION ==========================================
 
-
-
-        # once all the validation is done. You can check if you got any errors by making an array an inserting the errors into it.
-        # then if the array has an element in it. use the `set_php_response()` function to set the error message and redirect them back to the form.
-        # this will make the info card i showed you pop up with the error message
-        # if you dont know what to put in the `set_php_response()` function. look in functionality.php and i have written a comment on what to put in there.
-
-    // ======================================= DATABASE INSERTION ==========================================
-
-        # You don't need to make a giant list turning the $_POST data into variables. You can just use the $_POST data directly in the SQL statement.
-        # on top. at this point you can assume that the data is valid and safe to use. (still use prepared statements though)
+            // ------------------------- Valid Input?  -------------------------
+            if (!in_array($_POST["job_reference_number"], ["IT300", "IT240", "IT350", "IT090"])) {
+                $error[] = "Not a valid job reference number. Only IT3869, IT2245, or IT2025 are allowed.";
+            } 
+            if (!in_array($_POST["gender_input"], $gender_input_map)) {
+                $error[] = "Invalid gender_input. Only Male or Female are allowed.";
+            }
+            foreach ($_POST["technical_skills"] as $skill) {
+                if (!in_array($skill, $technical_skills_map)) {
+                    $error[] = "Invalid technical skill: " . htmlspecialchars($skill);
+                }
+            }
+            if (isset($POST["preferred_skills"]) && !empty($_POST["preferred_skills"])) {
+                foreach ($_POST["preferred_skills"] as $skill) {
+                    if (!in_array($skill, $preferred_skills_map)) {
+                        $error[] = "Invalid preferred skill: " . htmlspecialchars($skill);
+                    }
+                }
+            }
 
 }
 
-$prep = $conn->prepare("INSERT INTO eoi (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$prep->bind_param("iissssissss", $EOInumber, $Job_Ref_Num, $Firstname, $Lastname, $Address, $Email_Address, $Phone_Number, $Technical_Skills, $Preferred_Skills, $Other_Skills, $Status);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["title"])) {
-        echo "Please fill in title.";
-        exit;
-        if (!preg_match("/^(Mr|Mrs|Miss)$/i", $title)) {
-            echo "Invalid title. Only Mr, Mrs,, Ms, Miss, Dr are allowed.";
-            exit;
-        }
-    }
+if (count($error) > 0) {
 
-    if (empty($_POST["first_name_input"]) || empty($_POST["last_name_input"])) {
-        echo "Please fill in firstname and lastname.";
-        exit;
-        if (!preg_match("/^[a-zA-Z ]*$/",$firstname || $lastname)) {
-            echo "Only letters and white space allowed in title, first name, lastname";
-            exit;
-        }
-    }
+    $error_msg = "";
 
-    if (empty($_POST["date"])) {
-        echo "Please fill in date of birth.";
-        exit;
-        if (!preg_match("/^[0-9 ]*$/", $date)) {
-            echo "Not a valid date.";
-            exit;
-        }
-    }
+    if (count($error) == 1) { $preview_message = $error[0]; }
+    else { $preview_message = "Click for more info";}
 
-    if (empty($_POST["job_reference_number"])) {
-        echo "Please fill in job reference number.";
-        exit;
-        if (!preg_match("/^[0-9 ]*$/", $job_ref_num)) {
-            echo "Not a valid job reference number.";
-            exit;
-        }
+    foreach ($error as $err) {
+        $error_msg .= $err . "\n";
     }
-
-    if (empty($_POST["street_address"])) {
-        echo "Please fill in street address.";
-        exit;
-        if (!preg_match("/^\d*\s?[A-Za-z\s]+(?:Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Lane|Ln|Drive|Dr)\.?$/i", $street)) {
-            echo "Only letters, numbers and white space allowed in street address";
-            exit;
-        }
-    }
-
-    if (empty($_POST["suburb_town"])) {
-        echo "Please fill in suburb/town.";
-        exit;
-        if (!preg_match("/^[a-zA-Z ]*$/", $suburb)) {
-            echo "Only letters and white space allowed in suburb";
-            exit;
-        }
-    }
-
-    if (empty($_POST["state"])) {
-        echo "Please fill in state.";
-        exit;
-        if (!preg_match("/^[a-zA-Z ]*$/", $state)) {
-            echo "Only letters and white space allowed in state";
-            exit;
-        }
-    }
-
-    if (empty($_POST["postcode"])) {
-        echo "Please fill in postcode.";
-        exit;
-        if (!preg_match("/^[0-9 ]*$/", $postcode)) {
-            echo "Only numbers allowed in postcode";
-            exit;
-        }
-    }
-
-    if (empty($_POST["gender_input"])) {
-        echo "Please fill in postcode.";
-        exit;
-        if (!preg_match("/^[a-zA-Z ]*$/", $gender)) {
-            echo "Only letters and white space allowed";
-            exit;
-        }
-    }
-
-    if (empty($_POST["email_input"])) {
-        echo "Please fill in email address.";
-        exit;
-        if (!filter_var($email_address, FILTER_VALIDATE_EMAIL)) {
-            echo "Invalid email format";
-            exit;
-        }
-    }
-
-    if (empty($_POST["phone_number_input"])) {
-        echo "Please fill in phone number.";
-        exit;
-        if (!preg_match("/^[0-9 ]*$/", $phone_number)) {
-            echo "Only numbers allowed in phone number";
-            exit;
-        }
-    }
-
-    if (empty($_POST["technical_skills"])) {
-        echo "Please fill in technical skills.";
-        exit;
-        if (!preg_match("/^[a-zA-Z ]*$/", $technical_skills)) {
-            echo "Only letters and white space allowed in technical skills";
-            exit;
-        }
-    }
+    set_data_response("error", 
+    "Error", 
+    $preview_message, 
+    "The values you submitted didn't meet the requirements to be passed", 
+    "Something in the application you submitted wasn't accepted and caused an error", 
+    "The following are the errors that were found:<br><pre>" . $error_msg . "</pre>");
+    header("Location: ./apply.php");
+    die();
 }
 
-$preferred_skills = $_POST['preferred_skills'];
-$other_skills = $_POST['other_skills'];
+$Address = $_POST["street_address"] . ", " . $_POST["suburb_town"] . ", " . $_POST["state"] . ", " . $_POST["postcode"];
+
+
+$other_skills = htmlspecialchars($_POST["other_skills"]);
+$technical_skills = implode(", ", $_POST["technical_skills"]);
+$preferred_skills = implode(", ", $_POST["preferred_skills"]);
+
+$prep = $conn->prepare("INSERT INTO eoi 
+    (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills) 
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$prep->bind_param(
+    "isssssssss", 
+    $EOInumber, 
+    $_POST["job_reference_number"], 
+    $_POST['first_name_input'], 
+    $_POST['last_name_input'],
+    $Address,
+    $_POST['email_input'],
+    $_POST['phone_number_input'],
+    $technical_skills,
+    $preferred_skills,
+    $other_skills
+);
+
 
     
-# if ($prep->execute()) {
-#  echo "New record created successfully";
-# } else {
-#  echo "Error: " . $prep->error;
-# }
 
 
-$conn->close();
+if ($prep->execute()) {
+    set_data_response("success", 
+    "Success", 
+    "Your application has been submitted successfully", 
+    "Thank you for applying", 
+    "Your application has been received and is being processed", 
+    "We appreciate the time you spent to express your interest. We will review it and get back to you soon.");
+    header("Location: ./apply.php");
+    
+    die();
+} else {
+    $conn->close();
+    set_data_response("error", 
+    "Error", 
+    "There was an error submitting your application", 
+    "Something went wrong", 
+    "We encountered an issue while processing your application", 
+    "Please try again later or contact support if the problem persists.");
+    header("Location: ./apply.php");
+    die();
+}
+
+
 ?>
