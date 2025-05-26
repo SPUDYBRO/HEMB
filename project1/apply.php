@@ -172,8 +172,8 @@
                         <input type="checkbox" value="Teamwork" name="preferred_skills[]" id="skills_teamwork" class="input_background">
                         <label for="skills_teamwork">Teamwork</label>
                         <br>
-                        <input type="checkbox" value="Time Managment" name="preferred_skills[]" id="skills_time_managment" class="input_background">
-                        <label for="skills_time_managment">Time Managment</label>
+                        <input type="checkbox" value="Time Management" name="preferred_skills[]" id="skills_time_managment" class="input_background">
+                        <label for="skills_time_managment">Time Management</label>
                         <br>
                         <input type="checkbox" value="Autonomous" name="preferred_skills[]" id="skills_autonomous" class="input_background">
                         <label for="skills_autonomous">Autonomous</label>
