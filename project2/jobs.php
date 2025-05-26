@@ -119,17 +119,6 @@
                 }
                 mysqli_close($dbconn);
             } else echo "<p>Unable to connect to the db.</p>";
-
-            // function build_ordered_list($string) {
-            //     $output = '<ul>';
-            //     $items = explode('|', $string);
-            //     foreach ($items as $item) {
-            //         $output .= '<li>' . $item . '</li>';
-            //     }  
-            //     $output .= '</ul>';
-
-            //     return $output;
-            // }
             
             echo '<section class="main_section jobs_section">'
             ?>
