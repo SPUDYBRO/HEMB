@@ -12,8 +12,5 @@
                 <img src="./images/<?php if ($_SESSION['accessibility']['text_size'] != 'default') { echo $_SESSION['accessibility']['text_size'] . ".webp"; } else {echo "font_medium.webp";} ?>" alt="An image of a large text symbolizing text size increase">
             </button>
         </form>
-        
-        <!-- this is a placeholder until functionality is made -->
-        <img src="./images/accessibility_icon.webp" alt="an image of a person with a disability icon">
     </section>
 </section>
