@@ -69,6 +69,7 @@
 
         <section id="employee_info" class="main_section">
             <h2>Meet the Team</h2>
+            <hr>
 
             <?php if ($result && $result->num_rows > 0): ?>
                 <?php while ($row = $result->fetch_assoc()): ?>
