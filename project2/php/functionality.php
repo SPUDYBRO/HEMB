@@ -90,30 +90,6 @@
                 </div>
                 <p>$detailed_message</p>
                 <p>$detailed_description</p>
-                <div class='card_detailed_debug_dropdown' tabindex='1'>
-                    <div class='card_detailed_debug_dropdown_preview'>
-                        <p>Debug</p>
-                    </div>
-                    <div class='card_detailed_debug_dropdown_content tabindex='1'>
-                        <h3>Post request data</h3>
-                        <p>For advanced users only</p>
-                        <table class='card_detailed_debug_table'>
-                            <thead>
-                                <th>Name/Index</th>
-                                <th>Value</th>
-                            </thead>
-                            <tbody> ";
-                                foreach($post_debug_data as $key => $value) {
-                                    echo "<tr>
-                                            <td>$key</td>
-                                            <td>$value</td>
-                                        </tr>";
-                                }
-        echo                "</tbody>
-                        </table>
-                        <p>This table shows all data sent through POST or GET</p>
-                    </div>
-                </div>
             </div>
             <p class='card_detailed_note'>Click anywhere Inside to close this box</p>
         </details>";
