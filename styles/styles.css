@@ -951,12 +951,6 @@ you can also intent further to explain a certain area of code, for example:
         }
 
 
-    
-
-
-
-
-
 /* Information Card [notification] styles */
     .card {
         width: var(--card_width);
@@ -1133,78 +1127,7 @@ you can also intent further to explain a certain area of code, for example:
             color: var(--card_title_color);
             margin: 0px;
         }
-        /* Debug dropdown styles for detailed card */
-            .card_detailed_debug_dropdown {
-                display: inline-block;
-                text-decoration: none;
-                color: white;
-                background-color: var(--nav_button_color);
-                padding: 5px 20px;
-                width: 130px;
-                height: 60px;
-                border-radius: 30px;
-                font-weight: bold;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 3000;
-            }
-            .card_detailed_debug_dropdown_preview {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-            }
-            .card_detailed_debug_dropdown_preview > p {
-                margin: 0px;
-                align-self: center;
-            }
-            .card_detailed_debug_dropdown_content {
-                overflow-y: scroll;
-                overflow-x: hidden;
-                visibility: hidden;
-                height: 80%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-            }
-            .card_detailed_debug_dropdown_content > h3 {
-                text-align: center;
-            }
-            .card_detailed_debug_dropdown_content > p {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            .card_detailed_debug_dropdown:hover,
-            .card_detailed_debug_dropdown:focus,
-            .card_detailed_debug_dropdown:focus-within {
-                animation: card_detailed_debug_anim 0.3s ease-out forwards;
-            }
-            .card_detailed_debug_dropdown:hover .card_detailed_debug_dropdown_content,
-            .card_detailed_debug_dropdown:focus .card_detailed_debug_dropdown_content,
-            .card_detailed_debug_dropdown:focus-within .card_detailed_debug_dropdown_content {
-                visibility: visible;
-            }
-            .card_detailed_debug_dropdown:hover .card_detailed_debug_dropdown_preview,
-            .card_detailed_debug_dropdown:focus .card_detailed_debug_dropdown_preview,
-            .card_detailed_debug_dropdown:focus-within .card_detailed_debug_dropdown_preview {
-                height: 15%;
-            }
-
-            .card_detailed_debug_table {
-                margin: 0 auto;
-                border-collapse: collapse;
-                border: 2px solid var(--card_debug_table_border_color);
-            }
-            
-            .card_detailed_debug_table th,
-            .card_detailed_debug_table td {
-                border: 1px solid var(--card_debug_table_border_color);
-                padding: 8px;
-                text-align: center;
-                font-size: var(--p_font_size);
-            }
-    
+        
     /* Card Animation keyframes */
         @keyframes slide_in {
             100%    {right: 20px;}
@@ -1216,12 +1139,6 @@ you can also intent further to explain a certain area of code, for example:
 
         @keyframes slide_out {
             100%    {visibility: hidden; right: calc((var(--card_width) * -1) - 20px);;}
-        }
-
-        @keyframes card_detailed_debug_anim {
-            40% {width: 60%; height: 60px;}
-
-            100% {width: 60%; height: 400px;}
         }
 
         /* pause animations when card is hovered over or open */
@@ -1326,10 +1243,6 @@ you can also intent further to explain a certain area of code, for example:
         flex-direction: column; 
         width: 100%;
     }
-
-
-
-
 
 /* manage.php styles */
     #manage_main {
@@ -1599,6 +1512,41 @@ you can also intent further to explain a certain area of code, for example:
                 top: 100px;
             }
 
+        /* about page styles */
+            #employee_info {
+                margin: 0px;
+                width: 100%;
+            }
+            .title_image_and_list_flex_container {
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+            }
+            .individual_employee > p{
+                width: 90%;
+            }
+            .individual_employee {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+        /* Card detailed styles */
+            .card[open] > summary {
+                width: 100%;
+                height: 120vh;
+            }
+            .card[open] > .card_detailed {
+                /* align and format elements */
+                width: 80%;
+                height: 80%;
+            }
+            .card[open] > .card_detailed > h1 {
+                color: var(--title_color);
+                font-size: clamp(1.5em, 3vw, 2.5em);
+                text-shadow: 2px 2px 0px var(--main_section_h2_shadow_color);
+                margin: 0px;
+            }
     }
 
     @media (max-width: 900px) {
@@ -1654,26 +1602,7 @@ you can also intent further to explain a certain area of code, for example:
 
     @media (max-width: 800px) {
 
-        /* about page styles */
-            #employee_info {
-                margin: 0px;
-                width: 100%;
-            }
-            .title_image_and_list_flex_container {
-                width: 100%;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .individual_employee > p{
-                width: 90%;
-            }
-            
-            .individual_employee {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
+        /* Manage page styles */
             #manager_options {
                 flex-direction: column;
                 align-items: center;
