@@ -689,6 +689,10 @@ you can also intent further to explain a certain area of code, for example:
         list-style: disc;
     }
 
+    #member_contributions h3 {
+        margin: 0;
+    }
+
     /* Changes width for content to size and setup flex-direction: row*/
     .individual_employee > h3 {
         width: 100%;
@@ -706,8 +710,16 @@ you can also intent further to explain a certain area of code, for example:
 
     /* Setups image height and width for all individual photos */
     .individual_employee_photos {
-        width: 140px;
-        height: 140px;
+        float: left;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        max-width: 150px; /* Optional - control size */
+        height: auto;
+    }
+
+    #employee_info h3 {
+        text-align: left;
+        margin: 0 0 0.5rem 0; /* Optional: remove top margin and add space below */
     }
 
     /* Setups horizontal flex container */
