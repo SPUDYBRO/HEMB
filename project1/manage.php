@@ -321,6 +321,9 @@ if (isset($_GET['Mode'])) {
                         echo "<textarea name='description' placeholder='Description' required>" . htmlspecialchars($row['Description']) . "</textarea>";
 
                         echo "<img src='../images/" . htmlspecialchars($row['Photo']) . "' alt='" . htmlspecialchars($row['Photo_Alt']) . "'</img>";
+
+                        echo "<button type='submit' name='Employee_Update'>Update</button>";
+                        echo "<button type='submit' name='Employee_Delete'>Delete</button>";
                         echo "</form>";
 
                         echo "</section>";
