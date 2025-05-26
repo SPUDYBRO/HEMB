@@ -189,12 +189,13 @@
                 $row = $result->fetch_assoc();
 
                 //split the class_time into day, start time and end time from "day start_time - end_time"
-                $class_time_parts = explode(' ', $row['Day']);
-                $day = $class_time_parts[0];
-                $start_time = trim(explode('-', $class_time_parts[1])[0]);
-                $end_time = trim(explode('-', $class_time_parts[1])[1]);
+                // Example: "Thursday 13:20:00 - 16:30:00"
+                preg_match('/^(\w+)\s+(\d{2}:\d{2}:\d{2})\s*-\s*(\d{2}:\d{2}:\d{2})$/', $_POST['class_time'], $matches);
+                $day = isset($matches[1]) ? $matches[1] : '';
+                $start_time = isset($matches[2]) ? $matches[2] : '';
+                $end_time = isset($matches[3]) ? $matches[3] : '';
                 // Check if the class time already exists
-                if ($row['Day'] != $_POST['Day'] || $row['Start_Time'] != $_POST['Start_Time'] || $row['End_Time'] != $_POST['End_Time']) {
+                if ($row['Day'] != $day || $row['Start_Time'] != $start_time || $row['End_Time'] != $end_time) {
                     $stmt = $db->prepare("INSERT INTO class_times (Day, Start_Time, End_Time) VALUES (?, ?, ?)");
                     $stmt->bind_param("sss", $_POST['Day'], $_POST['Start_Time'], $_POST['End_Time']);
                     $stmt->execute();
@@ -212,17 +213,19 @@
                     die();
                 }
                 $row = $result->fetch_assoc();
-                if ($row['Name'] != $_POST['Tutor_Name']) {
+                if ($row['Name'] != $_POST['Tutor_name']) {
                     $stmt = $db->prepare("UPDATE tutors SET Name = ? WHERE Tutor_ID = ?");
                     $stmt->bind_param("si", $_POST['Tutor_Name'], $_POST['Tutor_ID']);
                     $stmt->execute();
                 }
 
-                $stmt = $db->prepare("UPDATE employees SET First_Name = ?, Last_Name = ?, Email = ?, Phone_Number = ?, Class_Time_ID = ?, Tutor_ID = ? WHERE ID = ?");
+                
                 if (isset($new_class_time_id)) {
-                    $stmt->bind_param("sssssii", $_POST['First_Name'], $_POST['Last_Name'], $_POST['Email'], $_POST['Phone_Number'], $new_class_time_id, $_POST['Tutor_ID'], $_POST['ID']);
+                    $stmt = $db->prepare("UPDATE employees SET First_Name = ?, Last_Name = ?, Student_ID = ?, Class_Time_ID = ?, Tutor_ID = ? WHERE ID = ?");
+                    $stmt->bind_param("sssssii", $_POST['First_Name'], $_POST['Last_Name'], $_POST['Student_ID'], $new_class_time_id, $_POST['Tutor_ID'], $_POST['ID']);
                 } else {
-                    $stmt->bind_param("ssssi", $_POST['First_Name'], $_POST['Last_Name'], $_POST['Email'], $_POST['Phone_Number'], $_POST['ID']);
+                    $stmt = $db->prepare("UPDATE employees SET First_Name = ?, Last_Name = ?, Student_ID = ? WHERE ID = ?");
+                    $stmt->bind_param("ssssi", $_POST['First_Name'], $_POST['Last_Name'], $_POST['Student_ID'], $_POST['ID']);
                 }
                 $stmt->execute();
                 if ($stmt->affected_rows > 0) {
@@ -232,6 +235,9 @@
                     set_data_response('error', 'Employee Update Failed', 'Failed to update the employee', 'Employee Update Failed', 'Failed to update the employee, please try again later', '', $_POST);
                     header('Location: ../project1/manage.php?Mode=Employees');
                 }
+
+
+
 
 
 

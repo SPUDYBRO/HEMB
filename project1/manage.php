@@ -306,7 +306,7 @@ if (isset($_GET['Mode'])) {
                         echo "<td><input type='text' name='First_name' value='" . htmlspecialchars($row['First_name']) . "' required></td>";
                         echo "<td><input type='text' name='Last_name' value='" . htmlspecialchars($row['Last_name']) . "' required></td>";
                         echo "<td><input type='text' name='Student_ID' value='" . htmlspecialchars($row['Student_ID']) . "' required></td>";
-                        echo "<td><input type='text' name='Tutor_ID' value='" . htmlspecialchars($row['tutor_Name']) . "' required></td>";
+                        echo "<td><input type='text' name='Tutor_name' value='" . htmlspecialchars($row['tutor_Name']) . "' required></td>";
                         echo "<input type='hidden' name='Tutor_ID' value='" . htmlspecialchars($row['Tutor_ID']) . "'>";
                         echo "<td><input type='text' name='class_time' placeholder='Day start Time -- End time' name='Class_Time' value='" . htmlspecialchars($row['class_time_Day']) . " " . htmlspecialchars($row['class_start_time']). " - " . htmlspecialchars($row['class_end_time']) . "' required></td>";
 
