@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>Login in</title>
 </head>
 <body id="post_request">
@@ -15,7 +15,7 @@
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     echo "<h1>This page is only accessible via POST requests.</h1>";
     echo "<p>this page will not serve anything</p>";
-    echo "<a href='../project1/index.php'>Home</a>";
+    echo "<a href='../index.php'>Home</a>";
     echo "</body></html>";
     die();
 }
@@ -28,7 +28,7 @@ date_default_timezone_set('Australia/Melbourne');
  
 if (isset($_SESSION['User'])) { # the user is already logged in...
     session_regenerate_id(true);
-    header("Location: ./manage.php");
+    header("Location: ../manage.php");
     die();
 }
 
@@ -60,7 +60,7 @@ if ($_SESSION['login_requests'] >= 5) {
         "Your login ban will be lifted at: " . $time_lift_formatted,
         ["Sensitive data, no debug available" => "No data"]
     );
-    header("Location: ./login.php");
+    header("Location: ../login.php");
     die();
 }
 
@@ -104,7 +104,7 @@ if (empty($_POST['password'])) {
         "The database connection failed", 
         "There was an error connecting to the database", 
         "The following is the error message:<br><pre>" . mysqli_connect_error() . "</pre>");
-        header("Location: ../project2/login.php");
+        header("Location: ../login.php");
         die();
     }
 
@@ -158,12 +158,12 @@ if (count($error) > 0) {
     "Something in the form you submitted wasn't accepted and caused an error", 
     "The following are the errors that were found:<br><pre>" . $error_msg . "</pre>", 
     ["Sensitive data, no debug available" => "No data"]);
-    header("Location: ../project2/login.php");
+    header("Location: ../login.php");
     die();
 } else {
     session_regenerate_id(true);
     $_SESSION['User'] = new User($row['ID'], $row['Username'], $row['Role']);
     $_SESSION['login_requests'] = 0;
-    header("Location: ./manage.php");
+    header("Location: ../manage.php");
     die();
 }

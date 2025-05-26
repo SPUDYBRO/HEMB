@@ -12,7 +12,7 @@ try {
     "Please check your database settings", 
     "The application could not connect to the database. Please ensure that the database server is running and the credentials are correct.", 
     "If the problem persists, contact support.");
-    header("Location: ./apply.php");
+    header("Location: ../apply.php");
     die();
 }
 
@@ -206,7 +206,7 @@ if (count($error) > 0) {
     "The values you submitted didn't meet the requirements to be passed", 
     "Something in the application you submitted wasn't accepted and caused an error", 
     "The following are the errors that were found:<br><pre>" . $error_msg . "</pre>");
-    header("Location: ./apply.php");
+    header("Location: ../apply.php");
     die();
 }
 
@@ -245,7 +245,7 @@ if ($prep->execute()) {
     "Thank you for applying", 
     "Your application has been received and is being processed", 
     "We appreciate the time you spent to express your interest. We will review it and get back to you soon.");
-    header("Location: ./apply.php");
+    header("Location: ../apply.php");
     
     die();
 } else {
@@ -256,7 +256,7 @@ if ($prep->execute()) {
     "Something went wrong", 
     "We encountered an issue while processing your application", 
     "Please try again later or contact support if the problem persists.");
-    header("Location: ./apply.php");
+    header("Location: ../apply.php");
     die();
 }
 

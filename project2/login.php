@@ -1,4 +1,4 @@
-<?php include './functionality.php';?>
+<?php include './php/functionality.php';?>
 
 
 <!DOCTYPE html>
@@ -11,11 +11,12 @@
     <title>Login | HEMB-IT</title>
     <meta name="description" content="Admin login page for HEMB IT Solutions to get access to a variety of admin options">
     <meta name="keywords" content="HEMB, IT, Solutions, Admin, Login, sign in">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="./images/fav_icon.webp">
 </head>
     <body id="login_body">
-        <?php include '../accessibility.inc'; ?>
-        <?php include '../navigation.inc'; ?>
+        <?php include './inc/accessibility.inc'; ?>
+        <?php include './inc/navigation.inc'; ?>
 
 
         <main id="login_main">
@@ -24,7 +25,7 @@
                 <p>Login as administrator</p>
                 <hr>
             </div>
-            <form action="./login_handle.php" method="POST" novalidate>
+            <form action="./php/login_handle.php" method="POST" novalidate>
                 <div class="login_field">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
@@ -42,6 +43,6 @@
 
         </main>
 
-        <?php include "../footer.inc";?>
+        <?php include "./inc/footer.inc";?>
     </body>
 </html>

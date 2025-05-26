@@ -1,6 +1,6 @@
 <?php
-    include './functionality.php'; 
-    require_once './settings.php';
+    include './php/functionality.php'; 
+    require_once './php/settings.php';
 
     // Connect to the database
     $conn = new mysqli($host, $user, $pwd, $employees_db);
@@ -49,14 +49,14 @@
     <meta name="description" content="HEMB IT Solutions - About Page">
     <meta name="keywords" content="HEMB, IT, Solutions, About Page">
     <meta name="author" content="Ben Romano, Evan Harrison, Henry Bennett">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="icon" type="image/x-icon" href="../images/fav_icon.webp">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="./images/fav_icon.webp">
 </head>
 <body>
     <?php 
         display_info_card();
-        include '../accessibility.inc';
-        include '../navigation.inc'; 
+        include './inc/accessibility.inc';
+        include './inc/navigation.inc'; 
     ?>
 
     <main id="About_Main">
@@ -81,7 +81,7 @@
                         echo "<div class='title_image_and_list_flex_container'>";
                         echo "<div class='title_image'>";
                         echo "<h3>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</h3>";
-                        echo "<img class='individual_employee_photos' src='../images/" . htmlspecialchars($row['Photo']) . "' alt='Front-facing picture of " . htmlspecialchars($row['First_name']) . ", one of the team members'>";
+                        echo "<img class='individual_employee_photos' src='images/" . htmlspecialchars($row['Photo']) . "' alt='Front-facing picture of " . htmlspecialchars($row['First_name']) . ", one of the team members'>";
                         echo "</div>";
                         echo "<ul>";
                         echo "<li><strong>Student ID:</strong> " . htmlspecialchars($row['Student_ID']) . "</li>";
@@ -109,13 +109,13 @@
                     ?>
                 </dl>
                 </section>
-                <img id="Group_Photo" src="../images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team">
+                <img id="Group_Photo" src="images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team">
         </div>
     </main>
 
     <?php 
         display_info_card();
-        include '../footer.inc'; 
+        include './inc/footer.inc'; 
     ?>
 </body>
 </html>
