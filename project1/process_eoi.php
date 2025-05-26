@@ -59,24 +59,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!isset($_POST['gender_input'])) {
                 $error[] = "No gender field was submitted";
             }
-            if (isset($_POST["gender_input"]) && !in_array($_POST["gender_input"], $gender_input_map)) {
-                $error[] = "Invalid gender_input: " . $_POST["gender_input"];
-            }
             if (!isset($_POST["phone_number_input"])) {
                 $error[] = "No phone field was submitted";
             }
-            if (isset($_POST["technical_skills"]) && !in_array($_POST["technical_skills"], $technical_skills_map)) {
-                $error[] = "Invalid technical_skills: " . $_POST["technical_skills"];
-            }
-            if (isset($_POST["preferred_skills"]) && !in_array($_POST["preferred_skills"], $preferred_skills_map)) {
-                $error[] = "Invalid preferred_skills: " . $_POST["preferred_skills"];
+            if (!isset($_POST["technical_skills"])) {
+                $error[] = "No technical skills have been submitted";  
             }
             if (!isset($_POST["other_skills"])) {
                 $error[] = "No other field was submitted";
             }
         
 
-        // ------------------------- Empty? -------------------------
+        // ------------------------- Empty -------------------------
             if (empty($_POST["title"])) {
                 $error[] = "Title field is empty.";
             }
@@ -125,15 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^(Mr|Mrs|Miss|Ms|Dr)$/i", $_POST["title"])) {
                 $error[] = "Invalid title. Only Mr, Mrs, Miss, Ms, Dr are allowed.";
             }
-
             if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first_name_input"]) || !preg_match("/^[a-zA-Z ]*$/", $_POST["last_name_input"])) {
                 $error[] = "Only letters and white space allowed in first name, lastname";
             }
             if (!preg_match("/^[0-9 ]*$/", $_POST["date"])) {
                 $error[] = "Not a valid date.";
-            }
-            if (!preg_match("/^[IT0-9 ]*$/", $_POST["job_reference_number"])) {
-                $error[] = "Not a valid job reference number.";
             }
             if (!preg_match("/^\d*\s?[A-Za-z\s]+(?:Court|Ct|Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Lane|Ln|Drive|Dr)\.?$/i", $_POST["street_address"])) {
                 $error[] = "Only letters, numbers and white space allowed in street address";
@@ -160,9 +150,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // ======================================= INPUT VALIDATION ==========================================
 
             // ------------------------- Valid Input?  -------------------------
-            if (!in_array($_POST["job_reference_number"], ["IT3869", "IT2245", "IT2025"])) {
+            if (!in_array($_POST["job_reference_number"], ["IT300", "IT240", "IT350", "IT090"])) {
                 $error[] = "Not a valid job reference number. Only IT3869, IT2245, or IT2025 are allowed.";
-            }   
+            } 
+            if (!in_array($_POST["gender_input"], $gender_input_map)) {
+                $error[] = "Invalid gender_input. Only Male or Female are allowed.";
+            }
+            foreach ($_POST["technical_skills"] as $skill) {
+                if (!in_array($skill, $technical_skills_map)) {
+                    $error[] = "Invalid technical skill: " . htmlspecialchars($skill);
+                }
+            }
+            if (isset($POST["preferred_skills"]) && !empty($_POST["preferred_skills"])) {
+                foreach ($_POST["preferred_skills"] as $skill) {
+                    if (!in_array($skill, $preferred_skills_map)) {
+                        $error[] = "Invalid preferred skill: " . htmlspecialchars($skill);
+                    }
+                }
+            }
+
 }
 
 

@@ -141,22 +141,22 @@
                     <fieldset id="technical_skills_fieldset">
                         <legend>Technical Skills</legend>
                         <!-- Technical skills Checkboxs -->
-                        <input type="checkbox" value="Trouble Shooting" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_trouble_shooting" class="input_background" novalidate>
+                        <input type="checkbox" value="Knowledge in Troubleshooting" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_trouble_shooting" class="input_background" novalidate>
                         <label for="skills_trouble_shooting">Knowledge in Troubleshooting</label>
                         <br>
-                        <input type="checkbox" value="Networking" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_networking" class="input_background" novalidate>
+                        <input type="checkbox" value="Understanding of Network Infrastructure" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_networking" class="input_background" novalidate>
                         <label for="skills_networking">Understanding of Network Infrastructure</label>
                         <br>
-                        <input type="checkbox" value="Hardware" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_hardware" class="input_background" novalidate>
+                        <input type="checkbox" value="Knowledge of Computer Hardware" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_hardware" class="input_background" novalidate>
                         <label for="skills_hardware">Knowledge of Computer Hardware</label>
                         <br>
-                        <input type="checkbox" value="Software" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_software" class="input_background" novalidate>
+                        <input type="checkbox" value="Proficiency in Operating Systems" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_software" class="input_background" novalidate>
                         <label for="skills_software">Proficiency in Operating Systems</label>
                         <br>
-                        <input type="checkbox" value="Security" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_security" class="input_background" novalidate>
+                        <input type="checkbox" value="Knowledge of Security Practices" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_security" class="input_background" novalidate>
                         <label for="skills_security">Knowledge of Security Practices</label>
                         <br>
-                        <input type="checkbox" value="Database Management" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_database_management" class="input_background" novalidate>
+                        <input type="checkbox" value="Familiarity with Database Concepts" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_database_management" class="input_background" novalidate>
                         <label for="skills_database_management">Familiarity with Database Concepts</label>
                         <br>
                         <br>
