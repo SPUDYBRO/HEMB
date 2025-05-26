@@ -17,7 +17,8 @@ if (!$conn) {
 
 $error = [];
 
-$gender_input_map = ["male", "female"];
+$EOInumber = rand(1000, 9999);
+$gender_input_map = ["Male", "Female"];
 $technical_skills_map = ["Knowledge in Troubleshooting", "Understanding of Network Infrastructure", "Knowledge of Computer Hardware", "Proficiency in Operating Systems", "Knowledge of Security Practices", "Familiarity with Database Concepts"];
 $preferred_skills_map = ["Communication", "Teamwork", "Time Management", "Autonomous", "Fast Learner"];
 
@@ -64,10 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!isset($_POST["phone_number_input"])) {
                 $error[] = "No phone field was submitted";
             }
-            if (isset($_POST["technical_skills"]) && !in_array($_POST["technical_skills"], $gender_input_map)) {
+            if (isset($_POST["technical_skills"]) && !in_array($_POST["technical_skills"], $technical_skills_map)) {
                 $error[] = "Invalid technical_skills: " . $_POST["technical_skills"];
             }
-            if (isset($_POST["preferred_skills"]) && !in_array($_POST["preferred_skills"], $gender_input_map)) {
+            if (isset($_POST["preferred_skills"]) && !in_array($_POST["preferred_skills"], $preferred_skills_map)) {
                 $error[] = "Invalid preferred_skills: " . $_POST["preferred_skills"];
             }
             if (!isset($_POST["other_skills"])) {
@@ -76,52 +77,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
 
         // ------------------------- Empty? -------------------------
-            if (!empty($_POST["title"])) {
+            if (empty($_POST["title"])) {
                 $error[] = "Title field is empty.";
             }
-            if (!empty($_POST["first_name_input"])) {
+            if (empty($_POST["first_name_input"])) {
                 $error[] = "Firstname field is empty.";
             }
-            if (!empty($_POST["last_name_input"])) {
+            if (empty($_POST["last_name_input"])) {
                 $error[] = "Lastname field is empty.";
             }
-            if (!empty($_POST["date"])) {
+            if (empty($_POST["date"])) {
                 $error[] = "Date field is empty.";
             }
-            if (!empty($_POST["job_reference_number"])) {
+            if (empty($_POST["job_reference_number"])) {
                 $error[] = "Job reference number field is empty.";
             }
-            if (!empty($_POST["street_address"])) {
+            if (empty($_POST["street_address"])) {
                 $error[] = "Street address field is empty.";
             }
-            if (!empty($_POST["suburb_town"])) {
+            if (empty($_POST["suburb_town"])) {
                 $error[] = "Suburb town field is empty.";
             }
-            if (!empty($_POST["state"])) {
+            if (empty($_POST["state"])) {
                 $error[] = "State field is empty.";
             }
-            if (!empty($_POST["postcode"])) {
+            if (empty($_POST["postcode"])) {
                 $error[] = "Postcode field is empty.";
             }
-            if (!empty($_POST["gender_input"])) {
+            if (empty($_POST["gender_input"])) {
                 $error[] = "Gender field is empty.";
             }
-            if (!empty($_POST["email_input"])) {
+            if (empty($_POST["email_input"])) {
                 $error[] = "Email field is empty.";
             }
-            if (!empty($_POST["phone_number_input"])) {
+            if (empty($_POST["phone_number_input"])) {
                 $error[] = "Phone number field is empty.";
             }
-            if (!empty($_POST["technical_skills"])) {
+            if (empty($_POST["technical_skills"])) {
                 $error[] = "Technical skills field is empty.";
             }
-            if (!empty($_POST["preferred_skills"])) {
-                $error[] = "Preferred skills field is empty.";
-            }
-            if (!empty($_POST["other_skills"])) {
-                $error[] = "Other skills field is empty.";
-            }
-        
+
 
     // ======================================= RANGE VALIDATION ==========================================
 
@@ -137,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[0-9 ]*$/", $_POST["date"])) {
                 $error[] = "Not a valid date.";
             }
-            if (!preg_match("/^[0-9 ]*$/", $_POST["job_reference_number"])) {
+            if (!preg_match("/^[IT0-9 ]*$/", $_POST["job_reference_number"])) {
                 $error[] = "Not a valid job reference number.";
             }
             if (!preg_match("/^\d*\s?[A-Za-z\s]+(?:Court|Ct|Street|St|Avenue|Ave|Boulevard|Blvd|Road|Rd|Lane|Ln|Drive|Dr)\.?$/i", $_POST["street_address"])) {
@@ -161,7 +156,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[a-zA-Z0-9, ]*$/", $_POST["other_skills"])) {
                 $error[] = "Only letters, numbers, commas and white space allowed in other skills";
             }
+
+    // ======================================= INPUT VALIDATION ==========================================
+
+            // ------------------------- Valid Input?  -------------------------
+            if (!in_array($_POST["job_reference_number"], ["IT3869", "IT2245", "IT2025"])) {
+                $error[] = "Not a valid job reference number. Only IT3869, IT2245, or IT2025 are allowed.";
+            }   
 }
+
 
 if (count($error) > 0) {
 
@@ -182,6 +185,8 @@ if (count($error) > 0) {
     header("Location: ./apply.php");
     die();
 }
+
+$Address = $_POST["street_address"] . ", " . $_POST["suburb_town"] . ", " . $_POST["state"] . ", " . $_POST["postcode"];
 
 $prep = $conn->prepare("INSERT INTO eoi 
     (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills, Status) 
