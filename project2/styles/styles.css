@@ -970,7 +970,6 @@ you can also intent further to explain a certain area of code, for example:
         
         display: flex;
         align-items: center;
-        gap: 15px;
 
         position: fixed;
         bottom: 20px;
@@ -991,6 +990,7 @@ you can also intent further to explain a certain area of code, for example:
             height: 100%;
             overflow: hidden;
             list-style: none;
+            border-radius: 8px;
         }
         .card > summary:focus {
             width: 100%;
@@ -1034,12 +1034,14 @@ you can also intent further to explain a certain area of code, for example:
             margin: 0px;
             text-overflow: ellipsis;
             overflow: hidden;
+            max-width: 95%;
         }
         .card_text > p {
             color: var(--card_p_color);
             margin: 0px;
             text-overflow: ellipsis;
             overflow: hidden;
+            max-width: 95%;
         }
         .icon_container {
             width: 50px;

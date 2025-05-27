@@ -21,10 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 }
 
 
-
-date_default_timezone_set('Australia/Melbourne');
-
-
  
 if (isset($_SESSION['User'])) { # the user is already logged in...
     session_regenerate_id(true);

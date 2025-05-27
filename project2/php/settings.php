@@ -9,4 +9,6 @@ Password and database need to be changed. -->
     $pwd = "";
     $sql_db = "hemb";
     $employees_db = "employees";
+
+    date_default_timezone_set('Australia/Melbourne');
 ?>

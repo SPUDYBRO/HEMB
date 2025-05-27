@@ -125,7 +125,7 @@ if (isset($_GET['Mode'])) {
                             echo "<p>" . htmlspecialchars($row['Other_Skills']) . "</p>";
                             echo "</div>";
 
-                            echo '<form method="post" action="./php/process_manage.php" autocomplete="off">
+                            echo '<form method="post" action="./php/process_manage/process_eoi.php" autocomplete="off">
                                 <input type="hidden" name="EOInumber" value="' . htmlspecialchars($row['EOInumber']) . '">
                                 <label for="status_' . htmlspecialchars($row['EOInumber']) . '">Status:</label>
                                 <select name="status" id="status_' . htmlspecialchars($row['EOInumber']) . '">
