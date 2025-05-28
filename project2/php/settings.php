@@ -11,3 +11,12 @@ Password and database need to be changed. -->
 
     date_default_timezone_set('Australia/Melbourne');
 ?>
+
+
+<!-- 
+Admin Account
+
+user: localhost
+password: hembdatabase
+
+-->
