@@ -629,13 +629,11 @@ you can also intent further to explain a certain area of code, for example:
 
 
 /* About_Us.html styling */
-
     /* Title Heading Centered */
     #about_us_heading {
         color: black;
         text-align: center;
         padding: 7px;
-        font-size: var(--h1_font_size);
     }
 
     /* General Section Container */
@@ -647,7 +645,6 @@ you can also intent further to explain a certain area of code, for example:
     /* Team Description */
     .about_us {
         color: black;
-        font-size: var(--p_font_size);
     }
 
     /* Adds underline under name */
@@ -669,7 +666,8 @@ you can also intent further to explain a certain area of code, for example:
     .individual_employee {
         display: flex;
         flex-direction: row;
-        align-items: center; /* This vertically centers all child elements */
+        align-items: center;
+        height: 100%;
     }
 
     /* Container for Name, Photo, and List */
@@ -678,10 +676,6 @@ you can also intent further to explain a certain area of code, for example:
         flex-direction: row;
         width: 45%;
         align-items: flex-start;
-    }
-
-    .info-section ul {
-        text-align: left;
     }
 
     /* Left section with name and image */
@@ -695,14 +689,35 @@ you can also intent further to explain a certain area of code, for example:
     }
 
     /* Right section with student info list */
-    .title_image_and_list_flex_container {
+    .title_image_and_list_flex_container ul {
+        margin: 0;
+        padding-left: 2em;
+        list-style: disc;
         display: flex;
-        flex-direction: row;
-        width: 45%;
-        align-items: center; /* Vertically centers children */
+        flex-direction: column;
+        justify-content: center;
     }
 
-    /* Individual images (smaller) */
+    .info-section ul {
+        text-align: left;
+        padding-left: 2em;
+        list-style: disc;
+        margin: 0;
+    }
+
+    .info-section ul li {
+        margin-bottom: 0.3rem;
+    }
+
+    .info-section ul li strong {
+        font-size: 1.15em;
+    }
+
+    .info-section ul li span.info-value {
+        font-size: 1.2em;
+        color: black;
+    }
+
     .individual_employee_photos {
         width: 120px;
         height: auto;
@@ -718,93 +733,38 @@ you can also intent further to explain a certain area of code, for example:
         flex: 1;
         border-left: 2px solid black;
         padding-left: 1rem;
-        height: 200px;
-        overflow-y: auto;
-        display: block;
+        display: flex;
+        align-items: center;
+        height: auto;
+        min-height: 200px;
     }
 
     .description_box p {
         margin: 0;
         line-height: 1.4;
-        font-size: var(--p_font_size);
     }
 
-    /* Group Photo */
-    #Group_Photo {
-        width: 300px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Info section for student details */
-    .info-section {
-        margin-top: 0.5rem;
-    }
-
-    .info-section ul {
-        padding-left: 2em;
-        list-style: disc;
-        margin: 0;
-    }
-
-    .info-section ul li {
-        margin-bottom: 0.3rem;
-        font-size: var(--list_items_font_size);
-    }
-
-    .info-section ul li strong {
-        font-size: 1.15em;
-    }
-
-    .info-section ul li span.info-value {
-        font-size: 1.2em;
-        color: black;
+    /* Member Contributions & Group Photo Flex Layout */
+    .contributions_flex_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* <-- Change from flex-start to center */
+        gap: 2rem;
+        margin-top: 2rem;
     }
 
     /* Member Contributions Section */
     #member_contributions {
-        text-align: center;
-        width: 85%;
-        margin: 0 auto;
-        padding: 1rem 0;
+        flex: 1;
+        text-align: left;
     }
 
-    #member_contributions h2 {
-        font-size: var(--h2_font_size);
-        margin-bottom: 0.5rem;
-    }
-
-    #member_contributions p {
-        font-size: var(--p_font_size);
-        margin-bottom: 1rem;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #member_contributions dl {
-        margin: 0 auto;
-        max-width: 600px;
-        text-align: center;
-    }
-
-    #member_contributions dt,
-    #member_contributions dd {
-        text-align: center;
-    }
-
-    #member_contributions dt {
-        font-weight: bold;
-        font-size: var(--p_font_size);
-        margin-top: 0.5rem;
-    }
-
-    #member_contributions dd {
-        margin: 0 0 1rem 1.5rem;
-        font-size: var(--p_font_size);
+    /* Group Photo Styling */
+    #Group_Photo {
+        width: 300px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
 
