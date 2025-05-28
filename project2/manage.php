@@ -82,6 +82,12 @@ if (isset($_GET['Mode'])) {
                 // =================== EOI Management ===================    
                 elseif ($_GET['Mode'] == "EOI") {
                     echo "<h2>EOI Management</h2>";
+                    echo "<form action='./manage.php'>
+                        <select>
+                            <option>None</option>
+                            <option>Filter by status</option>
+                        </select>
+                    </form>";
                     echo "<p>Evaluate Expressions of interest</p>";
 
                     try {
