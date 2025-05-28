@@ -81,21 +81,20 @@ if (!$result) {
                 echo "<img class='individual_employee_photos' src='images/" . htmlspecialchars($row['Photo']) . "' alt='Front-facing picture of " . htmlspecialchars($row['First_name']) . ", one of the team members'>";
                 echo "</div>";
 
-                // Wrap info list in .info-section to apply custom font sizes
                 echo "<div class='info-section'>";
                 echo "<ul>";
                 echo "<li><strong>Student ID:</strong> <span class='info-value'>" . htmlspecialchars($row['Student_ID']) . "</span></li>";
                 echo "<li><strong>Tutor Name:</strong> <span class='info-value'>" . htmlspecialchars($row['tutor_Name']) . "</span></li>";
                 echo "<li><strong>Class Times:</strong> <span class='info-value'>" . htmlspecialchars($row['class_time_Day']) . " " . htmlspecialchars($row['class_start_time']) . " - " . htmlspecialchars($row['class_end_time']) . "</span></li>";
                 echo "</ul>";
-                echo "</div>"; // close info-section
+                echo "</div>";
 
-                echo "</div>"; // close title_image_and_list_flex_container
+                echo "</div>";
 
                 echo "<div class='description_box'><p>" . htmlspecialchars($row['Description']) . "</p></div>";
 
-                echo "</div>"; // close individual_employee
-                echo "</div>"; // close employee_box
+                echo "</div>";
+                echo "</div>";
             }
             ?>
         </div>
