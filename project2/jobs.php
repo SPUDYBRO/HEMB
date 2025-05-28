@@ -6,9 +6,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" class="<?php 
-    set_accessibility();
-    ?>">
+<html lang="en" class="<?php set_accessibility(); ?>">
 
 
     <head>
@@ -38,14 +36,12 @@
 
 
     <body>
-        
 
         <?php 
         display_info_card();
         include './inc/accessibility.inc';
         include './inc/navigation.inc'; 
         ?>
-
 
         <!-- Aside -->        
         <main id="jobs_main">
@@ -167,7 +163,7 @@
             https://www.fairwork.gov.au/leave/annual-leave
             -->
 
-            
+
         </main>
 
 
@@ -176,7 +172,6 @@
             display_info_card();
             # <!-- Footer Section -->
             include './inc/footer.inc'; ?>
-
 
     </body>
 

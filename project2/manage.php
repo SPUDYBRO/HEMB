@@ -10,6 +10,7 @@ if (!is_logged_in()) {
     die();
 }
 
+
 if (isset($_GET['Mode'])) {
     if ($_GET['Mode'] == "Logout") {
         logout();
@@ -17,55 +18,69 @@ if (isset($_GET['Mode'])) {
         die();
     }
 }
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en" class="<?php set_accessibility();?>">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HEMB IT Solutions - Manager Page for administrators to manage
-     the data within the company. Administrators can manage the employee data, job data,">
-    <meta name="keywords" content="HEMB, IT, Solutions, Admin, Management, Data">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <title>Manager | HEMB-IT</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="HEMB IT Solutions - Manager Page for administrators to manage
+        the data within the company. Administrators can manage the employee data, job data,">
+        <meta name="keywords" content="HEMB, IT, Solutions, Admin, Management, Data">
+        <link rel="stylesheet" href="./styles/styles.css">
+        <title>Manager | HEMB-IT</title>
+    </head>
+
+
 <body>
+
     <?php display_info_card();?>
     <?php include 'inc/accessibility.inc'; ?>
     <?php include 'inc/navigation.inc'; ?>
 
-
-
     <main id="manage_main">
+
+
         <div id="manage_header">
             <h1>Admin Management</h1>
             <p>Welcome <?php echo $_SESSION['User']->Username; ?></p>
             <hr>
         </div>
 
+
         <form id="manager_options" method="get" action="./manage.php">
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "EOI") { echo "current";}?>" type="submit" name="Mode" value="EOI">EOIS</button>
+            
             <?php
             if ($_SESSION['User']->Role == "Admin") {
                 if (isset($_GET['Mode']) && $_GET['Mode'] == "Accounts") { $current = "current";} else { $current = ""; }
                 echo "<button class=" . $current . " type='submit' name='Mode' value='Accounts'>Accounts</button>";
             }
             ?>
+
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Employees") { echo "current";}?>" type="submit" name="Mode" value="Employees">Employees</button>
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Jobs") { echo "current";}?>" type="submit" name="Mode" value="Jobs">Jobs</button>
             <button class="<?php if (isset($_GET['Mode']) && $_GET['Mode'] == "Logout") { echo "current";}?>" type="submit" name="Mode" value="Logout">Logout</button>
         </form>
 
 
+
         <section class="main_section" id="manage_section">
+            
             <?php
                 if (!isset($_GET['Mode'])) {
                     echo "<h2>Select an option to begin</h2>";
                     echo "<p>Click on the buttons above to select an option</p>";
                 }
+
+
+
+                // =================== EOI Management ===================    
                 elseif ($_GET['Mode'] == "EOI") {
-                    // =================== EOI Management ===================
                     echo "<h2>EOI Management</h2>";
                     echo "<p>Evaluate Expressions of interest</p>";
 
@@ -89,6 +104,7 @@ if (isset($_GET['Mode'])) {
                         echo "<p>No one have submitted an EOI</p>";
                         echo "<a href='./manage.php?Mode=EOI'>Refresh</a>";
                     }
+
                     else {
                         for ($i = 0; $i < mysqli_num_rows($result); $i++) {
                             $row = mysqli_fetch_assoc($result);
@@ -138,15 +154,13 @@ if (isset($_GET['Mode'])) {
                             </form>';
                             echo "</section>";
                         }
+
                     }
 
 
 
-
-
-
+                // =================== Account Management ===================
                 } elseif ($_GET['Mode'] == "Accounts") {
-                    // =================== Account Management ===================
 
                     if ($_SESSION['User']->Role != "Admin") {
                         echo "<h2>Access Denied</h2>";
@@ -168,7 +182,6 @@ if (isset($_GET['Mode'])) {
                             die();
                         }
                         
-                        
 
                         $stmt = $db->prepare("SELECT * FROM users");
                         $stmt->execute();
@@ -178,6 +191,7 @@ if (isset($_GET['Mode'])) {
                             echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
                             die();
                         }
+
 
                         if (isset($_POST['Account_Create'])) {
                             echo "<form method='post' action='./php/process_manage/process_accounts.php' class='result'>";
@@ -194,6 +208,7 @@ if (isset($_GET['Mode'])) {
                             echo "<button type='submit' name='Account_Create'>Create Account</button>";
                             echo "</form>";
                         }
+
 
                         if (mysqli_num_rows($result) == 0) {
                             echo "<p>No accounts found</p>";
@@ -238,13 +253,15 @@ if (isset($_GET['Mode'])) {
                                 echo "</table>";
                                 echo "</section>";
                             }
+
                         }
+
                     }
                     
 
 
+                // =================== Employee Management ===================
                 } elseif ($_GET['Mode'] == "Employees") {
-                    // =================== Employee Management ===================
                     echo "<h2>Employee Management</h2>";
                     echo "<p>Manage the employee data here</p>";
 
@@ -256,7 +273,6 @@ if (isset($_GET['Mode'])) {
                         die();
                     }
                     
-
 
                     $result = $db->query("
                     SELECT
@@ -275,16 +291,20 @@ if (isset($_GET['Mode'])) {
                         ON e.ID = c.Employee_ID
                     GROUP BY e.ID;
                     ");
+
+
                     if (!$result) {
                         set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
                         echo '<meta http-equiv="refresh" content="0;url=./manage.php?Mode=Employees">';
                         die();
                     }
+
                     if (mysqli_num_rows($result) == 0) {
                         set_data_response('info', 'No Employees Found', 'There are no employees in the database', 'No Employees Found', 'There are no employees in the database', '', $_GET);
                         echo '<meta http-equiv="refresh" content="0;url=./manage.php?Mode=Employees">';
                         die();
                     }
+
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<section class='result'>";
                         echo "<h3>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</h3>";
@@ -338,9 +358,13 @@ if (isset($_GET['Mode'])) {
 
                         echo "</section>";               
                     }
+
                 }
+
+
+
+                // =================== Job Management ===================
                 elseif ($_GET['Mode'] == "Jobs") {
-                    // =================== Job Management ===================
                     echo "<h2>Job Management</h2>";
                     echo "<p>Manage the job data here</p>";
 
@@ -353,16 +377,19 @@ if (isset($_GET['Mode'])) {
                     }
 
                     $result = $db->query("SELECT * FROM jobs");
+
                     if (!$result) {
                         set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
                         echo '<meta http-equiv="refresh" content="0;url=./manage.php?Mode=Jobs">';
                         die();
                     }
+
                     if (mysqli_num_rows($result) == 0) {
                         set_data_response('info', 'No Jobs Found', 'There are no jobs in the database', 'No Jobs Found', 'There are no jobs in the database', '', $_GET);
                         echo '<meta http-equiv="refresh" content="0;url=./manage.php?Mode=Jobs">';
                         die();
                     }
+
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<section class='result'>";
                         echo "<h3>" . htmlspecialchars($row['title']) . "</h3>";
@@ -411,22 +438,28 @@ if (isset($_GET['Mode'])) {
                         echo "<button type='submit' name='Job_Delete'>Delete</button>";
                         echo "</form>";
                         echo "</section>";
-
-
                     }
+
                 } else {
                     set_data_response('error', 'Invalid Mode', 'The mode you selected is invalid', 'Invalid Mode', 'The mode you selected is invalid', '', $_GET);
                     echo '<meta http-equiv="refresh" content="0;url=./manage.php">';
                     die();
                 }
+
                 if (isset($db)) {
                     mysqli_close($db);
                 }
+
+    
             ?>
+
         </section>
+        
 
     </main>
+
     <?php include 'inc/footer.inc';?>
-    
-</body>
+
+    </body>
+
 </html>

@@ -66,6 +66,7 @@
 
 
     <body>
+        
         <?php 
             display_info_card();
             include './inc/accessibility.inc';
@@ -135,7 +136,7 @@
 
             </div>
 
-            
+
         </main>
 
 
