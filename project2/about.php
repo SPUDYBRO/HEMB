@@ -35,6 +35,8 @@ if (!$result) {
 }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en" class="<?php set_accessibility(); ?>">
 <head>
@@ -116,9 +118,12 @@ if (!$result) {
         <img id="Group_Photo" src="images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team" />
     </main>
 
-    <?php 
-        display_info_card();
-        include './inc/footer.inc'; 
-    ?>
-</body>
+        <?php 
+            display_info_card();
+            include './inc/footer.inc'; 
+        ?>
+
+    </body>
+
+    
 </html>
