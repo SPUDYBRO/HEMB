@@ -135,7 +135,7 @@ $error = [];
             die();
         } else {
             set_data_response('error', 'EOI Update Failed', 'Failed to update the EOI', 'EOI Update Failed', 'Failed to update the EOI, please try again later', '', $_POST);
-            $time_stamp = date('[ Y-m-d | H:i:s ]');
+            $time_stamp = date(format: '[ Y-m-d | H:i:s ]');
             error_log("$time_stamp  [EOI Update]: " . mysqli_error($db) . "\n");
             header('Location: ../../manage.php?Mode=EOI');
             die();
