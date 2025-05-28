@@ -626,143 +626,147 @@ you can also intent further to explain a certain area of code, for example:
         text-shadow: 5px 5px 4px var(--hero_image_text_p_shadow_color);
     }
 
+
+
 /* About_Us.html styling */
 
-    /* About Us - Title / What We Do Content */
+    :root {
+    --about-us_color: black;
+    --text_color: black;
+    --primary-bg: rgb(129, 189, 230);
+    --description-width: 75%;
+    --border-color: black;
+    --box-padding: 15px;
+}
 
-    /* Width of Screen Text */
-
-    h3 {
-        margin: 0.5em 0; /* Adjust the values as needed */
-    }
-
-    #About_Main {
-        width: 85%;
-        margin: 0px auto;
-    }
-
-    
-    /* Removes default spacing */
-    #About_Main dd {
-        margin: 0px;
-    }
-
-    .about_us {
-        --about-us_color: var(black);
-        color: var(--text_color);
-    }
-
-    /* Creates a gradient in the content background */
-    #employee_info {
-        padding: 6px;
-        border-radius: 30px;
-        box-shadow: 5px 5px 20px -5px black;
-        text-align: left;
-    }
-
-    /* Aligns #about_us_heading to the center */
+/* Title Heading Centered */
     #about_us_heading {
         color: var(--text_color);
         text-align: center;
         padding: 7px;
     }
 
-    /* Adds an underline to the #employee_info text */
-    .title_image > h3 {
-        text-decoration: underline;
+    /* General Section Container */
+    #About_Main {
+        width: 85%;
+        margin: 0 auto;
     }
 
-    /* Puts .individual_employee content in an eastern facing row for styling */
+    /* Team Description */
+    .about_us {
+        color: var(--text_color);
+    }
+
+    /* Adds underline under name */
+    .title_image > h3 {
+        text-decoration: underline;
+        margin: 0 0 0.5rem 0;
+    }
+
+    /* Each Employee Section Box */
+    .employee_box {
+        margin-bottom: 30px;
+        padding: var(--box-padding);
+        background-color: var(--primary-bg);
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    /* Flex container for all employee info */
     .individual_employee {
         display: flex;
         flex-direction: row;
-        align-items: flex-start; /* add this */
+        align-items: stretch;
+        height: 100%;
     }
 
-    .member-contribution {
-        margin-bottom: 1.5em;
-        text-align: left;
-        width: 100%;
-    }
-
-    .member-contribution h3 {
-        margin: 0 0 0.5em 0;
-    }
-
-    .member-contribution ul {
-        margin: 0;
-        padding-left: 1.5em;
-        list-style: disc;
-    }
-
-    #member_contributions h3 {
-        margin: 0;
-    }
-
-    /* Changes width for content to size and setup flex-direction: row*/
-    .individual_employee > h3 {
-        width: 100%;
-    }
-
-    /* Changes width for content to size and setup flex-direction: row*/
-    .individual_employee > ul {
-        width: 25%
-    }
-
-    /* Changes width for content to size and setup flex-direction: row*/
-    .individual_employee > p {
-        width: 63%
-    }
-
-    /* Setups image height and width for all individual photos */
-    .individual_employee_photos {
-        float: left;
-        margin-right: 1rem;
-        margin-bottom: 1rem;
-        max-width: 150px; /* Optional - control size */
-        height: auto;
-    }
-
-    #employee_info h3 {
-        text-align: left;
-        margin: 0 0 0.5rem 0; /* Optional: remove top margin and add space below */
-    }
-
-    /* Setups horizontal flex container */
+    /* Container for Name, Photo, and List */
     .title_image_and_list_flex_container {
         display: flex;
         flex-direction: row;
         width: 45%;
+        align-items: stretch;
     }
 
-    /* Adds a line to the right of title_images using the border for styling. */
+    /* Left section with name and image */
     .title_image {
-        border-right: 1px solid black;
+        border-right: 1px solid var(--border-color);
         padding-right: 10px;
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
     }
 
-    /* Changes width and height of group photo */
-    #Group_Photo {
-        width: 300px;
-        height: 215px;
-    }
-
-    #member_contributions h2, #member_contributions p {
-        margin-top: 0;
-        margin-bottom: 0.5em; /* Adjust as needed */
-    }
-
-    #member_contributions {
+    /* Right section with student info list */
+    .title_image_and_list_flex_container ul {
         margin: 0;
-        padding: 0;
+        padding-left: 2.0em;
+        list-style: disc;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    #member_contributions h2,
-    #member_contributions p {
-        margin-top: 0;
-        margin-bottom: 0.5rem; /* Adjust as needed */
-        padding: 0;
+    /* Individual images (smaller) */
+    .individual_employee_photos {
+        width: 120px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    /* Description Section with vertical border */
+    .description_box {
+        margin-left: 2rem;
+        max-width: var(--description-width);
+        flex: 1;
+        border-left: 2px solid var(--border-color);
+        padding-left: 1rem;
+        height: 200px;
+        overflow-y: auto;
+        display: block; /* or remove 'display: flex' entirely */
+    }
+
+    .description_box p {
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    #Group_Photo {
+        width: 300px;       /* Original width or whatever looks best */
+        height: auto;       /* Maintain aspect ratio */
+        display: block;
+        margin: 0 auto;     /* Center the image horizontally */
+        border-radius: 8px; /* Optional for rounded edges */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional for subtle shadow */
+    }
+
+    /* ============================= */
+    /* New styles for info-section to enlarge title and values */
+
+    .info-section {
+        margin-top: 0.5rem;
+    }
+
+    .info-section ul {
+        padding-left: 2em; /* match your existing list padding */
+        list-style: disc;
+        margin: 0;
+    }
+
+    .info-section ul li {
+        margin-bottom: 0.3rem;
+    }
+
+    .info-section ul li strong {
+        font-size: 1.15em;
+    }
+
+    .info-section ul li span.info-value {
+        font-size: 1.2em;
+        color: #000; /* black or adjust if needed */
     }
 
 
@@ -836,14 +840,18 @@ you can also intent further to explain a certain area of code, for example:
         margin-top: 3px;
     }
 
-    /* Adds Scroll Wheel to About Page */
+    .description_box {
+        max-height: 150px;
+        width: 90%;
+        max-width: 800px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
     #employee_info {
-        max-height: 600px;
-        overflow-y: auto;
-        border: 1px solid #ccc;
-        padding-right: 10px;
-        width: 95%; /* Add this line — increase or decrease as needed */
-        margin: 0 auto; /* Optional: centers the box horizontally */
+        max-height: none;
+        overflow-y: visible;
+        padding-right: 0;
     }
 
     
@@ -1808,7 +1816,42 @@ you can also intent further to explain a certain area of code, for example:
                 top: 200px;
             }
 
+    /* Responsive Styling with Scroll */
+    @media screen and (max-width: 768px) {
+        .individual_employee {
+            flex-direction: column;
+        }
+
+        .title_image_and_list_flex_container {
+            flex-direction: column;
+            width: 100%;
+            border-right: none;
+            margin-bottom: 1rem;
+        }
+
+        .title_image {
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            align-items: center;
+        }
+
+        .description_box {
+            height: 200px;
+            overflow-y: scroll; /* Always show vertical scrollbar */
+            overflow-x: hidden;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .description_box p {
+            height: 100%;
+            overflow-y: scroll; /* Ensure inner paragraph also shows scrollbar */
+            overflow-x: hidden;
+            padding-right: 10px;
+        }
     }
+
 
 
 
@@ -1869,5 +1912,4 @@ Hint: CSS validators will validate against a particular version of CSS e.g. CSS2
 should be valid CSS2.1 or CSS3. Make sure that you are checking your CSS using the correct version
 of the validator. For example, if you include CSS3 markup and validate as CSS2.1 it will show errors.
 (Best to pre-set the version in the Web Developer tools – see the note on Blackboard).
-
 */
