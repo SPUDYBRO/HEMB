@@ -67,11 +67,15 @@ if (isset($_GET['Mode'])) {
                 elseif ($_GET['Mode'] == "EOI") {
                     // =================== EOI Management ===================
                     echo "<h2>EOI Management</h2>";
-                    echo "<form action='./manage.php'>
-                        <select>
-                            <option>None</option>
-                            <option>Filter by status</option>
+                    echo "<form method='get' action='./manage.php?Mode=EOI'>
+                        <label for='filter_options'>Filter:</label>
+                        <select id='filter_options' name='filter'>
+                            <option value=''>None</option>
+                            <option value='New'>New</option>
+                            <option value='Current'>Current</option>
+                            <option value='Final'>Final</option>
                         </select>
+                        <button type='submit' name='set_filter'>Filter</button>
                     </form>";
                     echo "<p>Evaluate Expressions of interest</p>";
 
@@ -83,7 +87,15 @@ if (isset($_GET['Mode'])) {
                         die();
                     }
 
-                    $query = "SELECT * FROM eoi";
+                    if (isset($_GET["set_filter"]) && isset($_GET["filter"])){
+                        if ($_GET["filter"] == "None") {$query = "SELECT * FROM eoi";}
+                        elseif ($_GET["filter"] == "New") {$query = "SELECT * FROM eoi WHERE Status = 'New'";}
+                        elseif ($_GET["filter"] == "Current") {$query = "SELECT * FROM eoi WHERE Status = 'Current'";}
+                        elseif ($_GET["filter"] == "Final") {$query = "SELECT * FROM eoi WHERE Status = 'Final'";}
+                        else {$query = "SELECT * FROM eoi";}
+                    } else {$query = "SELECT * FROM eoi";}
+                    
+
                     $result = mysqli_query($db, $query);
                     if (!$result) {
                         set_data_response('error', 'Database Error', 'failed to query the database', 'Failed to query the database', "Something went wrong and failed to query the database", "Error: <pre>" . mysqli_error($db) . "</pre>", $_GET);
