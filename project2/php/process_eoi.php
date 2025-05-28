@@ -1,9 +1,42 @@
-<?php
 
-
-    // Requires the necessary files for functionality and settings
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <title>Post Request</title>
+</head>
+<body id="post_request">
+    <?php
     require("./functionality.php");
     require_once("./settings.php");
+
+
+    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+        echo "<h1>This page is only accessible via POST requests.</h1>";
+        echo "<p>this page will not serve anything</p>";
+        echo "<a href='../index.php'>Home</a>";
+        echo "</body></html>";
+        die();
+    } elseif (!isset($_POST['Employee_Update']) && !isset($_POST['Employee_Delete'])) {
+        echo "<h1>Invalid request.</h1>";
+        echo "<p>this page will not serve anything</p>";
+        echo "<a href='../index.php'>Home</a>";
+        echo "</body></html>";
+        die();
+    }
+    ?>
+
+
+
+
+
+
+
+
+<?php
+
 
 
     // Tries to connect to the database using the provided settings
