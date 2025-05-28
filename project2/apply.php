@@ -55,7 +55,7 @@
                         <legend>Personal Details</legend>
                         <!-- Title Input -->
                         <label for="title">Title:</label>
-                        <select name="title" id="title" class="input_background" novalidate>
+                        <select name="title" id="title" class="input_background">
                             <option value="">Select Title</option>
                             <option value="Mr">Mr</option>
                             <option value="Mrs">Mrs</option>
@@ -65,16 +65,16 @@
                         </select>
                         <!-- First Name Input -->
                         <label for="first_name_input">First Name:</label>
-                        <input type="text" name="first_name_input" id="first_name_input" class="input_background" placeholder="First Name" pattern="[A-Za-z]{1,20}" novalidate>
+                        <input type="text" name="first_name_input" id="first_name_input" class="input_background" placeholder="First Name" pattern="[A-Za-z]{1,20}">
                         <!-- Last Name Input -->
                         <label for="last_name_input">Last Name</label>
-                        <input type="text" name="last_name_input" id="last_name_input" class="input_background" placeholder="Last Name" pattern="[A-Za-z]{1,20}" novalidate>
+                        <input type="text" name="last_name_input" id="last_name_input" class="input_background" placeholder="Last Name" pattern="[A-Za-z]{1,20}">
                         <!-- Date of Birth Input -->
                         <label for="date">Date of Birth:</label>
-                        <input type="date" name="date" id="date" placeholder="dd/mm/yyyy" class="input_background" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}" novalidate>
+                        <input type="date" name="date" id="date" placeholder="dd/mm/yyyy" class="input_background" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4,4}">
                         <!-- Job Reference Number Input -->
                         <label for="job_reference_number">Job Title:</label>
-                        <select name="job_reference_number" id="job_reference_number" class="input_background" novalidate>
+                        <select name="job_reference_number" id="job_reference_number" class="input_background">
                             <option value="">Select Job Title</option>
                             <option value="IT300">IT300</option>
                             <option value="IT240">IT240</option>
@@ -97,7 +97,7 @@
                         <input type="text" name="suburb_town" id="suburb_town" class="input_background" placeholder="Suburb/Town" pattern=".{1,40}" novalidate>
                         <!-- State Input -->
                         <label for="state">State:</label>
-                        <select name="state" id="state" class="input_background" novalidate>
+                        <select name="state" id="state" class="input_background">
                             <option value="">Select State</option>
                             <option value="ACT">ACT</option>
                             <option value="VIC">VIC</option>
@@ -110,7 +110,7 @@
                         </select>
                         <!-- Postcode Input 0200-9944 --> 
                         <label for="postcode">Postcode:</label>
-                        <input type="text" id="postcode" class="input_background" name="postcode" placeholder="0200 - 9944" pattern="0[2-9][0-9]{2}|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-3][0-9]|994[0-4]" novalidate>
+                        <input type="text" id="postcode" class="input_background" name="postcode" placeholder="0200 - 9944" pattern="0[2-9][0-9]{2}|[1-8][0-9]{3}|9[0-8][0-9]{2}|99[0-3][0-9]|994[0-4]">
                     </fieldset>
                 </div>
 
@@ -121,9 +121,9 @@
                         <legend>Gender</legend>
                         <!-- Gender Input -->
                         <label for="gender_male">Male:</label>
-                        <input type="radio" value="Male" name="gender_input" id="gender_male" class="input_background" novalidate>
+                        <input type="radio" value="Male" name="gender_input" id="gender_male" class="input_background">
                         <label for="gender_female">Female:</label>
-                        <input type="radio" value="Female" name="gender_input" id="gender_female" class="input_background" novalidate>
+                        <input type="radio" value="Female" name="gender_input" id="gender_female" class="input_background">
                     </fieldset>
 
                     <!-- Contact details fieldset -->
@@ -131,10 +131,10 @@
                         <legend>Contact Details</legend>
                         <!-- Email Input -->
                         <label for="email_input">Email:</label>
-                        <input type="text" id="email_input" class="input_background" name="email_input" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" novalidate>
+                        <input type="text" id="email_input" class="input_background" name="email_input" placeholder="example@mailservice.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
                         <!-- Phone number Input -->
                         <label for="phone_number_input">Phone Number:</label>
-                        <input type="text" id="phone_number_input" class="input_background" name="phone_number_input" placeholder="0000 000 000" pattern="[0-9\s]{8,12}" novalidate>
+                        <input type="text" id="phone_number_input" class="input_background" name="phone_number_input" placeholder="0000 000 000" pattern="[0-9\s]{8,12}">
                     </fieldset>
                 </div>
 
@@ -144,22 +144,22 @@
                     <fieldset id="technical_skills_fieldset">
                         <legend>Technical Skills</legend>
                         <!-- Technical skills Checkboxs -->
-                        <input type="checkbox" value="Trouble Shooting" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_trouble_shooting" class="input_background" novalidate>
+                        <input type="checkbox" value="Trouble Shooting" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_trouble_shooting" class="input_background">
                         <label for="skills_trouble_shooting">Knowledge in Troubleshooting</label>
                         <br>
-                        <input type="checkbox" value="Networking" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_networking" class="input_background" novalidate>
+                        <input type="checkbox" value="Networking" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_networking" class="input_background">
                         <label for="skills_networking">Understanding of Network Infrastructure</label>
                         <br>
-                        <input type="checkbox" value="Hardware" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_hardware" class="input_background" novalidate>
+                        <input type="checkbox" value="Hardware" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_hardware" class="input_background">
                         <label for="skills_hardware">Knowledge of Computer Hardware</label>
                         <br>
-                        <input type="checkbox" value="Software" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_software" class="input_background" novalidate>
+                        <input type="checkbox" value="Software" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_software" class="input_background">
                         <label for="skills_software">Proficiency in Operating Systems</label>
                         <br>
-                        <input type="checkbox" value="Security" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_security" class="input_background" novalidate>
+                        <input type="checkbox" value="Security" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_security" class="input_background">
                         <label for="skills_security">Knowledge of Security Practices</label>
                         <br>
-                        <input type="checkbox" value="Database Management" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_database_management" class="input_background" novalidate>
+                        <input type="checkbox" value="Database Management" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_database_management" class="input_background">
                         <label for="skills_database_management">Familiarity with Database Concepts</label>
                         <br>
                         <br>

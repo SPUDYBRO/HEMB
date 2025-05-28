@@ -1073,8 +1073,6 @@ you can also intent further to explain a certain area of code, for example:
             border: var(--card_detailed_border_colour) 5px outset;
             overflow-y: scroll;
             overflow-x: hidden;
-            padding-top: 8%;
-        
         }
         .card[open] > summary {
             /* set the summary to cover the entire card
@@ -1084,9 +1082,10 @@ you can also intent further to explain a certain area of code, for example:
             top: 0px;
             left: 0px;
             width: 100%;
-            height: 140vh;
+            height: 100vh;
             margin: auto;
             opacity: 1;
+            z-index: 1000;
         }
         .card[open] .card_preview_container {
             visibility: hidden;
@@ -1094,20 +1093,25 @@ you can also intent further to explain a certain area of code, for example:
 
         .card[open] > .card_detailed {
             /* align and format elements */
+            max-width: 100%;
+            box-sizing: border-box;
+
+
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            height: 100%;
-            width: 100%;
             text-align: center;
+            padding: 14% 5% 0%;
+
         }
         .card[open] > .card_detailed > h1 {
             color: var(--title_color);
             font-size: clamp(1.5em, 3vw, 2.5em);
             text-shadow: 2px 2px 0px var(--main_section_h2_shadow_color);
-            margin: 0px;
+            
         }
         .card_detailed_note {
             position: relative;
@@ -1133,9 +1137,15 @@ you can also intent further to explain a certain area of code, for example:
         .card_detailed_status > p {
             color: var(--card_title_color);
             margin: 0px;
-            font-size: clamp(1em, 3vw, 2.5em);;
+            font-size: clamp(1em, 3vw, 2.5em);
         }
-        
+        .card_detailed pre {
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
     /* Card Animation keyframes */
         @keyframes slide_in {
             100%    {right: 20px;}
@@ -1502,16 +1512,21 @@ you can also intent further to explain a certain area of code, for example:
             html.font_large .footer_links > nav {
                 padding-bottom: 25px;
             }
+        /* Info Card Styles */   
+            .card[open] > .card_detailed {
+                padding-top: 10%;
+            }
     }
 
-    @media (max-width: 1150px) {
+    @media (max-width: 1200px) {
         /* styles for the main navigation across all pages */
             html.font_large #hero_text {
                 left: 35%;
             }
+
         /* Info Card Styles */   
-            .card[open]{
-                padding-top: 10%;
+            .card[open] > .card_detailed {
+                padding-top: 11%;
             }
     }
 
@@ -1547,8 +1562,8 @@ you can also intent further to explain a certain area of code, for example:
             }
 
         /* Info Card Styles */   
-            .card[open]{
-                padding-top: 12%;
+            .card[open] > .card_detailed {
+                padding-top: 14%;
             }
     }
 
@@ -1623,8 +1638,8 @@ you can also intent further to explain a certain area of code, for example:
             }
         
         /* Info Card Styles */    
-            .card[open]{
-                padding-top: 14%;
+            .card[open] > .card_detailed {
+                padding-top: 16%;
             }
     }
 
@@ -1682,7 +1697,7 @@ you can also intent further to explain a certain area of code, for example:
                 --hero_image_text_p_shadow_color: rgba(0, 0, 0, 0.2);
             }
         /* Info Card Styles */   
-            .card[open]{
+            .card[open] > .card_detailed {
                 padding-top: 18%;
             }
         }
@@ -1702,7 +1717,7 @@ you can also intent further to explain a certain area of code, for example:
                 height: 100%;
             }
         /* Info Card Styles */   
-            .card[open]{
+            .card[open] > .card_detailed {
                 padding-top: 22%;
             }
 

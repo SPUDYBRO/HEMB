@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $error[] = "Invalid title. Only Mr, Mrs, Miss, Ms, Dr are allowed.";
             }
             if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first_name_input"]) || !preg_match("/^[a-zA-Z ]*$/", $_POST["last_name_input"])) {
-                $error[] = "Only letters and white space allowed in first name, lastname";
+                $error[] = "Only letters and white space allowed in firstname, lastname";
             }
             if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $_POST["date"])) {
                 $error[] = "Not a valid date. Please use the format YYYY-MM-DD.";
@@ -143,8 +143,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!preg_match("/^[IT0-9 ]*$/", $_POST["job_reference_number"])) {
                 $error[] = "Not a valid job reference number.";
             }
-            if (strlen($_POST["street_address"]) < 1 || strlen($_POST["street_address"]) > 40) {
-                $error[] = "Street address must be between 1 and 40 characters long.";
+            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["street_address"])) {
+                $error[] = "Only letters and white space allowed in street address";
             }
             if (!preg_match("/^[a-zA-Z ]*$/", $_POST["suburb_town"])) {
                 $error[] = "Only letters and white space allowed in suburb";
@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $error[] = "Only numbers allowed in postcode";
             }
             if (!filter_var($_POST["email_input"], FILTER_VALIDATE_EMAIL)) {
-                $error[] = "Invalid email format";
+                $error[] = "Invalid email format. Valid format: (Example@service.com)";
             }
             if (!preg_match("/^[0-9 ]*$/", $_POST["phone_number_input"])) {
                 $error[] = "Only numbers allowed in phone number";
@@ -181,7 +181,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!in_array($_POST["gender_input"], $gender_input_map)) {
                 $error[] = "Invalid gender_input. Only Male or Female are allowed.";
             }
+
+            // ------------------------- Valid Length?  ------------------------
+            if (strlen($_POST["first_name_input"]) < 1 || strlen($_POST["first_name_input"]) > 20) {
+                $error[] = "Firstname must be between 1 and 20 characters long.";
+            }
+            if (strlen($_POST["last_name_input"]) < 1 || strlen($_POST["last_name_input"]) > 20) {
+                $error[] = "Lastname must be between 1 and 20 characters long.";
+            }
+            if (strlen($_POST["street_address"]) < 1 || strlen($_POST["street_address"]) > 40) {
+                $error[] = "Street address must be between 1 and 40 characters long.";
+            }
+            if (strlen($_POST["suburb_town"]) < 1 || strlen($_POST["suburb"]) > 40) {
+                $error[] = "Suburb address must be between 1 and 40 characters long.";
+            }
+            if (strlen($_POST["postcode"]) != 4) {
+                $error[] = "Postcode must be exactly 4 digits long.";
+            }
+            if (strlen($_POST["phone_number_input"]) < 8 || strlen($_POST["phone_number_input"]) > 12) {
+                $error[] = "Phone number must be between 8 and 12 digits long.";
+            }
 }
+
 
 
 if (count($error) > 0) {
