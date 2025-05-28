@@ -29,7 +29,10 @@
                 echo "</body></html>";
                 die();
             }
-            
+            if (is_idle()) {
+                die();
+            }
+
 
             if (isset($_SESSION['User'])) { # the user is already logged in...
                 session_regenerate_id(true);
@@ -68,17 +71,7 @@
             }
 
 
-            // 
-            $now = time()
-            if ($now >= $_SESSION['expire']) {
-                session_destroy();
-                set_data_response(
-                    "error",
-                    "Session has expired",
-                );
-                header("Location: ../login.php");
-                die();
-            }
+            
 
 
             // check if the user has submitted the appropriate fields
@@ -179,7 +172,3 @@
             
 
         ?>
-    
-    </body>
-
-</html>

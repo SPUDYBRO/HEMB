@@ -147,6 +147,9 @@
      */
 
     function is_logged_in() {
+        if (is_idle()) {
+            return false; // User is idle, session expired
+        }
         if (!isset($_SESSION['User'])) {
             return false;
         }
@@ -156,11 +159,20 @@
 
     /**
      * Checks if the user has been logged in for 20 minutes
-     */
-
-    function is_idle() {
-        $_SESSION['start'] = time();
-        $_SESSION['expire'] = $_SESSION['start'] + (20 * 60);
+     * if not it will log the user out and redirect them to the login page
+     */    function is_idle() {
+        $now = time();
+        if (!isset($_SESSION['Last_activity'])) {
+            $_SESSION['Last_activity'] = $now; // Set the last activity time if it doesn't exist
+        }
+        if ($now >= $_SESSION['Last_activity'] + 1200) { // 20 minutes = 1200 seconds
+            logout(); // Log the user out if they have been idle for 20 minutes
+            set_data_response("error", "Session expired", "Please login again", "Your session has expired", "You have been logged out due to inactivity", "Please login again to continue");
+            header("Location: ../login.php");
+            return true; // User is idle, session expired
+        }
+        $_SESSION['Last_activity'] = $now; // Update the last activity time
+        return false; // User is active
     }
 
     /**

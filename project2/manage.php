@@ -99,11 +99,21 @@ if (isset($_GET['Mode'])) {
             <select id='filter_options' name='filter'>";
 
 
-        $options = ['None', 'New', 'Current', 'Final'];
-        $current = isset($_GET['filter']) ? $_GET['filter'] : 'None';
-        foreach ($options as $option) {
-            $selected = ($current === $option) ? ' selected' : '';
-            echo "<option value='$option'$selected>$option</option>";
+        if (isset($_GET['filter']) && $_GET['filter'] == 'None') {
+            echo "<option value='None' selected>None</option>";
+
+        } else {
+            echo "<option value='None'>None</option>";
+        }
+        if (isset($_GET['filter']) && $_GET['filter'] == 'New') {
+            echo "<option value='New' selected>New</option>";
+        } else {
+            echo "<option value='New'>New</option>";
+        }
+        if (isset($_GET['filter']) && $_GET['filter'] == 'Current') {
+            echo "<option value='Current' selected>Current</option>";
+        } else {
+            echo "<option value='Current'>Current</option>";
         }
 
 
