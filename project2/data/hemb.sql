@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2025 at 09:23 AM
+-- Generation Time: May 28, 2025 at 11:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -59,7 +59,7 @@ CREATE TABLE `contributions` (
 
 INSERT INTO `contributions` (`Contribution_ID`, `Employee_ID`, `Contribution`) VALUES
 (8, 2, 'Apply Page'),
-(9, 2, 'CSS'),
+(9, 2, 'General CSS plus Info card, Manage page'),
 (10, 2, 'Process EOI'),
 (11, 3, 'About Page'),
 (12, 3, 'CSS'),
@@ -266,7 +266,7 @@ ALTER TABLE `class_times`
 -- AUTO_INCREMENT for table `contributions`
 --
 ALTER TABLE `contributions`
-  MODIFY `Contribution_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'The Unique identifier for the contribution', AUTO_INCREMENT=43;
+  MODIFY `Contribution_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'The Unique identifier for the contribution', AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `employees`

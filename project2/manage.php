@@ -323,7 +323,7 @@ if (isset($_GET['Mode'])) {
                         echo "</thead>";
 
                         echo "<tbody>";
-                        echo "<form method='post' action='./php/process_manage.php' autocomplete='off'>";
+                        echo "<form method='post' action='./php/process_manage/process_employees.php' autocomplete='off'>";
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
                         echo "<input type='hidden' name='ID' value='" . htmlspecialchars($row['ID']) . "'>";
@@ -408,7 +408,7 @@ if (isset($_GET['Mode'])) {
                           </tr>";
                         echo "</thead>";
                         echo "<tbody>";
-                        echo "<form method='post' action='./php/process_manage.php' autocomplete='off'>";
+                        echo "<form method='post' action='./php/process_manage/process_jobs.php' autocomplete='off'>";
                         echo "<tr>";
                         echo "<td><input id='reference_number_" . htmlspecialchars($row['reference_number']) . "' type='text' name='Reference_Number' value='" . htmlspecialchars($row['reference_number']) . "' required></td>";
                         echo "<input type='hidden' name='Reference_Number_old' value='" . htmlspecialchars($row['reference_number']) . "'>";
