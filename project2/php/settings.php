@@ -37,8 +37,8 @@ endif;
 
 <?php
     $host = "localhost";
-    $user = "root";
-    $pwd = "";
+    $user = "Hemb";
+    $pwd = "hembdatabase";
     $sql_db = "hemb";
 
     date_default_timezone_set('Australia/Melbourne');
