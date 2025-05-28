@@ -652,6 +652,7 @@ you can also intent further to explain a certain area of code, for example:
     .title_image > h3 {
         text-decoration: underline;
         margin: 0 0 0.5rem 0;
+        font-size: var(--h3_font_size);
     }
 
     /* Each Employee Section Box */
@@ -660,7 +661,6 @@ you can also intent further to explain a certain area of code, for example:
         padding: 15px;
         background-color: rgb(129, 189, 230);
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
     /* Flex container for all employee info */
@@ -677,6 +677,11 @@ you can also intent further to explain a certain area of code, for example:
         flex-direction: row;
         width: 45%;
         align-items: stretch;
+        align-items: flex-start;
+    }
+
+    .info-section ul {
+        text-align: left;
     }
 
     /* Left section with name and image */
@@ -757,42 +762,6 @@ you can also intent further to explain a certain area of code, for example:
     .info-section ul li span.info-value {
         font-size: 1.2em;
         color: black;
-    }
-
-    /* Responsive adjustments for mobile */
-    @media screen and (max-width: 768px) {
-        .individual_employee {
-            flex-direction: column;
-        }
-
-        .title_image_and_list_flex_container {
-            flex-direction: column;
-            width: 100%;
-            border-right: none;
-            margin-bottom: 1rem;
-        }
-
-        .title_image {
-            border-right: none;
-            border-bottom: 1px solid black;
-            padding-bottom: 10px;
-            align-items: center;
-        }
-
-        .description_box {
-            height: 200px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            border-left: none;
-            padding-left: 0;
-        }
-
-        .description_box p {
-            height: 100%;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 10px;
-        }
     }
 
 
@@ -1842,42 +1811,42 @@ you can also intent further to explain a certain area of code, for example:
                 top: 200px;
             }
     }
-    
-    /* Responsive Styling with Scroll */
-    @media screen and (max-width: 768px) {
-        .individual_employee {
-            flex-direction: column;
-        }
 
-        .title_image_and_list_flex_container {
-            flex-direction: column;
-            width: 100%;
-            border-right: none;
-            margin-bottom: 1rem;
-        }
+        /* Responsive adjustments for mobile */
+        @media screen and (max-width: 1000px) {
+            .individual_employee {
+                flex-direction: column;
+            }
 
-        .title_image {
-            border-right: none;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-            align-items: center;
-        }
+            .title_image_and_list_flex_container {
+                flex-direction: column;
+                width: 100%;
+                border-right: none;
+                margin-bottom: 1rem;
+            }
 
-        .description_box {
-            height: 200px;
-            overflow-y: scroll; /* Always show vertical scrollbar */
-            overflow-x: hidden;
-            border-left: none;
-            padding-left: 0;
-        }
+            .title_image {
+                border-right: none;
+                border-bottom: 1px solid black;
+                padding-bottom: 10px;
+                align-items: center;
+            }
 
-        .description_box p {
-            height: 100%;
-            overflow-y: scroll; /* Ensure inner paragraph also shows scrollbar */
-            overflow-x: hidden;
-            padding-right: 10px;
+            .description_box {
+                height: 200px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .description_box p {
+                height: 100%;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding-right: 10px;
+            }
         }
-    }
 
 
 

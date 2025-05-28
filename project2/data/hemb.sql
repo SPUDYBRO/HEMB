@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2025 at 11:53 AM
+-- Generation Time: May 28, 2025 at 02:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -59,7 +59,7 @@ CREATE TABLE `contributions` (
 
 INSERT INTO `contributions` (`Contribution_ID`, `Employee_ID`, `Contribution`) VALUES
 (8, 2, 'Apply Page'),
-(9, 2, 'General CSS plus Info card, Manage page'),
+(9, 2, 'CSS'),
 (10, 2, 'Process EOI'),
 (11, 3, 'About Page'),
 (12, 3, 'CSS'),
@@ -97,7 +97,7 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`ID`, `First_name`, `Last_name`, `Student_ID`, `Tutor_ID`, `Class_Time_ID`, `Photo`, `Photo_Alt`, `Description`) VALUES
-(1, 'Evan', 'Harrison', 105929605, 1, 1, 'Evan_Harrison.webp', 'Front-facing picture of Evan Harrison', 'Evan Harrison is our go-to tech troubleshooter, known for his sharp problem-solving skills and technical expertise. Whether it\'s fixing system crashes, resolving software bugs, or optimizing performance, Evan handles it all with speed and precision. He focuses not just on quick fixes but also long-term solutions—streamlining workflows, securing systems, and integrating new tools. Methodical, resourceful, and always up-to-date with the latest tech trends, Evan is a vital force in keeping our operations running smoothly'),
+(1, 'Evan', 'Harrison', 105929605, 1, 1, 'Evan_Harrison.webp', 'Front-facing picture of Evan Harrison', 'Evan Harrison is our tech troubleshooter, known for sharp problem-solving and technical expertise. From system crashes to software bugs and performance issues, he tackles it all with speed and precision. Evan prioritizes not just quick fixes but lasting solutions—streamlining workflows, securing systems, and integrating tools. Methodical, resourceful, and current with tech trends, he’s key to keeping our operations running smoothly.'),
 (2, 'Henry ', 'Bennett', 105923571, 1, 1, 'Henry_Bennett.webp', 'Front-facing image of Henry Bennett taking a photo with a phone', 'Henry Bennett is our cybersecurity expert, focused on keeping digital systems secure and resilient. From blocking malware to securing networks and access points, he handles threats quickly and effectively. Beyond incident response, Henry implements long-term protections like audits, encryption, and continuous monitoring to ensure data safety and smooth operations.'),
 (3, 'Ben', 'Romano', 105773284, 1, 1, 'Ben_Romano.webp', 'A front-facing picture of Ben Romano', 'Ben Romano is our hardware specialist, ensuring all devices, workstations, and network equipment run smoothly and efficiently. From diagnosing issues to setting up new systems, he handles hardware with precision and care. Ben goes beyond quick fixes, building reliable, scalable setups with quality components and structured cabling. His attention to detail ensures every system is optimized for performance and durability.'),
 (4, 'Michael', 'Sharpley', 105913792, 1, 1, 'Michael_Sharpley.webp', 'A picture of Michael Sharpley with a blue background', 'Michael Sharpley is our database specialist, focused on building and maintaining efficient, scalable, and secure data systems. From designing robust schemas to optimizing queries and implementing backups, he ensures your data is structured for performance and reliability. Whether starting from scratch or improving existing setups, Michael brings a strategic, detail-driven approach that keeps systems fast, stable, and future-ready.');
@@ -266,7 +266,7 @@ ALTER TABLE `class_times`
 -- AUTO_INCREMENT for table `contributions`
 --
 ALTER TABLE `contributions`
-  MODIFY `Contribution_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'The Unique identifier for the contribution', AUTO_INCREMENT=45;
+  MODIFY `Contribution_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'The Unique identifier for the contribution', AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `employees`
