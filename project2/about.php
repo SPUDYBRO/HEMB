@@ -74,6 +74,8 @@
 
 
         <main id="About_Main">
+
+
             <h1 id="about_us_heading">About Us</h1>
             <hr>
 
@@ -133,6 +135,7 @@
 
             </div>
 
+            
         </main>
 
 
