@@ -1,4 +1,6 @@
 <?php
+
+
     session_start();
     define('SUCCESS_SVG', '<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M44 22.16V24C43.9975 28.3128 42.601 32.5094 40.0187 35.9636C37.4363 39.4179 33.8066 41.945 29.6707 43.1678C25.5349 44.3906 21.1145 44.2438 17.0689 42.7492C13.0234 41.2545 9.5693 38.4922 7.22191 34.8741C4.87452 31.2561 3.75957 26.9761 4.04334 22.6726C4.32711 18.3691 5.9944 14.2727 8.79655 10.9941C11.5987 7.71564 15.3856 5.43076 19.5924 4.48029C23.7992 3.52982 28.2005 3.96467 32.14 5.72M44 8L24 28.02L18 22.02" stroke="currentColor" stroke-opacity="1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     define('ERROR_SVG', '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M30 18L18 30M18 18L30 30M44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>');
@@ -10,8 +12,6 @@
         'Email' => '<svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none" class="nav_icon"><path d="M4 7L10.94 11.3375C11.5885 11.7428 12.4115 11.7428 13.06 11.3375L20 7M5 18H19C20.1046 18 21 17.1046 21 16V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         'Staff' => '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 16C14.7164 14.8589 13.481 14 12 14C10.519 14 9.28364 14.8589 9 16M11 3H13M12 10H12.01M8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.0799 3 8.2V16.8C3 17.9201 3 18.4802 3.21799 18.908C3.40973 19.2843 3.71569 19.5903 4.09202 19.782C4.51984 20 5.0799 20 6.2 20H17.8C18.9201 20 19.4802 20 19.908 19.782C20.2843 19.5903 20.5903 19.2843 20.782 18.908C21 18.4802 21 17.9201 21 16.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H16M13 10C13 10.5523 12.5523 11 12 11C11.4477 11 11 10.5523 11 10C11 9.44772 11.4477 9 12 9C12.5523 9 13 9.44772 13 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>'
     ]);
-
-
 
 
     class User {
@@ -33,7 +33,6 @@
         if (!isset($_SESSION['accessibility']) || !isset($_SESSION['accessibility']['colour_scheme']) || !isset($_SESSION['accessibility']['text_size'])) {
             $_SESSION['accessibility']["colour_scheme"] = 'default';
             $_SESSION['accessibility']["text_size"] = 'default';
-
         }
         
 
@@ -44,13 +43,16 @@
             }
         ));
 
+
         if ($preferences == "") {
             echo ""; // No accessibility settings are set, so do nothing
         }
         else {
             echo $preferences; // Accessibility settings are set, so return them
         }
+
     }
+
 
 
     function display_info_card() {
@@ -58,6 +60,7 @@
         if (!isset($_SESSION['PHP_RESPONSE']) || empty($_SESSION['PHP_RESPONSE'])) {
             return; /* There is nothing to display */
         }
+
         $status = $_SESSION['PHP_RESPONSE']['status'];
         $preview_title = $_SESSION['PHP_RESPONSE']['preview_title'];
         $preview_message = $_SESSION['PHP_RESPONSE']['preview_message'];
@@ -75,6 +78,7 @@
                     <div class='icon_container'>";
                         if ($status == "success") { echo SUCCESS_SVG; }
                         else { echo ERROR_SVG; }
+
         echo        "</div>
                     <div class='card_text'>
                         <h2>$preview_title</h2>
@@ -95,6 +99,7 @@
         </details>";
 
         unset($_SESSION['PHP_RESPONSE']); // Clear the PHP_RESPONSE after displaying it
+
     }
 
 
@@ -120,6 +125,7 @@
      * @param array $post_debug_data (Optional. pass null if not needed) An array of data to display in the debug table. This is usually the $_POST or $_GET data that was sent to the server
      * @return void
      */
+
     function set_data_response($status, $preview_title, $preview_message, $detailed_title, $detailed_message, $detailed_description, $post_debug_data = ["No data" => "No data"]): void {
         $_SESSION['PHP_RESPONSE'] = [
             'status' => $status,
@@ -139,6 +145,7 @@
      * 
      * @return bool `True` if the user is logged in, `false` if not
      */
+
     function is_logged_in() {
         if (!isset($_SESSION['User'])) {
             return false;
@@ -146,12 +153,14 @@
         return true;
     }
 
+
     /**
      * Logs a user out, retaining the accessibility settings
      * Can only be called if headers haven't been sent yet
      * 
      * @return void
      */
+
     function logout() {
         if (isset($_SESSION['PHP_RESPONSE'])) {
             $php_response = $_SESSION['PHP_RESPONSE'];
@@ -164,4 +173,5 @@
         if (isset($php_response)) {
             $_SESSION['PHP_RESPONSE'] = $php_response;
         }
+        
     }

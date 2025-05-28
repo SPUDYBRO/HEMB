@@ -1,4 +1,6 @@
 <?php
+
+
     include "./functionality.php";
     // Constants for colour schemes
     define('COLOUR_SCHEME_DEFAULT', 'default');
@@ -20,6 +22,8 @@
         TEXT_SIZE_SMALL
     ]);
 
+
+
     function set_accessibility_defaults(): void {
         // Set default values for accessibility settings
         $_SESSION['accessibility']['colour_scheme'] = COLOUR_SCHEME_DEFAULT;
@@ -39,10 +43,11 @@
      * @return string The new colour scheme.
      * Note: Automatically sets the accessibility session variable for colour scheme.
      */
+
+    
     function toggle_colour_scheme(): array {
 
         $current = $_SESSION['accessibility']['colour_scheme'] ?? COLOUR_SCHEME_DEFAULT;
-
         $index = array_search($current, COLOUR_SCHEME_OPTIONS);
 
         if ($index === false) {
@@ -70,7 +75,10 @@
             'detailed_message' => 'Your preferred colour scheme has been set to ' . $new,
             'detailed_description' => $detailed_description
         ];
+
     }
+
+
 
     /**
      * A dynamic switch to toggle between text sizes for the website.
@@ -82,6 +90,8 @@
      * @return string The new text size.
      * Note: Automatically sets the accessibility session variable for text size.
      */
+
+
     function toggle_text_size(): array {
 
         $current = $_SESSION['accessibility']['text_size'] ?? TEXT_SIZE_DEFAULT;
@@ -151,4 +161,8 @@
             header('Location: ../index.php');
         }
         exit();
+
     }
+
+
+?>
