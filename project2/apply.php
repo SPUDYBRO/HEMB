@@ -144,6 +144,8 @@
                     <fieldset id="technical_skills_fieldset">
                         <legend>Technical Skills</legend>
                         <!-- Technical skills Checkboxs -->
+                        <p>Please select all*</p>
+
                         <input type="checkbox" value="Trouble Shooting" name="technical_skills[]" class="technical_skill"class="input_background">
                         <label for="skills_trouble_shooting">Knowledge in Troubleshooting</label>
                         <br>

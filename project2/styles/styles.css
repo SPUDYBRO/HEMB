@@ -898,15 +898,21 @@ you can also intent further to explain a certain area of code, for example:
             text-align: center;
         }
 
-        /* */
+        /* Makes the submit button clickable once a technical skill is checked. */
         #submit_eoi_form {
             pointer-events: none;
             opacity: 0.5;
         }
-
         .technical_skill:checked ~ #submit_eoi_form {
             pointer-events: auto;
             opacity: 1;
+        }
+
+        #technical_skills_fieldset > p {
+            margin-top: 0%;
+            margin-left: 2%;
+            color: darkred;
+
         }
 
 
