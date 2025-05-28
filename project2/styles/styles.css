@@ -127,7 +127,7 @@ you can also intent further to explain a certain area of code, for example:
         --p_hero_font_size: 1.5em;
         --h1_font_size: 3em;
         --h2_font_size: 2.2em;
-        --h3_font_size: 1.8em;
+        --h3_font_size: 1.6em;
         --p_font_size: 1em;
         --list_items_font_size: 1em;
         --a_font_size: 1em;
@@ -635,6 +635,7 @@ you can also intent further to explain a certain area of code, for example:
         color: black;
         text-align: center;
         padding: 7px;
+        font-size: var(--h1_font_size);
     }
 
     /* General Section Container */
@@ -646,6 +647,7 @@ you can also intent further to explain a certain area of code, for example:
     /* Team Description */
     .about_us {
         color: black;
+        font-size: var(--p_font_size);
     }
 
     /* Adds underline under name */
@@ -676,7 +678,6 @@ you can also intent further to explain a certain area of code, for example:
         display: flex;
         flex-direction: row;
         width: 45%;
-        align-items: stretch;
         align-items: flex-start;
     }
 
@@ -728,6 +729,7 @@ you can also intent further to explain a certain area of code, for example:
     .description_box p {
         margin: 0;
         line-height: 1.4;
+        font-size: var(--p_font_size);
     }
 
     /* Group Photo */
@@ -753,6 +755,7 @@ you can also intent further to explain a certain area of code, for example:
 
     .info-section ul li {
         margin-bottom: 0.3rem;
+        font-size: var(--list_items_font_size);
     }
 
     .info-section ul li strong {
@@ -764,6 +767,48 @@ you can also intent further to explain a certain area of code, for example:
         color: black;
     }
 
+    /* Member Contributions Section */
+    #member_contributions {
+        text-align: center;
+        width: 85%;
+        margin: 0 auto;
+        padding: 1rem 0;
+    }
+
+    #member_contributions h2 {
+        font-size: var(--h2_font_size);
+        margin-bottom: 0.5rem;
+    }
+
+    #member_contributions p {
+        font-size: var(--p_font_size);
+        margin-bottom: 1rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #member_contributions dl {
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    #member_contributions dt,
+    #member_contributions dd {
+        text-align: center;
+    }
+
+    #member_contributions dt {
+        font-weight: bold;
+        font-size: var(--p_font_size);
+        margin-top: 0.5rem;
+    }
+
+    #member_contributions dd {
+        margin: 0 0 1rem 1.5rem;
+        font-size: var(--p_font_size);
+    }
 
 
 /* Jobs Page styling by Evan for Micheal (delegated task) */

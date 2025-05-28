@@ -37,95 +37,90 @@ if (!$result) {
 
 <!DOCTYPE html>
 <html lang="en" class="<?php set_accessibility(); ?>">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us | HEMB-IT</title>
+    <meta name="description" content="HEMB IT Solutions - About Page containing information about the team and their contributions. In addition, it contains information about the employees regarding their class times, tutor names, student IDs and overall general insight." />
+    <meta name="keywords" content="HEMB, IT, Solutions, About Page" />
+    <meta name="author" content="Ben Romano, Evan Harrison, Henry Bennett" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="icon" type="image/x-icon" href="./images/fav_icon.webp" />
+</head>
+<body>
+    <?php 
+        display_info_card();
+        include './inc/accessibility.inc';
+        include './inc/navigation.inc'; 
+    ?>
+
+        <main id="About_Main">
 
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>About Us | HEMB-IT</title>
-        <meta name="description" content="HEMB IT Solutions - About Page containing information about the team and their contributions. In addition, it contains information about the employees regarding their class times, tutor names, student IDs and overall general insight." />
-        <meta name="keywords" content="HEMB, IT, Solutions, About Page" />
-        <meta name="author" content="Ben Romano, Evan Harrison, Henry Bennett" />
-        <link rel="stylesheet" href="./styles/styles.css" />
-        <link rel="icon" type="image/x-icon" href="./images/fav_icon.webp" />
-    </head>
+            <h1 id="about_us_heading">About Us</h1>
+            <hr>
 
+        <h2 class="about_us">What We Do!</h2>
+        <p class="about_us">
+            At HEMB IT Solutions, we provide reliable, high-quality IT support tailored to the unique needs of businesses of all sizes.
+            From troubleshooting and system maintenance to network optimization and cybersecurity, our team delivers proactive support
+            that empowers your business to thrive in a fast-paced digital world.
+        </p>
+        <hr />
 
-    <body>
+        <div id="employee_info">
+            <?php
+            while ($row = $result->fetch_assoc()) {
+                $contributions = explode(',', $row['contributions']);
 
-        <?php 
-            display_info_card();
-            include './inc/accessibility.inc';
-            include './inc/navigation.inc'; 
-        ?>
+                echo "<div class='employee_box main_section'>";
+                echo "<div class='individual_employee'>";
+                echo "<div class='title_image_and_list_flex_container'>";
+                echo "<div class='title_image'>";
+                echo "<h3>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</h3>";
+                echo "<img class='individual_employee_photos' src='images/" . htmlspecialchars($row['Photo']) . "' alt='Front-facing picture of " . htmlspecialchars($row['First_name']) . ", one of the team members'>";
+                echo "</div>";
 
-            <main id="About_Main">
+                echo "<div class='info-section'>";
+                echo "<ul>";
+                echo "<li><strong>Student ID:</strong> <span class='info-value'>" . htmlspecialchars($row['Student_ID']) . "</span></li>";
+                echo "<li><strong>Tutor Name:</strong> <span class='info-value'>" . htmlspecialchars($row['tutor_Name']) . "</span></li>";
+                echo "<li><strong>Class Times:</strong> <span class='info-value'>" . htmlspecialchars($row['class_time_Day']) . " " . htmlspecialchars($row['class_start_time']) . " - " . htmlspecialchars($row['class_end_time']) . "</span></li>";
+                echo "</ul>";
+                echo "</div>";
 
+                echo "</div>";
 
-                <h1 id="about_us_heading">About Us</h1>
-                <hr>
+                echo "<div class='description_box'><p>" . htmlspecialchars($row['Description']) . "</p></div>";
 
-            <h2 class="about_us">What We Do!</h2>
-            <p class="about_us">
-                At HEMB IT Solutions, we provide reliable, high-quality IT support tailored to the unique needs of businesses of all sizes.
-                From troubleshooting and system maintenance to network optimization and cybersecurity, our team delivers proactive support
-                that empowers your business to thrive in a fast-paced digital world.
-            </p>
-            <hr />
+                echo "</div>";
+                echo "</div>";
+            }
+            ?>
+        </div>
 
-            <div id="employee_info">
+        <hr />
+        <section id="member_contributions">
+            <h2>Member Contributions</h2>
+            <p>Each member of our team has played a crucial role in the development of this project. Below is a summary of each member's contributions:</p>
+            <dl>
                 <?php
+                $result = $conn->query($query);
                 while ($row = $result->fetch_assoc()) {
-                    $contributions = explode(',', $row['contributions']);
-
-                    echo "<div class='employee_box main_section'>";
-                    echo "<div class='individual_employee'>";
-                    echo "<div class='title_image_and_list_flex_container'>";
-                    echo "<div class='title_image'>";
-                    echo "<h3>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</h3>";
-                    echo "<img class='individual_employee_photos' src='images/" . htmlspecialchars($row['Photo']) . "' alt='Front-facing picture of " . htmlspecialchars($row['First_name']) . ", one of the team members'>";
-                    echo "</div>";
-
-                    echo "<div class='info-section'>";
-                    echo "<ul>";
-                    echo "<li><strong>Student ID:</strong> <span class='info-value'>" . htmlspecialchars($row['Student_ID']) . "</span></li>";
-                    echo "<li><strong>Tutor Name:</strong> <span class='info-value'>" . htmlspecialchars($row['tutor_Name']) . "</span></li>";
-                    echo "<li><strong>Class Times:</strong> <span class='info-value'>" . htmlspecialchars($row['class_time_Day']) . " " . htmlspecialchars($row['class_start_time']) . " - " . htmlspecialchars($row['class_end_time']) . "</span></li>";
-                    echo "</ul>";
-                    echo "</div>";
-
-                    echo "</div>";
-
-                    echo "<div class='description_box'><p>" . htmlspecialchars($row['Description']) . "</p></div>";
-
-                    echo "</div>";
-                    echo "</div>";
+                    echo "<dt>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</dt>";
+                    echo "<dd>" . htmlspecialchars($row['contributions']) . "</dd>";
                 }
                 ?>
+            </dl>
+        </section>
+
+                <img id="Group_Photo" src="images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team">
+
+
             </div>
 
-            <hr />
-            <section id="member_contributions">
-                <h2>Member Contributions</h2>
-                <p>Each member of our team has played a crucial role in the development of this project. Below is a summary of each member's contributions:</p>
-                <dl>
-                    <?php
-                    $result = $conn->query($query);
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<dt>" . htmlspecialchars($row['First_name']) . " " . htmlspecialchars($row['Last_name']) . "</dt>";
-                        echo "<dd>" . htmlspecialchars($row['contributions']) . "</dd>";
-                    }
-                    ?>
-                </dl>
-            </section>
 
-                    <img id="Group_Photo" src="images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team">
-
-
-                </div>
-
-
-            </main>
+        </main>
 
 
         <?php 
@@ -134,5 +129,6 @@ if (!$result) {
         ?>
 
     </body>
+
     
 </html>
