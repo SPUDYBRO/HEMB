@@ -630,18 +630,9 @@ you can also intent further to explain a certain area of code, for example:
 
 /* About_Us.html styling */
 
-    :root {
-    --about-us_color: black;
-    --text_color: black;
-    --primary-bg: rgb(129, 189, 230);
-    --description-width: 75%;
-    --border-color: black;
-    --box-padding: 15px;
-}
-
-/* Title Heading Centered */
+    /* Title Heading Centered */
     #about_us_heading {
-        color: var(--text_color);
+        color: black;
         text-align: center;
         padding: 7px;
     }
@@ -654,7 +645,7 @@ you can also intent further to explain a certain area of code, for example:
 
     /* Team Description */
     .about_us {
-        color: var(--text_color);
+        color: black;
     }
 
     /* Adds underline under name */
@@ -666,10 +657,10 @@ you can also intent further to explain a certain area of code, for example:
     /* Each Employee Section Box */
     .employee_box {
         margin-bottom: 30px;
-        padding: var(--box-padding);
-        background-color: var(--primary-bg);
+        padding: 15px;
+        background-color: rgb(129, 189, 230);
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
     /* Flex container for all employee info */
@@ -690,7 +681,7 @@ you can also intent further to explain a certain area of code, for example:
 
     /* Left section with name and image */
     .title_image {
-        border-right: 1px solid var(--border-color);
+        border-right: 1px solid black;
         padding-right: 10px;
         display: flex;
         flex-direction: column;
@@ -701,7 +692,7 @@ you can also intent further to explain a certain area of code, for example:
     /* Right section with student info list */
     .title_image_and_list_flex_container ul {
         margin: 0;
-        padding-left: 2.0em;
+        padding-left: 2em;
         list-style: disc;
         display: flex;
         flex-direction: column;
@@ -720,13 +711,13 @@ you can also intent further to explain a certain area of code, for example:
     /* Description Section with vertical border */
     .description_box {
         margin-left: 2rem;
-        max-width: var(--description-width);
+        max-width: 75%;
         flex: 1;
-        border-left: 2px solid var(--border-color);
+        border-left: 2px solid black;
         padding-left: 1rem;
         height: 200px;
         overflow-y: auto;
-        display: block; /* or remove 'display: flex' entirely */
+        display: block;
     }
 
     .description_box p {
@@ -734,24 +725,23 @@ you can also intent further to explain a certain area of code, for example:
         line-height: 1.4;
     }
 
+    /* Group Photo */
     #Group_Photo {
-        width: 300px;       /* Original width or whatever looks best */
-        height: auto;       /* Maintain aspect ratio */
+        width: 300px;
+        height: auto;
         display: block;
-        margin: 0 auto;     /* Center the image horizontally */
-        border-radius: 8px; /* Optional for rounded edges */
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional for subtle shadow */
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* ============================= */
-    /* New styles for info-section to enlarge title and values */
-
+    /* Info section for student details */
     .info-section {
         margin-top: 0.5rem;
     }
 
     .info-section ul {
-        padding-left: 2em; /* match your existing list padding */
+        padding-left: 2em;
         list-style: disc;
         margin: 0;
     }
@@ -766,7 +756,43 @@ you can also intent further to explain a certain area of code, for example:
 
     .info-section ul li span.info-value {
         font-size: 1.2em;
-        color: #000; /* black or adjust if needed */
+        color: black;
+    }
+
+    /* Responsive adjustments for mobile */
+    @media screen and (max-width: 768px) {
+        .individual_employee {
+            flex-direction: column;
+        }
+
+        .title_image_and_list_flex_container {
+            flex-direction: column;
+            width: 100%;
+            border-right: none;
+            margin-bottom: 1rem;
+        }
+
+        .title_image {
+            border-right: none;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+            align-items: center;
+        }
+
+        .description_box {
+            height: 200px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .description_box p {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 10px;
+        }
     }
 
 

@@ -35,8 +35,6 @@ if (!$result) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en" class="<?php set_accessibility(); ?>">
 <head>
@@ -73,7 +71,7 @@ if (!$result) {
             while ($row = $result->fetch_assoc()) {
                 $contributions = explode(',', $row['contributions']);
 
-                echo "<div class='employee_box'>";
+                echo "<div class='employee_box main_section'>";
                 echo "<div class='individual_employee'>";
                 echo "<div class='title_image_and_list_flex_container'>";
                 echo "<div class='title_image'>";
