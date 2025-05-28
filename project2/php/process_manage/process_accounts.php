@@ -170,7 +170,7 @@ if (($is_create && $is_update) || ($is_create && $is_delete) || ($is_update && $
 
 
 // ====================== UPDATE / DELETE OR CREATE ======================
-//       Update / delete or create the account based on the request
+//                Update / delete jobs based on the request
     
 
     $time_stamp = date(format: '[ Y-m-d | H:i:s ]');
@@ -184,7 +184,15 @@ if (($is_create && $is_update) || ($is_create && $is_delete) || ($is_update && $
 
         $stmt = $db->prepare("INSERT INTO users (Username, Password, Role) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $_POST['Username'], $password, $_POST['Role']);
-        $result = $stmt->execute();
+        try {
+            $result = $stmt->execute();
+        } catch (Exception $e) {
+            set_data_response('error', 'Database Error', 'Failed to create the account', 'Database Error', 'Failed to create the account: ' . $e->getMessage(), '', $_POST);
+            error_log("$time_stamp  [Account Create]: " . $e->getMessage() . "\n");
+            header('Location: ../../manage.php?Mode=Accounts');
+            die();
+        }
+        
         if ($result) {
             set_data_response('success', 'Account Created', 'The account has been created successfully', 'Account Created', 'The account has been created successfully', '', $_POST);
             header('Location: ../../manage.php?Mode=Accounts');
