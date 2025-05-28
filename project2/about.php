@@ -3,7 +3,7 @@
     require_once './php/settings.php';
 
     // Connect to the database
-    $conn = new mysqli($host, $user, $pwd, $employees_db);
+    $conn = new mysqli($host, $user, $pwd, $sql_db);
     if ($conn->connect_error) {
         set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . mysqli_connect_error() . "</pre>", $_POST);
         header('Location: manage.php?Mode=Account');

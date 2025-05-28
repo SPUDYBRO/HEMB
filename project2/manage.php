@@ -249,7 +249,7 @@ if (isset($_GET['Mode'])) {
                     echo "<p>Manage the employee data here</p>";
 
                     try {
-                        $db = mysqli_connect($host, $user, $pwd, $employees_db);
+                        $db = mysqli_connect($host, $user, $pwd, $sql_db);
                     } catch (Exception $e) {
                         set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . $e->getMessage() . "</pre>", $_GET);
                         echo '<meta http-equiv="refresh" content="0;url=./manage.php">';

@@ -8,7 +8,6 @@ Password and database need to be changed. -->
     $user = "root";
     $pwd = "";
     $sql_db = "hemb";
-    $employees_db = "employees";
 
     date_default_timezone_set('Australia/Melbourne');
 ?>

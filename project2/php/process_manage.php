@@ -171,7 +171,7 @@
 
             if (isset($_POST['Employee_Update'])) {
                 try {
-                    $db = mysqli_connect($host, $user, $pwd, $employees_db);
+                    $db = mysqli_connect($host, $user, $pwd, $sql_db);
                 } catch (Exception $e) {
                     set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . $e->getMessage() . "</pre>", $_POST);
                     header('Location: ../manage.php?Mode=Employees');
@@ -270,7 +270,7 @@
             }
             if (isset($_POST['Employee_Delete'])) {
                 try {
-                    $db = mysqli_connect($host, $user, $pwd, $employees_db);
+                    $db = mysqli_connect($host, $user, $pwd, $sql_db);
                 } catch (Exception $e) {
                     set_data_response('error', 'Database Error', 'failed to connect to the database', 'Failed to connect to the database', "Something went wrong and failed to connect to the database", "Error: <pre>" . $e->getMessage() . "</pre>", $_POST);
                     header('Location: ../manage.php?Mode=Employees');
