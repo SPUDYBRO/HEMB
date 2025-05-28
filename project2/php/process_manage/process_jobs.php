@@ -299,7 +299,7 @@ if ($is_create && $is_update) {
     if ($is_update) {
 
         $stmt = $db->prepare("UPDATE jobs SET reference_number = ?, title = ?, type = ?, work_hours = ?, salary = ?, supervisor = ?, description = ?, responsibilities = ?, essential_qualifications = ?, preferable_qualifications = ?, benefits = ? WHERE reference_number = ?");
-        $stmt->bind_param("issssssssssi", $_POST['Reference_Number'], $_POST['Job_Title'], $_POST['Type'], $_POST['Work_Hours'], $_POST['Salary'], $_POST['Supervisor'], $_POST['Description'], $_POST['Responsibilities'], $_POST['essential_qualifications'], $_POST['preferable_qualifications'], $_POST['Benefits'], $_POST['Reference_Number_old']);
+        $stmt->bind_param("ssssssssssss", $_POST['Reference_Number'], $_POST['Job_Title'], $_POST['Type'], $_POST['Work_Hours'], $_POST['Salary'], $_POST['Supervisor'], $_POST['Description'], $_POST['Responsibilities'], $_POST['essential_qualifications'], $_POST['preferable_qualifications'], $_POST['Benefits'], $_POST['Reference_Number_old']);
 
         try {
             $result = $stmt->execute();
@@ -328,7 +328,7 @@ if ($is_create && $is_update) {
     elseif ($is_delete) {
 
         $stmt = $db->prepare("DELETE FROM jobs WHERE reference_number = ?");
-        $stmt->bind_param("i", $_POST['Reference_Number']);
+        $stmt->bind_param("s", $_POST['Reference_Number_old']);
 
         try {
             $result = $stmt->execute();
