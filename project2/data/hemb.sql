@@ -3,9 +3,19 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2025 at 02:16 PM
+-- Generation Time: May 28, 2025 at 03:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
+
+
+# Privileges for `Hemb`@`localhost`
+
+GRANT ALL PRIVILEGES ON *.* TO `Hemb`@`localhost` IDENTIFIED BY PASSWORD '*4D20E69BD602CD7CF841689F5D450FDDAE231D05' WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON `hemb`.* TO `Hemb`@`localhost` WITH GRANT OPTION;
+
+
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +30,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `hemb`
 --
+CREATE DATABASE IF NOT EXISTS `hemb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `hemb`;
 
 -- --------------------------------------------------------
 
@@ -97,7 +109,7 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`ID`, `First_name`, `Last_name`, `Student_ID`, `Tutor_ID`, `Class_Time_ID`, `Photo`, `Photo_Alt`, `Description`) VALUES
-(1, 'Evan', 'Harrison', 105929605, 1, 1, 'Evan_Harrison.webp', 'Front-facing picture of Evan Harrison', 'Evan Harrison is our tech troubleshooter, known for sharp problem-solving and technical expertise. From system crashes to software bugs and performance issues, he tackles it all with speed and precision. Evan prioritizes not just quick fixes but lasting solutions—streamlining workflows, securing systems, and integrating tools. Methodical, resourceful, and current with tech trends, he’s key to keeping our operations running smoothly.'),
+(1, 'Evan', 'Harrison', 105929605, 1, 1, 'Evan_Harrison.webp', 'Front-facing picture of Evan Harrison', 'Evan Harrison is our go-to tech troubleshooter, known for his sharp problem-solving skills and technical expertise. Whether it\'s fixing system crashes, resolving software bugs, or optimizing performance, Evan handles it all with speed and precision. He focuses not just on quick fixes but also long-term solutions—streamlining workflows, securing systems, and integrating new tools. Methodical, resourceful, and always up-to-date with the latest tech trends, Evan is a vital force in keeping our operations running smoothly'),
 (2, 'Henry ', 'Bennett', 105923571, 1, 1, 'Henry_Bennett.webp', 'Front-facing image of Henry Bennett taking a photo with a phone', 'Henry Bennett is our cybersecurity expert, focused on keeping digital systems secure and resilient. From blocking malware to securing networks and access points, he handles threats quickly and effectively. Beyond incident response, Henry implements long-term protections like audits, encryption, and continuous monitoring to ensure data safety and smooth operations.'),
 (3, 'Ben', 'Romano', 105773284, 1, 1, 'Ben_Romano.webp', 'A front-facing picture of Ben Romano', 'Ben Romano is our hardware specialist, ensuring all devices, workstations, and network equipment run smoothly and efficiently. From diagnosing issues to setting up new systems, he handles hardware with precision and care. Ben goes beyond quick fixes, building reliable, scalable setups with quality components and structured cabling. His attention to detail ensures every system is optimized for performance and durability.'),
 (4, 'Michael', 'Sharpley', 105913792, 1, 1, 'Michael_Sharpley.webp', 'A picture of Michael Sharpley with a blue background', 'Michael Sharpley is our database specialist, focused on building and maintaining efficient, scalable, and secure data systems. From designing robust schemas to optimizing queries and implementing backups, he ensures your data is structured for performance and reliability. Whether starting from scratch or improving existing setups, Michael brings a strategic, detail-driven approach that keeps systems fast, stable, and future-ready.');
@@ -155,9 +167,7 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`reference_number`, `title`, `type`, `work_hours`, `salary`, `supervisor`, `description`, `responsibilities`, `essential_qualifications`, `preferable_qualifications`, `benefits`) VALUES
-('IT090', 'Service Desk Analyst', 'Full Time', '9:00 AM - 5:00 PM, Monday - Friday', '$55,000 - $80,000', 'IT Support Manager', 'As an Service Desk Analyst, you will be resolving support tickets by clients.', 'Advising clients on steps to take when encountering software or computer issues. \r\n|Provide support to questions asked on HEMB-IT\'s website. \r\n|Assist clients with cybersecurity and following legal regulations. \r\n|Determining suitable software and hardware solutions for clients.', 'Completed a suitable tertiary course in Information Technology. \r\n|6 months of work experience in an IT support position. \r\n|6 months of work experience in a customer support position. \r\n|An in-depth understanding of HTML5. \r\n|Knowledge in Troubleshooting. \r\n|Understanding of Network Infrastructure. |Knowledge of Computer Hardware. \r\n|Proficiency in Operating Systems. \r\n|Knowledge of Security Practices. \r\n|Familiarity with Database Concepts.', 'Work well unsupervised. \r\n|Passion in Information Technology. \r\n|A strong understanding of software and hardware.', '20 days of Paid-Time-Off per year'),
-('IT240', 'IT Support Specialist', 'Full Time', '9:00 AM - 5:00 PM, Monday - Friday', '$60,000 - $80,000', 'IT Support Manager', 'As an IT Support Specialist, you will give one-on-one software assistance to clients. You will also manage elements of HEMB-IT\'s cybersecurity.', 'Provide support to questions asked on HEMB-IT\'s website. \r\n|Assist clients with cybersecurity and following legal regulations. \r\n|Determining suitable software and hardware solutions for clients. \r\n|Advising clients on steps to take when encountering software or computer issues. |Identifying and responding to software and computer issues.', 'Completed a suitable tertiary course in Information Technology. \r\n|1 year of work experience in an IT support position. \r\n|2 months of work experience in a customer support position. \r\n|Proficiency in HTML5. \r\n|Proficiency in Python and Ruby. \r\n|Knowledge in Troubleshooting. \r\n|Understanding of Network Infrastructure. |Knowledge of Computer Hardware. \r\n|Proficiency in Operating Systems. \r\n|Knowledge of Security Practices. \r\n|Familiarity with Database Concepts.', 'Work well unsupervised. \r\n|Passion in Information Technology. \r\n|A strong understanding of software and hardware.', '20 days of Paid-Time-Off per year'),
-('IT300', 'IT Support Technician', 'Full Time', '9:00 AM - 5:00 PM, Monday - Friday', '$60,000 - $80,000', 'IT Support Manager', 'As an IT Support Technician, you will provide IT support to a broad range of companies.', 'Determining suitable software and hardware solutions for clients. \r\n|Installing software to common operating systems. |Designing web sites using HTML5. \r\n|Advising clients on steps to take when encountering software or computer issues. \r\n|Identifying and responding to software and computer issues.', 'Completed a suitable tertiary course in Information Technology. \r\n|1 year of work experience in an IT support position. \r\n|Proficiency in HTML5.\r\n|Proficiency in Python and Ruby. \r\n|Knowledge in Troubleshooting. \r\n|Understanding of Network Infrastructure. |Knowledge of Computer Hardware. \r\n|Proficiency in Operating Systems. \r\n|Knowledge of Security Practices. \r\n|Familiarity with Database Concepts. ', 'Prior work experience in customer support. \r\n|Work well unsupervised. \r\n|Passion in Information Technology.', '20 days of Paid-Time-Off per year'),
+('IT3', 'IT Support', 'Part Time', '1:00 AM - 8:00 PM, Monday - Friday', '$15 - $200,000,000,000', 'IT Support person', 'As an IT Support Technician, you will provide IT support to a broad range of companies.', 'Determining suitable software and hardware solutions for clients. \r\n|Installing software to common operating systems. |Designing web sites using HTML5. \r\n|Advising clients on steps to take when encountering software or computer issues. \r\n|Identifying and responding to software and computer issues.', 'Completed a suitable tertiary course in Information Technology. \r\n|1 year of work experience in an IT support position. \r\n|Proficiency in HTML5.\r\n|Proficiency in Python and Ruby. \r\n|Knowledge in Troubleshooting. \r\n|Understanding of Network Infrastructure. |Knowledge of Computer Hardware. \r\n|Proficiency in Operating Systems. \r\n|Knowledge of Security Practices. \r\n|Familiarity with Database Concepts. ', 'Prior work experience in customer support. \r\n|Work well unsupervised. \r\n|Passion in Information Technology.', '1000 days of Paid-Time-Off per year'),
 ('IT350', 'Desktop Support Tech', 'Full Time', '9:00 AM - 5:00 PM, Monday - Friday', '$70,000 - $90,000', 'Desktop Support Manager', 'As an Desktop Support Technician, your job is to maintain HEMB-IT\'s software and hardware needs in the office.', 'Ensure office computers work as intended. \r\n|Routinely test software and hardware. \r\n|Provide support to co-workers. \r\n|Installing software to office computers. \r\n|Provide training for new IT support employees. |Identifying and responding to software and computer issues. \r\n|Deploy hardware in the office.', 'Completed a tertiary course in Networks and Switching. \r\n|2 years of work experience in an IT support position. \r\n|Proficiency in Python and Ruby. \r\n|In-depth knowledge and experience in IP networks, DNS, and DHCP. \r\n|Experience in troubleshooting networks and switches. \r\n|Knowledge in Troubleshooting. \r\n|Understanding of Network Infrastructure. |Knowledge of Computer Hardware. \r\n|Proficiency in Operating Systems. \r\n|Knowledge of Security Practices. \r\n|Familiarity with Database Concepts.', 'Work well unsupervised. \r\n|Passion in Information Technology. \r\n|A strong understanding of software and hardware.', '25 days of Paid-Time-Off per year');
 
 -- --------------------------------------------------------
