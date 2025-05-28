@@ -898,6 +898,18 @@ you can also intent further to explain a certain area of code, for example:
             text-align: center;
         }
 
+        /* */
+        #submit_eoi_form {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .technical_skill:checked ~ #submit_eoi_form {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+
         /* Allows for the contact and gender fieldsets to be side by side 
         along with the technical skills, preferred skills and other 
         skills fieldsets to be side by side as well in the apply.html page. */

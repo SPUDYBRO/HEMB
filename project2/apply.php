@@ -144,25 +144,26 @@
                     <fieldset id="technical_skills_fieldset">
                         <legend>Technical Skills</legend>
                         <!-- Technical skills Checkboxs -->
-                        <input type="checkbox" value="Trouble Shooting" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_trouble_shooting" class="input_background">
+                        <input type="checkbox" value="Trouble Shooting" name="technical_skills[]" class="technical_skill"class="input_background">
                         <label for="skills_trouble_shooting">Knowledge in Troubleshooting</label>
                         <br>
-                        <input type="checkbox" value="Networking" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_networking" class="input_background">
+                        <input type="checkbox" value="Networking" name="technical_skills[]" class="technical_skill"class="input_background">
                         <label for="skills_networking">Understanding of Network Infrastructure</label>
                         <br>
-                        <input type="checkbox" value="Hardware" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_hardware" class="input_background">
+                        <input type="checkbox" value="Hardware" name="technical_skills[]" class="technical_skill"lass="input_background">
                         <label for="skills_hardware">Knowledge of Computer Hardware</label>
                         <br>
-                        <input type="checkbox" value="Software" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_software" class="input_background">
+                        <input type="checkbox" value="Software" name="technical_skills[]" class="technical_skill"class="input_background">
                         <label for="skills_software">Proficiency in Operating Systems</label>
                         <br>
-                        <input type="checkbox" value="Security" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_security" class="input_background">
+                        <input type="checkbox" value="Security" name="technical_skills[]" class="technical_skill"class="input_background">
                         <label for="skills_security">Knowledge of Security Practices</label>
                         <br>
-                        <input type="checkbox" value="Database Management" title="required to have all technical skills ticked off." name="technical_skills[]" id="skills_database_management" class="input_background">
+                        <input type="checkbox" value="Database Management" name="technical_skills[]" class="technical_skill" class="input_background">
                         <label for="skills_database_management">Familiarity with Database Concepts</label>
                         <br>
                         <br>
+                        <input type="submit" value="Apply" id="submit_eoi_form" class="input_background">
                     </fieldset>
 
                     <!-- Preferred skills fieldset -->
@@ -193,7 +194,6 @@
                         <br>
                         <textarea name="other_skills" id="other_skills" class="input_background" placeholder="Enter other skills here" cols="20" rows="6"></textarea>
                         <!-- Apply Button -->
-                        <input type="submit" value="Apply" class="input_background">
                     </fieldset>
                 </div>
             </div>

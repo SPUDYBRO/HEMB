@@ -1,8 +1,11 @@
 <?php
 
+// Requires the necessary files for functionality and settings
 require("./functionality.php");
 require_once("./settings.php");
 
+// Tries to connect to the database using the provided settings
+// If it fails, it sets an error response and redirects to the apply page
 try {
     $conn = new mysqli($host, $user, $pwd, $sql_db);
 } catch (Exception $e) {
@@ -16,16 +19,23 @@ try {
     die();
 }
 
-
+// Initialize an array to hold error messages
 $error = [];
 
+// Generate a random EOI number for the application
 $EOInumber = rand(1000, 9999);
+
+// Define the valid options for various fields
+$title_map = ["Mr", "Mrs", "Ms", "Miss", "Dr"];
 $gender_input_map = ["Male", "Female"];
 $job_reference_numbers_map = ["IT300", "IT240", "IT350", "IT090"];
 $state_map = ["ACT", "VIC", "NSW", "QLD", "SA", "WA", "NT", "TAS"];
 $technical_skills_map = ["Trouble Shooting", "Networking", "Hardware", "Software", "Security", "Database Management"];
 $preferred_skills_map = ["Communication", "Teamwork", "Time Management", "Autonomous", "Fast Learner"];
 
+
+// Check if the request method is POST
+// If it is, proceed with validation and processing of the form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
@@ -33,6 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
         // ------------------------- Isset? -------------------------
+
+            // Check if all required fields exist in the POST request
+            // If any of them are missing, add the relevant error message 
+            // to the error array.
             if (!isset($_POST["title"])) {
                 $error[] = "No title field was submitted";
             }
@@ -60,32 +74,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (!isset($_POST["postcode"])) {
                 $error[] = "No postcode field was submitted";
             }
-            if (!isset($_POST['gender_input'])) {
-                $error[] = "No gender field was submitted";
+            if (!isset($_POST["email_input"])) {
+                $error[] = "No email field was submitted";
             }
             if (!isset($_POST["phone_number_input"])) {
                 $error[] = "No phone field was submitted";
             }
-            if (isset($_POST["technical_skills"])) {
-                for ($i = 0; $i < count($_POST["technical_skills"]); $i++) {
-                    if (!in_array($_POST["technical_skills"][$i], $technical_skills_map)) {
-                        $error[] = "Invalid technical_skills: " . $_POST["technical_skills"][$i];
-                    }
-                }
-            }
-            if (isset($_POST["preferred_skills"])) {
-                for ($i = 0; $i < count($_POST["preferred_skills"]); $i++) {
-                    if (!in_array($_POST["preferred_skills"][$i], $preferred_skills_map)) {
-                        $error[] = "Invalid preferred_skills: " . $_POST["preferred_skills"][$i];
-                    }
-                }
-            }
             if (!isset($_POST["other_skills"])) {
-                $error[] = "No other field was submitted";
+                $error[] = "No other skills field was submitted";
             }
-        
 
-        // ------------------------- Empty -------------------------
+            // Explanation: 
+            // The reason why gender_input and technical_skills 
+            // are checked in this way seperate from the other fields is because they are
+            // arrays that would trigger an existence error if they were not populated
+            // even though they exist.
+            // To work around this, we check if they are set and not empty. This way,
+            // we can ensure that the user doesn't get an unnecessary error message
+            // when they have not selected any options for these fields.
+            // If they are set but empty, we will add an error message later on.
+
+
+            // Check if the required fields exist and are populated
+            // If they are not, add an error message to the error array
+            if (!isset($_POST["gender_input"]) || empty($_POST["gender_input"])) {
+                $error[] = "No gender submitted. You must select a gender.";
+            }
+            if (!isset($_POST["technical_skills"]) || empty($_POST["technical_skills"])) {
+                $error[] = "Not all technical skills submitted. You must select at all technical skills.";
+            }
+
+        // ------------------------- Empty? -------------------------
+
+            // Check if the required fields are empty
+            // If they are, add the relevant error message to the error array
             if (empty($_POST["title"])) {
                 $error[] = "Title field is empty.";
             }
@@ -127,62 +149,106 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
 
+
     // ======================================= RANGE VALIDATION ==========================================
 
 
         // ------------------------- Valid? -------------------------
-            if (!preg_match("/^(Mr|Mrs|Miss|Ms|Dr)$/i", $_POST["title"])) {
-                $error[] = "Invalid title. Only Mr, Mrs, Miss, Ms, Dr are allowed.";
+
+            // Check if the values in the fields are valid
+            // If they are not, add the relevant error message to the error array
+            if (!empty($_POST["first_name_input"]) && !preg_match("/^[a-zA-Z ]*$/", $_POST["first_name_input"])) {
+                $error[] = "Only letters and white space allowed in firstname";
             }
-            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["first_name_input"]) || !preg_match("/^[a-zA-Z ]*$/", $_POST["last_name_input"])) {
-                $error[] = "Only letters and white space allowed in firstname, lastname";
+            if (!empty($_POST["last_name_input"]) && !preg_match("/^[a-zA-Z ]*$/", $_POST["last_name_input"])) {
+                $error[] = "Only letters and white space allowed in lastname";
             }
-            if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $_POST["date"])) {
+            if (!empty($_POST["date"]) && !preg_match("/^\d{4}-\d{2}-\d{2}$/", $_POST["date"])) {
                 $error[] = "Not a valid date. Please use the format YYYY-MM-DD.";
             }
-            if (!preg_match("/^[IT0-9 ]*$/", $_POST["job_reference_number"])) {
+            if (!empty($_POST["job_reference_number"]) && !preg_match("/^[IT0-9 ]*$/", $_POST["job_reference_number"])) {
                 $error[] = "Not a valid job reference number.";
             }
-            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["street_address"])) {
+            if (!empty($_POST["street_address"]) && !preg_match("/^[a-zA-Z0-9 ]*$/", $_POST["street_address"])) {
                 $error[] = "Only letters and white space allowed in street address";
             }
-            if (!preg_match("/^[a-zA-Z ]*$/", $_POST["suburb_town"])) {
+            if (!empty($_POST["suburb_town"]) && !preg_match("/^[a-zA-Z ]*$/", $_POST["suburb_town"])) {
                 $error[] = "Only letters and white space allowed in suburb";
             }
-            if (!in_array($_POST["state"], $state_map)) {
-                $error[] = "Only valid Austrlian states allowed in state";
-            }
-            if (!preg_match("/^[0-9 ]*$/", $_POST["postcode"])) {
+            if (!empty($_POST["postcode"]) && !preg_match("/^[0-9 ]*$/", $_POST["postcode"])) {
                 $error[] = "Only numbers allowed in postcode";
             }
-            if (!filter_var($_POST["email_input"], FILTER_VALIDATE_EMAIL)) {
+            if (!empty($_POST["email_input"]) && !filter_var($_POST["email_input"], FILTER_VALIDATE_EMAIL)) {
                 $error[] = "Invalid email format. Valid format: (Example@service.com)";
             }
-            if (!preg_match("/^[0-9 ]*$/", $_POST["phone_number_input"])) {
+            if (!empty($_POST["phone_number_input"]) && !preg_match("/^[0-9 ]*$/", $_POST["phone_number_input"])) {
                 $error[] = "Only numbers allowed in phone number";
             }
 
+            // If the technical skills field is set, check 
+            // that all valid technical skills are selected.
+            // If the number of selected skills isn't equal to the 
+            // number of skills in the predefined array,
+            // add an error message to the error array.
+            // This ensures that the user selects all required technical skills.
             if (isset($_POST["technical_skills"])) {
                 $selected_skills = $_POST["technical_skills"];
                 // Check if all possible technical skills are selected
                 if (count(array_diff($technical_skills_map, $selected_skills)) > 0) {
                     $error[] = "You must select all technical skills.";
                 }
-            } else {
-                $error[] = "Technical skills field is missing.";
             }
 
-    // ======================================= INPUT VALIDATION ==========================================
+    // ======================================= SELECTION VALIDATION ==========================================
 
-            // ------------------------- Valid Input?  -------------------------
-            if (!in_array($_POST["job_reference_number"], $job_reference_numbers_map)) {
+            // ------------------------- Valid Selection?  -------------------------
+
+
+            // Checks if the title, job reference number, state and gender selections
+            // are valid by checking the selected values against the relevant predefined 
+            // arrays. If any of the selected values are not in the predefined arrays, 
+            // it adds an error message to the error array.
+            // This ensures that only valid options are selected for these fields.
+            if (!empty($_POST["title"]) && !in_array($_POST["title"], $title_map)) {
+                $error[] = "Invalid title. Please select from the dropdown.";
+            }
+            if (!empty($_POST["job_reference_number"]) && !in_array($_POST["job_reference_number"], $job_reference_numbers_map)) {
                 $error[] = "Invalid job reference number. Please select from the dropdown.";
-            } 
-            if (!in_array($_POST["gender_input"], $gender_input_map)) {
-                $error[] = "Invalid gender_input. Only Male or Female are allowed.";
             }
+            if (!empty($_POST["state"]) && !in_array($_POST["state"], $state_map)) {
+                $error[] = "Invalid state. Please select from the dropdown.";
+            }
+            if (!empty($_POST["gender_input"]) && !in_array($_POST["gender_input"], $gender_input_map)) {
+                $error[] = "Invalid gender input. Only Male or Female are allowed.";
+            }
+
+
+            // Checks if the technical skills and preferred skills fields are 
+            // set, then it checks the selected values against the relevant predefined 
+            // arrays. If any of the selected values are not in the predefined arrays, 
+            // it adds an error message to the error array.
+            // This ensures that only valid options are selected for these fields.
+            if (!empty($_POST["technical_skills"]) && isset($_POST["technical_skills"])) {
+                for ($i = 0; $i < count($_POST["technical_skills"]); $i++) {
+                    if (!in_array($_POST["technical_skills"][$i], $technical_skills_map)) {
+                        $error[] = "Invalid technical_skills: " . $_POST["technical_skills"][$i];
+                    }
+                }
+            }
+            if (!empty($_POST["preferred_skills"]) && isset($_POST["preferred_skills"])) {
+                for ($i = 0; $i < count($_POST["preferred_skills"]); $i++) {
+                    if (!in_array($_POST["preferred_skills"][$i], $preferred_skills_map)) {
+                        $error[] = "Invalid preferred_skills: " . $_POST["preferred_skills"][$i];
+                    }
+                }
+            }
+
+    // ======================================= LENGTH VALIDATION ==========================================
 
             // ------------------------- Valid Length?  ------------------------
+
+            // Checks to make sure that the relevant inputs are in 
+            // their respective range of allowed characters.
             if (strlen($_POST["first_name_input"]) < 1 || strlen($_POST["first_name_input"]) > 20) {
                 $error[] = "Firstname must be between 1 and 20 characters long.";
             }
@@ -204,7 +270,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-
+// Once all checks have been complete it checks the error array.
+// If the error is populated (greater than 0) it means that there
+// is an error and the data should not be executed into the database.
+// If it is empty then the data is safe and can be executed to the database. 
 if (count($error) > 0) {
 
     $error_msg = "";
@@ -225,15 +294,16 @@ if (count($error) > 0) {
     die();
 }
 
+// Joins the street, suburb, state and postcode into a variable called 'address'
 $Address = $_POST["street_address"] . ", " . $_POST["suburb_town"] . ", " . $_POST["state"] . ", " . $_POST["postcode"];
-
-
 $other_skills = htmlspecialchars($_POST["other_skills"]);
+
+// Joins the values into one string seperate by commas
 if (isset($_POST["technical_skills"]) && !empty($_POST["technical_skills"])) {
     $technical_skills = implode(", ", $_POST["technical_skills"]);
 }
 else {
-    $preferred_skills = [];
+    $technical_skills = [];
 }
 if (isset($_POST["preferred_skills"]) && !empty($_POST["preferred_skills"])) {
     $preferred_skills = implode(", ", $_POST["preferred_skills"]);
@@ -242,6 +312,7 @@ else {
     $preferred_skills = [];
 }
 
+// Inserts the data into the database
 $prep = $conn->prepare("INSERT INTO eoi 
     (EOInumber, Job_Ref_Num, Firstname, Lastname, Address, Email_Address, Phone_Number, Technical_Skills, Preferred_Skills, Other_Skills) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -259,7 +330,8 @@ $prep->bind_param(
     $other_skills
 );
 
-
+// Creates the info card to notify the user it was a success
+// Else if an error occurs it notifies the user that there was an error
 if ($prep->execute()) {
     set_data_response("success", 
     "Success", 
