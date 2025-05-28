@@ -11,6 +11,7 @@
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en" class="<?php set_accessibility(); ?>">
 
@@ -137,6 +138,7 @@
 
 
         </main>
+
 
         <?php 
             # <!-- Footer Section -->

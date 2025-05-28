@@ -1,6 +1,8 @@
 <?php
+
     include './php/functionality.php'; 
     require_once './php/settings.php';
+
 
     // Connect to the database
     $conn = new mysqli($host, $user, $pwd, $sql_db);
@@ -9,6 +11,7 @@
         header('Location: manage.php?Mode=Account');
         die();
     }
+
 
     // Fetch employee data
     $query = "
@@ -30,50 +33,61 @@
     ";
     $result = $conn->query($query);
 
+    
     if (!$result) {
         set_data_response('error', 'Query Error', 'Failed to fetch employee data', 'Query Error', 'Failed to fetch employee data from the database', "Error: <pre>" . $conn->error . "</pre>", $_POST);
         header('Location: ../manage.php?Mode=Account');
         die();
     }
 
+
     $contributions = [];
     
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en" class="<?php set_accessibility(); ?>">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | HEMB-IT</title>
-    <meta name="description" content="HEMB IT Solutions - About Page containing information 
-    about the team and their contributions. In addition, it contains information about 
-    the employees regarding their class times, tutor names, student IDs and overall general insight.">
-    <meta name="keywords" content="HEMB, IT, Solutions, About Page">
-    <meta name="author" content="Ben Romano, Evan Harrison, Henry Bennett">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="icon" type="image/x-icon" href="./images/fav_icon.webp">
-</head>
-<body>
-    <?php 
-        display_info_card();
-        include './inc/accessibility.inc';
-        include './inc/navigation.inc'; 
-    ?>
 
-    <main id="About_Main">
-        <h1 id="about_us_heading">About Us</h1>
-        <hr>
 
-        <h2 class="about_us">What We Do!</h2>
-        <p class="about_us">
-            At HEMB IT Solutions, we provide reliable, high-quality IT support tailored to the unique needs of businesses of all sizes.
-            From troubleshooting and system maintenance to network optimization and cybersecurity, our team delivers proactive support
-            that empowers your business to thrive in a fast-paced digital world.
-        </p>
-        <hr>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us | HEMB-IT</title>
+        <meta name="description" content="HEMB IT Solutions - About Page containing information 
+        about the team and their contributions. In addition, it contains information about 
+        the employees regarding their class times, tutor names, student IDs and overall general insight.">
+        <meta name="keywords" content="HEMB, IT, Solutions, About Page">
+        <meta name="author" content="Ben Romano, Evan Harrison, Henry Bennett">
+        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="icon" type="image/x-icon" href="./images/fav_icon.webp">
+    </head>
 
-        <div id="employee_info" class="main_section">
+
+    <body>
+        <?php 
+            display_info_card();
+            include './inc/accessibility.inc';
+            include './inc/navigation.inc'; 
+        ?>
+
+
+        <main id="About_Main">
+            <h1 id="about_us_heading">About Us</h1>
+            <hr>
+
+            <h2 class="about_us">What We Do!</h2>
+            <p class="about_us">
+                At HEMB IT Solutions, we provide reliable, high-quality IT support tailored to the unique needs of businesses of all sizes.
+                From troubleshooting and system maintenance to network optimization and cybersecurity, our team delivers proactive support
+                that empowers your business to thrive in a fast-paced digital world.
+            </p>
+            <hr>
+
+
+            <div id="employee_info" class="main_section">
+
 
                 <?php
                     // Loop through each employee and display their information
@@ -97,6 +111,8 @@
                         echo "</div>";
                     }
                 ?>
+
+
                 <hr>
                 <section id='member_contributions'>
                     <h2>Member Contributions</h2>
@@ -111,13 +127,21 @@
                     ?>
                 </dl>
                 </section>
-                <img id="Group_Photo" src="images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team">
-        </div>
-    </main>
 
-    <?php 
-        display_info_card();
-        include './inc/footer.inc'; 
-    ?>
-</body>
+                <img id="Group_Photo" src="images/Group_Photo.webp" alt="A Photo of 4 people showing the developer team">
+
+
+            </div>
+
+        </main>
+
+
+        <?php 
+            display_info_card();
+            include './inc/footer.inc'; 
+        ?>
+
+    </body>
+
+    
 </html>
