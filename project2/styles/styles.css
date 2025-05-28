@@ -1841,7 +1841,8 @@ you can also intent further to explain a certain area of code, for example:
             #access_dropdown {
                 top: 200px;
             }
-
+    }
+    
     /* Responsive Styling with Scroll */
     @media screen and (max-width: 768px) {
         .individual_employee {
