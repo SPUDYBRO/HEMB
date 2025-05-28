@@ -669,8 +669,7 @@ you can also intent further to explain a certain area of code, for example:
     .individual_employee {
         display: flex;
         flex-direction: row;
-        align-items: stretch;
-        height: 100%;
+        align-items: center; /* This vertically centers all child elements */
     }
 
     /* Container for Name, Photo, and List */
@@ -696,13 +695,11 @@ you can also intent further to explain a certain area of code, for example:
     }
 
     /* Right section with student info list */
-    .title_image_and_list_flex_container ul {
-        margin: 0;
-        padding-left: 2em;
-        list-style: disc;
+    .title_image_and_list_flex_container {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        width: 45%;
+        align-items: center; /* Vertically centers children */
     }
 
     /* Individual images (smaller) */
