@@ -836,6 +836,16 @@ you can also intent further to explain a certain area of code, for example:
         margin-top: 3px;
     }
 
+    /* Adds Scroll Wheel to About Page */
+    #employee_info {
+        max-height: 600px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding-right: 10px;
+        width: 95%; /* Add this line — increase or decrease as needed */
+        margin: 0 auto; /* Optional: centers the box horizontally */
+    }
+
     
 
 
