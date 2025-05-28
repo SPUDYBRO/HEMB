@@ -155,6 +155,15 @@
 
 
     /**
+     * Checks if the user has been logged in for 20 minutes
+     */
+
+    function is_idle() {
+        $_SESSION['start'] = time();
+        $_SESSION['expire'] = $_SESSION['start'] + (20 * 60);
+    }
+
+    /**
      * Logs a user out, retaining the accessibility settings
      * Can only be called if headers haven't been sent yet
      * 

@@ -49,7 +49,6 @@
                 }
             }
 
-
             if ($_SESSION['login_requests'] >= 5) {
                 if (!isset($_SESSION['Block_Time'])) {
                     $_SESSION['Block_Time'] = time();
@@ -63,6 +62,19 @@
                     "You will be able to attempt to login again after 10 minutes",
                     "Your login ban will be lifted at: " . $time_lift_formatted,
                     ["Sensitive data, no debug available" => "No data"]
+                );
+                header("Location: ../login.php");
+                die();
+            }
+
+
+            // 
+            $now = time()
+            if ($now >= $_SESSION['expire']) {
+                session_destroy();
+                set_data_response(
+                    "error",
+                    "Session has expired",
                 );
                 header("Location: ../login.php");
                 die();
