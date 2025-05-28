@@ -180,7 +180,7 @@ if (isset($_GET['Mode'])) {
                         }
 
                         if (isset($_POST['Account_Create'])) {
-                            echo "<form method='post' action='./php/process_manage.php' class='result'>";
+                            echo "<form method='post' action='./php/process_manage/process_accounts.php' class='result'>";
                             echo "<h3>Create New Account</h3>";
                             echo "<div><label for='username'>Username: </label>";
                             echo "<input type='text' name='Username' placeholder='Username' id='username' required></div>";
@@ -217,7 +217,7 @@ if (isset($_GET['Mode'])) {
                                     <th>Action</th>
                                   </tr>";
                                 echo "</thead>";
-                                echo "<form method='post' action='./php/process_manage.php' autocomplete='off'>";
+                                echo "<form method='post' action='./php/process_manage/process_accounts.php' autocomplete='off'>";
                                 echo "<tbody>";
                                 echo "<tr>";
                                 echo "<td>" . htmlspecialchars($row['ID']) . "</td>";
