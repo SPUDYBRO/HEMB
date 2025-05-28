@@ -113,6 +113,16 @@
                 }
 
 
+
+                // error out
+                if (count($error) > 0) {
+                    set_data_response("error", "Error", "Error in form submission", "Some required fields are missing", "Please ensure all required fields are filled out correctly", "The following errors were found:<br><pre>" . implode("\n", $error) . "</pre>");
+                    header("Location: ../apply.php");
+                    $conn->close();
+                    die();
+                }
+
+
             // ------------------------- Empty? -------------------------
 
                 // Check if the required fields are empty
@@ -157,7 +167,13 @@
                     $error[] = "Technical skills field is empty.";
                 }
 
-
+            // error out
+            if (count($error) > 0) {
+                set_data_response("error", "Error", "Error in form submission", "Some required fields are empty", "Please ensure all required fields are filled out correctly", "The following errors were found:<br><pre>" . implode("\n", $error) . "</pre>");
+                header("Location: ../apply.php");
+                $conn->close();
+                die();
+            }
 
         // ======================================= RANGE VALIDATION ==========================================
 
@@ -209,6 +225,14 @@
                     }
                 }
 
+                // error out
+                if (count($error) > 0) {
+                    set_data_response("error", "Error", "Error in form submission", "Some fields contain invalid data", "Please ensure all fields are filled out correctly", "The following errors were found:<br><pre>" . implode("\n", $error) . "</pre>");
+                    header("Location: ../apply.php");
+                    $conn->close();
+                    die();
+                }
+
 
         // ======================================= SELECTION VALIDATION ==========================================
 
@@ -252,6 +276,15 @@
                             $error[] = "Invalid preferred_skills: " . $_POST["preferred_skills"][$i];
                         }
                     }
+                }
+
+
+                // error out
+                if (count($error) > 0) {
+                    set_data_response("error", "Error", "Error in form submission", "Some selections are invalid", "Please ensure all selections are valid", "The following errors were found:<br><pre>" . implode("\n", $error) . "</pre>");
+                    header("Location: ../apply.php");
+                    $conn->close();
+                    die();
                 }
 
 

@@ -143,7 +143,7 @@
 
 
 
-                    <!-- Div element to style the contact and gedner fieldsets -->
+                    <!-- Div element to style the contact and gender fieldset -->
                     <div id="container_for_contact_details_and_gender">
 
                         <!-- Gender fieldset -->
@@ -186,22 +186,22 @@
                             <!-- Technical skills Checkboxs -->
                             <p>Please select all*</p>
 
-                            <input type="checkbox" value="Trouble Shooting" name="technical_skills[]" class="technical_skill"class="input_background">
+                            <input type="checkbox" value="Trouble Shooting" name="technical_skills[]" class="technical_skill input_background" id="skills_trouble_shooting">
                             <label for="skills_trouble_shooting">Knowledge in Troubleshooting</label>
                             <br>
-                            <input type="checkbox" value="Networking" name="technical_skills[]" class="technical_skill"class="input_background">
+                            <input type="checkbox" value="Networking" name="technical_skills[]" class="technical_skill input_background" id="skills_networking">
                             <label for="skills_networking">Understanding of Network Infrastructure</label>
                             <br>
-                            <input type="checkbox" value="Hardware" name="technical_skills[]" class="technical_skill"lass="input_background">
+                            <input type="checkbox" value="Hardware" name="technical_skills[]" class="technical_skill input_background" id="skills_hardware">
                             <label for="skills_hardware">Knowledge of Computer Hardware</label>
                             <br>
-                            <input type="checkbox" value="Software" name="technical_skills[]" class="technical_skill"class="input_background">
+                            <input type="checkbox" value="Software" name="technical_skills[]" class="technical_skill input_background" id="skills_software">
                             <label for="skills_software">Proficiency in Operating Systems</label>
                             <br>
-                            <input type="checkbox" value="Security" name="technical_skills[]" class="technical_skill"class="input_background">
+                            <input type="checkbox" value="Security" name="technical_skills[]" class="technical_skill input_background" id="skills_security">
                             <label for="skills_security">Knowledge of Security Practices</label>
                             <br>
-                            <input type="checkbox" value="Database Management" name="technical_skills[]" class="technical_skill" class="input_background">
+                            <input type="checkbox" value="Database Management" name="technical_skills[]" class="technical_skill input_background" id="skills_database_management">
                             <label for="skills_database_management">Familiarity with Database Concepts</label>
                             <br>
                             <br>
