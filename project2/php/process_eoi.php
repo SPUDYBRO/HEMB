@@ -19,23 +19,9 @@
         echo "<a href='../index.php'>Home</a>";
         echo "</body></html>";
         die();
-    } elseif (!isset($_POST['Employee_Update']) && !isset($_POST['Employee_Delete'])) {
-        echo "<h1>Invalid request.</h1>";
-        echo "<p>this page will not serve anything</p>";
-        echo "<a href='../index.php'>Home</a>";
-        echo "</body></html>";
-        die();
     }
-    ?>
 
 
-
-
-
-
-
-
-<?php
 
 
 
