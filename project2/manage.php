@@ -115,6 +115,11 @@ if (isset($_GET['Mode'])) {
         } else {
             echo "<option value='Current'>Current</option>";
         }
+        if (isset($_GET['filter']) && $_GET['filter'] == 'Final') {
+            echo "<option value='Final' selected>Final</option>";
+        } else {
+            echo "<option value='Final'>Final</option>";
+        }
 
 
         echo "</select>
